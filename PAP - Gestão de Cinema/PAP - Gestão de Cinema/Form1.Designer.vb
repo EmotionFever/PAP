@@ -24,47 +24,35 @@ Partial Class frmLogin
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.pnl1 = New System.Windows.Forms.Panel()
-        Me.lbl4 = New System.Windows.Forms.Label()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.pnl2 = New System.Windows.Forms.Panel()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.rct3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.rct2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.rct1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctEntrar = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctPass = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctUtl = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.txtNome = New System.Windows.Forms.TextBox()
-        Me.txtPasse = New System.Windows.Forms.TextBox()
-        Me.lbl3 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.txtPass = New System.Windows.Forms.TextBox()
+        Me.lblEntrar = New System.Windows.Forms.Label()
+        Me.lbl2 = New System.Windows.Forms.Label()
+        Me.lbl5 = New System.Windows.Forms.Label()
+        Me.pctPass = New System.Windows.Forms.PictureBox()
+        Me.pctUtl = New System.Windows.Forms.PictureBox()
+        Me.lblErroUtl = New System.Windows.Forms.Label()
+        Me.lblErroPass = New System.Windows.Forms.Label()
         Me.pnl1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctPass, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctUtl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
         '
         Me.pnl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.pnl1.Controls.Add(Me.lbl4)
         Me.pnl1.Controls.Add(Me.lbl1)
         Me.pnl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnl1.Location = New System.Drawing.Point(0, 0)
         Me.pnl1.Name = "pnl1"
         Me.pnl1.Size = New System.Drawing.Size(295, 78)
         Me.pnl1.TabIndex = 0
-        '
-        'lbl4
-        '
-        Me.lbl4.AutoSize = True
-        Me.lbl4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lbl4.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl4.ForeColor = System.Drawing.Color.White
-        Me.lbl4.Location = New System.Drawing.Point(268, 9)
-        Me.lbl4.Name = "lbl4"
-        Me.lbl4.Size = New System.Drawing.Size(20, 19)
-        Me.lbl4.TabIndex = 2
-        Me.lbl4.Text = "X"
         '
         'lbl1
         '
@@ -82,7 +70,7 @@ Partial Class frmLogin
         '
         Me.pnl2.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.pnl2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnl2.Location = New System.Drawing.Point(0, 314)
+        Me.pnl2.Location = New System.Drawing.Point(0, 343)
         Me.pnl2.Name = "pnl2"
         Me.pnl2.Size = New System.Drawing.Size(295, 26)
         Me.pnl2.TabIndex = 1
@@ -92,40 +80,40 @@ Partial Class frmLogin
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rct3, Me.rct2, Me.rct1})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(295, 340)
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctEntrar, Me.rctPass, Me.rctUtl})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(295, 369)
         Me.ShapeContainer1.TabIndex = 2
         Me.ShapeContainer1.TabStop = False
         '
-        'rct3
+        'rctEntrar
         '
-        Me.rct3.BackColor = System.Drawing.Color.Yellow
-        Me.rct3.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rct3.BorderColor = System.Drawing.Color.Yellow
-        Me.rct3.CornerRadius = 5
-        Me.rct3.Location = New System.Drawing.Point(21, 256)
-        Me.rct3.Name = "rct3"
-        Me.rct3.Size = New System.Drawing.Size(249, 36)
+        Me.rctEntrar.BackColor = System.Drawing.Color.Yellow
+        Me.rctEntrar.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctEntrar.BorderColor = System.Drawing.Color.Yellow
+        Me.rctEntrar.CornerRadius = 5
+        Me.rctEntrar.Location = New System.Drawing.Point(21, 276)
+        Me.rctEntrar.Name = "rctEntrar"
+        Me.rctEntrar.Size = New System.Drawing.Size(249, 36)
         '
-        'rct2
+        'rctPass
         '
-        Me.rct2.BackColor = System.Drawing.Color.White
-        Me.rct2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rct2.BorderColor = System.Drawing.Color.White
-        Me.rct2.CornerRadius = 3
-        Me.rct2.Location = New System.Drawing.Point(22, 192)
-        Me.rct2.Name = "rct2"
-        Me.rct2.Size = New System.Drawing.Size(249, 36)
+        Me.rctPass.BackColor = System.Drawing.Color.White
+        Me.rctPass.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctPass.BorderColor = System.Drawing.Color.White
+        Me.rctPass.CornerRadius = 3
+        Me.rctPass.Location = New System.Drawing.Point(22, 206)
+        Me.rctPass.Name = "rctPass"
+        Me.rctPass.Size = New System.Drawing.Size(249, 36)
         '
-        'rct1
+        'rctUtl
         '
-        Me.rct1.BackColor = System.Drawing.Color.White
-        Me.rct1.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rct1.BorderColor = System.Drawing.Color.White
-        Me.rct1.CornerRadius = 3
-        Me.rct1.Location = New System.Drawing.Point(22, 120)
-        Me.rct1.Name = "rct1"
-        Me.rct1.Size = New System.Drawing.Size(249, 36)
+        Me.rctUtl.BackColor = System.Drawing.Color.White
+        Me.rctUtl.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctUtl.BorderColor = System.Drawing.Color.White
+        Me.rctUtl.CornerRadius = 3
+        Me.rctUtl.Location = New System.Drawing.Point(22, 120)
+        Me.rctUtl.Name = "rctUtl"
+        Me.rctUtl.Size = New System.Drawing.Size(249, 36)
         '
         'txtNome
         '
@@ -138,98 +126,119 @@ Partial Class frmLogin
         Me.txtNome.TabIndex = 3
         Me.txtNome.Tag = ""
         '
-        'txtPasse
+        'txtPass
         '
-        Me.txtPasse.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtPasse.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPasse.ForeColor = System.Drawing.Color.Black
-        Me.txtPasse.Location = New System.Drawing.Point(64, 200)
-        Me.txtPasse.Name = "txtPasse"
-        Me.txtPasse.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPasse.Size = New System.Drawing.Size(197, 22)
-        Me.txtPasse.TabIndex = 4
+        Me.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtPass.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPass.ForeColor = System.Drawing.Color.Black
+        Me.txtPass.Location = New System.Drawing.Point(64, 214)
+        Me.txtPass.Name = "txtPass"
+        Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.txtPass.Size = New System.Drawing.Size(197, 22)
+        Me.txtPass.TabIndex = 4
         '
-        'lbl3
+        'lblEntrar
         '
-        Me.lbl3.BackColor = System.Drawing.Color.Yellow
-        Me.lbl3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lbl3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl3.ForeColor = System.Drawing.Color.Black
-        Me.lbl3.Location = New System.Drawing.Point(24, 262)
-        Me.lbl3.Name = "lbl3"
-        Me.lbl3.Size = New System.Drawing.Size(246, 26)
-        Me.lbl3.TabIndex = 7
-        Me.lbl3.Text = "Entrar"
-        Me.lbl3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblEntrar.BackColor = System.Drawing.Color.Yellow
+        Me.lblEntrar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblEntrar.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEntrar.ForeColor = System.Drawing.Color.Black
+        Me.lblEntrar.Location = New System.Drawing.Point(24, 282)
+        Me.lblEntrar.Name = "lblEntrar"
+        Me.lblEntrar.Size = New System.Drawing.Size(246, 26)
+        Me.lblEntrar.TabIndex = 7
+        Me.lblEntrar.Text = "Entrar"
+        Me.lblEntrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label1
+        'lbl2
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(20, 99)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(133, 16)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Nome de utilizador:"
+        Me.lbl2.AutoSize = True
+        Me.lbl2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl2.ForeColor = System.Drawing.Color.White
+        Me.lbl2.Location = New System.Drawing.Point(20, 99)
+        Me.lbl2.Name = "lbl2"
+        Me.lbl2.Size = New System.Drawing.Size(133, 16)
+        Me.lbl2.TabIndex = 8
+        Me.lbl2.Text = "Nome de utilizador:"
         '
-        'Label2
+        'lbl5
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(20, 171)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(101, 16)
-        Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Palavra-passe:"
+        Me.lbl5.AutoSize = True
+        Me.lbl5.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl5.ForeColor = System.Drawing.Color.White
+        Me.lbl5.Location = New System.Drawing.Point(20, 185)
+        Me.lbl5.Name = "lbl5"
+        Me.lbl5.Size = New System.Drawing.Size(101, 16)
+        Me.lbl5.TabIndex = 9
+        Me.lbl5.Text = "Palavra-passe:"
         '
-        'PictureBox1
+        'pctPass
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(24, 123)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(34, 32)
-        Me.PictureBox1.TabIndex = 10
-        Me.PictureBox1.TabStop = False
+        Me.pctPass.BackColor = System.Drawing.Color.White
+        Me.pctPass.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.locked_1
+        Me.pctPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pctPass.Location = New System.Drawing.Point(25, 209)
+        Me.pctPass.Name = "pctPass"
+        Me.pctPass.Size = New System.Drawing.Size(34, 32)
+        Me.pctPass.TabIndex = 11
+        Me.pctPass.TabStop = False
         '
-        'PictureBox2
+        'pctUtl
         '
-        Me.PictureBox2.BackColor = System.Drawing.Color.White
-        Me.PictureBox2.BackgroundImage = CType(resources.GetObject("PictureBox2.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox2.Location = New System.Drawing.Point(25, 195)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(34, 32)
-        Me.PictureBox2.TabIndex = 11
-        Me.PictureBox2.TabStop = False
+        Me.pctUtl.BackColor = System.Drawing.Color.White
+        Me.pctUtl.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.user1
+        Me.pctUtl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pctUtl.Location = New System.Drawing.Point(24, 123)
+        Me.pctUtl.Name = "pctUtl"
+        Me.pctUtl.Size = New System.Drawing.Size(34, 32)
+        Me.pctUtl.TabIndex = 10
+        Me.pctUtl.TabStop = False
+        '
+        'lblErroUtl
+        '
+        Me.lblErroUtl.AutoSize = True
+        Me.lblErroUtl.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblErroUtl.ForeColor = System.Drawing.Color.Salmon
+        Me.lblErroUtl.Location = New System.Drawing.Point(20, 158)
+        Me.lblErroUtl.Name = "lblErroUtl"
+        Me.lblErroUtl.Size = New System.Drawing.Size(0, 15)
+        Me.lblErroUtl.TabIndex = 12
+        '
+        'lblErroPass
+        '
+        Me.lblErroPass.AutoSize = True
+        Me.lblErroPass.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblErroPass.ForeColor = System.Drawing.Color.Salmon
+        Me.lblErroPass.Location = New System.Drawing.Point(18, 244)
+        Me.lblErroPass.Name = "lblErroPass"
+        Me.lblErroPass.Size = New System.Drawing.Size(0, 15)
+        Me.lblErroPass.TabIndex = 13
         '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(295, 340)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.lbl3)
-        Me.Controls.Add(Me.txtPasse)
+        Me.ClientSize = New System.Drawing.Size(295, 369)
+        Me.Controls.Add(Me.lblErroPass)
+        Me.Controls.Add(Me.lblErroUtl)
+        Me.Controls.Add(Me.pctPass)
+        Me.Controls.Add(Me.pctUtl)
+        Me.Controls.Add(Me.lbl5)
+        Me.Controls.Add(Me.lbl2)
+        Me.Controls.Add(Me.lblEntrar)
+        Me.Controls.Add(Me.txtPass)
         Me.Controls.Add(Me.txtNome)
         Me.Controls.Add(Me.pnl2)
         Me.Controls.Add(Me.pnl1)
         Me.Controls.Add(Me.ShapeContainer1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
         Me.pnl1.ResumeLayout(False)
-        Me.pnl1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctPass, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctUtl, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -237,17 +246,18 @@ Partial Class frmLogin
     Friend WithEvents pnl1 As System.Windows.Forms.Panel
     Friend WithEvents lbl1 As System.Windows.Forms.Label
     Friend WithEvents pnl2 As System.Windows.Forms.Panel
-    Friend WithEvents lbl4 As System.Windows.Forms.Label
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents rct2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents rct1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rctPass As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rctUtl As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents txtNome As System.Windows.Forms.TextBox
-    Friend WithEvents txtPasse As System.Windows.Forms.TextBox
-    Friend WithEvents rct3 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents lbl3 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents txtPass As System.Windows.Forms.TextBox
+    Friend WithEvents rctEntrar As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents lblEntrar As System.Windows.Forms.Label
+    Friend WithEvents lbl2 As System.Windows.Forms.Label
+    Friend WithEvents lbl5 As System.Windows.Forms.Label
+    Friend WithEvents pctUtl As System.Windows.Forms.PictureBox
+    Friend WithEvents pctPass As System.Windows.Forms.PictureBox
+    Friend WithEvents lblErroUtl As System.Windows.Forms.Label
+    Friend WithEvents lblErroPass As System.Windows.Forms.Label
 
 End Class
