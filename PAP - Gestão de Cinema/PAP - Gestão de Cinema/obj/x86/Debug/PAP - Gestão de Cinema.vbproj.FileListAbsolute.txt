@@ -1,0 +1,18 @@
+C:\Users\JCMarques\AppData\Local\Temporary Projects\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.exe
+C:\Users\JCMarques\AppData\Local\Temporary Projects\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.pdb
+C:\Users\JCMarques\AppData\Local\Temporary Projects\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.xml
+C:\Users\JCMarques\AppData\Local\Temporary Projects\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmLogin.resources
+C:\Users\JCMarques\AppData\Local\Temporary Projects\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.Resources.resources
+C:\Users\JCMarques\AppData\Local\Temporary Projects\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.vbproj.GenerateResource.Cache
+C:\Users\JCMarques\AppData\Local\Temporary Projects\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.exe
+C:\Users\JCMarques\AppData\Local\Temporary Projects\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.xml
+C:\Users\JCMarques\AppData\Local\Temporary Projects\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.pdb
+C:\Users\JCMarques\documents\visual studio 2010\Projects\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.exe
+C:\Users\JCMarques\documents\visual studio 2010\Projects\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.xml
+C:\Users\JCMarques\documents\visual studio 2010\Projects\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.pdb
+C:\Users\JCMarques\documents\visual studio 2010\Projects\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.exe
+C:\Users\JCMarques\documents\visual studio 2010\Projects\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.pdb
+C:\Users\JCMarques\documents\visual studio 2010\Projects\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.xml
+C:\Users\JCMarques\documents\visual studio 2010\Projects\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmLogin.resources
+C:\Users\JCMarques\documents\visual studio 2010\Projects\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.Resources.resources
+C:\Users\JCMarques\documents\visual studio 2010\Projects\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.vbproj.GenerateResource.Cache
