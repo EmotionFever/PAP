@@ -47,7 +47,8 @@
 
     Private Sub lbl3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lblEntrar.Click
         If verificacao() Then
-
+            frmAplicacao.Show()
+            Me.Hide()
         End If
         'Código entrar
     End Sub
