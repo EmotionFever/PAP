@@ -46,6 +46,7 @@
     End Function
 
     Private Sub lbl3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lblEntrar.Click
+
         If verificacao() Then
             frmAplicacao.Show()
             Me.Hide()
@@ -69,5 +70,21 @@
         txtPass.BackColor = Color.White
         txtPass.ForeColor = Color.Black
         pctPass.BackColor = Color.White
+    End Sub
+
+    Private Sub frmLogin_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub lblEntrar_MouseHover(sender As Object, e As System.EventArgs) Handles lblEntrar.MouseHover
+        lblEntrar.BackColor = Color.Gold
+        rctEntrar.BackColor = Color.Gold
+        rctEntrar.BorderColor = Color.Gold
+    End Sub
+
+    Private Sub lblEntrar_MouseLeave(sender As Object, e As System.EventArgs) Handles lblEntrar.MouseLeave
+        lblEntrar.BackColor = Color.Yellow
+        rctEntrar.BackColor = Color.Yellow
+        rctEntrar.BorderColor = Color.Yellow
     End Sub
 End Class
