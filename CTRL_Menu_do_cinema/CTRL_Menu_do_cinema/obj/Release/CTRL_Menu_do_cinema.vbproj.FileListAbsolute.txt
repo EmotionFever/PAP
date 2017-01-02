@@ -1,0 +1,9 @@
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\bin\Release\CTRL_Menu_do_cinema.dll
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\bin\Release\CTRL_Menu_do_cinema.pdb
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\bin\Release\CTRL_Menu_do_cinema.xml
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Release\CTRL_Menu_do_cinema.MenuCinematico.resources
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Release\CTRL_Menu_do_cinema.Resources.resources
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Release\CTRL_Menu_do_cinema.vbproj.GenerateResource.Cache
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Release\CTRL_Menu_do_cinema.dll
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Release\CTRL_Menu_do_cinema.xml
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Release\CTRL_Menu_do_cinema.pdb

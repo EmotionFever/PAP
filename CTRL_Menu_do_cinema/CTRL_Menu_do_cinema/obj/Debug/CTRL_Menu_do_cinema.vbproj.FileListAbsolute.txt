@@ -1,0 +1,27 @@
+C:\Users\JCMarques\AppData\Local\Temporary Projects\CTRL_Menu_do_cinema\bin\Debug\CTRL_Menu_do_cinema.dll
+C:\Users\JCMarques\AppData\Local\Temporary Projects\CTRL_Menu_do_cinema\bin\Debug\CTRL_Menu_do_cinema.pdb
+C:\Users\JCMarques\AppData\Local\Temporary Projects\CTRL_Menu_do_cinema\bin\Debug\CTRL_Menu_do_cinema.xml
+C:\Users\JCMarques\AppData\Local\Temporary Projects\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.Resources.resources
+C:\Users\JCMarques\AppData\Local\Temporary Projects\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.vbproj.GenerateResource.Cache
+C:\Users\JCMarques\AppData\Local\Temporary Projects\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.dll
+C:\Users\JCMarques\AppData\Local\Temporary Projects\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.xml
+C:\Users\JCMarques\AppData\Local\Temporary Projects\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.pdb
+C:\Users\JCMarques\AppData\Local\Temporary Projects\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.MenuCinematico.resources
+C:\Users\JCMarques\Documents\Visual Studio 2010\Projects\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.MenuCinematico.resources
+C:\Users\JCMarques\Documents\Visual Studio 2010\Projects\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.Resources.resources
+C:\Users\JCMarques\Documents\Visual Studio 2010\Projects\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.vbproj.GenerateResource.Cache
+C:\Users\JCMarques\Documents\Visual Studio 2010\Projects\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.dll
+C:\Users\JCMarques\Documents\Visual Studio 2010\Projects\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.xml
+C:\Users\JCMarques\Documents\Visual Studio 2010\Projects\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.pdb
+C:\Users\JCMarques\Documents\Visual Studio 2010\Projects\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\bin\Debug\CTRL_Menu_do_cinema.dll
+C:\Users\JCMarques\Documents\Visual Studio 2010\Projects\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\bin\Debug\CTRL_Menu_do_cinema.pdb
+C:\Users\JCMarques\Documents\Visual Studio 2010\Projects\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\bin\Debug\CTRL_Menu_do_cinema.xml
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\bin\Debug\CTRL_Menu_do_cinema.dll
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\bin\Debug\CTRL_Menu_do_cinema.pdb
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\bin\Debug\CTRL_Menu_do_cinema.xml
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.MenuCinematico.resources
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.Resources.resources
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.vbproj.GenerateResource.Cache
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.dll
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.xml
+C:\Users\JCMarques\Desktop\PAP\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\obj\Debug\CTRL_Menu_do_cinema.pdb
