@@ -54,7 +54,7 @@ Partial Class MenuCinematico
         Me.pnl1.Controls.Add(Me.pctLogo)
         Me.pnl1.Controls.Add(Me.pctBotao)
         Me.pnl1.Controls.Add(Me.btnInicio)
-        Me.pnl1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.pnl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnl1.Location = New System.Drawing.Point(0, 0)
         Me.pnl1.Name = "pnl1"
         Me.pnl1.Size = New System.Drawing.Size(49, 416)
@@ -239,7 +239,7 @@ Partial Class MenuCinematico
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.pnl1)
         Me.Name = "MenuCinematico"
-        Me.Size = New System.Drawing.Size(260, 416)
+        Me.Size = New System.Drawing.Size(49, 416)
         Me.pnl1.ResumeLayout(False)
         CType(Me.pctEncolhido, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pctLogo, System.ComponentModel.ISupportInitialize).EndInit()

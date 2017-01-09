@@ -24,6 +24,8 @@ Partial Class frmAplicacao
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAplicacao))
         Me.MenuCinematico1 = New CTRL_Menu_do_cinema.MenuCinematico()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuCinematico1
@@ -34,6 +36,16 @@ Partial Class frmAplicacao
         Me.MenuCinematico1.Size = New System.Drawing.Size(260, 443)
         Me.MenuCinematico1.TabIndex = 0
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.home
+        Me.PictureBox1.Location = New System.Drawing.Point(248, 14)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(419, 417)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
         'frmAplicacao
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -41,12 +53,15 @@ Partial Class frmAplicacao
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(661, 443)
         Me.Controls.Add(Me.MenuCinematico1)
+        Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmAplicacao"
         Me.Text = "Formulário Inicial"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents MenuCinematico1 As CTRL_Menu_do_cinema.MenuCinematico
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

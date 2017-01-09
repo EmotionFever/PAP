@@ -13,6 +13,6 @@
     End Sub
 
     Private Sub MenuCinematico1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuCinematico1.Load
-        m.SelecionarBotao(1)
+        'm.SelecionarBotao(1)
     End Sub
 End Class

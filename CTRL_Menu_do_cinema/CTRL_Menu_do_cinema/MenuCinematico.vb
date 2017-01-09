@@ -7,7 +7,7 @@
         'é preciso verificar sempre as localizações e o comprimento pois podem mudar
         abcissa = pctBotao.Location.X
         ordenada = pctBotao.Location.Y
-        comprimento = pnl1.Size.Width
+        comprimento = Me.Size.Width
         largura = Me.Size.Height
 
         '"Apontar" os apontadores de label às labels do CTRL
@@ -23,14 +23,13 @@
     Private Sub tmrAnimador_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrAnimador.Tick
         Dim variavel As Integer = Math.Round((2 / 5) * contador)
         If pctBotao.Tag Then 'Menu expandido, então tem-se que se escolhe-lo
-            If pnl1.Size.Width > 49 Then 'Enquanto o comprimento for maior que 49
+            If Me.Size.Width > 49 Then 'Enquanto o comprimento for maior que 49
 
 
                 comprimento -= variavel
-                pnl1.Size = New System.Drawing.Size(comprimento, largura)
+                Me.Size = New System.Drawing.Size(comprimento, largura)
 
                 abcissa -= variavel
-                pctBotao.Location = New Drawing.Point(abcissa, ordenada)
                 contador += 1
 
             Else 'Quando chega aos 49, tem o compriemnto ideal
@@ -47,10 +46,9 @@
                 pctEncolhido.Hide()
 
                 comprimento += variavel
-                pnl1.Size = New System.Drawing.Size(comprimento, largura)
+                Me.Size = New System.Drawing.Size(comprimento, largura)
 
                 abcissa += variavel
-                pctBotao.Location = New Drawing.Point(abcissa, ordenada)
 
                 contador += 1
 
@@ -67,10 +65,14 @@
         tmrAnimador.Start()
     End Sub
 
-    Public Sub SelecionarBotao(ByVal numero As Integer)
-        If numero >= 0 And numero < DIMLBL Then
-            botao(numero).BackColor = Drawing.Color.Salmon
-            botao(numero).Enabled = False
-        End If
+    ' Public Sub SelecionarBotao(ByVal numero As Integer)
+    '   If numero >= 0 And numero < DIMLBL Then
+    '      botao(numero).BackColor = Drawing.Color.Salmon
+    '      botao(numero).Enabled = False
+    '    End If
+    '  End Sub
+
+    Private Sub btnInicio_Click(sender As System.Object, e As System.EventArgs) Handles btnInicio.Click
+
     End Sub
 End Class
