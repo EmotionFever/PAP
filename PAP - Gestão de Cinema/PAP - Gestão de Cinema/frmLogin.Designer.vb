@@ -34,10 +34,10 @@ Partial Class frmLogin
         Me.lblEntrar = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
         Me.lbl5 = New System.Windows.Forms.Label()
-        Me.pctPass = New System.Windows.Forms.PictureBox()
-        Me.pctUtl = New System.Windows.Forms.PictureBox()
         Me.lblErroUtl = New System.Windows.Forms.Label()
         Me.lblErroPass = New System.Windows.Forms.Label()
+        Me.pctPass = New System.Windows.Forms.PictureBox()
+        Me.pctUtl = New System.Windows.Forms.PictureBox()
         Me.pnl1.SuspendLayout()
         CType(Me.pctPass, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pctUtl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -161,6 +161,26 @@ Partial Class frmLogin
         Me.lbl5.TabIndex = 9
         Me.lbl5.Text = "Palavra-passe:"
         '
+        'lblErroUtl
+        '
+        Me.lblErroUtl.AutoSize = True
+        Me.lblErroUtl.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblErroUtl.ForeColor = System.Drawing.Color.Salmon
+        Me.lblErroUtl.Location = New System.Drawing.Point(20, 195)
+        Me.lblErroUtl.Name = "lblErroUtl"
+        Me.lblErroUtl.Size = New System.Drawing.Size(0, 15)
+        Me.lblErroUtl.TabIndex = 12
+        '
+        'lblErroPass
+        '
+        Me.lblErroPass.AutoSize = True
+        Me.lblErroPass.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblErroPass.ForeColor = System.Drawing.Color.Salmon
+        Me.lblErroPass.Location = New System.Drawing.Point(21, 281)
+        Me.lblErroPass.Name = "lblErroPass"
+        Me.lblErroPass.Size = New System.Drawing.Size(0, 15)
+        Me.lblErroPass.TabIndex = 13
+        '
         'pctPass
         '
         Me.pctPass.BackColor = System.Drawing.Color.White
@@ -182,26 +202,6 @@ Partial Class frmLogin
         Me.pctUtl.Size = New System.Drawing.Size(34, 32)
         Me.pctUtl.TabIndex = 10
         Me.pctUtl.TabStop = False
-        '
-        'lblErroUtl
-        '
-        Me.lblErroUtl.AutoSize = True
-        Me.lblErroUtl.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblErroUtl.ForeColor = System.Drawing.Color.Salmon
-        Me.lblErroUtl.Location = New System.Drawing.Point(20, 195)
-        Me.lblErroUtl.Name = "lblErroUtl"
-        Me.lblErroUtl.Size = New System.Drawing.Size(0, 15)
-        Me.lblErroUtl.TabIndex = 12
-        '
-        'lblErroPass
-        '
-        Me.lblErroPass.AutoSize = True
-        Me.lblErroPass.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblErroPass.ForeColor = System.Drawing.Color.Salmon
-        Me.lblErroPass.Location = New System.Drawing.Point(21, 281)
-        Me.lblErroPass.Name = "lblErroPass"
-        Me.lblErroPass.Size = New System.Drawing.Size(0, 15)
-        Me.lblErroPass.TabIndex = 13
         '
         'frmLogin
         '

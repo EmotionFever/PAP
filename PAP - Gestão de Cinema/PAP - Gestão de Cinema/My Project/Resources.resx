@@ -136,4 +136,61 @@
   <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bilhetes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bilhetes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bilhetes_converted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bilhetes_converted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cliente" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cliente.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cliente_converted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cliente_converted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="filmes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filmes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="filmes_converted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filmes_converted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="graus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\graus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="graus_converted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\graus_converted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home_converted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home_converted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="horarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\horarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="horarios_converted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\horarios_converted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="produtos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\produtos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="produtos_converted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\produtos_converted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="salas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="salas_converted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salas_converted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="utilizadores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\utilizadores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="utilizadores_converted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\utilizadores_converted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vendas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vendas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vendas_converted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vendas_converted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

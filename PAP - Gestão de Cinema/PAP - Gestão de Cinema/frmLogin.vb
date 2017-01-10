@@ -20,7 +20,7 @@
             Exit Sub
         Else 'REMOVER ESTE CÓDIGO|REMOVER ESTE CÓDIGO ---->------>------<------<-----
             Me.Hide()
-            frmAplicacao.Show()
+            frmHome.Show()
         End If
 
         'Se utilizador existe na base de dados
