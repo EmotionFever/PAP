@@ -1,17 +1,19 @@
 ﻿Public Class CTRL_MenuCine
     Dim contador As Integer = 0
-    Public Const DIMLBL As Integer = 7
+    Public Const DIMLBL As Integer = 9
     Public botao(DIMLBL) As System.Windows.Forms.Button
 
     Private Sub CTRL_MenuCine_Load(sender As Object, e As System.EventArgs) Handles Me.Load
-        '"Apontar" os apontadores de botões aos botãoes do CTRL / Códigos do procedimento BotaoSecionado()
+        '"Apontar" os apontadores de botões aos botãoes do CTRL / Códigos do procedimento SelecionarBotao(«código»)
         botao(0) = btnInicio
         botao(1) = btnBilhetes
         botao(2) = btnClientes
-        botao(3) = btnFilmes
+        botao(3) = btnFuncionarios
         botao(4) = btnGraus
         botao(5) = btnHorarios
         botao(6) = btnProdutos
+        botao(7) = btnSalas
+        botao(8) = btnVendas
     End Sub
 
     Private Sub pctBotao_Click(sender As System.Object, e As System.EventArgs) Handles pctBotao.Click
@@ -19,7 +21,7 @@
     End Sub
 
     Private Sub tmrAnimacao_Tick(sender As System.Object, e As System.EventArgs) Handles tmrAnimacao.Tick
-        Dim variavel As Integer = Math.Round((2 / 5) * contador)
+        Dim variavel As Integer = Math.Round((2 / 5) * contador) 'Deste modo, a variável será maior e maior
         If pctBotao.Tag Then 'Menu expandido, então tem-se que se escolhe-lo
             If Me.Size.Width > 49 Then 'Enquanto o comprimento for maior que 49
 
@@ -53,8 +55,8 @@
 
     Public Sub SelecionarBotao(ByVal numero As Integer)
         If numero >= 0 And numero < DIMLBL Then
-            botao(numero).BackColor = Drawing.Color.Salmon
             botao(numero).Enabled = False
+            botao(numero).BackColor = Color.FromArgb(37, 46, 49)
         End If
     End Sub
 

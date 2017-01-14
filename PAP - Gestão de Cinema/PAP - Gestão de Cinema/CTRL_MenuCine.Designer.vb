@@ -25,6 +25,7 @@ Partial Class CTRL_MenuCine
         Me.components = New System.ComponentModel.Container()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.tmrAnimacao = New System.Windows.Forms.Timer(Me.components)
         Me.btnInicio = New System.Windows.Forms.Button()
         Me.btnBilhetes = New System.Windows.Forms.Button()
         Me.btnClientes = New System.Windows.Forms.Button()
@@ -38,7 +39,6 @@ Partial Class CTRL_MenuCine
         Me.pctEncolhido = New System.Windows.Forms.PictureBox()
         Me.pctLogo = New System.Windows.Forms.PictureBox()
         Me.pctBotao = New System.Windows.Forms.PictureBox()
-        Me.tmrAnimacao = New System.Windows.Forms.Timer(Me.components)
         Me.pnl1.SuspendLayout()
         Me.flp1.SuspendLayout()
         CType(Me.pctEncolhido, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,6 +77,10 @@ Partial Class CTRL_MenuCine
         Me.flp1.Size = New System.Drawing.Size(265, 518)
         Me.flp1.TabIndex = 13
         '
+        'tmrAnimacao
+        '
+        Me.tmrAnimacao.Interval = 25
+        '
         'btnInicio
         '
         Me.btnInicio.BackColor = System.Drawing.Color.Firebrick
@@ -90,6 +94,7 @@ Partial Class CTRL_MenuCine
         Me.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnInicio.Location = New System.Drawing.Point(3, 3)
         Me.btnInicio.Name = "btnInicio"
+        Me.btnInicio.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
         Me.btnInicio.Size = New System.Drawing.Size(260, 45)
         Me.btnInicio.TabIndex = 3
         Me.btnInicio.Text = "  Fomulário Inicial"
@@ -110,6 +115,7 @@ Partial Class CTRL_MenuCine
         Me.btnBilhetes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBilhetes.Location = New System.Drawing.Point(3, 54)
         Me.btnBilhetes.Name = "btnBilhetes"
+        Me.btnBilhetes.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnBilhetes.Size = New System.Drawing.Size(260, 45)
         Me.btnBilhetes.TabIndex = 7
         Me.btnBilhetes.Text = "  Bilhetes"
@@ -130,6 +136,7 @@ Partial Class CTRL_MenuCine
         Me.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnClientes.Location = New System.Drawing.Point(3, 105)
         Me.btnClientes.Name = "btnClientes"
+        Me.btnClientes.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnClientes.Size = New System.Drawing.Size(260, 45)
         Me.btnClientes.TabIndex = 8
         Me.btnClientes.Text = "  Clientes"
@@ -150,6 +157,7 @@ Partial Class CTRL_MenuCine
         Me.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnFuncionarios.Location = New System.Drawing.Point(3, 156)
         Me.btnFuncionarios.Name = "btnFuncionarios"
+        Me.btnFuncionarios.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
         Me.btnFuncionarios.Size = New System.Drawing.Size(260, 45)
         Me.btnFuncionarios.TabIndex = 15
         Me.btnFuncionarios.Text = "  Funcionários"
@@ -169,6 +177,7 @@ Partial Class CTRL_MenuCine
         Me.btnFilmes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnFilmes.Location = New System.Drawing.Point(3, 207)
         Me.btnFilmes.Name = "btnFilmes"
+        Me.btnFilmes.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnFilmes.Size = New System.Drawing.Size(260, 45)
         Me.btnFilmes.TabIndex = 9
         Me.btnFilmes.Text = "  Filmes"
@@ -189,6 +198,7 @@ Partial Class CTRL_MenuCine
         Me.btnGraus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnGraus.Location = New System.Drawing.Point(3, 258)
         Me.btnGraus.Name = "btnGraus"
+        Me.btnGraus.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnGraus.Size = New System.Drawing.Size(260, 45)
         Me.btnGraus.TabIndex = 10
         Me.btnGraus.Text = "  Graus"
@@ -209,6 +219,7 @@ Partial Class CTRL_MenuCine
         Me.btnHorarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnHorarios.Location = New System.Drawing.Point(3, 309)
         Me.btnHorarios.Name = "btnHorarios"
+        Me.btnHorarios.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnHorarios.Size = New System.Drawing.Size(260, 45)
         Me.btnHorarios.TabIndex = 11
         Me.btnHorarios.Text = "  Horários"
@@ -229,6 +240,7 @@ Partial Class CTRL_MenuCine
         Me.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnProdutos.Location = New System.Drawing.Point(3, 360)
         Me.btnProdutos.Name = "btnProdutos"
+        Me.btnProdutos.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnProdutos.Size = New System.Drawing.Size(260, 45)
         Me.btnProdutos.TabIndex = 12
         Me.btnProdutos.Text = "  Produtos"
@@ -249,6 +261,7 @@ Partial Class CTRL_MenuCine
         Me.btnSalas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnSalas.Location = New System.Drawing.Point(3, 411)
         Me.btnSalas.Name = "btnSalas"
+        Me.btnSalas.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnSalas.Size = New System.Drawing.Size(260, 45)
         Me.btnSalas.TabIndex = 13
         Me.btnSalas.Text = "  Salas"
@@ -269,6 +282,7 @@ Partial Class CTRL_MenuCine
         Me.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnVendas.Location = New System.Drawing.Point(3, 462)
         Me.btnVendas.Name = "btnVendas"
+        Me.btnVendas.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
         Me.btnVendas.Size = New System.Drawing.Size(260, 45)
         Me.btnVendas.TabIndex = 14
         Me.btnVendas.Text = "  Vendas"
@@ -311,10 +325,6 @@ Partial Class CTRL_MenuCine
         Me.pctBotao.TabIndex = 2
         Me.pctBotao.TabStop = False
         Me.pctBotao.Tag = "0"
-        '
-        'tmrAnimacao
-        '
-        Me.tmrAnimacao.Interval = 25
         '
         'CTRL_MenuCine
         '

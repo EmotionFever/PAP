@@ -45,23 +45,23 @@ Partial Class frmClientes
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.rctNome = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.txtnome = New System.Windows.Forms.TextBox()
-        Me.rctNIF = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.rctMorada = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.txtemail = New System.Windows.Forms.TextBox()
+        Me.rct56 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rct40 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rct30 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctTelemovel = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctIII = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctMorada = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctNIF = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.txtnome = New System.Windows.Forms.TextBox()
+        Me.txtemail = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtMorada = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.rctTelemovel = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ckkTel = New System.Windows.Forms.CheckBox()
         Me.mtbTel = New System.Windows.Forms.MaskedTextBox()
-        Me.rct30 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.lblInserir = New System.Windows.Forms.Label()
         Me.mtbNIF = New System.Windows.Forms.MaskedTextBox()
-        Me.rct40 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.lblProcurar = New System.Windows.Forms.Label()
-        Me.rct56 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.lblAlterar = New System.Windows.Forms.Label()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnl1.SuspendLayout()
@@ -105,7 +105,7 @@ Partial Class frmClientes
         Me.grpApagar.Controls.Add(Me.lbl10)
         Me.grpApagar.Controls.Add(Me.lbl9)
         Me.grpApagar.ForeColor = System.Drawing.Color.White
-        Me.grpApagar.Location = New System.Drawing.Point(76, 437)
+        Me.grpApagar.Location = New System.Drawing.Point(76, 499)
         Me.grpApagar.Name = "grpApagar"
         Me.grpApagar.Size = New System.Drawing.Size(312, 155)
         Me.grpApagar.TabIndex = 14
@@ -202,7 +202,7 @@ Partial Class frmClientes
         'chkMorada
         '
         Me.chkMorada.AutoSize = True
-        Me.chkMorada.Location = New System.Drawing.Point(743, 310)
+        Me.chkMorada.Location = New System.Drawing.Point(743, 342)
         Me.chkMorada.Name = "chkMorada"
         Me.chkMorada.Size = New System.Drawing.Size(15, 14)
         Me.chkMorada.TabIndex = 25
@@ -211,7 +211,7 @@ Partial Class frmClientes
         'chkMorada1
         '
         Me.chkMorada1.AutoSize = True
-        Me.chkMorada1.Location = New System.Drawing.Point(743, 259)
+        Me.chkMorada1.Location = New System.Drawing.Point(743, 281)
         Me.chkMorada1.Name = "chkMorada1"
         Me.chkMorada1.Size = New System.Drawing.Size(15, 14)
         Me.chkMorada1.TabIndex = 24
@@ -220,7 +220,7 @@ Partial Class frmClientes
         'chkNIF
         '
         Me.chkNIF.AutoSize = True
-        Me.chkNIF.Location = New System.Drawing.Point(743, 208)
+        Me.chkNIF.Location = New System.Drawing.Point(743, 218)
         Me.chkNIF.Name = "chkNIF"
         Me.chkNIF.Size = New System.Drawing.Size(15, 14)
         Me.chkNIF.TabIndex = 23
@@ -240,7 +240,7 @@ Partial Class frmClientes
         Me.lbl6.AutoSize = True
         Me.lbl6.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lbl6.ForeColor = System.Drawing.Color.White
-        Me.lbl6.Location = New System.Drawing.Point(518, 238)
+        Me.lbl6.Location = New System.Drawing.Point(518, 258)
         Me.lbl6.Name = "lbl6"
         Me.lbl6.Size = New System.Drawing.Size(53, 15)
         Me.lbl6.TabIndex = 22
@@ -251,7 +251,7 @@ Partial Class frmClientes
         Me.lbl3.AutoSize = True
         Me.lbl3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lbl3.ForeColor = System.Drawing.Color.White
-        Me.lbl3.Location = New System.Drawing.Point(518, 187)
+        Me.lbl3.Location = New System.Drawing.Point(518, 196)
         Me.lbl3.Name = "lbl3"
         Me.lbl3.Size = New System.Drawing.Size(212, 15)
         Me.lbl3.TabIndex = 21
@@ -273,7 +273,7 @@ Partial Class frmClientes
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(76, 135)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(436, 296)
+        Me.DataGridView1.Size = New System.Drawing.Size(436, 358)
         Me.DataGridView1.TabIndex = 15
         '
         'rctNome
@@ -292,9 +292,79 @@ Partial Class frmClientes
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rct56, Me.rct40, Me.rct30, Me.rctTelemovel, Me.rctIII, Me.rctMorada, Me.rctNIF, Me.rctNome})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(853, 619)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(853, 692)
         Me.ShapeContainer1.TabIndex = 26
         Me.ShapeContainer1.TabStop = False
+        '
+        'rct56
+        '
+        Me.rct56.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rct56.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rct56.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rct56.CornerRadius = 2
+        Me.rct56.Location = New System.Drawing.Point(695, 464)
+        Me.rct56.Name = "rct56"
+        Me.rct56.Size = New System.Drawing.Size(65, 21)
+        '
+        'rct40
+        '
+        Me.rct40.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rct40.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rct40.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rct40.CornerRadius = 2
+        Me.rct40.Location = New System.Drawing.Point(522, 465)
+        Me.rct40.Name = "rct40"
+        Me.rct40.Size = New System.Drawing.Size(65, 21)
+        '
+        'rct30
+        '
+        Me.rct30.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rct30.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rct30.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rct30.CornerRadius = 2
+        Me.rct30.Location = New System.Drawing.Point(610, 464)
+        Me.rct30.Name = "rct30"
+        Me.rct30.Size = New System.Drawing.Size(63, 21)
+        '
+        'rctTelemovel
+        '
+        Me.rctTelemovel.BackColor = System.Drawing.Color.White
+        Me.rctTelemovel.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctTelemovel.BorderColor = System.Drawing.Color.White
+        Me.rctTelemovel.CornerRadius = 2
+        Me.rctTelemovel.Location = New System.Drawing.Point(521, 401)
+        Me.rctTelemovel.Name = "rctTelemovel"
+        Me.rctTelemovel.Size = New System.Drawing.Size(210, 25)
+        '
+        'rctIII
+        '
+        Me.rctIII.BackColor = System.Drawing.Color.White
+        Me.rctIII.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctIII.BorderColor = System.Drawing.Color.White
+        Me.rctIII.CornerRadius = 2
+        Me.rctIII.Location = New System.Drawing.Point(520, 336)
+        Me.rctIII.Name = "rctIII"
+        Me.rctIII.Size = New System.Drawing.Size(210, 25)
+        '
+        'rctMorada
+        '
+        Me.rctMorada.BackColor = System.Drawing.Color.White
+        Me.rctMorada.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctMorada.BorderColor = System.Drawing.Color.White
+        Me.rctMorada.CornerRadius = 2
+        Me.rctMorada.Location = New System.Drawing.Point(521, 274)
+        Me.rctMorada.Name = "rctMorada"
+        Me.rctMorada.Size = New System.Drawing.Size(210, 25)
+        '
+        'rctNIF
+        '
+        Me.rctNIF.BackColor = System.Drawing.Color.White
+        Me.rctNIF.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctNIF.BorderColor = System.Drawing.Color.White
+        Me.rctNIF.CornerRadius = 2
+        Me.rctNIF.Location = New System.Drawing.Point(521, 212)
+        Me.rctNIF.Name = "rctNIF"
+        Me.rctNIF.Size = New System.Drawing.Size(210, 25)
         '
         'txtnome
         '
@@ -307,53 +377,23 @@ Partial Class frmClientes
         Me.txtnome.TabIndex = 27
         Me.txtnome.Tag = ""
         '
-        'rctNIF
-        '
-        Me.rctNIF.BackColor = System.Drawing.Color.White
-        Me.rctNIF.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctNIF.BorderColor = System.Drawing.Color.White
-        Me.rctNIF.CornerRadius = 2
-        Me.rctNIF.Location = New System.Drawing.Point(521, 201)
-        Me.rctNIF.Name = "rctNIF"
-        Me.rctNIF.Size = New System.Drawing.Size(210, 25)
-        '
-        'rctMorada
-        '
-        Me.rctMorada.BackColor = System.Drawing.Color.White
-        Me.rctMorada.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctMorada.BorderColor = System.Drawing.Color.White
-        Me.rctMorada.CornerRadius = 2
-        Me.rctMorada.Location = New System.Drawing.Point(521, 253)
-        Me.rctMorada.Name = "rctMorada"
-        Me.rctMorada.Size = New System.Drawing.Size(210, 25)
-        '
         'txtemail
         '
         Me.txtemail.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtemail.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtemail.ForeColor = System.Drawing.Color.Black
-        Me.txtemail.Location = New System.Drawing.Point(530, 259)
+        Me.txtemail.Location = New System.Drawing.Point(530, 281)
         Me.txtemail.Name = "txtemail"
         Me.txtemail.Size = New System.Drawing.Size(193, 14)
         Me.txtemail.TabIndex = 28
         Me.txtemail.Tag = ""
-        '
-        'rctIII
-        '
-        Me.rctIII.BackColor = System.Drawing.Color.White
-        Me.rctIII.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctIII.BorderColor = System.Drawing.Color.White
-        Me.rctIII.CornerRadius = 2
-        Me.rctIII.Location = New System.Drawing.Point(520, 304)
-        Me.rctIII.Name = "rctIII"
-        Me.rctIII.Size = New System.Drawing.Size(210, 25)
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(518, 289)
+        Me.Label1.Location = New System.Drawing.Point(518, 321)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 15)
         Me.Label1.TabIndex = 29
@@ -364,7 +404,7 @@ Partial Class frmClientes
         Me.txtMorada.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtMorada.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMorada.ForeColor = System.Drawing.Color.Black
-        Me.txtMorada.Location = New System.Drawing.Point(528, 310)
+        Me.txtMorada.Location = New System.Drawing.Point(528, 342)
         Me.txtMorada.Name = "txtMorada"
         Me.txtMorada.Size = New System.Drawing.Size(193, 14)
         Me.txtMorada.TabIndex = 30
@@ -375,26 +415,16 @@ Partial Class frmClientes
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(518, 346)
+        Me.Label2.Location = New System.Drawing.Point(518, 385)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(67, 15)
         Me.Label2.TabIndex = 31
         Me.Label2.Text = "Telemóvel:"
         '
-        'rctTelemovel
-        '
-        Me.rctTelemovel.BackColor = System.Drawing.Color.White
-        Me.rctTelemovel.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctTelemovel.BorderColor = System.Drawing.Color.White
-        Me.rctTelemovel.CornerRadius = 2
-        Me.rctTelemovel.Location = New System.Drawing.Point(521, 361)
-        Me.rctTelemovel.Name = "rctTelemovel"
-        Me.rctTelemovel.Size = New System.Drawing.Size(210, 25)
-        '
         'ckkTel
         '
         Me.ckkTel.AutoSize = True
-        Me.ckkTel.Location = New System.Drawing.Point(743, 367)
+        Me.ckkTel.Location = New System.Drawing.Point(743, 408)
         Me.ckkTel.Name = "ckkTel"
         Me.ckkTel.Size = New System.Drawing.Size(15, 14)
         Me.ckkTel.TabIndex = 32
@@ -404,28 +434,18 @@ Partial Class frmClientes
         '
         Me.mtbTel.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.mtbTel.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.mtbTel.Location = New System.Drawing.Point(529, 367)
+        Me.mtbTel.Location = New System.Drawing.Point(529, 408)
         Me.mtbTel.Mask = "000000000"
         Me.mtbTel.Name = "mtbTel"
         Me.mtbTel.Size = New System.Drawing.Size(195, 14)
         Me.mtbTel.TabIndex = 33
-        '
-        'rct30
-        '
-        Me.rct30.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct30.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rct30.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct30.CornerRadius = 2
-        Me.rct30.Location = New System.Drawing.Point(610, 409)
-        Me.rct30.Name = "rct30"
-        Me.rct30.Size = New System.Drawing.Size(63, 21)
         '
         'lblInserir
         '
         Me.lblInserir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblInserir.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.lblInserir.ForeColor = System.Drawing.Color.White
-        Me.lblInserir.Location = New System.Drawing.Point(524, 413)
+        Me.lblInserir.Location = New System.Drawing.Point(524, 468)
         Me.lblInserir.Name = "lblInserir"
         Me.lblInserir.Size = New System.Drawing.Size(62, 15)
         Me.lblInserir.TabIndex = 34
@@ -436,50 +456,30 @@ Partial Class frmClientes
         '
         Me.mtbNIF.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.mtbNIF.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.mtbNIF.Location = New System.Drawing.Point(528, 205)
+        Me.mtbNIF.Location = New System.Drawing.Point(528, 218)
         Me.mtbNIF.Mask = "000000000"
         Me.mtbNIF.Name = "mtbNIF"
         Me.mtbNIF.Size = New System.Drawing.Size(195, 14)
         Me.mtbNIF.TabIndex = 35
-        '
-        'rct40
-        '
-        Me.rct40.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct40.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rct40.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct40.CornerRadius = 2
-        Me.rct40.Location = New System.Drawing.Point(522, 409)
-        Me.rct40.Name = "rct40"
-        Me.rct40.Size = New System.Drawing.Size(65, 21)
         '
         'lblProcurar
         '
         Me.lblProcurar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblProcurar.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.lblProcurar.ForeColor = System.Drawing.Color.White
-        Me.lblProcurar.Location = New System.Drawing.Point(613, 413)
+        Me.lblProcurar.Location = New System.Drawing.Point(613, 468)
         Me.lblProcurar.Name = "lblProcurar"
         Me.lblProcurar.Size = New System.Drawing.Size(61, 15)
         Me.lblProcurar.TabIndex = 36
         Me.lblProcurar.Text = "Procurar"
         Me.lblProcurar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'rct56
-        '
-        Me.rct56.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct56.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rct56.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct56.CornerRadius = 2
-        Me.rct56.Location = New System.Drawing.Point(695, 409)
-        Me.rct56.Name = "rct56"
-        Me.rct56.Size = New System.Drawing.Size(65, 21)
-        '
         'lblAlterar
         '
         Me.lblAlterar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblAlterar.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.lblAlterar.ForeColor = System.Drawing.Color.White
-        Me.lblAlterar.Location = New System.Drawing.Point(697, 413)
+        Me.lblAlterar.Location = New System.Drawing.Point(697, 468)
         Me.lblAlterar.Name = "lblAlterar"
         Me.lblAlterar.Size = New System.Drawing.Size(61, 15)
         Me.lblAlterar.TabIndex = 38
@@ -491,7 +491,7 @@ Partial Class frmClientes
         Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
         Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
         Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 619)
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 692)
         Me.CtrL_MenuCine.TabIndex = 0
         '
         'frmClientes
@@ -499,7 +499,7 @@ Partial Class frmClientes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(853, 619)
+        Me.ClientSize = New System.Drawing.Size(853, 692)
         Me.Controls.Add(Me.lblAlterar)
         Me.Controls.Add(Me.lblProcurar)
         Me.Controls.Add(Me.mtbNIF)

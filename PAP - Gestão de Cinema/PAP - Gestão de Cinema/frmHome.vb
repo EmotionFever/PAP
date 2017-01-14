@@ -1,4 +1,10 @@
 ﻿Public Class frmHome
+
+    'Código tipo para todos os formulários
+    Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
+        CtrL_MenuCine.SelecionarBotao(0)
+    End Sub
+
     Private Sub frmAplicacao_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         End
     End Sub
@@ -11,7 +17,5 @@
 
     End Sub
 
-    Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
-        CtrL_MenuCine.SelecionarBotao(0)
-    End Sub
+
 End Class
