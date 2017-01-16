@@ -1,0 +1,3 @@
+1. Criar o campo imagem onde se guardará o caminho da pasta onde ela está guardada
+2. Abrir uma imagem por código e associá-la a uma picturebox
+3. Na abertura do formulário Inserir Vendas colocar dois botões para escolher entre bilhete ou produto.

@@ -25,13 +25,12 @@ Partial Class CTRL_MenuCine
         Me.components = New System.ComponentModel.Container()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.tmrAnimacao = New System.Windows.Forms.Timer(Me.components)
         Me.btnInicio = New System.Windows.Forms.Button()
         Me.btnBilhetes = New System.Windows.Forms.Button()
         Me.btnClientes = New System.Windows.Forms.Button()
         Me.btnFuncionarios = New System.Windows.Forms.Button()
         Me.btnFilmes = New System.Windows.Forms.Button()
-        Me.btnGraus = New System.Windows.Forms.Button()
+        Me.btnEncargos = New System.Windows.Forms.Button()
         Me.btnHorarios = New System.Windows.Forms.Button()
         Me.btnProdutos = New System.Windows.Forms.Button()
         Me.btnSalas = New System.Windows.Forms.Button()
@@ -39,6 +38,7 @@ Partial Class CTRL_MenuCine
         Me.pctEncolhido = New System.Windows.Forms.PictureBox()
         Me.pctLogo = New System.Windows.Forms.PictureBox()
         Me.pctBotao = New System.Windows.Forms.PictureBox()
+        Me.tmrAnimacao = New System.Windows.Forms.Timer(Me.components)
         Me.pnl1.SuspendLayout()
         Me.flp1.SuspendLayout()
         CType(Me.pctEncolhido, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,7 +66,7 @@ Partial Class CTRL_MenuCine
         Me.flp1.Controls.Add(Me.btnClientes)
         Me.flp1.Controls.Add(Me.btnFuncionarios)
         Me.flp1.Controls.Add(Me.btnFilmes)
-        Me.flp1.Controls.Add(Me.btnGraus)
+        Me.flp1.Controls.Add(Me.btnEncargos)
         Me.flp1.Controls.Add(Me.btnHorarios)
         Me.flp1.Controls.Add(Me.btnProdutos)
         Me.flp1.Controls.Add(Me.btnSalas)
@@ -76,10 +76,6 @@ Partial Class CTRL_MenuCine
         Me.flp1.Name = "flp1"
         Me.flp1.Size = New System.Drawing.Size(265, 518)
         Me.flp1.TabIndex = 13
-        '
-        'tmrAnimacao
-        '
-        Me.tmrAnimacao.Interval = 25
         '
         'btnInicio
         '
@@ -185,26 +181,26 @@ Partial Class CTRL_MenuCine
         Me.btnFilmes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnFilmes.UseVisualStyleBackColor = False
         '
-        'btnGraus
+        'btnEncargos
         '
-        Me.btnGraus.BackColor = System.Drawing.Color.Firebrick
-        Me.btnGraus.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnGraus.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
-        Me.btnGraus.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
-        Me.btnGraus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnGraus.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGraus.ForeColor = System.Drawing.Color.White
-        Me.btnGraus.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.graus_converted
-        Me.btnGraus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGraus.Location = New System.Drawing.Point(3, 258)
-        Me.btnGraus.Name = "btnGraus"
-        Me.btnGraus.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.btnGraus.Size = New System.Drawing.Size(260, 45)
-        Me.btnGraus.TabIndex = 10
-        Me.btnGraus.Text = "  Graus"
-        Me.btnGraus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGraus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnGraus.UseVisualStyleBackColor = False
+        Me.btnEncargos.BackColor = System.Drawing.Color.Firebrick
+        Me.btnEncargos.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnEncargos.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
+        Me.btnEncargos.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
+        Me.btnEncargos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEncargos.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEncargos.ForeColor = System.Drawing.Color.White
+        Me.btnEncargos.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.graus_converted
+        Me.btnEncargos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEncargos.Location = New System.Drawing.Point(3, 258)
+        Me.btnEncargos.Name = "btnEncargos"
+        Me.btnEncargos.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.btnEncargos.Size = New System.Drawing.Size(260, 45)
+        Me.btnEncargos.TabIndex = 10
+        Me.btnEncargos.Text = "  Encargos"
+        Me.btnEncargos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEncargos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnEncargos.UseVisualStyleBackColor = False
         '
         'btnHorarios
         '
@@ -326,6 +322,10 @@ Partial Class CTRL_MenuCine
         Me.pctBotao.TabStop = False
         Me.pctBotao.Tag = "0"
         '
+        'tmrAnimacao
+        '
+        Me.tmrAnimacao.Interval = 25
+        '
         'CTRL_MenuCine
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -343,7 +343,7 @@ Partial Class CTRL_MenuCine
     End Sub
     Friend WithEvents btnProdutos As System.Windows.Forms.Button
     Friend WithEvents btnHorarios As System.Windows.Forms.Button
-    Friend WithEvents btnGraus As System.Windows.Forms.Button
+    Friend WithEvents btnEncargos As System.Windows.Forms.Button
     Friend WithEvents btnFilmes As System.Windows.Forms.Button
     Friend WithEvents btnClientes As System.Windows.Forms.Button
     Friend WithEvents pnl1 As System.Windows.Forms.Panel

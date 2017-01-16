@@ -9,7 +9,7 @@
         botao(1) = btnBilhetes
         botao(2) = btnClientes
         botao(3) = btnFuncionarios
-        botao(4) = btnGraus
+        botao(4) = btnEncargos
         botao(5) = btnHorarios
         botao(6) = btnProdutos
         botao(7) = btnSalas
@@ -73,5 +73,10 @@
         'Fechar todos os forms ----> <-------
         frmHome.Hide()
         frmClientes.Show()
+    End Sub
+
+    Private Sub btnVendas_Click(sender As System.Object, e As System.EventArgs) Handles btnVendas.Click
+        frmHome.Hide()
+        frmVendas.Show()
     End Sub
 End Class

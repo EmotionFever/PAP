@@ -49,3 +49,5 @@ C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\o
 C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.exe
 C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.xml
 C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.pdb
+C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmVendas_Inserir.resources
+C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\MySql.Data.dll
