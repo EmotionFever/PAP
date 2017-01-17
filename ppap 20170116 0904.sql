@@ -1,7 +1,7 @@
 -- MySQL Administrator dump 1.4
 --
 -- ------------------------------------------------------
--- Server version	5.0.45-community-nt
+-- Server version	5.7.16-log
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -27,15 +27,15 @@ USE ppap;
 
 DROP TABLE IF EXISTS `aux_cat`;
 CREATE TABLE `aux_cat` (
-  `codAC` int(11) NOT NULL auto_increment,
-  `codC` int(11) default NULL,
-  `codFl` int(11) default NULL,
-  PRIMARY KEY  (`codAC`),
+  `codAC` int(11) NOT NULL AUTO_INCREMENT,
+  `codC` int(11) DEFAULT NULL,
+  `codFl` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codAC`) USING BTREE,
   KEY `codC` (`codC`),
   KEY `codFl` (`codFl`),
   CONSTRAINT `aux_cat_ibfk_1` FOREIGN KEY (`codC`) REFERENCES `categorias` (`codC`),
   CONSTRAINT `aux_cat_ibfk_2` FOREIGN KEY (`codFl`) REFERENCES `filmes` (`codFl`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `aux_cat`
@@ -62,10 +62,10 @@ INSERT INTO `aux_cat` (`codAC`,`codC`,`codFl`) VALUES
 
 DROP TABLE IF EXISTS `aux_pai`;
 CREATE TABLE `aux_pai` (
-  `codAP` int(11) NOT NULL auto_increment,
-  `codFl` int(11) default NULL,
-  `codPs` int(11) default NULL,
-  PRIMARY KEY  (`codAP`),
+  `codAP` int(11) NOT NULL AUTO_INCREMENT,
+  `codFl` int(11) DEFAULT NULL,
+  `codPs` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codAP`),
   KEY `codFl` (`codFl`),
   KEY `codPs` (`codPs`),
   CONSTRAINT `aux_pai_ibfk_1` FOREIGN KEY (`codFl`) REFERENCES `filmes` (`codFl`),
@@ -96,10 +96,10 @@ INSERT INTO `aux_pai` (`codAP`,`codFl`,`codPs`) VALUES
 
 DROP TABLE IF EXISTS `aux_vend`;
 CREATE TABLE `aux_vend` (
-  `codAV` int(11) NOT NULL auto_increment,
-  `codP` int(11) default NULL,
-  `codV` int(11) default NULL,
-  PRIMARY KEY  (`codAV`),
+  `codAV` int(11) NOT NULL AUTO_INCREMENT,
+  `codP` int(11) DEFAULT NULL,
+  `codV` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codAV`),
   KEY `codP` (`codP`),
   KEY `codV` (`codV`),
   CONSTRAINT `aux_vend_ibfk_1` FOREIGN KEY (`codP`) REFERENCES `produtos` (`codP`),
@@ -120,10 +120,10 @@ CREATE TABLE `aux_vend` (
 
 DROP TABLE IF EXISTS `bilhetes`;
 CREATE TABLE `bilhetes` (
-  `codB` int(11) NOT NULL auto_increment,
-  `codL` int(11) default NULL,
-  `codV` int(11) default NULL,
-  PRIMARY KEY  (`codB`),
+  `codB` int(11) NOT NULL AUTO_INCREMENT,
+  `codL` int(11) DEFAULT NULL,
+  `codV` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codB`),
   KEY `codL` (`codL`),
   KEY `codV` (`codV`),
   CONSTRAINT `bilhetes_ibfk_1` FOREIGN KEY (`codL`) REFERENCES `lugares` (`codL`),
@@ -144,9 +144,9 @@ CREATE TABLE `bilhetes` (
 
 DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE `categorias` (
-  `codC` int(11) NOT NULL auto_increment,
-  `nome` varchar(50) default NULL,
-  PRIMARY KEY  (`codC`)
+  `codC` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`codC`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
@@ -176,9 +176,9 @@ INSERT INTO `categorias` (`codC`,`nome`) VALUES
 
 DROP TABLE IF EXISTS `classificacoes`;
 CREATE TABLE `classificacoes` (
-  `codCs` int(11) NOT NULL auto_increment,
-  `nome` varchar(50) default NULL,
-  PRIMARY KEY  (`codCs`)
+  `codCs` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`codCs`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
@@ -201,11 +201,11 @@ INSERT INTO `classificacoes` (`codCs`,`nome`) VALUES
 
 DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE `clientes` (
-  `codC` int(11) NOT NULL auto_increment,
-  `nome` varchar(50) default NULL,
-  `morada` varchar(100) default NULL,
-  `NIF` varchar(9) default NULL,
-  PRIMARY KEY  (`codC`)
+  `codC` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  `morada` varchar(100) DEFAULT NULL,
+  `NIF` varchar(9) DEFAULT NULL,
+  PRIMARY KEY (`codC`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -222,17 +222,17 @@ CREATE TABLE `clientes` (
 
 DROP TABLE IF EXISTS `encargos`;
 CREATE TABLE `encargos` (
-  `codEnc` int(11) NOT NULL auto_increment,
-  `nome` varchar(50) default NULL,
-  `A_Fun` int(11) default NULL,
-  `A_Enc` int(11) default NULL,
-  `A_Uti` int(11) default NULL,
-  `A_Ven` int(11) default NULL,
-  `A_Cli` int(11) default NULL,
-  `A_Bil` int(11) default NULL,
-  `A_Pro` int(11) default NULL,
-  `A_Hor` int(11) default NULL,
-  PRIMARY KEY  (`codEnc`)
+  `codEnc` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  `A_Fun` int(11) DEFAULT NULL,
+  `A_Enc` int(11) DEFAULT NULL,
+  `A_Uti` int(11) DEFAULT NULL,
+  `A_Ven` int(11) DEFAULT NULL,
+  `A_Cli` int(11) DEFAULT NULL,
+  `A_Bil` int(11) DEFAULT NULL,
+  `A_Pro` int(11) DEFAULT NULL,
+  `A_Hor` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codEnc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -249,14 +249,15 @@ CREATE TABLE `encargos` (
 
 DROP TABLE IF EXISTS `filmes`;
 CREATE TABLE `filmes` (
-  `codFl` int(11) NOT NULL auto_increment,
-  `nome` varchar(100) default NULL,
-  `atores` varchar(200) default NULL,
-  `realizador` varchar(50) default NULL,
+  `codFl` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `atores` varchar(200) DEFAULT NULL,
+  `realizador` varchar(50) DEFAULT NULL,
   `ano` year(4) NOT NULL,
-  `duracao` time default NULL,
-  `codCs` int(11) default NULL,
-  PRIMARY KEY  (`codFl`),
+  `duracao` time DEFAULT NULL,
+  `codCs` int(11) DEFAULT NULL,
+  `preco` double DEFAULT NULL,
+  PRIMARY KEY (`codFl`),
   KEY `codCs` (`codCs`),
   CONSTRAINT `filmes_ibfk_2` FOREIGN KEY (`codCs`) REFERENCES `classificacoes` (`codCs`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
@@ -266,13 +267,13 @@ CREATE TABLE `filmes` (
 --
 
 /*!40000 ALTER TABLE `filmes` DISABLE KEYS */;
-INSERT INTO `filmes` (`codFl`,`nome`,`atores`,`realizador`,`ano`,`duracao`,`codCs`) VALUES 
- (2,'Assassin’s Creed','Michael Fassbender, Marion Cotillard, Jeremy Irons, Brendan Gleeson, Khalid Abdalla, Michael K. Williams','Justin Kurzel',2016,'01:55:00',3),
- (3,'O Pátio das Cantigas','Rui Unas, Miguel Guilherme, Anabela Moreira, César Mourão','Leonel Vieira',2015,'01:51:00',4),
- (4,'A Mãe é que Sabe','Maria João Abreu, Dalila Carmo, Manuel Cavaco, Bruno Cabrerizo, Margarida Carpinteiro','Nuno Rocha',2016,'01:28:00',3),
- (6,'Zeus','Sinde Filipe, Ivo Canelas, Catarina Luís, Paulo Pires','Paulo Filipe Monteiro',2016,'01:57:00',3),
- (7,'Cartas de Guerra','Miguel Nunes, Margarida Vila-Nova, Ricardo Pereira, João Pedro Vaz, Simão Cayatte','Ivo M. Ferreira',2016,'01:45:00',3),
- (8,'À Procura de Dory','Ellen DeGeneres, Albert Brooks, Ed O\'Neill','Andrew Stanton, Angus MacLane',2016,'01:37:00',1);
+INSERT INTO `filmes` (`codFl`,`nome`,`atores`,`realizador`,`ano`,`duracao`,`codCs`,`preco`) VALUES 
+ (2,'Assassin’s Creed','Michael Fassbender, Marion Cotillard, Jeremy Irons, Brendan Gleeson, Khalid Abdalla, Michael K. Williams','Justin Kurzel',2016,'01:55:00',3,5.56),
+ (3,'O Pátio das Cantigas','Rui Unas, Miguel Guilherme, Anabela Moreira, César Mourão','Leonel Vieira',2015,'01:51:00',4,4.87),
+ (4,'A Mãe é que Sabe','Maria João Abreu, Dalila Carmo, Manuel Cavaco, Bruno Cabrerizo, Margarida Carpinteiro','Nuno Rocha',2016,'01:28:00',3,4.56),
+ (6,'Zeus','Sinde Filipe, Ivo Canelas, Catarina Luís, Paulo Pires','Paulo Filipe Monteiro',2016,'01:57:00',3,5.08),
+ (7,'Cartas de Guerra','Miguel Nunes, Margarida Vila-Nova, Ricardo Pereira, João Pedro Vaz, Simão Cayatte','Ivo M. Ferreira',2016,'01:45:00',3,4.83),
+ (8,'À Procura de Dory','Ellen DeGeneres, Albert Brooks, Ed O\'Neill','Andrew Stanton, Angus MacLane',2016,'01:37:00',1,4.42);
 /*!40000 ALTER TABLE `filmes` ENABLE KEYS */;
 
 
@@ -282,14 +283,14 @@ INSERT INTO `filmes` (`codFl`,`nome`,`atores`,`realizador`,`ano`,`duracao`,`codC
 
 DROP TABLE IF EXISTS `funcionarios`;
 CREATE TABLE `funcionarios` (
-  `codF` int(11) NOT NULL auto_increment,
-  `nome` varchar(100) default NULL,
-  `idade` int(11) default NULL,
-  `ordenado` double default NULL,
-  `telemovel` varchar(9) default NULL,
-  `morada` varchar(100) default NULL,
-  `codEnc` int(11) default NULL,
-  PRIMARY KEY  (`codF`),
+  `codF` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `idade` int(11) DEFAULT NULL,
+  `ordenado` double DEFAULT NULL,
+  `telemovel` varchar(9) DEFAULT NULL,
+  `morada` varchar(100) DEFAULT NULL,
+  `codEnc` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codF`),
   KEY `codEnc` (`codEnc`),
   CONSTRAINT `funcionarios_ibfk_1` FOREIGN KEY (`codEnc`) REFERENCES `encargos` (`codEnc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -308,16 +309,20 @@ CREATE TABLE `funcionarios` (
 
 DROP TABLE IF EXISTS `generos`;
 CREATE TABLE `generos` (
-  `codG` int(11) NOT NULL auto_increment,
-  `nome` varchar(60) default NULL,
-  PRIMARY KEY  (`codG`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `codG` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`codG`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `generos`
 --
 
 /*!40000 ALTER TABLE `generos` DISABLE KEYS */;
+INSERT INTO `generos` (`codG`,`nome`) VALUES 
+ (1,'Comida'),
+ (2,'Bebidas'),
+ (3,'Gomas');
 /*!40000 ALTER TABLE `generos` ENABLE KEYS */;
 
 
@@ -327,25 +332,27 @@ CREATE TABLE `generos` (
 
 DROP TABLE IF EXISTS `horarios`;
 CREATE TABLE `horarios` (
-  `codH` int(11) NOT NULL auto_increment,
-  `hora` time default NULL,
-  `datai` date default NULL,
-  `dataf` date default NULL,
-  `exibindo` tinyint(1) default NULL,
-  `codS` int(11) default NULL,
-  `codFl` int(11) default NULL,
-  PRIMARY KEY  (`codH`),
+  `codH` int(11) NOT NULL AUTO_INCREMENT,
+  `hora` time DEFAULT NULL,
+  `datai` date DEFAULT NULL,
+  `dataf` date DEFAULT NULL,
+  `codS` int(11) DEFAULT NULL,
+  `codFl` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codH`),
   KEY `codS` (`codS`),
   KEY `codFl` (`codFl`),
   CONSTRAINT `horarios_ibfk_1` FOREIGN KEY (`codS`) REFERENCES `salas` (`codS`),
   CONSTRAINT `horarios_ibfk_2` FOREIGN KEY (`codFl`) REFERENCES `filmes` (`codFl`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `horarios`
 --
 
 /*!40000 ALTER TABLE `horarios` DISABLE KEYS */;
+INSERT INTO `horarios` (`codH`,`hora`,`datai`,`dataf`,`codS`,`codFl`) VALUES 
+ (2,'13:00:00','2017-01-17','2017-03-30',2,2),
+ (3,'15:00:00','2017-01-17','2017-03-30',2,2);
 /*!40000 ALTER TABLE `horarios` ENABLE KEYS */;
 
 
@@ -355,11 +362,11 @@ CREATE TABLE `horarios` (
 
 DROP TABLE IF EXISTS `lugares`;
 CREATE TABLE `lugares` (
-  `codL` int(11) NOT NULL auto_increment,
-  `coluna` int(11) default NULL,
-  `linha` varchar(1) default NULL,
-  `codS` int(11) default NULL,
-  PRIMARY KEY  (`codL`),
+  `codL` int(11) NOT NULL AUTO_INCREMENT,
+  `coluna` int(11) DEFAULT NULL,
+  `linha` varchar(1) DEFAULT NULL,
+  `codS` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codL`),
   KEY `codS` (`codS`),
   CONSTRAINT `lugares_ibfk_1` FOREIGN KEY (`codS`) REFERENCES `salas` (`codS`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
@@ -391,9 +398,9 @@ INSERT INTO `lugares` (`codL`,`coluna`,`linha`,`codS`) VALUES
 
 DROP TABLE IF EXISTS `paises`;
 CREATE TABLE `paises` (
-  `codPs` int(11) NOT NULL auto_increment,
-  `nome` varchar(50) default NULL,
-  PRIMARY KEY  (`codPs`)
+  `codPs` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`codPs`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
@@ -417,19 +424,29 @@ INSERT INTO `paises` (`codPs`,`nome`) VALUES
 
 DROP TABLE IF EXISTS `produtos`;
 CREATE TABLE `produtos` (
-  `codP` int(11) NOT NULL auto_increment,
-  `nome` varchar(100) default NULL,
-  `codG` int(11) default NULL,
-  PRIMARY KEY  (`codP`),
+  `codP` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `codG` int(11) DEFAULT NULL,
+  `stock` int(10) unsigned DEFAULT NULL,
+  `preco` double DEFAULT NULL,
+  PRIMARY KEY (`codP`),
   KEY `codG` (`codG`),
   CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`codG`) REFERENCES `generos` (`codG`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `produtos`
 --
 
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
+INSERT INTO `produtos` (`codP`,`nome`,`codG`,`stock`,`preco`) VALUES 
+ (2,'Pipocas pequenas',1,45,1.5),
+ (3,'Pipocas médias',1,40,2),
+ (4,'Pipocas grandes',1,35,3),
+ (5,'Sumol Ananás',2,67,2),
+ (6,'Sumol Maracujá',2,45,2),
+ (7,'Sumol Tropical',2,23,2),
+ (8,'Sumol Frutos Vermelhos',2,10,2);
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 
 
@@ -439,12 +456,12 @@ CREATE TABLE `produtos` (
 
 DROP TABLE IF EXISTS `salas`;
 CREATE TABLE `salas` (
-  `codS` int(11) NOT NULL auto_increment,
-  `codT` int(11) default NULL,
-  PRIMARY KEY  (`codS`),
+  `codS` int(11) NOT NULL AUTO_INCREMENT,
+  `codT` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codS`),
   KEY `codT` (`codT`),
   CONSTRAINT `salas_ibfk_1` FOREIGN KEY (`codT`) REFERENCES `tipos` (`codT`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `salas`
@@ -453,10 +470,9 @@ CREATE TABLE `salas` (
 /*!40000 ALTER TABLE `salas` DISABLE KEYS */;
 INSERT INTO `salas` (`codS`,`codT`) VALUES 
  (1,1),
- (4,1),
- (5,1),
- (2,2),
- (3,2);
+ (2,1),
+ (3,1),
+ (4,2);
 /*!40000 ALTER TABLE `salas` ENABLE KEYS */;
 
 
@@ -466,9 +482,9 @@ INSERT INTO `salas` (`codS`,`codT`) VALUES
 
 DROP TABLE IF EXISTS `tipos`;
 CREATE TABLE `tipos` (
-  `codT` int(11) NOT NULL auto_increment,
-  `nome` varchar(50) default NULL,
-  PRIMARY KEY  (`codT`)
+  `codT` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`codT`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
@@ -488,11 +504,11 @@ INSERT INTO `tipos` (`codT`,`nome`) VALUES
 
 DROP TABLE IF EXISTS `utilizadores`;
 CREATE TABLE `utilizadores` (
-  `codU` int(11) NOT NULL auto_increment,
-  `nome` varchar(50) default NULL,
-  `palavra_passe` varchar(40) default NULL,
-  `codF` int(11) default NULL,
-  PRIMARY KEY  (`codU`),
+  `codU` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  `palavra_passe` varchar(40) DEFAULT NULL,
+  `codF` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codU`),
   KEY `codF` (`codF`),
   CONSTRAINT `utilizadores_ibfk_1` FOREIGN KEY (`codF`) REFERENCES `funcionarios` (`codF`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -511,11 +527,11 @@ CREATE TABLE `utilizadores` (
 
 DROP TABLE IF EXISTS `vendas`;
 CREATE TABLE `vendas` (
-  `codV` int(11) NOT NULL auto_increment,
-  `datav` date default NULL,
-  `codF` int(11) default NULL,
-  `codC` int(11) default NULL,
-  PRIMARY KEY  (`codV`),
+  `codV` int(11) NOT NULL AUTO_INCREMENT,
+  `datav` date DEFAULT NULL,
+  `codF` int(11) DEFAULT NULL,
+  `codC` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codV`),
   KEY `codF` (`codF`),
   KEY `codC` (`codC`),
   CONSTRAINT `vendas_ibfk_1` FOREIGN KEY (`codF`) REFERENCES `funcionarios` (`codF`),

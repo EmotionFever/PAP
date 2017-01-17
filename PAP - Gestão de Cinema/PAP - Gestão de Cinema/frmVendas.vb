@@ -7,4 +7,13 @@
     Private Sub lblProduto_Click(sender As System.Object, e As System.EventArgs) Handles lblProduto.Click
         frmVendas_Inserir.Show()
     End Sub
+
+
+    Private Sub frmVendas_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        End
+    End Sub
+
+    Private Sub lblX_Click(sender As System.Object, e As System.EventArgs) Handles lblX.Click
+        pnltest.Hide()
+    End Sub
 End Class

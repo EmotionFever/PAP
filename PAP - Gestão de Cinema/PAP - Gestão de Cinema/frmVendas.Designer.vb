@@ -27,7 +27,7 @@ Partial Class frmVendas
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.flpitens = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnltest = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pctProduto = New System.Windows.Forms.PictureBox()
@@ -43,7 +43,7 @@ Partial Class frmVendas
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl1.SuspendLayout()
         Me.flpitens.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.pnltest.SuspendLayout()
         CType(Me.pctProduto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -82,25 +82,25 @@ Partial Class frmVendas
         'flpitens
         '
         Me.flpitens.AutoScroll = True
-        Me.flpitens.Controls.Add(Me.Panel1)
+        Me.flpitens.Controls.Add(Me.pnltest)
         Me.flpitens.Location = New System.Drawing.Point(517, 162)
         Me.flpitens.Name = "flpitens"
         Me.flpitens.Size = New System.Drawing.Size(314, 268)
         Me.flpitens.TabIndex = 18
         '
-        'Panel1
+        'pnltest
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Firebrick
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.pctProduto)
-        Me.Panel1.Controls.Add(Me.lblX)
-        Me.Panel1.Controls.Add(Me.lblnome)
-        Me.Panel1.Location = New System.Drawing.Point(3, 3)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(289, 74)
-        Me.Panel1.TabIndex = 0
+        Me.pnltest.BackColor = System.Drawing.Color.Firebrick
+        Me.pnltest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pnltest.Controls.Add(Me.Label2)
+        Me.pnltest.Controls.Add(Me.Label1)
+        Me.pnltest.Controls.Add(Me.pctProduto)
+        Me.pnltest.Controls.Add(Me.lblX)
+        Me.pnltest.Controls.Add(Me.lblnome)
+        Me.pnltest.Location = New System.Drawing.Point(3, 3)
+        Me.pnltest.Name = "pnltest"
+        Me.pnltest.Size = New System.Drawing.Size(289, 74)
+        Me.pnltest.TabIndex = 0
         '
         'Label2
         '
@@ -247,8 +247,8 @@ Partial Class frmVendas
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnl1.ResumeLayout(False)
         Me.flpitens.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.pnltest.ResumeLayout(False)
+        Me.pnltest.PerformLayout()
         CType(Me.pctProduto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -259,7 +259,7 @@ Partial Class frmVendas
     Friend WithEvents pnl1 As System.Windows.Forms.Panel
     Friend WithEvents lbl1 As System.Windows.Forms.Label
     Friend WithEvents flpitens As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents pnltest As System.Windows.Forms.Panel
     Friend WithEvents lbl3 As System.Windows.Forms.Label
     Friend WithEvents lbl2 As System.Windows.Forms.Label
     Friend WithEvents rct40 As Microsoft.VisualBasic.PowerPacks.RectangleShape
