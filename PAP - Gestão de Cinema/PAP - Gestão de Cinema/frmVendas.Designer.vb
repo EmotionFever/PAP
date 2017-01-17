@@ -28,17 +28,17 @@ Partial Class frmVendas
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.flpitens = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.pctProduto = New System.Windows.Forms.PictureBox()
+        Me.lblX = New System.Windows.Forms.Label()
+        Me.lblnome = New System.Windows.Forms.Label()
         Me.lbl3 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
         Me.rct40 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.lblnome = New System.Windows.Forms.Label()
-        Me.lblX = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.lblProduto = New System.Windows.Forms.Label()
-        Me.pctProduto = New System.Windows.Forms.PictureBox()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl1.SuspendLayout()
@@ -102,6 +102,57 @@ Partial Class frmVendas
         Me.Panel1.Size = New System.Drawing.Size(289, 74)
         Me.Panel1.TabIndex = 0
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(72, 50)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(60, 16)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Preco total €"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(72, 28)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(92, 16)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Quantidade x Preco"
+        '
+        'pctProduto
+        '
+        Me.pctProduto.Location = New System.Drawing.Point(0, 0)
+        Me.pctProduto.Name = "pctProduto"
+        Me.pctProduto.Size = New System.Drawing.Size(66, 72)
+        Me.pctProduto.TabIndex = 2
+        Me.pctProduto.TabStop = False
+        '
+        'lblX
+        '
+        Me.lblX.AutoSize = True
+        Me.lblX.ForeColor = System.Drawing.Color.White
+        Me.lblX.Location = New System.Drawing.Point(258, 30)
+        Me.lblX.Name = "lblX"
+        Me.lblX.Size = New System.Drawing.Size(14, 13)
+        Me.lblX.TabIndex = 1
+        Me.lblX.Text = "X"
+        '
+        'lblnome
+        '
+        Me.lblnome.AutoSize = True
+        Me.lblnome.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnome.ForeColor = System.Drawing.Color.White
+        Me.lblnome.Location = New System.Drawing.Point(72, 6)
+        Me.lblnome.Name = "lblnome"
+        Me.lblnome.Size = New System.Drawing.Size(124, 16)
+        Me.lblnome.TabIndex = 0
+        Me.lblnome.Text = "Nome do que quer que seja"
+        '
         'lbl3
         '
         Me.lbl3.BackColor = System.Drawing.Color.Black
@@ -155,49 +206,6 @@ Partial Class frmVendas
         Me.RectangleShape1.Name = "RectangleShape1"
         Me.RectangleShape1.Size = New System.Drawing.Size(167, 21)
         '
-        'lblnome
-        '
-        Me.lblnome.AutoSize = True
-        Me.lblnome.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblnome.ForeColor = System.Drawing.Color.White
-        Me.lblnome.Location = New System.Drawing.Point(72, 6)
-        Me.lblnome.Name = "lblnome"
-        Me.lblnome.Size = New System.Drawing.Size(124, 16)
-        Me.lblnome.TabIndex = 0
-        Me.lblnome.Text = "Nome do que quer que seja"
-        '
-        'lblX
-        '
-        Me.lblX.AutoSize = True
-        Me.lblX.ForeColor = System.Drawing.Color.White
-        Me.lblX.Location = New System.Drawing.Point(258, 30)
-        Me.lblX.Name = "lblX"
-        Me.lblX.Size = New System.Drawing.Size(14, 13)
-        Me.lblX.TabIndex = 1
-        Me.lblX.Text = "X"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(72, 28)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(92, 16)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Quantidade x Preco"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(72, 50)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 16)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Preco total €"
-        '
         'lblProduto
         '
         Me.lblProduto.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -208,14 +216,6 @@ Partial Class frmVendas
         Me.lblProduto.TabIndex = 22
         Me.lblProduto.Text = "Inserir produto"
         Me.lblProduto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'pctProduto
-        '
-        Me.pctProduto.Location = New System.Drawing.Point(0, 0)
-        Me.pctProduto.Name = "pctProduto"
-        Me.pctProduto.Size = New System.Drawing.Size(66, 72)
-        Me.pctProduto.TabIndex = 2
-        Me.pctProduto.TabStop = False
         '
         'CtrL_MenuCine
         '
