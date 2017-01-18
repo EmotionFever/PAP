@@ -104,23 +104,21 @@ Partial Class frmVendas
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(72, 50)
+        Me.Label2.Location = New System.Drawing.Point(72, 49)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 16)
+        Me.Label2.Size = New System.Drawing.Size(210, 16)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Preco total €"
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(72, 28)
+        Me.Label1.Location = New System.Drawing.Point(72, 27)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(92, 16)
+        Me.Label1.Size = New System.Drawing.Size(180, 17)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Quantidade x Preco"
         '
@@ -144,12 +142,11 @@ Partial Class frmVendas
         '
         'lblnome
         '
-        Me.lblnome.AutoSize = True
-        Me.lblnome.Font = New System.Drawing.Font("Arial Narrow", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnome.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblnome.ForeColor = System.Drawing.Color.White
-        Me.lblnome.Location = New System.Drawing.Point(72, 6)
+        Me.lblnome.Location = New System.Drawing.Point(72, 4)
         Me.lblnome.Name = "lblnome"
-        Me.lblnome.Size = New System.Drawing.Size(124, 16)
+        Me.lblnome.Size = New System.Drawing.Size(210, 18)
         Me.lblnome.TabIndex = 0
         Me.lblnome.Text = "Nome do que quer que seja"
         '

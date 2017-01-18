@@ -93,6 +93,7 @@ Partial Class CTRL_MenuCine
         Me.btnInicio.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
         Me.btnInicio.Size = New System.Drawing.Size(260, 45)
         Me.btnInicio.TabIndex = 3
+        Me.btnInicio.Tag = ""
         Me.btnInicio.Text = "  Fomulário Inicial"
         Me.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -114,6 +115,7 @@ Partial Class CTRL_MenuCine
         Me.btnBilhetes.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnBilhetes.Size = New System.Drawing.Size(260, 45)
         Me.btnBilhetes.TabIndex = 7
+        Me.btnBilhetes.Tag = ""
         Me.btnBilhetes.Text = "  Bilhetes"
         Me.btnBilhetes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBilhetes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -135,6 +137,7 @@ Partial Class CTRL_MenuCine
         Me.btnClientes.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnClientes.Size = New System.Drawing.Size(260, 45)
         Me.btnClientes.TabIndex = 8
+        Me.btnClientes.Tag = ""
         Me.btnClientes.Text = "  Clientes"
         Me.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -156,6 +159,7 @@ Partial Class CTRL_MenuCine
         Me.btnFuncionarios.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
         Me.btnFuncionarios.Size = New System.Drawing.Size(260, 45)
         Me.btnFuncionarios.TabIndex = 15
+        Me.btnFuncionarios.Tag = ""
         Me.btnFuncionarios.Text = "  Funcionários"
         Me.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnFuncionarios.UseVisualStyleBackColor = False
@@ -176,6 +180,7 @@ Partial Class CTRL_MenuCine
         Me.btnFilmes.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnFilmes.Size = New System.Drawing.Size(260, 45)
         Me.btnFilmes.TabIndex = 9
+        Me.btnFilmes.Tag = ""
         Me.btnFilmes.Text = "  Filmes"
         Me.btnFilmes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnFilmes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -197,6 +202,7 @@ Partial Class CTRL_MenuCine
         Me.btnEncargos.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnEncargos.Size = New System.Drawing.Size(260, 45)
         Me.btnEncargos.TabIndex = 10
+        Me.btnEncargos.Tag = ""
         Me.btnEncargos.Text = "  Encargos"
         Me.btnEncargos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnEncargos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -218,6 +224,7 @@ Partial Class CTRL_MenuCine
         Me.btnHorarios.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnHorarios.Size = New System.Drawing.Size(260, 45)
         Me.btnHorarios.TabIndex = 11
+        Me.btnHorarios.Tag = ""
         Me.btnHorarios.Text = "  Horários"
         Me.btnHorarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnHorarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -239,6 +246,7 @@ Partial Class CTRL_MenuCine
         Me.btnProdutos.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnProdutos.Size = New System.Drawing.Size(260, 45)
         Me.btnProdutos.TabIndex = 12
+        Me.btnProdutos.Tag = ""
         Me.btnProdutos.Text = "  Produtos"
         Me.btnProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnProdutos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -260,6 +268,7 @@ Partial Class CTRL_MenuCine
         Me.btnSalas.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnSalas.Size = New System.Drawing.Size(260, 45)
         Me.btnSalas.TabIndex = 13
+        Me.btnSalas.Tag = ""
         Me.btnSalas.Text = "  Salas"
         Me.btnSalas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnSalas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -281,6 +290,7 @@ Partial Class CTRL_MenuCine
         Me.btnVendas.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
         Me.btnVendas.Size = New System.Drawing.Size(260, 45)
         Me.btnVendas.TabIndex = 14
+        Me.btnVendas.Tag = ""
         Me.btnVendas.Text = "  Vendas"
         Me.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText

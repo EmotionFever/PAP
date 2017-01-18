@@ -14,3 +14,20 @@ C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\o
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.frmClientes.resources
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP - Gestão de Cinema.vbprojResolveAssemblyReference.cache
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.frmVendas.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Release\PAP - Gestão de Cinema.exe
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Release\PAP - Gestão de Cinema.pdb
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Release\PAP - Gestão de Cinema.xml
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Release\CTRL_Menu_do_cinema.pdb
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Release\CTRL_Menu_do_cinema.xml
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP - Gestão de Cinema.vbprojResolveAssemblyReference.cache
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.CTRL_MenuCine.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.frmClientes.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.frmLogin.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.frmHome.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.frmVendas.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.frmVendas_Inserir.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.Resources.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP - Gestão de Cinema.vbproj.GenerateResource.Cache
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP - Gestão de Cinema.exe
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP - Gestão de Cinema.xml
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP - Gestão de Cinema.pdb

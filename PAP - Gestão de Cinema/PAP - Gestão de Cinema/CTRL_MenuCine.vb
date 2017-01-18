@@ -20,6 +20,12 @@
         tmrAnimacao.Enabled = True
     End Sub
 
+    Private Sub EsconderTodosForms()
+        frmHome.Hide()
+        frmClientes.Hide()
+        frmVendas.Hide()
+    End Sub
+
     Private Sub tmrAnimacao_Tick(sender As System.Object, e As System.EventArgs) Handles tmrAnimacao.Tick
         Dim variavel As Integer = Math.Round((2 / 5) * contador) 'Deste modo, a variável será maior e maior
         If pctBotao.Tag Then 'Menu expandido, então tem-se que se escolhe-lo
@@ -62,21 +68,20 @@
 
 
     Private Sub btnInicio_Click(sender As System.Object, e As System.EventArgs) Handles btnInicio.Click
-        'Fechar todos os forms ----> <-------
-        frmClientes.Hide()
+        EsconderTodosForms()
         frmHome.Show()
-
     End Sub
 
 
     Private Sub btnClientes_Click(sender As System.Object, e As System.EventArgs) Handles btnClientes.Click
-        'Fechar todos os forms ----> <-------
-        frmHome.Hide()
+        EsconderTodosForms()
         frmClientes.Show()
+        frmVendas.Refresh()
     End Sub
 
     Private Sub btnVendas_Click(sender As System.Object, e As System.EventArgs) Handles btnVendas.Click
-        frmHome.Hide()
+        EsconderTodosForms()
         frmVendas.Show()
+        frmVendas.Refresh()
     End Sub
 End Class

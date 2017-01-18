@@ -8,7 +8,7 @@
         CtrL_MenuCine.SelecionarBotao(2)
     End Sub
 
-    Private Sub frmClientes_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+    Private Sub frmClientes_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        End
     End Sub
 End Class

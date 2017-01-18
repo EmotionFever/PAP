@@ -16,4 +16,6 @@
     Private Sub lblX_Click(sender As System.Object, e As System.EventArgs) Handles lblX.Click
         pnltest.Hide()
     End Sub
+
+
 End Class

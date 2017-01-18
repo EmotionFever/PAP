@@ -5,10 +5,6 @@
         CtrL_MenuCine.SelecionarBotao(0)
     End Sub
 
-    Private Sub frmAplicacao_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        End
-    End Sub
-
     Private Sub frmInico_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
     End Sub
