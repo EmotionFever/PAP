@@ -26,7 +26,7 @@ Partial Class frmVendas
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.lbl1 = New System.Windows.Forms.Label()
-        Me.flpitens = New System.Windows.Forms.FlowLayoutPanel()
+        Me.flpartigos = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnltest = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -42,7 +42,7 @@ Partial Class frmVendas
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl1.SuspendLayout()
-        Me.flpitens.SuspendLayout()
+        Me.flpartigos.SuspendLayout()
         Me.pnltest.SuspendLayout()
         CType(Me.pctProduto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -79,14 +79,14 @@ Partial Class frmVendas
         Me.lbl1.Text = "Vendas"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'flpitens
+        'flpartigos
         '
-        Me.flpitens.AutoScroll = True
-        Me.flpitens.Controls.Add(Me.pnltest)
-        Me.flpitens.Location = New System.Drawing.Point(517, 162)
-        Me.flpitens.Name = "flpitens"
-        Me.flpitens.Size = New System.Drawing.Size(314, 268)
-        Me.flpitens.TabIndex = 18
+        Me.flpartigos.AutoScroll = True
+        Me.flpartigos.Controls.Add(Me.pnltest)
+        Me.flpartigos.Location = New System.Drawing.Point(517, 162)
+        Me.flpartigos.Name = "flpartigos"
+        Me.flpartigos.Size = New System.Drawing.Size(314, 268)
+        Me.flpartigos.TabIndex = 18
         '
         'pnltest
         '
@@ -126,7 +126,7 @@ Partial Class frmVendas
         '
         Me.pctProduto.Location = New System.Drawing.Point(0, 0)
         Me.pctProduto.Name = "pctProduto"
-        Me.pctProduto.Size = New System.Drawing.Size(66, 72)
+        Me.pctProduto.Size = New System.Drawing.Size(72, 72)
         Me.pctProduto.TabIndex = 2
         Me.pctProduto.TabStop = False
         '
@@ -232,7 +232,7 @@ Partial Class frmVendas
         Me.Controls.Add(Me.lblProduto)
         Me.Controls.Add(Me.lbl2)
         Me.Controls.Add(Me.lbl3)
-        Me.Controls.Add(Me.flpitens)
+        Me.Controls.Add(Me.flpartigos)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.pnl1)
         Me.Controls.Add(Me.ShapeContainer1)
@@ -243,7 +243,7 @@ Partial Class frmVendas
         Me.Text = "Vendas"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnl1.ResumeLayout(False)
-        Me.flpitens.ResumeLayout(False)
+        Me.flpartigos.ResumeLayout(False)
         Me.pnltest.ResumeLayout(False)
         Me.pnltest.PerformLayout()
         CType(Me.pctProduto, System.ComponentModel.ISupportInitialize).EndInit()
@@ -255,7 +255,7 @@ Partial Class frmVendas
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents pnl1 As System.Windows.Forms.Panel
     Friend WithEvents lbl1 As System.Windows.Forms.Label
-    Friend WithEvents flpitens As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents flpartigos As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents pnltest As System.Windows.Forms.Panel
     Friend WithEvents lbl3 As System.Windows.Forms.Label
     Friend WithEvents lbl2 As System.Windows.Forms.Label

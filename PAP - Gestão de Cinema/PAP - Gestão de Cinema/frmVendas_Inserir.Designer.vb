@@ -34,7 +34,7 @@ Partial Class frmVendas_Inserir
         '
         'pnl1
         '
-        Me.pnl1.BackColor = System.Drawing.Color.MediumOrchid
+        Me.pnl1.BackColor = System.Drawing.Color.DarkOrange
         Me.pnl1.Controls.Add(Me.lbl1)
         Me.pnl1.Location = New System.Drawing.Point(11, 12)
         Me.pnl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
