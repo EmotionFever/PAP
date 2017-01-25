@@ -4,7 +4,7 @@
         CtrL_MenuCine.SelecionarBotao(8)
     End Sub
 
-    Private Sub lblProduto_Click(sender As System.Object, e As System.EventArgs) Handles lblProduto.Click
+    Private Sub lblProduto_Click(sender As System.Object, e As System.EventArgs) Handles btnProduto.Click
         frmVendas_Inserir.Show()
     End Sub
 
@@ -17,5 +17,7 @@
         pnltest.Hide()
     End Sub
 
+    Public Sub ApagarProduto(ByVal sender As Object, ByVal e As EventArgs)
 
+    End Sub
 End Class

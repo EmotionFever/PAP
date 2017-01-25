@@ -70,7 +70,7 @@ Partial Class frmVendas_Inserir
         Me.flpcategorias.Controls.Add(Me.btnBilhetes)
         Me.flpcategorias.Location = New System.Drawing.Point(11, 64)
         Me.flpcategorias.Name = "flpcategorias"
-        Me.flpcategorias.Size = New System.Drawing.Size(336, 347)
+        Me.flpcategorias.Size = New System.Drawing.Size(338, 345)
         Me.flpcategorias.TabIndex = 20
         '
         'btnBilhetes
@@ -82,19 +82,21 @@ Partial Class frmVendas_Inserir
         Me.btnBilhetes.Name = "btnBilhetes"
         Me.btnBilhetes.Size = New System.Drawing.Size(154, 61)
         Me.btnBilhetes.TabIndex = 3
+        Me.btnBilhetes.Tag = ""
         Me.btnBilhetes.Text = "Bilhetes"
         Me.btnBilhetes.UseVisualStyleBackColor = False
         '
         'btnVoltar
         '
         Me.btnVoltar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnVoltar.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.voltar
+        Me.btnVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnVoltar.FlatAppearance.BorderSize = 0
         Me.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVoltar.Location = New System.Drawing.Point(303, 375)
+        Me.btnVoltar.Location = New System.Drawing.Point(310, 375)
         Me.btnVoltar.Name = "btnVoltar"
-        Me.btnVoltar.Size = New System.Drawing.Size(43, 36)
+        Me.btnVoltar.Size = New System.Drawing.Size(35, 34)
         Me.btnVoltar.TabIndex = 21
-        Me.btnVoltar.Text = "Voltar"
         Me.btnVoltar.UseVisualStyleBackColor = False
         '
         'frmVendas_Inserir

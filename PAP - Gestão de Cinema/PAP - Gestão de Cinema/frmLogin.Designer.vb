@@ -26,18 +26,17 @@ Partial Class frmLogin
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.rctEntrar = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctPass = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctUtl = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.txtNome = New System.Windows.Forms.TextBox()
         Me.txtPass = New System.Windows.Forms.TextBox()
-        Me.lblEntrar = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
         Me.lbl5 = New System.Windows.Forms.Label()
         Me.lblErroUtl = New System.Windows.Forms.Label()
         Me.lblErroPass = New System.Windows.Forms.Label()
         Me.pctPass = New System.Windows.Forms.PictureBox()
         Me.pctUtl = New System.Windows.Forms.PictureBox()
+        Me.btnEntrar = New System.Windows.Forms.Button()
         Me.pnl1.SuspendLayout()
         CType(Me.pctPass, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pctUtl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,20 +68,10 @@ Partial Class frmLogin
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctEntrar, Me.rctPass, Me.rctUtl})
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctPass, Me.rctUtl})
         Me.ShapeContainer1.Size = New System.Drawing.Size(295, 378)
         Me.ShapeContainer1.TabIndex = 2
         Me.ShapeContainer1.TabStop = False
-        '
-        'rctEntrar
-        '
-        Me.rctEntrar.BackColor = System.Drawing.Color.Blue
-        Me.rctEntrar.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctEntrar.BorderColor = System.Drawing.Color.Blue
-        Me.rctEntrar.CornerRadius = 5
-        Me.rctEntrar.Location = New System.Drawing.Point(21, 310)
-        Me.rctEntrar.Name = "rctEntrar"
-        Me.rctEntrar.Size = New System.Drawing.Size(249, 36)
         '
         'rctPass
         '
@@ -125,19 +114,6 @@ Partial Class frmLogin
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.txtPass.Size = New System.Drawing.Size(197, 22)
         Me.txtPass.TabIndex = 4
-        '
-        'lblEntrar
-        '
-        Me.lblEntrar.BackColor = System.Drawing.Color.Blue
-        Me.lblEntrar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblEntrar.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEntrar.ForeColor = System.Drawing.Color.White
-        Me.lblEntrar.Location = New System.Drawing.Point(24, 316)
-        Me.lblEntrar.Name = "lblEntrar"
-        Me.lblEntrar.Size = New System.Drawing.Size(246, 26)
-        Me.lblEntrar.TabIndex = 5
-        Me.lblEntrar.Text = "Entrar"
-        Me.lblEntrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbl2
         '
@@ -203,19 +179,33 @@ Partial Class frmLogin
         Me.pctUtl.TabIndex = 10
         Me.pctUtl.TabStop = False
         '
+        'btnEntrar
+        '
+        Me.btnEntrar.BackColor = System.Drawing.Color.Blue
+        Me.btnEntrar.FlatAppearance.BorderSize = 0
+        Me.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEntrar.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.btnEntrar.ForeColor = System.Drawing.Color.White
+        Me.btnEntrar.Location = New System.Drawing.Point(20, 313)
+        Me.btnEntrar.Name = "btnEntrar"
+        Me.btnEntrar.Size = New System.Drawing.Size(251, 37)
+        Me.btnEntrar.TabIndex = 14
+        Me.btnEntrar.Text = "Entrar"
+        Me.btnEntrar.UseVisualStyleBackColor = False
+        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(295, 378)
+        Me.Controls.Add(Me.btnEntrar)
         Me.Controls.Add(Me.lblErroPass)
         Me.Controls.Add(Me.lblErroUtl)
         Me.Controls.Add(Me.pctPass)
         Me.Controls.Add(Me.pctUtl)
         Me.Controls.Add(Me.lbl5)
         Me.Controls.Add(Me.lbl2)
-        Me.Controls.Add(Me.lblEntrar)
         Me.Controls.Add(Me.txtPass)
         Me.Controls.Add(Me.txtNome)
         Me.Controls.Add(Me.pnl1)
@@ -239,13 +229,12 @@ Partial Class frmLogin
     Friend WithEvents rctUtl As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents txtNome As System.Windows.Forms.TextBox
     Friend WithEvents txtPass As System.Windows.Forms.TextBox
-    Friend WithEvents rctEntrar As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents lblEntrar As System.Windows.Forms.Label
     Friend WithEvents lbl2 As System.Windows.Forms.Label
     Friend WithEvents lbl5 As System.Windows.Forms.Label
     Friend WithEvents pctUtl As System.Windows.Forms.PictureBox
     Friend WithEvents pctPass As System.Windows.Forms.PictureBox
     Friend WithEvents lblErroUtl As System.Windows.Forms.Label
     Friend WithEvents lblErroPass As System.Windows.Forms.Label
+    Friend WithEvents btnEntrar As System.Windows.Forms.Button
 
 End Class

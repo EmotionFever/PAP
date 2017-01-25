@@ -15,6 +15,10 @@ PAP-GestãodeCinema
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
+</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.add">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.bilhetes">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -112,6 +116,10 @@ PAP-GestãodeCinema
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.vendas_converted">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.voltar">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

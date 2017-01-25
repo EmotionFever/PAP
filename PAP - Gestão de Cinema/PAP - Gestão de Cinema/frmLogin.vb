@@ -41,7 +41,7 @@
         '   pct1.BackColor = Color.LightSalmon
     End Sub
 
-    Private Sub lbl3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lblEntrar.Click
+    Private Sub lbl3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEntrar.Click
         verificacao()
     End Sub
 
@@ -61,5 +61,9 @@
         txtPass.BackColor = Color.White
         txtPass.ForeColor = Color.Black
         pctPass.BackColor = Color.White
+    End Sub
+
+    Private Sub frmLogin_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
