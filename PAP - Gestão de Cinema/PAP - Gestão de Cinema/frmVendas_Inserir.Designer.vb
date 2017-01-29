@@ -52,7 +52,7 @@ Partial Class frmVendas_Inserir
         Me.lbl1.Name = "lbl1"
         Me.lbl1.Size = New System.Drawing.Size(336, 31)
         Me.lbl1.TabIndex = 4
-        Me.lbl1.Text = "Que tipo de produto quer?"
+        Me.lbl1.Text = "Que tipo de artigo quer?"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'flpitens
@@ -104,7 +104,7 @@ Partial Class frmVendas_Inserir
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(414, 469)
+        Me.ClientSize = New System.Drawing.Size(360, 419)
         Me.Controls.Add(Me.flpcategorias)
         Me.Controls.Add(Me.btnVoltar)
         Me.Controls.Add(Me.pnl1)
@@ -112,6 +112,7 @@ Partial Class frmVendas_Inserir
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmVendas_Inserir"
         Me.Text = "Escolher produto"
+        Me.TopMost = True
         Me.pnl1.ResumeLayout(False)
         Me.flpcategorias.ResumeLayout(False)
         Me.ResumeLayout(False)

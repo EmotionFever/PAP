@@ -1,5 +1,7 @@
 ﻿Public Class frmVendas
-
+    Public Const MAX_ARTIGOS As Integer = 25
+    Public art(MAX_ARTIGOS) As Artigo
+    Public contador As Integer = 0
     Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
         CtrL_MenuCine.SelecionarBotao(8)
     End Sub
@@ -17,7 +19,13 @@
         pnltest.Hide()
     End Sub
 
-    Public Sub ApagarProduto(ByVal sender As Object, ByVal e As EventArgs)
+    Private Sub frmVendas_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Public Sub ApagarProduto(sender As System.Object, e As System.EventArgs)
+        Dim btnx As Button = DirectCast(sender, Button)
+
 
     End Sub
 End Class

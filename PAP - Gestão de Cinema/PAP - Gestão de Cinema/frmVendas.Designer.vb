@@ -35,10 +35,10 @@ Partial Class frmVendas
         Me.lblnome = New System.Windows.Forms.Label()
         Me.lbl3 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
-        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.btnProduto = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl1.SuspendLayout()
         Me.flpartigos.SuspendLayout()
@@ -140,13 +140,14 @@ Partial Class frmVendas
         '
         'lblnome
         '
+        Me.lblnome.AutoEllipsis = True
         Me.lblnome.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblnome.ForeColor = System.Drawing.Color.White
         Me.lblnome.Location = New System.Drawing.Point(72, 4)
         Me.lblnome.Name = "lblnome"
         Me.lblnome.Size = New System.Drawing.Size(210, 18)
         Me.lblnome.TabIndex = 0
-        Me.lblnome.Text = "Nome do que quer que seja"
+        Me.lblnome.Text = "Nome do que quer que sejajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
         '
         'lbl3
         '
@@ -170,14 +171,6 @@ Partial Class frmVendas
         Me.lbl2.Size = New System.Drawing.Size(49, 15)
         Me.lbl2.TabIndex = 20
         Me.lbl2.Text = "Cliente:"
-        '
-        'CtrL_MenuCine
-        '
-        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
-        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
-        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 609)
-        Me.CtrL_MenuCine.TabIndex = 0
         '
         'btnProduto
         '
@@ -220,6 +213,14 @@ Partial Class frmVendas
         Me.Button2.TabIndex = 27
         Me.Button2.Text = "Alterar Venda"
         Me.Button2.UseVisualStyleBackColor = False
+        '
+        'CtrL_MenuCine
+        '
+        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
+        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
+        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 609)
+        Me.CtrL_MenuCine.TabIndex = 0
         '
         'frmVendas
         '
