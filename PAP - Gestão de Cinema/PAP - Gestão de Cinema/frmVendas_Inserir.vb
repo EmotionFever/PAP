@@ -141,99 +141,99 @@ Public Class frmVendas_Inserir
     Private Sub CategoriaClicada(ByVal sender As Object, ByVal e As EventArgs)
         Dim btnx As Button = DirectCast(sender, Button) 'Este botão ganha todas as características do botão clicado
 
-        'Try
-        query = "select count(codP) as registos from produtos where codG=" + btnx.Tag.ToString
-        comando = New MySqlCommand(query, ligacao)
-        ligacao.Open()
-        leitor = comando.ExecuteReader
-        leitor.Read()
-        registos = leitor.GetInt32("registos")
-        ligacao.Dispose()
-
-        If registos > 0 Then
-            lbl1.Text = "Que produto deseja?"
-            flpcategorias.Hide()
-            flpitens.Show()
-
-            '2ª Ligação
-            query = "select * from produtos where codG=" + btnx.Tag.ToString
+        Try
+            query = "select count(codP) as registos from produtos where codG=" + btnx.Tag.ToString
             comando = New MySqlCommand(query, ligacao)
-
-            contador = 0
-
             ligacao.Open()
             leitor = comando.ExecuteReader
-            While (leitor.Read)
+            leitor.Read()
+            registos = leitor.GetInt32("registos")
+            ligacao.Dispose()
 
-                prod(contador) = New Produto
-                prod(contador).Cod = leitor.GetInt32("codP") ' Guardo o CodP na respetiva posição do array do produto
+            If registos > 0 Then
+                lbl1.Text = "Que produto deseja?"
+                flpcategorias.Hide()
+                flpitens.Show()
 
-                prod(contador).pnl = New Panel
-                prod(contador).pnl.Size = New System.Drawing.Size(310, 58) 'atribuir tamanho
-                prod(contador).pnl.BackColor = Color.Silver
-                prod(contador).pnl.BorderStyle = BorderStyle.Fixed3D
-                flpitens.Controls.Add(prod(contador).pnl) 'Adicionar ao formulário
-                prod(contador).pnl.BringToFront()
+                '2ª Ligação
+                query = "select * from produtos where codG=" + btnx.Tag.ToString
+                comando = New MySqlCommand(query, ligacao)
 
-                prod(contador).btn = New Button
-                prod(contador).btn.Location = New System.Drawing.Point(268, 17)
-                prod(contador).btn.AutoSize = False
-                prod(contador).btn.Size = New System.Drawing.Size(25, 25)
-                prod(contador).btn.BackgroundImage = My.Resources.add
-                prod(contador).btn.BackgroundImageLayout = ImageLayout.Zoom
-                prod(contador).btn.FlatStyle = FlatStyle.Flat
-                prod(contador).btn.FlatAppearance.BorderSize = 0
+                contador = 0
 
-                prod(contador).pnl.Controls.Add(prod(contador).btn)
-                prod(contador).btn.BringToFront()
-                AddHandler prod(contador).btn.Click, AddressOf ProdutoClicado
+                ligacao.Open()
+                leitor = comando.ExecuteReader
+                While (leitor.Read)
 
-                prod(contador).pct = New PictureBox
-                prod(contador).pct.Size = New System.Drawing.Size(54, 54)
-                prod(contador).pct.Location = New System.Drawing.Point(0, 0)
-                'prod(contador).pct.BackgroundImage = «« Imagem »» -------> <---------
-                prod(contador).pct.BackgroundImageLayout = ImageLayout.Zoom
-                prod(contador).pnl.Controls.Add(prod(contador).pct)
+                    prod(contador) = New Produto
+                    prod(contador).Cod = leitor.GetInt32("codP") ' Guardo o CodP na respetiva posição do array do produto
 
-                prod(contador).lbl(0) = New Label
-                prod(contador).lbl(0).Location = New System.Drawing.Point(55, 0)
-                prod(contador).lbl(0).Font = New Font("Arial", 8, FontStyle.Bold)
-                prod(contador).lbl(0).Text = "Nome: " + leitor.GetString("nome")
-                prod(contador).lbl(0).AutoEllipsis = True 'Coloca "..." se o texto exceder o tamanho da label
-                prod(contador).lbl(0).AutoSize = False
-                prod(contador).lbl(0).Size = New System.Drawing.Size(250, 20)
-                prod(contador).pnl.Controls.Add(prod(contador).lbl(0))
+                    prod(contador).pnl = New Panel
+                    prod(contador).pnl.Size = New System.Drawing.Size(310, 58) 'atribuir tamanho
+                    prod(contador).pnl.BackColor = Color.Silver
+                    prod(contador).pnl.BorderStyle = BorderStyle.Fixed3D
+                    flpitens.Controls.Add(prod(contador).pnl) 'Adicionar ao formulário
+                    prod(contador).pnl.BringToFront()
 
-                prod(contador).lbl(1) = New Label
-                prod(contador).lbl(1).Location = New System.Drawing.Point(55, 19)
-                prod(contador).lbl(1).Font = New Font("Arial", 8, FontStyle.Regular)
-                prod(contador).lbl(1).Text = "Stock: " + leitor.GetUInt32("stock").ToString
-                prod(contador).lbl(1).AutoSize = False
-                prod(contador).lbl(1).Size = New System.Drawing.Size(250, 20)
-                prod(contador).lbl(1).Controls.Add(prod(contador).lbl(1))
-                prod(contador).lbl(1).Tag = contador + 1
+                    prod(contador).btn = New Button
+                    prod(contador).btn.Location = New System.Drawing.Point(268, 17)
+                    prod(contador).btn.AutoSize = False
+                    prod(contador).btn.Size = New System.Drawing.Size(25, 25)
+                    prod(contador).btn.BackgroundImage = My.Resources.add
+                    prod(contador).btn.BackgroundImageLayout = ImageLayout.Zoom
+                    prod(contador).btn.FlatStyle = FlatStyle.Flat
+                    prod(contador).btn.FlatAppearance.BorderSize = 0
 
-                prod(contador).lbl(2) = New Label
-                prod(contador).lbl(2).Location = New System.Drawing.Point(55, 38)
-                prod(contador).lbl(2).Font = New Font("Arial", 8, FontStyle.Regular)
-                prod(contador).lbl(2).Text = "Preço: " + Math.Round(leitor.GetDouble("preco"), 2).ToString + " €"
-                prod(contador).lbl(2).AutoSize = False
-                prod(contador).lbl(2).Size = New System.Drawing.Size(250, 20)
-                prod(contador).pnl.Controls.Add(prod(contador).lbl(2))
+                    prod(contador).pnl.Controls.Add(prod(contador).btn)
+                    prod(contador).btn.BringToFront()
+                    AddHandler prod(contador).btn.Click, AddressOf ProdutoClicado
+
+                    prod(contador).pct = New PictureBox
+                    prod(contador).pct.Size = New System.Drawing.Size(54, 54)
+                    prod(contador).pct.Location = New System.Drawing.Point(0, 0)
+                    'prod(contador).pct.BackgroundImage = «« Imagem »» -------> <---------
+                    prod(contador).pct.BackgroundImageLayout = ImageLayout.Zoom
+                    prod(contador).pnl.Controls.Add(prod(contador).pct)
+
+                    prod(contador).lbl(0) = New Label
+                    prod(contador).lbl(0).Location = New System.Drawing.Point(55, 0)
+                    prod(contador).lbl(0).Font = New Font("Arial", 8, FontStyle.Bold)
+                    prod(contador).lbl(0).Text = "Nome: " + leitor.GetString("nome")
+                    prod(contador).lbl(0).AutoEllipsis = True 'Coloca "..." se o texto exceder o tamanho da label
+                    prod(contador).lbl(0).AutoSize = False
+                    prod(contador).lbl(0).Size = New System.Drawing.Size(250, 20)
+                    prod(contador).pnl.Controls.Add(prod(contador).lbl(0))
+
+                    prod(contador).lbl(1) = New Label
+                    prod(contador).lbl(1).Location = New System.Drawing.Point(55, 19)
+                    prod(contador).lbl(1).Font = New Font("Arial", 8, FontStyle.Regular)
+                    prod(contador).lbl(1).Text = "Stock: " + leitor.GetUInt32("stock").ToString
+                    prod(contador).lbl(1).AutoSize = False
+                    prod(contador).lbl(1).Size = New System.Drawing.Size(250, 20)
+                    prod(contador).lbl(1).Controls.Add(prod(contador).lbl(1))
+                    prod(contador).lbl(1).Tag = contador + 1
+
+                    prod(contador).lbl(2) = New Label
+                    prod(contador).lbl(2).Location = New System.Drawing.Point(55, 38)
+                    prod(contador).lbl(2).Font = New Font("Arial", 8, FontStyle.Regular)
+                    prod(contador).lbl(2).Text = "Preço: " + Math.Round(leitor.GetDouble("preco"), 2).ToString + " €"
+                    prod(contador).lbl(2).AutoSize = False
+                    prod(contador).lbl(2).Size = New System.Drawing.Size(250, 20)
+                    prod(contador).pnl.Controls.Add(prod(contador).lbl(2))
 
 
 
-                contador += 1
-            End While
+                    contador += 1
+                End While
 
-        Else
-            MessageBox.Show("Não existem produtos com esse gênero", "Não foram encontados registos", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-        'Catch ex As Exception
-        'MessageBox.Show(ex.Message)
-        'Finally
-        ligacao.Close()
-        'End Try
+            Else
+                MessageBox.Show("Não existem produtos com esse gênero", "Não foram encontados registos", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            ligacao.Close()
+        End Try
     End Sub
 
     Private Sub btnVoltar_Click(sender As System.Object, e As System.EventArgs) Handles btnVoltar.Click
