@@ -28,13 +28,13 @@ USE ppap;
 DROP TABLE IF EXISTS `aux_cat`;
 CREATE TABLE `aux_cat` (
   `codAC` int(11) NOT NULL auto_increment,
-  `codC` int(11) default NULL,
   `codFl` int(11) default NULL,
+  `codCat` int(11) default NULL,
   PRIMARY KEY  (`codAC`),
-  KEY `codC` (`codC`),
   KEY `codFl` (`codFl`),
-  CONSTRAINT `aux_cat_ibfk_1` FOREIGN KEY (`codC`) REFERENCES `categorias` (`codC`),
-  CONSTRAINT `aux_cat_ibfk_2` FOREIGN KEY (`codFl`) REFERENCES `filmes` (`codFl`)
+  KEY `codCat` (`codCat`),
+  CONSTRAINT `aux_cat_ibfk_2` FOREIGN KEY (`codFl`) REFERENCES `filmes` (`codFl`),
+  CONSTRAINT `aux_cat_ibfk_3` FOREIGN KEY (`codCat`) REFERENCES `categorias` (`codCat`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
@@ -42,18 +42,45 @@ CREATE TABLE `aux_cat` (
 --
 
 /*!40000 ALTER TABLE `aux_cat` DISABLE KEYS */;
-INSERT INTO `aux_cat` (`codAC`,`codC`,`codFl`) VALUES 
- (1,1,2),
+INSERT INTO `aux_cat` (`codAC`,`codFl`,`codCat`) VALUES 
+ (1,2,1),
  (2,2,2),
- (3,4,3),
+ (3,3,4),
  (4,4,4),
  (5,6,6),
- (6,7,6),
- (7,6,7),
+ (6,6,7),
+ (7,7,6),
  (8,7,7),
- (9,2,8),
- (10,3,8);
+ (9,8,2),
+ (10,8,3);
 /*!40000 ALTER TABLE `aux_cat` ENABLE KEYS */;
+
+
+--
+-- Definition of table `aux_enc`
+--
+
+DROP TABLE IF EXISTS `aux_enc`;
+CREATE TABLE `aux_enc` (
+  `codAE` int(11) NOT NULL auto_increment,
+  `codE` int(11) default NULL,
+  `codPe` int(11) default NULL,
+  `codTa` int(11) default NULL,
+  PRIMARY KEY  (`codAE`),
+  KEY `codE` (`codE`),
+  KEY `codPe` (`codPe`),
+  KEY `codTa` (`codTa`),
+  CONSTRAINT `aux_enc_ibfk_1` FOREIGN KEY (`codE`) REFERENCES `encargos` (`codE`),
+  CONSTRAINT `aux_enc_ibfk_2` FOREIGN KEY (`codPe`) REFERENCES `permissoes` (`codPe`),
+  CONSTRAINT `aux_enc_ibfk_3` FOREIGN KEY (`codTa`) REFERENCES `tabelas` (`codTa`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `aux_enc`
+--
+
+/*!40000 ALTER TABLE `aux_enc` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aux_enc` ENABLE KEYS */;
 
 
 --
@@ -99,9 +126,13 @@ CREATE TABLE `aux_vend` (
   `codAV` int(11) NOT NULL auto_increment,
   `codP` int(11) default NULL,
   `codV` int(11) default NULL,
+  `quantidade` int(11) default NULL,
+  `codCat` int(11) default NULL,
   PRIMARY KEY  (`codAV`),
   KEY `codP` (`codP`),
   KEY `codV` (`codV`),
+  KEY `codCat` (`codCat`),
+  CONSTRAINT `aux_vend_ibfk_3` FOREIGN KEY (`codCat`) REFERENCES `categorias` (`codCat`),
   CONSTRAINT `aux_vend_ibfk_1` FOREIGN KEY (`codP`) REFERENCES `produtos` (`codP`),
   CONSTRAINT `aux_vend_ibfk_2` FOREIGN KEY (`codV`) REFERENCES `vendas` (`codV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -123,6 +154,7 @@ CREATE TABLE `bilhetes` (
   `codB` int(11) NOT NULL auto_increment,
   `codL` int(11) default NULL,
   `codV` int(11) default NULL,
+  `preco` double default NULL,
   PRIMARY KEY  (`codB`),
   KEY `codL` (`codL`),
   KEY `codV` (`codV`),
@@ -139,31 +171,31 @@ CREATE TABLE `bilhetes` (
 
 
 --
--- Definition of table `calendários`
+-- Definition of table `calendarios`
 --
 
-DROP TABLE IF EXISTS `calendários`;
-CREATE TABLE `calendários` (
-  `codCal` int(11) NOT NULL auto_increment,
+DROP TABLE IF EXISTS `calendarios`;
+CREATE TABLE `calendarios` (
+  `codCa` int(11) NOT NULL auto_increment,
   `hora` time default NULL,
   `datai` date default NULL,
   `dataf` date default NULL,
   `codS` int(11) default NULL,
   `codFl` int(11) default NULL,
-  PRIMARY KEY  USING BTREE (`codCal`),
+  PRIMARY KEY  USING BTREE (`codCa`),
   KEY `codS` (`codS`),
   KEY `codFl` (`codFl`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `calendários`
+-- Dumping data for table `calendarios`
 --
 
-/*!40000 ALTER TABLE `calendários` DISABLE KEYS */;
-INSERT INTO `calendários` (`codCal`,`hora`,`datai`,`dataf`,`codS`,`codFl`) VALUES 
+/*!40000 ALTER TABLE `calendarios` DISABLE KEYS */;
+INSERT INTO `calendarios` (`codCa`,`hora`,`datai`,`dataf`,`codS`,`codFl`) VALUES 
  (2,'13:00:00','2017-01-17','2017-03-30',2,2),
  (3,'15:00:00','2017-01-17','2017-03-30',2,2);
-/*!40000 ALTER TABLE `calendários` ENABLE KEYS */;
+/*!40000 ALTER TABLE `calendarios` ENABLE KEYS */;
 
 
 --
@@ -172,9 +204,9 @@ INSERT INTO `calendários` (`codCal`,`hora`,`datai`,`dataf`,`codS`,`codFl`) VALU
 
 DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE `categorias` (
-  `codC` int(11) NOT NULL auto_increment,
+  `codCat` int(11) NOT NULL auto_increment,
   `nome` varchar(50) default NULL,
-  PRIMARY KEY  (`codC`)
+  PRIMARY KEY  USING BTREE (`codCat`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
@@ -182,7 +214,7 @@ CREATE TABLE `categorias` (
 --
 
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` (`codC`,`nome`) VALUES 
+INSERT INTO `categorias` (`codCat`,`nome`) VALUES 
  (1,'Ação'),
  (2,'Aventura'),
  (3,'Animação'),
@@ -231,9 +263,12 @@ DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE `clientes` (
   `codC` int(11) NOT NULL auto_increment,
   `nome` varchar(50) default NULL,
-  `morada` varchar(100) default NULL,
   `NIF` varchar(9) default NULL,
-  PRIMARY KEY  (`codC`)
+  `codLo` int(11) default NULL,
+  `rua` varchar(100) default NULL,
+  PRIMARY KEY  (`codC`),
+  KEY `codLo` (`codLo`),
+  CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`codLo`) REFERENCES `localidades` (`codLo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -250,17 +285,9 @@ CREATE TABLE `clientes` (
 
 DROP TABLE IF EXISTS `encargos`;
 CREATE TABLE `encargos` (
-  `codEnc` int(11) NOT NULL auto_increment,
+  `codE` int(11) NOT NULL auto_increment,
   `nome` varchar(50) default NULL,
-  `A_Fun` int(11) default NULL,
-  `A_Enc` int(11) default NULL,
-  `A_Uti` int(11) default NULL,
-  `A_Ven` int(11) default NULL,
-  `A_Cli` int(11) default NULL,
-  `A_Bil` int(11) default NULL,
-  `A_Pro` int(11) default NULL,
-  `A_Hor` int(11) default NULL,
-  PRIMARY KEY  (`codEnc`)
+  PRIMARY KEY  USING BTREE (`codE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -317,11 +344,11 @@ CREATE TABLE `funcionarios` (
   `ordenado` double default NULL,
   `telemovel` varchar(9) default NULL,
   `morada` varchar(100) default NULL,
-  `codEnc` int(11) default NULL,
+  `codE` int(11) default NULL,
   `palavra_passe` varchar(50) default NULL,
   PRIMARY KEY  (`codF`),
-  KEY `codEnc` (`codEnc`),
-  CONSTRAINT `funcionarios_ibfk_1` FOREIGN KEY (`codEnc`) REFERENCES `encargos` (`codEnc`)
+  KEY `codEnc` USING BTREE (`codE`),
+  CONSTRAINT `funcionarios_ibfk_1` FOREIGN KEY (`codE`) REFERENCES `encargos` (`codE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -356,6 +383,25 @@ INSERT INTO `generos` (`codG`,`nome`) VALUES
 
 
 --
+-- Definition of table `localidades`
+--
+
+DROP TABLE IF EXISTS `localidades`;
+CREATE TABLE `localidades` (
+  `codLo` int(11) NOT NULL auto_increment,
+  `nome` varchar(100) default NULL,
+  PRIMARY KEY  (`codLo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `localidades`
+--
+
+/*!40000 ALTER TABLE `localidades` DISABLE KEYS */;
+/*!40000 ALTER TABLE `localidades` ENABLE KEYS */;
+
+
+--
 -- Definition of table `lugares`
 --
 
@@ -365,6 +411,7 @@ CREATE TABLE `lugares` (
   `coluna` int(11) default NULL,
   `linha` varchar(1) default NULL,
   `codS` int(11) default NULL,
+  `disponivel` tinyint(1) default NULL,
   PRIMARY KEY  (`codL`),
   KEY `codS` (`codS`),
   CONSTRAINT `lugares_ibfk_1` FOREIGN KEY (`codS`) REFERENCES `salas` (`codS`)
@@ -375,19 +422,19 @@ CREATE TABLE `lugares` (
 --
 
 /*!40000 ALTER TABLE `lugares` DISABLE KEYS */;
-INSERT INTO `lugares` (`codL`,`coluna`,`linha`,`codS`) VALUES 
- (1,1,'A',NULL),
- (2,2,'A',NULL),
- (3,3,'A',NULL),
- (4,4,'A',NULL),
- (5,5,'A',NULL),
- (6,6,'A',NULL),
- (7,7,'A',NULL),
- (8,8,'A',NULL),
- (9,9,'A',NULL),
- (10,10,'A',NULL),
- (11,11,'A',NULL),
- (12,12,'A',NULL);
+INSERT INTO `lugares` (`codL`,`coluna`,`linha`,`codS`,`disponivel`) VALUES 
+ (1,1,'A',NULL,NULL),
+ (2,2,'A',NULL,NULL),
+ (3,3,'A',NULL,NULL),
+ (4,4,'A',NULL,NULL),
+ (5,5,'A',NULL,NULL),
+ (6,6,'A',NULL,NULL),
+ (7,7,'A',NULL,NULL),
+ (8,8,'A',NULL,NULL),
+ (9,9,'A',NULL,NULL),
+ (10,10,'A',NULL,NULL),
+ (11,11,'A',NULL,NULL),
+ (12,12,'A',NULL,NULL);
 /*!40000 ALTER TABLE `lugares` ENABLE KEYS */;
 
 
@@ -415,6 +462,25 @@ INSERT INTO `paises` (`codPs`,`nome`) VALUES
  (5,'China'),
  (6,'Reino Unido');
 /*!40000 ALTER TABLE `paises` ENABLE KEYS */;
+
+
+--
+-- Definition of table `permissoes`
+--
+
+DROP TABLE IF EXISTS `permissoes`;
+CREATE TABLE `permissoes` (
+  `codPe` int(11) NOT NULL auto_increment,
+  `nome` varchar(100) default NULL,
+  PRIMARY KEY  (`codPe`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `permissoes`
+--
+
+/*!40000 ALTER TABLE `permissoes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permissoes` ENABLE KEYS */;
 
 
 --
@@ -473,6 +539,25 @@ INSERT INTO `salas` (`codS`,`codT`) VALUES
  (3,1),
  (4,2);
 /*!40000 ALTER TABLE `salas` ENABLE KEYS */;
+
+
+--
+-- Definition of table `tabelas`
+--
+
+DROP TABLE IF EXISTS `tabelas`;
+CREATE TABLE `tabelas` (
+  `codTa` int(11) NOT NULL auto_increment,
+  `nome` varchar(50) default NULL,
+  PRIMARY KEY  (`codTa`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tabelas`
+--
+
+/*!40000 ALTER TABLE `tabelas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tabelas` ENABLE KEYS */;
 
 
 --

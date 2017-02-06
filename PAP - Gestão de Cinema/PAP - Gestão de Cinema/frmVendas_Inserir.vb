@@ -52,12 +52,12 @@ Public Class frmVendas_Inserir
         End Try
     End Sub
 
-    Private Sub btnBilhetes_Click(sender As System.Object, e As System.EventArgs) Handles btnBilhetes.Click
+    Private Sub btnBilhetes_Click(sender As System.Object, e As System.EventArgs) Handles btnBilhetes.Click 'EM DESENVOLVIMENTO
         query = ""
         contador = 0
 
         Try
-            query = "select count(codH) as registos from horarios where now() between datai and dataf"
+            query = "select count(codCa) as registos from calendarios where now() between datai and dataf"
             comando = New MySqlCommand(query, ligacao)
             ligacao.Open()
             leitor = comando.ExecuteReader
@@ -75,7 +75,7 @@ Public Class frmVendas_Inserir
                 Dim pct(registos) As PictureBox
 
                 '2ª Ligação
-                query = "select codH, nome, preco, hora from horarios,filmes where horarios.codfl = filmes.codfl"
+                query = "select codCa, nome, preco, hora from calendarios, filmes where calendarios.codfl = filmes.codfl and now() between datai and dataf"
                 comando = New MySqlCommand(query, ligacao)
                 contador = 0
 
@@ -180,6 +180,7 @@ Public Class frmVendas_Inserir
                     prod(contador).btn.AutoSize = False
                     prod(contador).btn.Size = New System.Drawing.Size(25, 25)
                     prod(contador).btn.BackgroundImage = My.Resources.add
+                    prod(contador).btn.Tag = contador
                     prod(contador).btn.BackgroundImageLayout = ImageLayout.Zoom
                     prod(contador).btn.FlatStyle = FlatStyle.Flat
                     prod(contador).btn.FlatAppearance.BorderSize = 0
@@ -227,7 +228,7 @@ Public Class frmVendas_Inserir
                 End While
 
             Else
-                MessageBox.Show("Não existem produtos com esse gênero", "Não foram encontados registos", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Não existem produtos com esse género", "Não foram encontados registos", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -244,6 +245,8 @@ Public Class frmVendas_Inserir
     End Sub
 
     Private Sub ProdutoClicado(ByVal sender As Object, ByVal e As EventArgs)
+        'TENHO de fazer com que a label do stock diminua a quantidade selecionada aqui!!!!!!!!!!!!!!
+
         Dim btnx As Button = DirectCast(sender, Button)
 
         If frmVendas.contador < frmVendas.MAX_ARTIGOS Then
@@ -255,7 +258,7 @@ Public Class frmVendas_Inserir
 
 
             Try
-                query = "select * from produtos where codP=" + btnx.Tag.ToString
+                query = "select * from produtos where codP=" + prod(btnx.Tag).Cod.ToString
                 comando = New MySqlCommand(query, ligacao)
 
                 ligacao.Open()
@@ -265,7 +268,7 @@ Public Class frmVendas_Inserir
                 Dim quantidade As Integer = 0
                 quantidade = CInt(InputBox("Digite a quantidade que deseja desse produto ", "Quantos produtos deseja?"))
                 If quantidade > 0 Then
-                    If quantidade <= leitor.GetUInt32("stock") Then
+                    If quantidade <= CInt(prod(btnx.Tag).lbl(1).Text) Then
                         frmVendas.art(frmVendas.contador) = New Artigo
 
                         frmVendas.art(frmVendas.contador).pnl = New Panel
