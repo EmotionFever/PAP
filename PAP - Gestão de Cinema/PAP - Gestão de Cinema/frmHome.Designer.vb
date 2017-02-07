@@ -24,7 +24,8 @@ Partial Class frmHome
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHome))
         Me.pnl1 = New System.Windows.Forms.Panel()
-        Me.lbl1 = New System.Windows.Forms.Label()
+        Me.lblPergunta = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlBilhetes = New System.Windows.Forms.Panel()
         Me.lblBilhetes = New System.Windows.Forms.Label()
@@ -64,6 +65,7 @@ Partial Class frmHome
         Me.pct9 = New System.Windows.Forms.PictureBox()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnl1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.flp1.SuspendLayout()
         Me.pnlBilhetes.SuspendLayout()
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,25 +90,39 @@ Partial Class frmHome
         'pnl1
         '
         Me.pnl1.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.pnl1.Controls.Add(Me.lbl1)
+        Me.pnl1.BackgroundImage = CType(resources.GetObject("pnl1.BackgroundImage"), System.Drawing.Image)
+        Me.pnl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pnl1.Controls.Add(Me.lblPergunta)
+        Me.pnl1.Controls.Add(Me.PictureBox1)
         Me.pnl1.Location = New System.Drawing.Point(74, 24)
         Me.pnl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl1.Name = "pnl1"
         Me.pnl1.Size = New System.Drawing.Size(556, 93)
         Me.pnl1.TabIndex = 3
         '
-        'lbl1
+        'lblPergunta
         '
-        Me.lbl1.BackColor = System.Drawing.Color.Transparent
-        Me.lbl1.Font = New System.Drawing.Font("Arial", 20.0!)
-        Me.lbl1.ForeColor = System.Drawing.Color.White
-        Me.lbl1.Location = New System.Drawing.Point(0, 8)
-        Me.lbl1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(556, 78)
-        Me.lbl1.TabIndex = 4
-        Me.lbl1.Text = "O que deseja fazer?"
-        Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblPergunta.BackColor = System.Drawing.Color.Transparent
+        Me.lblPergunta.Font = New System.Drawing.Font("Arial", 20.0!)
+        Me.lblPergunta.ForeColor = System.Drawing.Color.White
+        Me.lblPergunta.Location = New System.Drawing.Point(0, 8)
+        Me.lblPergunta.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblPergunta.Name = "lblPergunta"
+        Me.lblPergunta.Size = New System.Drawing.Size(463, 78)
+        Me.lblPergunta.TabIndex = 4
+        Me.lblPergunta.Text = "O que deseja fazer, Pedro Marques?"
+        Me.lblPergunta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(458, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(98, 93)
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
         '
         'flp1
         '
@@ -143,7 +159,7 @@ Partial Class frmHome
         Me.lblBilhetes.Location = New System.Drawing.Point(0, 55)
         Me.lblBilhetes.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblBilhetes.Name = "lblBilhetes"
-        Me.lblBilhetes.Size = New System.Drawing.Size(176, 48)
+        Me.lblBilhetes.Size = New System.Drawing.Size(176, 61)
         Me.lblBilhetes.TabIndex = 3
         Me.lblBilhetes.Text = "Pode ver, inserir, alterar e apagar bilhetes"
         Me.lblBilhetes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -188,7 +204,7 @@ Partial Class frmHome
         Me.lblClientes.Location = New System.Drawing.Point(0, 55)
         Me.lblClientes.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblClientes.Name = "lblClientes"
-        Me.lblClientes.Size = New System.Drawing.Size(176, 48)
+        Me.lblClientes.Size = New System.Drawing.Size(176, 61)
         Me.lblClientes.TabIndex = 3
         Me.lblClientes.Text = "Pode ver, inserir, alterar e apagar clientes"
         Me.lblClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -233,7 +249,7 @@ Partial Class frmHome
         Me.lblFuncionarios.Location = New System.Drawing.Point(0, 55)
         Me.lblFuncionarios.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblFuncionarios.Name = "lblFuncionarios"
-        Me.lblFuncionarios.Size = New System.Drawing.Size(176, 48)
+        Me.lblFuncionarios.Size = New System.Drawing.Size(176, 61)
         Me.lblFuncionarios.TabIndex = 3
         Me.lblFuncionarios.Text = "Pode ver, inserir, alterar e apagar funcionários"
         Me.lblFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -278,7 +294,7 @@ Partial Class frmHome
         Me.lblFilmes.Location = New System.Drawing.Point(0, 55)
         Me.lblFilmes.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblFilmes.Name = "lblFilmes"
-        Me.lblFilmes.Size = New System.Drawing.Size(176, 48)
+        Me.lblFilmes.Size = New System.Drawing.Size(176, 61)
         Me.lblFilmes.TabIndex = 3
         Me.lblFilmes.Text = "Pode ver, inserir, alterar e apagar filmes"
         Me.lblFilmes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -323,7 +339,7 @@ Partial Class frmHome
         Me.lblGraus.Location = New System.Drawing.Point(0, 55)
         Me.lblGraus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblGraus.Name = "lblGraus"
-        Me.lblGraus.Size = New System.Drawing.Size(176, 48)
+        Me.lblGraus.Size = New System.Drawing.Size(176, 61)
         Me.lblGraus.TabIndex = 3
         Me.lblGraus.Text = "Pode ver, inserir, alterar e apagar encargos"
         Me.lblGraus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -368,9 +384,9 @@ Partial Class frmHome
         Me.lblHorarios.Location = New System.Drawing.Point(0, 55)
         Me.lblHorarios.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblHorarios.Name = "lblHorarios"
-        Me.lblHorarios.Size = New System.Drawing.Size(176, 48)
+        Me.lblHorarios.Size = New System.Drawing.Size(176, 61)
         Me.lblHorarios.TabIndex = 3
-        Me.lblHorarios.Text = "Pode ver, inserir, alterar e apagar horários de salas"
+        Me.lblHorarios.Text = "Pode ver, inserir, alterar e apagar calendários de salas"
         Me.lblHorarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lbl7
@@ -381,7 +397,7 @@ Partial Class frmHome
         Me.lbl7.Name = "lbl7"
         Me.lbl7.Size = New System.Drawing.Size(116, 55)
         Me.lbl7.TabIndex = 2
-        Me.lbl7.Text = "Horários"
+        Me.lbl7.Text = "Calendários"
         Me.lbl7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'pct6
@@ -413,7 +429,7 @@ Partial Class frmHome
         Me.lblProdutos.Location = New System.Drawing.Point(0, 55)
         Me.lblProdutos.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblProdutos.Name = "lblProdutos"
-        Me.lblProdutos.Size = New System.Drawing.Size(176, 48)
+        Me.lblProdutos.Size = New System.Drawing.Size(176, 61)
         Me.lblProdutos.TabIndex = 3
         Me.lblProdutos.Text = "Pode ver, inserir, alterar e apagar produtos"
         Me.lblProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -458,7 +474,7 @@ Partial Class frmHome
         Me.lblSalas.Location = New System.Drawing.Point(0, 55)
         Me.lblSalas.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSalas.Name = "lblSalas"
-        Me.lblSalas.Size = New System.Drawing.Size(176, 48)
+        Me.lblSalas.Size = New System.Drawing.Size(176, 61)
         Me.lblSalas.TabIndex = 3
         Me.lblSalas.Text = "Pode ver, inserir, alterar e apagar salas"
         Me.lblSalas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -503,7 +519,7 @@ Partial Class frmHome
         Me.lblVendas.Location = New System.Drawing.Point(0, 55)
         Me.lblVendas.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblVendas.Name = "lblVendas"
-        Me.lblVendas.Size = New System.Drawing.Size(176, 48)
+        Me.lblVendas.Size = New System.Drawing.Size(176, 61)
         Me.lblVendas.TabIndex = 3
         Me.lblVendas.Text = "Pode ver, inserir, alterar e apagar vendas"
         Me.lblVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -555,6 +571,7 @@ Partial Class frmHome
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Gestão de Cinema"
         Me.pnl1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.flp1.ResumeLayout(False)
         Me.pnlBilhetes.ResumeLayout(False)
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -579,7 +596,7 @@ Partial Class frmHome
     End Sub
     Friend WithEvents CtrL_MenuCine As PAP___Gestão_de_Cinema.CTRL_MenuCine
     Friend WithEvents pnl1 As System.Windows.Forms.Panel
-    Friend WithEvents lbl1 As System.Windows.Forms.Label
+    Friend WithEvents lblPergunta As System.Windows.Forms.Label
     Friend WithEvents flp1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents pnlFuncionarios As System.Windows.Forms.Panel
     Friend WithEvents lbl4 As System.Windows.Forms.Label
@@ -617,4 +634,5 @@ Partial Class frmHome
     Friend WithEvents lblVendas As System.Windows.Forms.Label
     Friend WithEvents lbl10 As System.Windows.Forms.Label
     Friend WithEvents pct9 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

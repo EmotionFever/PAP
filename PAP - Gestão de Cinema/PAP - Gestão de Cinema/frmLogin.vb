@@ -5,6 +5,7 @@ Public Class frmLogin
     Dim comando As MySqlCommand
     Dim query As String
     Dim leitor As MySqlDataReader
+    Public codF As Integer
     Private Sub verificacao()
         If txtNome.Text = "" Then
             lblErroUtl.Text = "Não escreveu o nome de utilizador"
@@ -26,11 +27,38 @@ Public Class frmLogin
             Exit Sub
         End If
 
-        query = "select codG, nome from funcionarios"
+        query = "select * from funcionarios where nome='" + txtNome.Text + "'"
         comando = New MySqlCommand(query, ligacao)
-
         ligacao.Open()
         leitor = comando.ExecuteReader
+        If leitor.Read Then 'Utilizador existe na base de dados
+            rctUtl.BackColor = Color.LightGreen
+            rctUtl.BorderColor = Color.LightGreen
+            txtNome.BackColor = Color.LightGreen
+            pctUtl.BackColor = Color.LightGreen
+
+            If txtPass.Text = leitor.GetString("palavra_passe") Then
+                codF = leitor.GetInt32("codF")
+                Me.Hide()
+                frmHome.Show()
+
+            Else
+                lblErroPass.Text = "Palavra-passe incorreta"
+                rctPass.BackColor = Color.LightSalmon
+                rctPass.BorderColor = Color.LightSalmon
+                txtPass.BackColor = Color.LightSalmon
+                txtPass.ForeColor = Color.Red
+                pctPass.BackColor = Color.LightSalmon
+            End If
+        Else
+            lblErroUtl.Text = "Utilizador inexistente"
+            rctUtl.BackColor = Color.LightSalmon
+            rctUtl.BorderColor = Color.LightSalmon
+            txtNome.BackColor = Color.LightSalmon
+            txtNome.ForeColor = Color.Red
+            pctUtl.BackColor = Color.LightSalmon
+        End If
+        ligacao.Dispose()
 
         'Se utilizador existe na base de dados
         '   rctUtl.BackColor = Color.LightGreen
@@ -70,9 +98,5 @@ Public Class frmLogin
         txtPass.BackColor = Color.White
         txtPass.ForeColor = Color.Black
         pctPass.BackColor = Color.White
-    End Sub
-
-    Private Sub frmLogin_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

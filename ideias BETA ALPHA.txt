@@ -1,0 +1,7 @@
+- Ligar a tabela bilhetes não só à tabela 'Lugares' mas também à 'Calendarios'.
+	PORQUÊ? 	Select filmes.nome as sessao from filmes, calendarios, salas, lugares, bilhetes, vendas where vendas.codV=bilhetes.codV and bilhetes.codB=lugares.codL and lugares.codS=salas.codS and calendarios.codS=salas.codS and calendarios.codFl=filmes.codFl and vendas.datav between calendarios.datai and calendarios.dataf
+	Quando podia!	Select filmes.nome as sessao from filmes, calendarios, bilhetes where bilhetes.codCa=calendarios.codCa and calendarios.codFl=filmes.codFl
+
+- Acrescentar username à tabela 'Funcionarios'
+	PORQUÊ?		Nome de utilizador: Roberta Chaves
+	Quando podia!	Nome de utilizador: Beta97
