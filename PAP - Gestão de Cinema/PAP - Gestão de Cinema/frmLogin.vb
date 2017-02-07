@@ -1,4 +1,10 @@
-﻿Public Class frmLogin
+﻿Imports MySql.Data.MySqlClient
+Public Class frmLogin
+    Dim ligacao As New MySqlConnection("Server=localhost;DataBase=ppap;Uid=root;Pwd=;Connect Timeout=30;")
+    Dim adapter As New MySqlDataAdapter
+    Dim comando As MySqlCommand
+    Dim query As String
+    Dim leitor As MySqlDataReader
     Private Sub verificacao()
         If txtNome.Text = "" Then
             lblErroUtl.Text = "Não escreveu o nome de utilizador"
@@ -18,10 +24,13 @@
 
         If lblErroUtl.Text <> "" Or lblErroPass.Text <> "" Then
             Exit Sub
-        Else 'REMOVER ESTE CÓDIGO|REMOVER ESTE CÓDIGO ---->------>------<------<-----
-            Me.Hide()
-            frmHome.Show()
         End If
+
+        query = "select codG, nome from funcionarios"
+        comando = New MySqlCommand(query, ligacao)
+
+        ligacao.Open()
+        leitor = comando.ExecuteReader
 
         'Se utilizador existe na base de dados
         '   rctUtl.BackColor = Color.LightGreen
