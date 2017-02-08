@@ -6,7 +6,29 @@ Public Class frmLogin
     Dim query As String
     Dim leitor As MySqlDataReader
     Public codF As Integer
+
+    Private Sub restaurarUtl()
+        lblErroUtl.Text = ""
+        rctUtl.BackColor = Color.White
+        rctUtl.BorderColor = Color.White
+        txtNome.BackColor = Color.White
+        txtNome.ForeColor = Color.Black
+        pctUtl.BackColor = Color.White
+    End Sub
+
+    Private Sub restaurarPass()
+        lblErroPass.Text = ""
+        rctPass.BackColor = Color.White
+        rctPass.BorderColor = Color.White
+        txtPass.BackColor = Color.White
+        txtPass.ForeColor = Color.Black
+        pctPass.BackColor = Color.White
+    End Sub
+
     Private Sub verificacao()
+        restaurarUtl()
+        restaurarPass()
+
         If txtNome.Text = "" Then
             lblErroUtl.Text = "Não escreveu o nome de utilizador"
             rctUtl.BackColor = Color.LightSalmon
@@ -83,20 +105,10 @@ Public Class frmLogin
     End Sub
 
     Private Sub txtNome_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNome.TextChanged
-        lblErroUtl.Text = ""
-        rctUtl.BackColor = Color.White
-        rctUtl.BorderColor = Color.White
-        txtNome.BackColor = Color.White
-        txtNome.ForeColor = Color.Black
-        pctUtl.BackColor = Color.White
+        restaurarUtl()
     End Sub
 
     Private Sub txtPass_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPass.TextChanged
-        lblErroPass.Text = ""
-        rctPass.BackColor = Color.White
-        rctPass.BorderColor = Color.White
-        txtPass.BackColor = Color.White
-        txtPass.ForeColor = Color.Black
-        pctPass.BackColor = Color.White
+        restaurarPass()
     End Sub
 End Class

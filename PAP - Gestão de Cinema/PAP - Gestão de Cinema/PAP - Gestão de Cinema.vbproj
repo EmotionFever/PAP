@@ -249,12 +249,6 @@
     <None Include="Resources\produtos_converted.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\salas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\salas_converted.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\vendas.png" />
   </ItemGroup>
   <ItemGroup>
@@ -270,6 +264,10 @@
     <None Include="Resources\lixo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\salas.png" />
+    <None Include="Resources\salas_converted.png" />
+    <None Include="Resources\lugares_converted.png" />
+    <None Include="Resources\lugares.png" />
     <Content Include="rolo_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
