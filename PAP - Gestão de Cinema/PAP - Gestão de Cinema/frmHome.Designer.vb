@@ -27,58 +27,70 @@ Partial Class frmHome
         Me.pnlLugares = New System.Windows.Forms.Panel()
         Me.lblLugares = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
+        Me.pct1 = New System.Windows.Forms.PictureBox()
         Me.pnlClientes = New System.Windows.Forms.Panel()
         Me.lblClientes = New System.Windows.Forms.Label()
         Me.lbl3 = New System.Windows.Forms.Label()
+        Me.pct2 = New System.Windows.Forms.PictureBox()
         Me.pnlFuncionarios = New System.Windows.Forms.Panel()
         Me.lblFuncionarios = New System.Windows.Forms.Label()
         Me.lbl4 = New System.Windows.Forms.Label()
+        Me.pct3 = New System.Windows.Forms.PictureBox()
         Me.pnlEncargos = New System.Windows.Forms.Panel()
         Me.lblEncargos = New System.Windows.Forms.Label()
         Me.lbl6 = New System.Windows.Forms.Label()
+        Me.pct5 = New System.Windows.Forms.PictureBox()
         Me.pnlCalendarios = New System.Windows.Forms.Panel()
         Me.lblCalendarios = New System.Windows.Forms.Label()
         Me.lbl7 = New System.Windows.Forms.Label()
+        Me.pct6 = New System.Windows.Forms.PictureBox()
         Me.pnlProdutos = New System.Windows.Forms.Panel()
         Me.lblProdutos = New System.Windows.Forms.Label()
         Me.lbl8 = New System.Windows.Forms.Label()
+        Me.pct7 = New System.Windows.Forms.PictureBox()
         Me.pnlSalas = New System.Windows.Forms.Panel()
         Me.lblSalas = New System.Windows.Forms.Label()
         Me.lbl9 = New System.Windows.Forms.Label()
+        Me.pct8 = New System.Windows.Forms.PictureBox()
         Me.pnlVendas = New System.Windows.Forms.Panel()
         Me.lblVendas = New System.Windows.Forms.Label()
         Me.lbl10 = New System.Windows.Forms.Label()
-        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
+        Me.pct9 = New System.Windows.Forms.PictureBox()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.lblPergunta = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.pct1 = New System.Windows.Forms.PictureBox()
-        Me.pct2 = New System.Windows.Forms.PictureBox()
-        Me.pct3 = New System.Windows.Forms.PictureBox()
-        Me.pct5 = New System.Windows.Forms.PictureBox()
-        Me.pct6 = New System.Windows.Forms.PictureBox()
-        Me.pct7 = New System.Windows.Forms.PictureBox()
-        Me.pct8 = New System.Windows.Forms.PictureBox()
-        Me.pct9 = New System.Windows.Forms.PictureBox()
+        Me.gpb1 = New System.Windows.Forms.GroupBox()
+        Me.lbl20 = New System.Windows.Forms.Label()
+        Me.lbl45 = New System.Windows.Forms.Label()
+        Me.lbl41 = New System.Windows.Forms.Label()
+        Me.lbl453 = New System.Windows.Forms.Label()
+        Me.lblNome = New System.Windows.Forms.Label()
+        Me.lblFuncao = New System.Windows.Forms.Label()
+        Me.lblTlm = New System.Windows.Forms.Label()
+        Me.lblmorada = New System.Windows.Forms.Label()
+        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
+        Me.lbl78 = New System.Windows.Forms.Label()
+        Me.lblidade = New System.Windows.Forms.Label()
         Me.flp1.SuspendLayout()
         Me.pnlLugares.SuspendLayout()
+        CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlClientes.SuspendLayout()
+        CType(Me.pct2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFuncionarios.SuspendLayout()
+        CType(Me.pct3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlEncargos.SuspendLayout()
+        CType(Me.pct5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlCalendarios.SuspendLayout()
+        CType(Me.pct6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlProdutos.SuspendLayout()
+        CType(Me.pct7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlSalas.SuspendLayout()
+        CType(Me.pct8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlVendas.SuspendLayout()
+        CType(Me.pct9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pct2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pct3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pct5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pct6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pct7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pct8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pct9, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gpb1.SuspendLayout()
         Me.SuspendLayout()
         '
         'flp1
@@ -91,7 +103,7 @@ Partial Class frmHome
         Me.flp1.Controls.Add(Me.pnlProdutos)
         Me.flp1.Controls.Add(Me.pnlSalas)
         Me.flp1.Controls.Add(Me.pnlVendas)
-        Me.flp1.Location = New System.Drawing.Point(79, 175)
+        Me.flp1.Location = New System.Drawing.Point(77, 213)
         Me.flp1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.flp1.Name = "flp1"
         Me.flp1.Size = New System.Drawing.Size(553, 396)
@@ -131,6 +143,17 @@ Partial Class frmHome
         Me.lbl2.Text = "Lugares"
         Me.lbl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pct1
+        '
+        Me.pct1.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.lugares
+        Me.pct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct1.Location = New System.Drawing.Point(0, 0)
+        Me.pct1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pct1.Name = "pct1"
+        Me.pct1.Size = New System.Drawing.Size(59, 55)
+        Me.pct1.TabIndex = 1
+        Me.pct1.TabStop = False
+        '
         'pnlClientes
         '
         Me.pnlClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -164,6 +187,17 @@ Partial Class frmHome
         Me.lbl3.TabIndex = 2
         Me.lbl3.Text = "Clientes"
         Me.lbl3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'pct2
+        '
+        Me.pct2.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.cliente
+        Me.pct2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct2.Location = New System.Drawing.Point(0, 0)
+        Me.pct2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pct2.Name = "pct2"
+        Me.pct2.Size = New System.Drawing.Size(59, 55)
+        Me.pct2.TabIndex = 1
+        Me.pct2.TabStop = False
         '
         'pnlFuncionarios
         '
@@ -199,6 +233,17 @@ Partial Class frmHome
         Me.lbl4.Text = "Funcionários"
         Me.lbl4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pct3
+        '
+        Me.pct3.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.utilizadores
+        Me.pct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct3.Location = New System.Drawing.Point(0, 0)
+        Me.pct3.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pct3.Name = "pct3"
+        Me.pct3.Size = New System.Drawing.Size(59, 55)
+        Me.pct3.TabIndex = 1
+        Me.pct3.TabStop = False
+        '
         'pnlEncargos
         '
         Me.pnlEncargos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -232,6 +277,17 @@ Partial Class frmHome
         Me.lbl6.TabIndex = 2
         Me.lbl6.Text = "Encargos"
         Me.lbl6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'pct5
+        '
+        Me.pct5.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.graus
+        Me.pct5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct5.Location = New System.Drawing.Point(0, 0)
+        Me.pct5.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pct5.Name = "pct5"
+        Me.pct5.Size = New System.Drawing.Size(59, 55)
+        Me.pct5.TabIndex = 1
+        Me.pct5.TabStop = False
         '
         'pnlCalendarios
         '
@@ -267,6 +323,17 @@ Partial Class frmHome
         Me.lbl7.Text = "Calendários"
         Me.lbl7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pct6
+        '
+        Me.pct6.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.horarios
+        Me.pct6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct6.Location = New System.Drawing.Point(0, 0)
+        Me.pct6.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pct6.Name = "pct6"
+        Me.pct6.Size = New System.Drawing.Size(59, 55)
+        Me.pct6.TabIndex = 1
+        Me.pct6.TabStop = False
+        '
         'pnlProdutos
         '
         Me.pnlProdutos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -300,6 +367,17 @@ Partial Class frmHome
         Me.lbl8.TabIndex = 2
         Me.lbl8.Text = "Produtos"
         Me.lbl8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'pct7
+        '
+        Me.pct7.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.produtos
+        Me.pct7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct7.Location = New System.Drawing.Point(0, 0)
+        Me.pct7.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pct7.Name = "pct7"
+        Me.pct7.Size = New System.Drawing.Size(59, 55)
+        Me.pct7.TabIndex = 1
+        Me.pct7.TabStop = False
         '
         'pnlSalas
         '
@@ -335,6 +413,17 @@ Partial Class frmHome
         Me.lbl9.Text = "Salas"
         Me.lbl9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pct8
+        '
+        Me.pct8.BackgroundImage = CType(resources.GetObject("pct8.BackgroundImage"), System.Drawing.Image)
+        Me.pct8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct8.Location = New System.Drawing.Point(0, 0)
+        Me.pct8.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pct8.Name = "pct8"
+        Me.pct8.Size = New System.Drawing.Size(59, 55)
+        Me.pct8.TabIndex = 1
+        Me.pct8.TabStop = False
+        '
         'pnlVendas
         '
         Me.pnlVendas.BackColor = System.Drawing.Color.Thistle
@@ -369,14 +458,16 @@ Partial Class frmHome
         Me.lbl10.Text = "Vendas"
         Me.lbl10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'CtrL_MenuCine
+        'pct9
         '
-        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
-        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
-        Me.CtrL_MenuCine.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 619)
-        Me.CtrL_MenuCine.TabIndex = 2
+        Me.pct9.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.vendas
+        Me.pct9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct9.Location = New System.Drawing.Point(0, 0)
+        Me.pct9.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pct9.Name = "pct9"
+        Me.pct9.Size = New System.Drawing.Size(59, 55)
+        Me.pct9.TabIndex = 1
+        Me.pct9.TabStop = False
         '
         'pnl1
         '
@@ -415,100 +506,143 @@ Partial Class frmHome
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
         '
-        'pct1
+        'gpb1
         '
-        Me.pct1.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.lugares
-        Me.pct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct1.Location = New System.Drawing.Point(0, 0)
-        Me.pct1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pct1.Name = "pct1"
-        Me.pct1.Size = New System.Drawing.Size(59, 55)
-        Me.pct1.TabIndex = 1
-        Me.pct1.TabStop = False
+        Me.gpb1.Controls.Add(Me.lblidade)
+        Me.gpb1.Controls.Add(Me.lbl78)
+        Me.gpb1.Controls.Add(Me.lblmorada)
+        Me.gpb1.Controls.Add(Me.lblTlm)
+        Me.gpb1.Controls.Add(Me.lblFuncao)
+        Me.gpb1.Controls.Add(Me.lblNome)
+        Me.gpb1.Controls.Add(Me.lbl453)
+        Me.gpb1.Controls.Add(Me.lbl41)
+        Me.gpb1.Controls.Add(Me.lbl45)
+        Me.gpb1.Controls.Add(Me.lbl20)
+        Me.gpb1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gpb1.ForeColor = System.Drawing.Color.LightGray
+        Me.gpb1.Location = New System.Drawing.Point(74, 125)
+        Me.gpb1.Name = "gpb1"
+        Me.gpb1.Size = New System.Drawing.Size(556, 73)
+        Me.gpb1.TabIndex = 5
+        Me.gpb1.TabStop = False
+        Me.gpb1.Text = "As suas informações"
         '
-        'pct2
+        'lbl20
         '
-        Me.pct2.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.cliente
-        Me.pct2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct2.Location = New System.Drawing.Point(0, 0)
-        Me.pct2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pct2.Name = "pct2"
-        Me.pct2.Size = New System.Drawing.Size(59, 55)
-        Me.pct2.TabIndex = 1
-        Me.pct2.TabStop = False
+        Me.lbl20.AutoSize = True
+        Me.lbl20.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl20.Location = New System.Drawing.Point(9, 18)
+        Me.lbl20.Name = "lbl20"
+        Me.lbl20.Size = New System.Drawing.Size(43, 15)
+        Me.lbl20.TabIndex = 0
+        Me.lbl20.Text = "Nome:"
         '
-        'pct3
+        'lbl45
         '
-        Me.pct3.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.utilizadores
-        Me.pct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct3.Location = New System.Drawing.Point(0, 0)
-        Me.pct3.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pct3.Name = "pct3"
-        Me.pct3.Size = New System.Drawing.Size(59, 55)
-        Me.pct3.TabIndex = 1
-        Me.pct3.TabStop = False
+        Me.lbl45.AutoSize = True
+        Me.lbl45.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl45.Location = New System.Drawing.Point(9, 33)
+        Me.lbl45.Name = "lbl45"
+        Me.lbl45.Size = New System.Drawing.Size(57, 15)
+        Me.lbl45.TabIndex = 1
+        Me.lbl45.Text = "Encargo:"
         '
-        'pct5
+        'lbl41
         '
-        Me.pct5.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.graus
-        Me.pct5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct5.Location = New System.Drawing.Point(0, 0)
-        Me.pct5.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pct5.Name = "pct5"
-        Me.pct5.Size = New System.Drawing.Size(59, 55)
-        Me.pct5.TabIndex = 1
-        Me.pct5.TabStop = False
+        Me.lbl41.AutoSize = True
+        Me.lbl41.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl41.Location = New System.Drawing.Point(9, 49)
+        Me.lbl41.Name = "lbl41"
+        Me.lbl41.Size = New System.Drawing.Size(67, 15)
+        Me.lbl41.TabIndex = 2
+        Me.lbl41.Text = "Telemóvel:"
         '
-        'pct6
+        'lbl453
         '
-        Me.pct6.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.horarios
-        Me.pct6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct6.Location = New System.Drawing.Point(0, 0)
-        Me.pct6.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pct6.Name = "pct6"
-        Me.pct6.Size = New System.Drawing.Size(59, 55)
-        Me.pct6.TabIndex = 1
-        Me.pct6.TabStop = False
+        Me.lbl453.AutoSize = True
+        Me.lbl453.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl453.Location = New System.Drawing.Point(258, 18)
+        Me.lbl453.Name = "lbl453"
+        Me.lbl453.Size = New System.Drawing.Size(41, 15)
+        Me.lbl453.TabIndex = 3
+        Me.lbl453.Text = "Idade:"
         '
-        'pct7
+        'lblNome
         '
-        Me.pct7.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.produtos
-        Me.pct7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct7.Location = New System.Drawing.Point(0, 0)
-        Me.pct7.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pct7.Name = "pct7"
-        Me.pct7.Size = New System.Drawing.Size(59, 55)
-        Me.pct7.TabIndex = 1
-        Me.pct7.TabStop = False
+        Me.lblNome.AutoEllipsis = True
+        Me.lblNome.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNome.Location = New System.Drawing.Point(82, 18)
+        Me.lblNome.Name = "lblNome"
+        Me.lblNome.Size = New System.Drawing.Size(170, 15)
+        Me.lblNome.TabIndex = 4
+        Me.lblNome.Text = "XXX"
         '
-        'pct8
+        'lblFuncao
         '
-        Me.pct8.BackgroundImage = CType(resources.GetObject("pct8.BackgroundImage"), System.Drawing.Image)
-        Me.pct8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct8.Location = New System.Drawing.Point(0, 0)
-        Me.pct8.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pct8.Name = "pct8"
-        Me.pct8.Size = New System.Drawing.Size(59, 55)
-        Me.pct8.TabIndex = 1
-        Me.pct8.TabStop = False
+        Me.lblFuncao.AutoSize = True
+        Me.lblFuncao.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFuncao.Location = New System.Drawing.Point(82, 33)
+        Me.lblFuncao.Name = "lblFuncao"
+        Me.lblFuncao.Size = New System.Drawing.Size(28, 15)
+        Me.lblFuncao.TabIndex = 5
+        Me.lblFuncao.Text = "XXX"
         '
-        'pct9
+        'lblTlm
         '
-        Me.pct9.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.vendas
-        Me.pct9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct9.Location = New System.Drawing.Point(0, 0)
-        Me.pct9.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pct9.Name = "pct9"
-        Me.pct9.Size = New System.Drawing.Size(59, 55)
-        Me.pct9.TabIndex = 1
-        Me.pct9.TabStop = False
+        Me.lblTlm.AutoSize = True
+        Me.lblTlm.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTlm.Location = New System.Drawing.Point(82, 49)
+        Me.lblTlm.Name = "lblTlm"
+        Me.lblTlm.Size = New System.Drawing.Size(28, 15)
+        Me.lblTlm.TabIndex = 6
+        Me.lblTlm.Text = "XXX"
+        '
+        'lblmorada
+        '
+        Me.lblmorada.AutoEllipsis = True
+        Me.lblmorada.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblmorada.Location = New System.Drawing.Point(333, 33)
+        Me.lblmorada.Name = "lblmorada"
+        Me.lblmorada.Size = New System.Drawing.Size(208, 31)
+        Me.lblmorada.TabIndex = 7
+        Me.lblmorada.Text = "XXX"
+        '
+        'CtrL_MenuCine
+        '
+        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
+        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
+        Me.CtrL_MenuCine.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 650)
+        Me.CtrL_MenuCine.TabIndex = 2
+        '
+        'lbl78
+        '
+        Me.lbl78.AutoSize = True
+        Me.lbl78.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl78.Location = New System.Drawing.Point(258, 33)
+        Me.lbl78.Name = "lbl78"
+        Me.lbl78.Size = New System.Drawing.Size(53, 15)
+        Me.lbl78.TabIndex = 8
+        Me.lbl78.Text = "Morada:"
+        '
+        'lblidade
+        '
+        Me.lblidade.AutoSize = True
+        Me.lblidade.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblidade.Location = New System.Drawing.Point(333, 18)
+        Me.lblidade.Name = "lblidade"
+        Me.lblidade.Size = New System.Drawing.Size(28, 15)
+        Me.lblidade.TabIndex = 9
+        Me.lblidade.Text = "XXX"
         '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(661, 619)
+        Me.ClientSize = New System.Drawing.Size(661, 650)
+        Me.Controls.Add(Me.gpb1)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.pnl1)
         Me.Controls.Add(Me.flp1)
@@ -520,23 +654,25 @@ Partial Class frmHome
         Me.Text = "Gestão de Cinema"
         Me.flp1.ResumeLayout(False)
         Me.pnlLugares.ResumeLayout(False)
+        CType(Me.pct1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlClientes.ResumeLayout(False)
+        CType(Me.pct2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlFuncionarios.ResumeLayout(False)
+        CType(Me.pct3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlEncargos.ResumeLayout(False)
+        CType(Me.pct5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlCalendarios.ResumeLayout(False)
+        CType(Me.pct6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlProdutos.ResumeLayout(False)
+        CType(Me.pct7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlSalas.ResumeLayout(False)
+        CType(Me.pct8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlVendas.ResumeLayout(False)
+        CType(Me.pct9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnl1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pct1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pct2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pct3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pct5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pct6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pct7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pct8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pct9, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gpb1.ResumeLayout(False)
+        Me.gpb1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -577,4 +713,15 @@ Partial Class frmHome
     Friend WithEvents lbl10 As System.Windows.Forms.Label
     Friend WithEvents pct9 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents gpb1 As System.Windows.Forms.GroupBox
+    Friend WithEvents lbl453 As System.Windows.Forms.Label
+    Friend WithEvents lbl41 As System.Windows.Forms.Label
+    Friend WithEvents lbl45 As System.Windows.Forms.Label
+    Friend WithEvents lbl20 As System.Windows.Forms.Label
+    Friend WithEvents lblmorada As System.Windows.Forms.Label
+    Friend WithEvents lblTlm As System.Windows.Forms.Label
+    Friend WithEvents lblFuncao As System.Windows.Forms.Label
+    Friend WithEvents lblNome As System.Windows.Forms.Label
+    Friend WithEvents lblidade As System.Windows.Forms.Label
+    Friend WithEvents lbl78 As System.Windows.Forms.Label
 End Class

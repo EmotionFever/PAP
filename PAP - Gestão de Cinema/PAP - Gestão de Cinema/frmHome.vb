@@ -23,7 +23,7 @@ Public Class frmHome
         pnlVendas.Hide()
 
         Dim nome = "", nome_completo As String
-        query = "select * from funcionarios where codF=" + frmLogin.codF.ToString
+        query = "select Funcionarios.nome as nome, Encargos.nome as encargo, telemovel, localidades.nome as localidade, TIMESTAMPDIFF(datanasc, '1970-02-01', CURDATE()) as idade, ordenado, rua from funcionarios, encargos, localidades where localidades.codlo=funcionarios.codlo and funcionarios.code=encargos.code and codF=" + frmLogin.codF.ToString
 
         comando = New MySqlCommand(query, ligacao)
         ligacao.Open()
@@ -39,6 +39,11 @@ Public Class frmHome
             End If
         Next
         lblPergunta.Text = "O que deseja fazer, " + nome + "?"
+
+        lblNome.Text = leitor.GetString("nome")
+        lblFuncao.Text = leitor.GetString("encargo")
+        lblTlm.Text = leitor.GetString("telemovel")
+        lblmorada.Text = leitor.GetString("localidade")
         ligacao.Dispose()
 
         '2ª ligação
@@ -91,7 +96,6 @@ Public Class frmHome
             End If
         End While
         ligacao.Dispose()
-
     End Sub
 
     Private Sub frmHome_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
@@ -99,4 +103,11 @@ Public Class frmHome
     End Sub
 
 
+    Private Sub Label4_Click(sender As System.Object, e As System.EventArgs) Handles lbl453.Click
+
+    End Sub
+
+    Private Sub lblLocal_Click(sender As System.Object, e As System.EventArgs) Handles lblmorada.Click
+
+    End Sub
 End Class
