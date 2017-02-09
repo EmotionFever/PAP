@@ -45,9 +45,6 @@ Partial Class frmClientes
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.rctNome = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.rct56 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.rct40 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.rct30 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctTelemovel = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctIII = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctMorada = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
@@ -59,11 +56,11 @@ Partial Class frmClientes
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ckkTel = New System.Windows.Forms.CheckBox()
         Me.mtbTel = New System.Windows.Forms.MaskedTextBox()
-        Me.lblInserir = New System.Windows.Forms.Label()
         Me.mtbNIF = New System.Windows.Forms.MaskedTextBox()
-        Me.lblProcurar = New System.Windows.Forms.Label()
-        Me.lblAlterar = New System.Windows.Forms.Label()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
+        Me.btnEntrar = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.pnl1.SuspendLayout()
         Me.grpApagar.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -291,40 +288,10 @@ Partial Class frmClientes
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rct56, Me.rct40, Me.rct30, Me.rctTelemovel, Me.rctIII, Me.rctMorada, Me.rctNIF, Me.rctNome})
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctTelemovel, Me.rctIII, Me.rctMorada, Me.rctNIF, Me.rctNome})
         Me.ShapeContainer1.Size = New System.Drawing.Size(853, 692)
         Me.ShapeContainer1.TabIndex = 26
         Me.ShapeContainer1.TabStop = False
-        '
-        'rct56
-        '
-        Me.rct56.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct56.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rct56.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct56.CornerRadius = 2
-        Me.rct56.Location = New System.Drawing.Point(695, 464)
-        Me.rct56.Name = "rct56"
-        Me.rct56.Size = New System.Drawing.Size(65, 21)
-        '
-        'rct40
-        '
-        Me.rct40.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct40.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rct40.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct40.CornerRadius = 2
-        Me.rct40.Location = New System.Drawing.Point(522, 465)
-        Me.rct40.Name = "rct40"
-        Me.rct40.Size = New System.Drawing.Size(65, 21)
-        '
-        'rct30
-        '
-        Me.rct30.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct30.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rct30.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rct30.CornerRadius = 2
-        Me.rct30.Location = New System.Drawing.Point(610, 464)
-        Me.rct30.Name = "rct30"
-        Me.rct30.Size = New System.Drawing.Size(63, 21)
         '
         'rctTelemovel
         '
@@ -440,18 +407,6 @@ Partial Class frmClientes
         Me.mtbTel.Size = New System.Drawing.Size(195, 14)
         Me.mtbTel.TabIndex = 33
         '
-        'lblInserir
-        '
-        Me.lblInserir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblInserir.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.lblInserir.ForeColor = System.Drawing.Color.White
-        Me.lblInserir.Location = New System.Drawing.Point(524, 468)
-        Me.lblInserir.Name = "lblInserir"
-        Me.lblInserir.Size = New System.Drawing.Size(62, 15)
-        Me.lblInserir.TabIndex = 34
-        Me.lblInserir.Text = "Inserir"
-        Me.lblInserir.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'mtbNIF
         '
         Me.mtbNIF.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -462,30 +417,6 @@ Partial Class frmClientes
         Me.mtbNIF.Size = New System.Drawing.Size(195, 14)
         Me.mtbNIF.TabIndex = 35
         '
-        'lblProcurar
-        '
-        Me.lblProcurar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblProcurar.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.lblProcurar.ForeColor = System.Drawing.Color.White
-        Me.lblProcurar.Location = New System.Drawing.Point(613, 468)
-        Me.lblProcurar.Name = "lblProcurar"
-        Me.lblProcurar.Size = New System.Drawing.Size(61, 15)
-        Me.lblProcurar.TabIndex = 36
-        Me.lblProcurar.Text = "Procurar"
-        Me.lblProcurar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblAlterar
-        '
-        Me.lblAlterar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblAlterar.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.lblAlterar.ForeColor = System.Drawing.Color.White
-        Me.lblAlterar.Location = New System.Drawing.Point(697, 468)
-        Me.lblAlterar.Name = "lblAlterar"
-        Me.lblAlterar.Size = New System.Drawing.Size(61, 15)
-        Me.lblAlterar.TabIndex = 38
-        Me.lblAlterar.Text = "Procurar"
-        Me.lblAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'CtrL_MenuCine
         '
         Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
@@ -494,17 +425,59 @@ Partial Class frmClientes
         Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 692)
         Me.CtrL_MenuCine.TabIndex = 0
         '
+        'btnEntrar
+        '
+        Me.btnEntrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnEntrar.FlatAppearance.BorderSize = 0
+        Me.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEntrar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEntrar.ForeColor = System.Drawing.Color.White
+        Me.btnEntrar.Location = New System.Drawing.Point(520, 464)
+        Me.btnEntrar.Name = "btnEntrar"
+        Me.btnEntrar.Size = New System.Drawing.Size(77, 22)
+        Me.btnEntrar.TabIndex = 39
+        Me.btnEntrar.Text = "Inserir"
+        Me.btnEntrar.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(603, 464)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(72, 22)
+        Me.Button1.TabIndex = 40
+        Me.Button1.Text = "Procurar"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.Location = New System.Drawing.Point(681, 464)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(77, 22)
+        Me.Button2.TabIndex = 41
+        Me.Button2.Text = "Alterar"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'frmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(853, 692)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnEntrar)
         Me.Controls.Add(Me.CtrL_MenuCine)
-        Me.Controls.Add(Me.lblAlterar)
-        Me.Controls.Add(Me.lblProcurar)
         Me.Controls.Add(Me.mtbNIF)
-        Me.Controls.Add(Me.lblInserir)
         Me.Controls.Add(Me.mtbTel)
         Me.Controls.Add(Me.ckkTel)
         Me.Controls.Add(Me.Label2)
@@ -566,15 +539,12 @@ Partial Class frmClientes
     Friend WithEvents txtemail As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtMorada As System.Windows.Forms.TextBox
-    Friend WithEvents rct30 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents rctTelemovel As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents ckkTel As System.Windows.Forms.CheckBox
     Friend WithEvents mtbTel As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents lblInserir As System.Windows.Forms.Label
     Friend WithEvents mtbNIF As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents rct40 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents lblProcurar As System.Windows.Forms.Label
-    Friend WithEvents rct56 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents lblAlterar As System.Windows.Forms.Label
+    Friend WithEvents btnEntrar As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

@@ -11,4 +11,5 @@
     Private Sub frmClientes_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         End
     End Sub
+
 End Class

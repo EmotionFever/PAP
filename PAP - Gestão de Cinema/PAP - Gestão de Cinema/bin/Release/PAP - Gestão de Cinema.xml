@@ -15,7 +15,7 @@ PAP-GestãodeCinema
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.bilhetes">
+</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.add">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -23,23 +23,11 @@ PAP-GestãodeCinema
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.cliente">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
 </member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.cliente_converted">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.filmes">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
 </member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.filmes_converted">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.graus">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -51,19 +39,15 @@ PAP-GestãodeCinema
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.home">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
 </member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.home_converted">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.horarios">
+</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.horarios_converted">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.horarios_converted">
+</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.lixo">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -75,7 +59,7 @@ PAP-GestãodeCinema
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.produtos">
+</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.lugares_converted">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -84,10 +68,6 @@ PAP-GestãodeCinema
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.rolo_imagem">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.salas">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -107,11 +87,11 @@ PAP-GestãodeCinema
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.vendas">
+</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.vendas_converted">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.vendas_converted">
+</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.voltar">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

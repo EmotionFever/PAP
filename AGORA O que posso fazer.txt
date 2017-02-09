@@ -1,2 +1,3 @@
 - Rever os Use Cases
 - Criar as novas tabelas e modificar as já existentes
+- Pôr dados na tabelas

@@ -5,14 +5,25 @@ Public Class frmHome
     Dim comando As MySqlCommand
     Dim query As String
     Dim leitor As MySqlDataReader
+    Public Const DIMLBL As Integer = 7
+    Dim lblI(DIMLBL) As Label
+    Public Const ESPACAMENTO As Integer = 6
+
     'Código tipo para todos os formulários
     Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
         CtrL_MenuCine.SelecionarBotao(0)
     End Sub
 
-
-
     Private Sub frmHome_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        lblI(0) = lblNome
+        lblI(1) = lblFuncao
+        lblI(2) = lblIdade
+        lblI(3) = lblOrdenado
+        lblI(4) = lblRua
+        lblI(5) = lblLocalidade
+        lblI(6) = lblTlm
+
+
         pnlLugares.Hide()
         pnlClientes.Hide()
         pnlFuncionarios.Hide()
@@ -23,7 +34,7 @@ Public Class frmHome
         pnlVendas.Hide()
 
         Dim nome = "", nome_completo As String
-        query = "select Funcionarios.nome as nome, Encargos.nome as encargo, telemovel, localidades.nome as localidade, TIMESTAMPDIFF(datanasc, '1970-02-01', CURDATE()) as idade, ordenado, rua from funcionarios, encargos, localidades where localidades.codlo=funcionarios.codlo and funcionarios.code=encargos.code and codF=" + frmLogin.codF.ToString
+        query = "select Funcionarios.nome as nome, Encargos.nome as encargo, telemovel, localidades.nome as localidade, TIMESTAMPDIFF(year, datanasc, CURDATE()) as idade, ordenado, rua, ordenado from funcionarios, encargos, localidades where localidades.codlo=funcionarios.codlo and funcionarios.code=encargos.code and codF=" + frmLogin.codF.ToString
 
         comando = New MySqlCommand(query, ligacao)
         ligacao.Open()
@@ -43,8 +54,20 @@ Public Class frmHome
         lblNome.Text = leitor.GetString("nome")
         lblFuncao.Text = leitor.GetString("encargo")
         lblTlm.Text = leitor.GetString("telemovel")
-        lblmorada.Text = leitor.GetString("localidade")
+        lblRua.Text = leitor.GetString("rua")
+        lblLocalidade.Text = leitor.GetString("localidade")
+        lblIdade.Text = leitor.GetInt32("idade").ToString + " anos"
+        lblOrdenado.Text = leitor.GetInt32("ordenado").ToString + " €/mês"
         ligacao.Dispose()
+
+        'Novo Código ////////////////////////////////////// EXPERIMENTAL
+
+        lblNome.Location = New Point(pnlAndante.Size.Width, 0)
+        For x As Integer = 1 To DIMLBL - 1 ' Tem de começar no 1 porque a localização da lbl(0), que é igual a lblNome, já está definida
+            lblI(x).Location = New Point(lblI(x - 1).Location.X + lblI(x - 1).Size.Width + ESPACAMENTO, 0)
+        Next
+
+        'Novo Código /////////////////////////
 
         '2ª ligação
 
@@ -102,12 +125,27 @@ Public Class frmHome
         End
     End Sub
 
-
-    Private Sub Label4_Click(sender As System.Object, e As System.EventArgs) Handles lbl453.Click
-
+    Private Sub tmr_Tick(sender As System.Object, e As System.EventArgs) Handles tmr.Tick
+        For x As Integer = 0 To DIMLBL - 1
+            lblI(x).Location = New Point(lblI(x).Location.X - 1, 0)
+            If lblI(x).Location.X = -lblI(x).Size.Width Then
+                If x = 0 Then
+                    lblI(0).Location = New Point(lblI(DIMLBL - 1).Location.X + lblI(DIMLBL - 1).Width + ESPACAMENTO * 20)
+                Else
+                    lblI(x).Location = New Point(lblI(x - 1).Location.X + lblI(x - 1).Width + ESPACAMENTO)
+                End If
+            End If
+        Next
     End Sub
 
-    Private Sub lblLocal_Click(sender As System.Object, e As System.EventArgs) Handles lblmorada.Click
+    Private Sub pctVendas_Click(sender As System.Object, e As System.EventArgs) Handles pctVendas.Click, lbl_Vendas.Click, lblVendas.Click, pnlVendas.Click
+        Me.Hide()
+        frmVendas.Show()
+    End Sub
 
+
+    Private Sub lbl_Clientes_Click(sender As System.Object, e As System.EventArgs) Handles lbl_Clientes.Click, lblClientes.Click, pctClientes.Click, pnlClientes.Click
+        Me.Hide()
+        frmClientes.Show()
     End Sub
 End Class
