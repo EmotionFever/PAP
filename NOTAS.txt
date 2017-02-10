@@ -1,1 +1,2 @@
-O que fica guardado numa coluna datetime é algo deste género '0000-00-00 00:00:00'
+O que fica guardado numa coluna datetime é algo deste género '0000-00-00 00:00:00',
+Impedir que o 1º caracter do nome seja um espaço, " ".

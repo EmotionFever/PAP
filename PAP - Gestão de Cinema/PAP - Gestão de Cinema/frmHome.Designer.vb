@@ -61,14 +61,14 @@ Partial Class frmHome
         Me.lblDefinicoes = New System.Windows.Forms.Label()
         Me.lbl_Definicoes = New System.Windows.Forms.Label()
         Me.pctDefinicoes = New System.Windows.Forms.PictureBox()
-        Me.lblIdade = New System.Windows.Forms.Label()
-        Me.lblRua = New System.Windows.Forms.Label()
-        Me.lblTlm = New System.Windows.Forms.Label()
-        Me.lblFuncao = New System.Windows.Forms.Label()
-        Me.lblNome = New System.Windows.Forms.Label()
+        Me.lblx3 = New System.Windows.Forms.Label()
+        Me.lblx5 = New System.Windows.Forms.Label()
+        Me.lblx7 = New System.Windows.Forms.Label()
+        Me.lblx2 = New System.Windows.Forms.Label()
+        Me.lblx1 = New System.Windows.Forms.Label()
         Me.pnlAndante = New System.Windows.Forms.Panel()
-        Me.lblLocalidade = New System.Windows.Forms.Label()
-        Me.lblOrdenado = New System.Windows.Forms.Label()
+        Me.lblx6 = New System.Windows.Forms.Label()
+        Me.lblx4 = New System.Windows.Forms.Label()
         Me.tmr = New System.Windows.Forms.Timer(Me.components)
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.lblPergunta = New System.Windows.Forms.Label()
@@ -556,100 +556,107 @@ Partial Class frmHome
         Me.pctDefinicoes.TabIndex = 1
         Me.pctDefinicoes.TabStop = False
         '
-        'lblIdade
+        'lblx3
         '
-        Me.lblIdade.AutoSize = True
-        Me.lblIdade.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIdade.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblIdade.Location = New System.Drawing.Point(67, 0)
-        Me.lblIdade.Name = "lblIdade"
-        Me.lblIdade.Size = New System.Drawing.Size(28, 15)
-        Me.lblIdade.TabIndex = 9
-        Me.lblIdade.Text = "XXX"
+        Me.lblx3.AutoSize = True
+        Me.lblx3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblx3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblx3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblx3.Location = New System.Drawing.Point(67, 0)
+        Me.lblx3.Name = "lblx3"
+        Me.lblx3.Size = New System.Drawing.Size(28, 15)
+        Me.lblx3.TabIndex = 9
+        Me.lblx3.Text = "XXX"
         '
-        'lblRua
+        'lblx5
         '
-        Me.lblRua.AutoSize = True
-        Me.lblRua.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRua.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblRua.Location = New System.Drawing.Point(135, 0)
-        Me.lblRua.Name = "lblRua"
-        Me.lblRua.Size = New System.Drawing.Size(28, 15)
-        Me.lblRua.TabIndex = 7
-        Me.lblRua.Text = "XXX"
+        Me.lblx5.AutoSize = True
+        Me.lblx5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblx5.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblx5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblx5.Location = New System.Drawing.Point(135, 0)
+        Me.lblx5.Name = "lblx5"
+        Me.lblx5.Size = New System.Drawing.Size(28, 15)
+        Me.lblx5.TabIndex = 7
+        Me.lblx5.Text = "XXX"
         '
-        'lblTlm
+        'lblx7
         '
-        Me.lblTlm.AutoSize = True
-        Me.lblTlm.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTlm.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblTlm.Location = New System.Drawing.Point(203, 0)
-        Me.lblTlm.Name = "lblTlm"
-        Me.lblTlm.Size = New System.Drawing.Size(28, 15)
-        Me.lblTlm.TabIndex = 6
-        Me.lblTlm.Text = "XXX"
+        Me.lblx7.AutoSize = True
+        Me.lblx7.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblx7.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblx7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblx7.Location = New System.Drawing.Point(203, 0)
+        Me.lblx7.Name = "lblx7"
+        Me.lblx7.Size = New System.Drawing.Size(28, 15)
+        Me.lblx7.TabIndex = 6
+        Me.lblx7.Text = "XXX"
         '
-        'lblFuncao
+        'lblx2
         '
-        Me.lblFuncao.AutoSize = True
-        Me.lblFuncao.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFuncao.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblFuncao.Location = New System.Drawing.Point(33, 0)
-        Me.lblFuncao.Name = "lblFuncao"
-        Me.lblFuncao.Size = New System.Drawing.Size(28, 15)
-        Me.lblFuncao.TabIndex = 5
-        Me.lblFuncao.Text = "XXX"
+        Me.lblx2.AutoSize = True
+        Me.lblx2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblx2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblx2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblx2.Location = New System.Drawing.Point(33, 0)
+        Me.lblx2.Name = "lblx2"
+        Me.lblx2.Size = New System.Drawing.Size(28, 15)
+        Me.lblx2.TabIndex = 5
+        Me.lblx2.Text = "XXX"
         '
-        'lblNome
+        'lblx1
         '
-        Me.lblNome.AutoSize = True
-        Me.lblNome.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblNome.Location = New System.Drawing.Point(3, 0)
-        Me.lblNome.Name = "lblNome"
-        Me.lblNome.Size = New System.Drawing.Size(28, 15)
-        Me.lblNome.TabIndex = 4
-        Me.lblNome.Text = "XXX"
+        Me.lblx1.AutoSize = True
+        Me.lblx1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblx1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblx1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblx1.Location = New System.Drawing.Point(3, 0)
+        Me.lblx1.Name = "lblx1"
+        Me.lblx1.Size = New System.Drawing.Size(28, 15)
+        Me.lblx1.TabIndex = 4
+        Me.lblx1.Text = "XXX"
         '
         'pnlAndante
         '
-        Me.pnlAndante.Controls.Add(Me.lblLocalidade)
-        Me.pnlAndante.Controls.Add(Me.lblOrdenado)
-        Me.pnlAndante.Controls.Add(Me.lblIdade)
-        Me.pnlAndante.Controls.Add(Me.lblNome)
-        Me.pnlAndante.Controls.Add(Me.lblRua)
-        Me.pnlAndante.Controls.Add(Me.lblFuncao)
-        Me.pnlAndante.Controls.Add(Me.lblTlm)
+        Me.pnlAndante.Controls.Add(Me.lblx6)
+        Me.pnlAndante.Controls.Add(Me.lblx4)
+        Me.pnlAndante.Controls.Add(Me.lblx3)
+        Me.pnlAndante.Controls.Add(Me.lblx1)
+        Me.pnlAndante.Controls.Add(Me.lblx5)
+        Me.pnlAndante.Controls.Add(Me.lblx2)
+        Me.pnlAndante.Controls.Add(Me.lblx7)
+        Me.pnlAndante.Cursor = System.Windows.Forms.Cursors.Default
         Me.pnlAndante.Location = New System.Drawing.Point(74, 123)
         Me.pnlAndante.Name = "pnlAndante"
         Me.pnlAndante.Size = New System.Drawing.Size(556, 17)
         Me.pnlAndante.TabIndex = 6
         '
-        'lblLocalidade
+        'lblx6
         '
-        Me.lblLocalidade.AutoSize = True
-        Me.lblLocalidade.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLocalidade.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblLocalidade.Location = New System.Drawing.Point(169, 0)
-        Me.lblLocalidade.Name = "lblLocalidade"
-        Me.lblLocalidade.Size = New System.Drawing.Size(28, 15)
-        Me.lblLocalidade.TabIndex = 11
-        Me.lblLocalidade.Text = "XXX"
+        Me.lblx6.AutoSize = True
+        Me.lblx6.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblx6.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblx6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblx6.Location = New System.Drawing.Point(169, 0)
+        Me.lblx6.Name = "lblx6"
+        Me.lblx6.Size = New System.Drawing.Size(28, 15)
+        Me.lblx6.TabIndex = 11
+        Me.lblx6.Text = "XXX"
         '
-        'lblOrdenado
+        'lblx4
         '
-        Me.lblOrdenado.AutoSize = True
-        Me.lblOrdenado.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOrdenado.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblOrdenado.Location = New System.Drawing.Point(101, 0)
-        Me.lblOrdenado.Name = "lblOrdenado"
-        Me.lblOrdenado.Size = New System.Drawing.Size(28, 15)
-        Me.lblOrdenado.TabIndex = 10
-        Me.lblOrdenado.Text = "XXX"
+        Me.lblx4.AutoSize = True
+        Me.lblx4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblx4.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblx4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblx4.Location = New System.Drawing.Point(101, 0)
+        Me.lblx4.Name = "lblx4"
+        Me.lblx4.Size = New System.Drawing.Size(28, 15)
+        Me.lblx4.TabIndex = 10
+        Me.lblx4.Text = "XXX"
         '
         'tmr
         '
-        Me.tmr.Enabled = True
         Me.tmr.Interval = 1
         '
         'pnl1
@@ -659,6 +666,7 @@ Partial Class frmHome
         Me.pnl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pnl1.Controls.Add(Me.lblPergunta)
         Me.pnl1.Controls.Add(Me.PictureBox1)
+        Me.pnl1.Cursor = System.Windows.Forms.Cursors.Default
         Me.pnl1.Location = New System.Drawing.Point(74, 24)
         Me.pnl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl1.Name = "pnl1"
@@ -668,6 +676,7 @@ Partial Class frmHome
         'lblPergunta
         '
         Me.lblPergunta.BackColor = System.Drawing.Color.Transparent
+        Me.lblPergunta.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblPergunta.Font = New System.Drawing.Font("Arial", 20.0!)
         Me.lblPergunta.ForeColor = System.Drawing.Color.White
         Me.lblPergunta.Location = New System.Drawing.Point(0, 8)
@@ -683,6 +692,7 @@ Partial Class frmHome
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Default
         Me.PictureBox1.Location = New System.Drawing.Point(458, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(98, 93)
@@ -778,15 +788,15 @@ Partial Class frmHome
     Friend WithEvents lbl_Vendas As System.Windows.Forms.Label
     Friend WithEvents pctVendas As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents lblRua As System.Windows.Forms.Label
-    Friend WithEvents lblTlm As System.Windows.Forms.Label
-    Friend WithEvents lblFuncao As System.Windows.Forms.Label
-    Friend WithEvents lblNome As System.Windows.Forms.Label
-    Friend WithEvents lblIdade As System.Windows.Forms.Label
+    Friend WithEvents lblx5 As System.Windows.Forms.Label
+    Friend WithEvents lblx7 As System.Windows.Forms.Label
+    Friend WithEvents lblx2 As System.Windows.Forms.Label
+    Friend WithEvents lblx1 As System.Windows.Forms.Label
+    Friend WithEvents lblx3 As System.Windows.Forms.Label
     Friend WithEvents pnlAndante As System.Windows.Forms.Panel
     Friend WithEvents tmr As System.Windows.Forms.Timer
-    Friend WithEvents lblOrdenado As System.Windows.Forms.Label
-    Friend WithEvents lblLocalidade As System.Windows.Forms.Label
+    Friend WithEvents lblx4 As System.Windows.Forms.Label
+    Friend WithEvents lblx6 As System.Windows.Forms.Label
     Friend WithEvents pnlDefinicoes As System.Windows.Forms.Panel
     Friend WithEvents lblDefinicoes As System.Windows.Forms.Label
     Friend WithEvents lbl_Definicoes As System.Windows.Forms.Label

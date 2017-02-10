@@ -8,6 +8,7 @@ Public Class frmHome
     Public Const DIMLBL As Integer = 7
     Dim lblI(DIMLBL) As Label
     Public Const ESPACAMENTO As Integer = 6
+    Dim cont_lbl As Integer = 0
 
     'Código tipo para todos os formulários
     Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
@@ -15,13 +16,13 @@ Public Class frmHome
     End Sub
 
     Private Sub frmHome_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        lblI(0) = lblNome
-        lblI(1) = lblFuncao
-        lblI(2) = lblIdade
-        lblI(3) = lblOrdenado
-        lblI(4) = lblRua
-        lblI(5) = lblLocalidade
-        lblI(6) = lblTlm
+        lblI(0) = lblx1
+        lblI(1) = lblx2
+        lblI(2) = lblx3
+        lblI(3) = lblx4
+        lblI(4) = lblx5
+        lblI(5) = lblx6
+        lblI(6) = lblx7
 
 
         pnlLugares.Hide()
@@ -34,7 +35,7 @@ Public Class frmHome
         pnlVendas.Hide()
 
         Dim nome = "", nome_completo As String
-        query = "select Funcionarios.nome as nome, Encargos.nome as encargo, telemovel, localidades.nome as localidade, TIMESTAMPDIFF(year, datanasc, CURDATE()) as idade, ordenado, rua, ordenado from funcionarios, encargos, localidades where localidades.codlo=funcionarios.codlo and funcionarios.code=encargos.code and codF=" + frmLogin.codF.ToString
+        query = "select Funcionarios.nome as nome, Encargos.nome as encargo, IFNULL(telemovel,'') as telemovel, localidades.nome as localidade, TIMESTAMPDIFF(year, datanasc, CURDATE()) as idade, ordenado, IFNULL(rua,'') as rua, IFNULL(ordenado,'') as ordenado from funcionarios, encargos, localidades where localidades.codlo=funcionarios.codlo and funcionarios.code=encargos.code and codF=" + frmLogin.codF.ToString
 
         comando = New MySqlCommand(query, ligacao)
         ligacao.Open()
@@ -51,22 +52,46 @@ Public Class frmHome
         Next
         lblPergunta.Text = "O que deseja fazer, " + nome + "?"
 
-        lblNome.Text = leitor.GetString("nome")
-        lblFuncao.Text = leitor.GetString("encargo")
-        lblTlm.Text = leitor.GetString("telemovel")
-        lblRua.Text = leitor.GetString("rua")
-        lblLocalidade.Text = leitor.GetString("localidade")
-        lblIdade.Text = leitor.GetInt32("idade").ToString + " anos"
-        lblOrdenado.Text = leitor.GetInt32("ordenado").ToString + " €/mês"
-        ligacao.Dispose()
 
         'Novo Código ////////////////////////////////////// EXPERIMENTAL
 
-        lblNome.Location = New Point(pnlAndante.Size.Width, 0)
-        For x As Integer = 1 To DIMLBL - 1 ' Tem de começar no 1 porque a localização da lbl(0), que é igual a lblNome, já está definida
-            lblI(x).Location = New Point(lblI(x - 1).Location.X + lblI(x - 1).Size.Width + ESPACAMENTO, 0)
+        If leitor.GetString("nome") <> "" Then
+            lblI(cont_lbl).Text = leitor.GetString("nome")
+            cont_lbl += 1
+        End If
+        If leitor.GetString("encargo") <> "" Then
+            lblI(cont_lbl).Text = leitor.GetString("encargo")
+            cont_lbl += 1
+        End If
+        If leitor.GetString("telemovel") <> "" Then
+            lblI(cont_lbl).Text = leitor.GetString("telemovel")
+            cont_lbl += 1
+        End If
+        If leitor.GetString("rua") <> "" Then
+            lblI(cont_lbl).Text = leitor.GetString("rua")
+            cont_lbl += 1
+        End If
+        If leitor.GetString("localidade") <> "" Then
+            lblI(cont_lbl).Text = leitor.GetString("localidade")
+            cont_lbl += 1
+        End If
+        If leitor.GetInt32("idade").ToString <> "" Then
+            lblI(cont_lbl).Text = leitor.GetInt32("idade").ToString + " anos"
+            cont_lbl += 1
+        End If
+        If leitor.GetInt32("ordenado").ToString Then
+            lblI(cont_lbl).Text = leitor.GetInt32("ordenado").ToString + " €/mês"
+        End If
+        ligacao.Dispose()
+
+        lblx1.Location = New Point(pnlAndante.Size.Width, 0)
+        For x As Integer = 1 To DIMLBL - 1 ' Tem de começar no 1 porque a localização da lbl(0), que é igual a lblNome, já está definida e tem sempre texto
+            If lblI(x).Text <> "" Then
+                lblI(x).Location = New Point(lblI(x - 1).Location.X + lblI(x - 1).Size.Width + ESPACAMENTO, 0)
+            End If
         Next
 
+        tmr.Start()
         'Novo Código /////////////////////////
 
         '2ª ligação
@@ -126,11 +151,11 @@ Public Class frmHome
     End Sub
 
     Private Sub tmr_Tick(sender As System.Object, e As System.EventArgs) Handles tmr.Tick
-        For x As Integer = 0 To DIMLBL - 1
+        For x As Integer = 0 To cont_lbl
             lblI(x).Location = New Point(lblI(x).Location.X - 1, 0)
             If lblI(x).Location.X = -lblI(x).Size.Width Then
                 If x = 0 Then
-                    lblI(0).Location = New Point(lblI(DIMLBL - 1).Location.X + lblI(DIMLBL - 1).Width + ESPACAMENTO * 20)
+                    lblI(0).Location = New Point(lblI(cont_lbl).Location.X + lblI(cont_lbl).Width + ESPACAMENTO * 50)
                 Else
                     lblI(x).Location = New Point(lblI(x - 1).Location.X + lblI(x - 1).Width + ESPACAMENTO)
                 End If
@@ -147,5 +172,13 @@ Public Class frmHome
     Private Sub lbl_Clientes_Click(sender As System.Object, e As System.EventArgs) Handles lbl_Clientes.Click, lblClientes.Click, pctClientes.Click, pnlClientes.Click
         Me.Hide()
         frmClientes.Show()
+    End Sub
+
+    Private Sub Parar_Texto(sender As System.Object, e As System.EventArgs) Handles lblx1.MouseHover, lblx1.MouseHover, lblx2.MouseHover, lblx7.MouseHover, lblx5.MouseHover, lblx6.MouseHover, lblx3.MouseHover, lblx4.MouseHover
+        tmr.Stop()
+    End Sub
+
+    Private Sub Retomar_Texto(sender As System.Object, e As System.EventArgs) Handles lblx1.MouseLeave, lblx1.MouseLeave, lblx2.MouseLeave, lblx7.MouseLeave, lblx5.MouseLeave, lblx6.MouseLeave, lblx3.MouseLeave, lblx4.MouseLeave
+        tmr.Start()
     End Sub
 End Class
