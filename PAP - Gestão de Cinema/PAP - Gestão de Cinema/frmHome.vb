@@ -7,6 +7,7 @@ Public Class frmHome
     Dim leitor As MySqlDataReader
     Public Const DIMLBL As Integer = 7
     Dim lblI(DIMLBL) As Label
+    Public acesso(CtrL_MenuCine.DIMLBL) As Boolean
     Public Const ESPACAMENTO As Integer = 6
     Dim cont_lbl As Integer = 0
 
@@ -34,8 +35,8 @@ Public Class frmHome
         pnlSalas.Hide()
         pnlVendas.Hide()
 
-        Dim nome = "", nome_completo As String
-        query = "select Funcionarios.nome as nome, Encargos.nome as encargo, IFNULL(telemovel,'') as telemovel, localidades.nome as localidade, TIMESTAMPDIFF(year, datanasc, CURDATE()) as idade, ordenado, IFNULL(rua,'') as rua, IFNULL(ordenado,'') as ordenado from funcionarios, encargos, localidades where localidades.codlo=funcionarios.codlo and funcionarios.code=encargos.code and codF=" + frmLogin.codF.ToString
+        Dim nome, nome_completo As String
+        query = "select Funcionarios.nome as nome, Encargos.nome as encargo, IFNULL(telemovel,'') as telemovel, ifnull(localidades.nome,'') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),0) as idade, IFNULL(rua,'') as rua, IFNULL(ordenado,'') as ordenado from encargos, funcionarios left join localidades on localidades.codlo=funcionarios.codlo where encargos.code=funcionarios.code and codF=" + frmLogin.codF.ToString
 
         comando = New MySqlCommand(query, ligacao)
         ligacao.Open()
@@ -44,6 +45,7 @@ Public Class frmHome
         nome_completo = leitor.GetString("nome")
 
         'Código para mostrar apenas o 1º nome
+        nome = nome_completo
         For y As Integer = 0 To nome_completo.Length - 1
             If nome_completo(y) = " " Then
                 nome = nome_completo.Remove(y, nome_completo.Length - y)
@@ -53,7 +55,7 @@ Public Class frmHome
         lblPergunta.Text = "O que deseja fazer, " + nome + "?"
 
 
-        'Novo Código ////////////////////////////////////// EXPERIMENTAL
+        'Organização das labels
 
         If leitor.GetString("nome") <> "" Then
             lblI(cont_lbl).Text = leitor.GetString("nome")
@@ -63,8 +65,12 @@ Public Class frmHome
             lblI(cont_lbl).Text = leitor.GetString("encargo")
             cont_lbl += 1
         End If
-        If leitor.GetString("telemovel") <> "" Then
-            lblI(cont_lbl).Text = leitor.GetString("telemovel")
+        If leitor.GetInt32("idade") <> 0 Then
+            lblI(cont_lbl).Text = leitor.GetInt32("idade").ToString + " anos"
+            cont_lbl += 1
+        End If
+        If leitor.GetInt32("ordenado") <> 0 Then
+            lblI(cont_lbl).Text = leitor.GetInt32("ordenado").ToString + " €/mês"
             cont_lbl += 1
         End If
         If leitor.GetString("rua") <> "" Then
@@ -75,12 +81,8 @@ Public Class frmHome
             lblI(cont_lbl).Text = leitor.GetString("localidade")
             cont_lbl += 1
         End If
-        If leitor.GetInt32("idade").ToString <> "" Then
-            lblI(cont_lbl).Text = leitor.GetInt32("idade").ToString + " anos"
-            cont_lbl += 1
-        End If
-        If leitor.GetInt32("ordenado").ToString Then
-            lblI(cont_lbl).Text = leitor.GetInt32("ordenado").ToString + " €/mês"
+        If leitor.GetString("telemovel") <> "" Then
+            lblI(cont_lbl).Text = leitor.GetString("telemovel")
         End If
         ligacao.Dispose()
 
@@ -92,7 +94,6 @@ Public Class frmHome
         Next
 
         tmr.Start()
-        'Novo Código /////////////////////////
 
         '2ª ligação
 
@@ -102,48 +103,59 @@ Public Class frmHome
         ligacao.Open()
 
         leitor = comando.ExecuteReader
+        acesso(0) = True 'Ao Menu principal, todos têm acesso
         While leitor.Read
             If leitor.GetString("tabela").Contains("Lugares") Then
                 pnlLugares.Show()
                 lblLugares.Text = "Pode" + leitor.GetString("permissoes") + " lugares"
+                acesso(1) = True
             End If
 
             If leitor.GetString("tabela").Contains("Clientes") Then
                 pnlClientes.Show()
                 lblClientes.Text = "Pode" + leitor.GetString("permissoes") + " clientes"
+                acesso(2) = True
             End If
 
             If leitor.GetString("tabela").Contains("Funcionarios") Then
                 pnlFuncionarios.Show()
                 lblFuncionarios.Text = "Pode" + leitor.GetString("permissoes") + " funcionários"
+                acesso(3) = True
             End If
 
             If leitor.GetString("tabela").Contains("Encargos") Then
                 pnlEncargos.Show()
                 lblEncargos.Text = "Pode" + leitor.GetString("permissoes") + " encargos"
+                acesso(4) = True
             End If
 
             If leitor.GetString("tabela").Contains("Calendarios") Then
                 pnlCalendarios.Show()
                 lblCalendarios.Text = "Pode" + leitor.GetString("permissoes") + " calendários de salas"
+                acesso(5) = True
             End If
 
             If leitor.GetString("tabela").Contains("Produtos") Then
                 pnlProdutos.Show()
                 lblProdutos.Text = "Pode" + leitor.GetString("permissoes") + " produtos"
+                acesso(6) = True
             End If
 
             If leitor.GetString("tabela").Contains("Salas") Then
                 pnlSalas.Show()
                 lblSalas.Text = "Pode" + leitor.GetString("permissoes") + " salas"
+                acesso(7) = True
             End If
 
             If leitor.GetString("tabela").Contains("Vendas") Then
                 pnlVendas.Show()
                 lblVendas.Text = "Pode" + leitor.GetString("permissoes") + " vendas"
+                acesso(8) = True
             End If
+            acesso(9) = True 'Às definições da sua conta, todos têm acesso
         End While
         ligacao.Dispose()
+        CtrL_MenuCine.Sincronizar_acessos()
     End Sub
 
     Private Sub frmHome_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
@@ -164,14 +176,11 @@ Public Class frmHome
     End Sub
 
     Private Sub pctVendas_Click(sender As System.Object, e As System.EventArgs) Handles pctVendas.Click, lbl_Vendas.Click, lblVendas.Click, pnlVendas.Click
-        Me.Hide()
-        frmVendas.Show()
+        CtrL_MenuCine.IrParaVendas()
     End Sub
 
-
     Private Sub lbl_Clientes_Click(sender As System.Object, e As System.EventArgs) Handles lbl_Clientes.Click, lblClientes.Click, pctClientes.Click, pnlClientes.Click
-        Me.Hide()
-        frmClientes.Show()
+        CtrL_MenuCine.IrParaClientes()
     End Sub
 
     Private Sub Parar_Texto(sender As System.Object, e As System.EventArgs) Handles lblx1.MouseHover, lblx1.MouseHover, lblx2.MouseHover, lblx7.MouseHover, lblx5.MouseHover, lblx6.MouseHover, lblx3.MouseHover, lblx4.MouseHover
@@ -180,5 +189,9 @@ Public Class frmHome
 
     Private Sub Retomar_Texto(sender As System.Object, e As System.EventArgs) Handles lblx1.MouseLeave, lblx1.MouseLeave, lblx2.MouseLeave, lblx7.MouseLeave, lblx5.MouseLeave, lblx6.MouseLeave, lblx3.MouseLeave, lblx4.MouseLeave
         tmr.Start()
+    End Sub
+
+    Private Sub lbl_Definicoes_Click(sender As System.Object, e As System.EventArgs) Handles lbl_Definicoes.Click, lblDefinicoes.Click, pctDefinicoes.Click, pnlDefinicoes.Click
+        CtrL_MenuCine.IrParaDefinicoes()
     End Sub
 End Class

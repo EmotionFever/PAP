@@ -1,0 +1,512 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmConfiguracoes
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConfiguracoes))
+        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
+        Me.pnl1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lbl1 = New System.Windows.Forms.Label()
+        Me.lbl2 = New System.Windows.Forms.Label()
+        Me.grb1 = New System.Windows.Forms.GroupBox()
+        Me.mtbTlm = New System.Windows.Forms.MaskedTextBox()
+        Me.btnTlm = New System.Windows.Forms.Button()
+        Me.lbl6 = New System.Windows.Forms.Label()
+        Me.btnOutra = New System.Windows.Forms.Button()
+        Me.btnLocalidade = New System.Windows.Forms.Button()
+        Me.cmblocalidade = New System.Windows.Forms.ComboBox()
+        Me.txtrua = New System.Windows.Forms.TextBox()
+        Me.btnRua = New System.Windows.Forms.Button()
+        Me.lbl5 = New System.Windows.Forms.Label()
+        Me.lbl4 = New System.Windows.Forms.Label()
+        Me.btnDatanasc = New System.Windows.Forms.Button()
+        Me.dtpDatanasc = New System.Windows.Forms.DateTimePicker()
+        Me.btnNome = New System.Windows.Forms.Button()
+        Me.lbl3 = New System.Windows.Forms.Label()
+        Me.txtnome = New System.Windows.Forms.TextBox()
+        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape4 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RectangleShape3 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RectangleShape2 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctNome = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.pctFuncionario = New System.Windows.Forms.PictureBox()
+        Me.lblNome = New System.Windows.Forms.Label()
+        Me.lblIdade = New System.Windows.Forms.Label()
+        Me.lblRua = New System.Windows.Forms.Label()
+        Me.lblLocalidade = New System.Windows.Forms.Label()
+        Me.lblTlm = New System.Windows.Forms.Label()
+        Me.pnl1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grb1.SuspendLayout()
+        CType(Me.pctFuncionario, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'CtrL_MenuCine
+        '
+        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
+        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
+        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 627)
+        Me.CtrL_MenuCine.TabIndex = 0
+        '
+        'pnl1
+        '
+        Me.pnl1.BackColor = System.Drawing.Color.PeachPuff
+        Me.pnl1.Controls.Add(Me.PictureBox1)
+        Me.pnl1.Controls.Add(Me.lbl1)
+        Me.pnl1.Location = New System.Drawing.Point(74, 24)
+        Me.pnl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnl1.Name = "pnl1"
+        Me.pnl1.Size = New System.Drawing.Size(757, 93)
+        Me.pnl1.TabIndex = 17
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 5)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(88, 85)
+        Me.PictureBox1.TabIndex = 18
+        Me.PictureBox1.TabStop = False
+        '
+        'lbl1
+        '
+        Me.lbl1.BackColor = System.Drawing.Color.Transparent
+        Me.lbl1.Font = New System.Drawing.Font("Arial", 20.0!)
+        Me.lbl1.ForeColor = System.Drawing.Color.Black
+        Me.lbl1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lbl1.Location = New System.Drawing.Point(96, 21)
+        Me.lbl1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbl1.Name = "lbl1"
+        Me.lbl1.Size = New System.Drawing.Size(661, 52)
+        Me.lbl1.TabIndex = 4
+        Me.lbl1.Text = "Definições"
+        Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lbl2
+        '
+        Me.lbl2.AutoSize = True
+        Me.lbl2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lbl2.Location = New System.Drawing.Point(18, 27)
+        Me.lbl2.Name = "lbl2"
+        Me.lbl2.Size = New System.Drawing.Size(78, 15)
+        Me.lbl2.TabIndex = 21
+        Me.lbl2.Text = "O seu nome:"
+        '
+        'grb1
+        '
+        Me.grb1.Controls.Add(Me.mtbTlm)
+        Me.grb1.Controls.Add(Me.btnTlm)
+        Me.grb1.Controls.Add(Me.lbl6)
+        Me.grb1.Controls.Add(Me.btnOutra)
+        Me.grb1.Controls.Add(Me.btnLocalidade)
+        Me.grb1.Controls.Add(Me.cmblocalidade)
+        Me.grb1.Controls.Add(Me.txtrua)
+        Me.grb1.Controls.Add(Me.btnRua)
+        Me.grb1.Controls.Add(Me.lbl5)
+        Me.grb1.Controls.Add(Me.lbl4)
+        Me.grb1.Controls.Add(Me.btnDatanasc)
+        Me.grb1.Controls.Add(Me.dtpDatanasc)
+        Me.grb1.Controls.Add(Me.btnNome)
+        Me.grb1.Controls.Add(Me.lbl3)
+        Me.grb1.Controls.Add(Me.txtnome)
+        Me.grb1.Controls.Add(Me.lbl2)
+        Me.grb1.Controls.Add(Me.ShapeContainer1)
+        Me.grb1.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.grb1.ForeColor = System.Drawing.Color.White
+        Me.grb1.Location = New System.Drawing.Point(77, 273)
+        Me.grb1.Name = "grb1"
+        Me.grb1.Size = New System.Drawing.Size(754, 226)
+        Me.grb1.TabIndex = 22
+        Me.grb1.TabStop = False
+        Me.grb1.Text = "Alterar informações"
+        '
+        'mtbTlm
+        '
+        Me.mtbTlm.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.mtbTlm.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.mtbTlm.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.mtbTlm.Location = New System.Drawing.Point(362, 108)
+        Me.mtbTlm.Mask = "000000000"
+        Me.mtbTlm.Name = "mtbTlm"
+        Me.mtbTlm.Size = New System.Drawing.Size(193, 14)
+        Me.mtbTlm.TabIndex = 48
+        '
+        'btnTlm
+        '
+        Me.btnTlm.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnTlm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnTlm.FlatAppearance.BorderSize = 0
+        Me.btnTlm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnTlm.Image = CType(resources.GetObject("btnTlm.Image"), System.Drawing.Image)
+        Me.btnTlm.Location = New System.Drawing.Point(578, 102)
+        Me.btnTlm.Name = "btnTlm"
+        Me.btnTlm.Size = New System.Drawing.Size(29, 31)
+        Me.btnTlm.TabIndex = 40
+        Me.btnTlm.UseVisualStyleBackColor = False
+        '
+        'lbl6
+        '
+        Me.lbl6.AutoSize = True
+        Me.lbl6.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lbl6.Location = New System.Drawing.Point(351, 87)
+        Me.lbl6.Name = "lbl6"
+        Me.lbl6.Size = New System.Drawing.Size(165, 15)
+        Me.lbl6.TabIndex = 39
+        Me.lbl6.Text = "O seu número de telemóvel:"
+        '
+        'btnOutra
+        '
+        Me.btnOutra.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnOutra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnOutra.FlatAppearance.BorderSize = 0
+        Me.btnOutra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnOutra.ForeColor = System.Drawing.Color.Black
+        Me.btnOutra.Location = New System.Drawing.Point(622, 38)
+        Me.btnOutra.Name = "btnOutra"
+        Me.btnOutra.Size = New System.Drawing.Size(46, 31)
+        Me.btnOutra.TabIndex = 38
+        Me.btnOutra.Text = "Outra"
+        Me.btnOutra.UseVisualStyleBackColor = False
+        '
+        'btnLocalidade
+        '
+        Me.btnLocalidade.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnLocalidade.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnLocalidade.FlatAppearance.BorderSize = 0
+        Me.btnLocalidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLocalidade.Image = CType(resources.GetObject("btnLocalidade.Image"), System.Drawing.Image)
+        Me.btnLocalidade.Location = New System.Drawing.Point(578, 38)
+        Me.btnLocalidade.Name = "btnLocalidade"
+        Me.btnLocalidade.Size = New System.Drawing.Size(29, 31)
+        Me.btnLocalidade.TabIndex = 37
+        Me.btnLocalidade.UseVisualStyleBackColor = False
+        '
+        'cmblocalidade
+        '
+        Me.cmblocalidade.BackColor = System.Drawing.Color.White
+        Me.cmblocalidade.FormattingEnabled = True
+        Me.cmblocalidade.Location = New System.Drawing.Point(362, 43)
+        Me.cmblocalidade.Name = "cmblocalidade"
+        Me.cmblocalidade.Size = New System.Drawing.Size(193, 23)
+        Me.cmblocalidade.TabIndex = 23
+        '
+        'txtrua
+        '
+        Me.txtrua.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtrua.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtrua.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtrua.ForeColor = System.Drawing.Color.Black
+        Me.txtrua.Location = New System.Drawing.Point(30, 174)
+        Me.txtrua.Name = "txtrua"
+        Me.txtrua.Size = New System.Drawing.Size(193, 14)
+        Me.txtrua.TabIndex = 36
+        Me.txtrua.Tag = ""
+        '
+        'btnRua
+        '
+        Me.btnRua.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnRua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnRua.FlatAppearance.BorderSize = 0
+        Me.btnRua.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRua.Image = CType(resources.GetObject("btnRua.Image"), System.Drawing.Image)
+        Me.btnRua.Location = New System.Drawing.Point(254, 166)
+        Me.btnRua.Name = "btnRua"
+        Me.btnRua.Size = New System.Drawing.Size(29, 31)
+        Me.btnRua.TabIndex = 35
+        Me.btnRua.UseVisualStyleBackColor = False
+        '
+        'lbl5
+        '
+        Me.lbl5.AutoSize = True
+        Me.lbl5.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lbl5.Location = New System.Drawing.Point(351, 27)
+        Me.lbl5.Name = "lbl5"
+        Me.lbl5.Size = New System.Drawing.Size(103, 15)
+        Me.lbl5.TabIndex = 34
+        Me.lbl5.Text = "A sua localidade:"
+        '
+        'lbl4
+        '
+        Me.lbl4.AutoSize = True
+        Me.lbl4.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lbl4.Location = New System.Drawing.Point(19, 152)
+        Me.lbl4.Name = "lbl4"
+        Me.lbl4.Size = New System.Drawing.Size(64, 15)
+        Me.lbl4.TabIndex = 33
+        Me.lbl4.Text = "A sua rua:"
+        '
+        'btnDatanasc
+        '
+        Me.btnDatanasc.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnDatanasc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnDatanasc.FlatAppearance.BorderSize = 0
+        Me.btnDatanasc.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDatanasc.Image = CType(resources.GetObject("btnDatanasc.Image"), System.Drawing.Image)
+        Me.btnDatanasc.Location = New System.Drawing.Point(254, 102)
+        Me.btnDatanasc.Name = "btnDatanasc"
+        Me.btnDatanasc.Size = New System.Drawing.Size(29, 31)
+        Me.btnDatanasc.TabIndex = 32
+        Me.btnDatanasc.UseVisualStyleBackColor = False
+        '
+        'dtpDatanasc
+        '
+        Me.dtpDatanasc.CalendarMonthBackground = System.Drawing.Color.White
+        Me.dtpDatanasc.Cursor = System.Windows.Forms.Cursors.Default
+        Me.dtpDatanasc.CustomFormat = ""
+        Me.dtpDatanasc.Location = New System.Drawing.Point(30, 105)
+        Me.dtpDatanasc.Name = "dtpDatanasc"
+        Me.dtpDatanasc.Size = New System.Drawing.Size(193, 21)
+        Me.dtpDatanasc.TabIndex = 31
+        '
+        'btnNome
+        '
+        Me.btnNome.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnNome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnNome.FlatAppearance.BorderSize = 0
+        Me.btnNome.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNome.Image = CType(resources.GetObject("btnNome.Image"), System.Drawing.Image)
+        Me.btnNome.Location = New System.Drawing.Point(254, 40)
+        Me.btnNome.Name = "btnNome"
+        Me.btnNome.Size = New System.Drawing.Size(29, 31)
+        Me.btnNome.TabIndex = 30
+        Me.btnNome.UseVisualStyleBackColor = False
+        '
+        'lbl3
+        '
+        Me.lbl3.AutoSize = True
+        Me.lbl3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lbl3.Location = New System.Drawing.Point(19, 87)
+        Me.lbl3.Name = "lbl3"
+        Me.lbl3.Size = New System.Drawing.Size(157, 15)
+        Me.lbl3.TabIndex = 29
+        Me.lbl3.Text = "A sua data de nascimento:"
+        '
+        'txtnome
+        '
+        Me.txtnome.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtnome.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtnome.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtnome.ForeColor = System.Drawing.Color.Black
+        Me.txtnome.Location = New System.Drawing.Point(30, 48)
+        Me.txtnome.Name = "txtnome"
+        Me.txtnome.Size = New System.Drawing.Size(193, 14)
+        Me.txtnome.TabIndex = 28
+        Me.txtnome.Tag = ""
+        '
+        'ShapeContainer1
+        '
+        Me.ShapeContainer1.Location = New System.Drawing.Point(3, 17)
+        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer1.Name = "ShapeContainer1"
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape4, Me.RectangleShape3, Me.RectangleShape2, Me.RectangleShape1, Me.rctNome})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(748, 206)
+        Me.ShapeContainer1.TabIndex = 22
+        Me.ShapeContainer1.TabStop = False
+        '
+        'RectangleShape4
+        '
+        Me.RectangleShape4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RectangleShape4.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.RectangleShape4.BorderColor = System.Drawing.Color.White
+        Me.RectangleShape4.CornerRadius = 2
+        Me.RectangleShape4.Location = New System.Drawing.Point(350, 85)
+        Me.RectangleShape4.Name = "RectangleShape4"
+        Me.RectangleShape4.Size = New System.Drawing.Size(210, 25)
+        '
+        'RectangleShape3
+        '
+        Me.RectangleShape3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RectangleShape3.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.RectangleShape3.BorderColor = System.Drawing.Color.White
+        Me.RectangleShape3.CornerRadius = 2
+        Me.RectangleShape3.Location = New System.Drawing.Point(350, 25)
+        Me.RectangleShape3.Name = "RectangleShape3"
+        Me.RectangleShape3.Size = New System.Drawing.Size(210, 25)
+        '
+        'RectangleShape2
+        '
+        Me.RectangleShape2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RectangleShape2.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.RectangleShape2.BorderColor = System.Drawing.Color.White
+        Me.RectangleShape2.CornerRadius = 2
+        Me.RectangleShape2.Location = New System.Drawing.Point(19, 151)
+        Me.RectangleShape2.Name = "RectangleShape2"
+        Me.RectangleShape2.Size = New System.Drawing.Size(210, 25)
+        '
+        'RectangleShape1
+        '
+        Me.RectangleShape1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.RectangleShape1.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.RectangleShape1.BorderColor = System.Drawing.Color.White
+        Me.RectangleShape1.CornerRadius = 2
+        Me.RectangleShape1.Location = New System.Drawing.Point(19, 86)
+        Me.RectangleShape1.Name = "RectangleShape1"
+        Me.RectangleShape1.Size = New System.Drawing.Size(210, 25)
+        '
+        'rctNome
+        '
+        Me.rctNome.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.rctNome.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctNome.BorderColor = System.Drawing.Color.White
+        Me.rctNome.CornerRadius = 2
+        Me.rctNome.Location = New System.Drawing.Point(19, 25)
+        Me.rctNome.Name = "rctNome"
+        Me.rctNome.Size = New System.Drawing.Size(210, 25)
+        '
+        'pctFuncionario
+        '
+        Me.pctFuncionario.BackColor = System.Drawing.Color.PeachPuff
+        Me.pctFuncionario.BackgroundImage = CType(resources.GetObject("pctFuncionario.BackgroundImage"), System.Drawing.Image)
+        Me.pctFuncionario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctFuncionario.Location = New System.Drawing.Point(74, 133)
+        Me.pctFuncionario.Name = "pctFuncionario"
+        Me.pctFuncionario.Size = New System.Drawing.Size(117, 115)
+        Me.pctFuncionario.TabIndex = 23
+        Me.pctFuncionario.TabStop = False
+        '
+        'lblNome
+        '
+        Me.lblNome.AutoEllipsis = True
+        Me.lblNome.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblNome.Location = New System.Drawing.Point(197, 133)
+        Me.lblNome.Name = "lblNome"
+        Me.lblNome.Size = New System.Drawing.Size(263, 40)
+        Me.lblNome.TabIndex = 42
+        Me.lblNome.Text = "Nome do Funcionário hghjghjghjhfjhjfgjfjfgjfghfghjfg"
+        '
+        'lblIdade
+        '
+        Me.lblIdade.AutoSize = True
+        Me.lblIdade.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIdade.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblIdade.Location = New System.Drawing.Point(197, 173)
+        Me.lblIdade.Name = "lblIdade"
+        Me.lblIdade.Size = New System.Drawing.Size(39, 16)
+        Me.lblIdade.TabIndex = 43
+        Me.lblIdade.Text = "Idade"
+        '
+        'lblRua
+        '
+        Me.lblRua.AutoSize = True
+        Me.lblRua.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRua.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblRua.Location = New System.Drawing.Point(197, 191)
+        Me.lblRua.Name = "lblRua"
+        Me.lblRua.Size = New System.Drawing.Size(31, 16)
+        Me.lblRua.TabIndex = 44
+        Me.lblRua.Text = "Rua"
+        '
+        'lblLocalidade
+        '
+        Me.lblLocalidade.AutoSize = True
+        Me.lblLocalidade.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLocalidade.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblLocalidade.Location = New System.Drawing.Point(197, 208)
+        Me.lblLocalidade.Name = "lblLocalidade"
+        Me.lblLocalidade.Size = New System.Drawing.Size(70, 16)
+        Me.lblLocalidade.TabIndex = 45
+        Me.lblLocalidade.Text = "Localidade"
+        '
+        'lblTlm
+        '
+        Me.lblTlm.AutoSize = True
+        Me.lblTlm.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTlm.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblTlm.Location = New System.Drawing.Point(197, 226)
+        Me.lblTlm.Name = "lblTlm"
+        Me.lblTlm.Size = New System.Drawing.Size(80, 16)
+        Me.lblTlm.TabIndex = 46
+        Me.lblTlm.Text = "Nº telemóvel"
+        '
+        'frmConfiguracoes
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(854, 627)
+        Me.Controls.Add(Me.lblTlm)
+        Me.Controls.Add(Me.lblLocalidade)
+        Me.Controls.Add(Me.lblRua)
+        Me.Controls.Add(Me.lblIdade)
+        Me.Controls.Add(Me.lblNome)
+        Me.Controls.Add(Me.pctFuncionario)
+        Me.Controls.Add(Me.grb1)
+        Me.Controls.Add(Me.pnl1)
+        Me.Controls.Add(Me.CtrL_MenuCine)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Name = "frmConfiguracoes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Configurações"
+        Me.pnl1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grb1.ResumeLayout(False)
+        Me.grb1.PerformLayout()
+        CType(Me.pctFuncionario, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents CtrL_MenuCine As PAP___Gestão_de_Cinema.CTRL_MenuCine
+    Friend WithEvents pnl1 As System.Windows.Forms.Panel
+    Friend WithEvents lbl1 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents lbl2 As System.Windows.Forms.Label
+    Friend WithEvents grb1 As System.Windows.Forms.GroupBox
+    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents rctNome As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents lbl3 As System.Windows.Forms.Label
+    Friend WithEvents txtnome As System.Windows.Forms.TextBox
+    Friend WithEvents lbl4 As System.Windows.Forms.Label
+    Friend WithEvents btnDatanasc As System.Windows.Forms.Button
+    Friend WithEvents dtpDatanasc As System.Windows.Forms.DateTimePicker
+    Friend WithEvents btnNome As System.Windows.Forms.Button
+    Friend WithEvents RectangleShape2 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents RectangleShape1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents lbl5 As System.Windows.Forms.Label
+    Friend WithEvents RectangleShape3 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents btnOutra As System.Windows.Forms.Button
+    Friend WithEvents btnLocalidade As System.Windows.Forms.Button
+    Friend WithEvents cmblocalidade As System.Windows.Forms.ComboBox
+    Friend WithEvents txtrua As System.Windows.Forms.TextBox
+    Friend WithEvents btnRua As System.Windows.Forms.Button
+    Friend WithEvents lbl6 As System.Windows.Forms.Label
+    Friend WithEvents btnTlm As System.Windows.Forms.Button
+    Friend WithEvents RectangleShape4 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents pctFuncionario As System.Windows.Forms.PictureBox
+    Friend WithEvents lblNome As System.Windows.Forms.Label
+    Friend WithEvents lblIdade As System.Windows.Forms.Label
+    Friend WithEvents lblRua As System.Windows.Forms.Label
+    Friend WithEvents lblLocalidade As System.Windows.Forms.Label
+    Friend WithEvents lblTlm As System.Windows.Forms.Label
+    Friend WithEvents mtbTlm As System.Windows.Forms.MaskedTextBox
+End Class

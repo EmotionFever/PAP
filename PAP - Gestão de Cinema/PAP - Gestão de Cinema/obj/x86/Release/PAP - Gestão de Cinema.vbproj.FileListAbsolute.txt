@@ -33,3 +33,4 @@ C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\
 C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP - Gestão de Cinema.pdb
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Release\MySql.Data.dll
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.frmVendas_Inserir.resources
+C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Release\PAP___Gestão_de_Cinema.frmConfiguracoes.resources

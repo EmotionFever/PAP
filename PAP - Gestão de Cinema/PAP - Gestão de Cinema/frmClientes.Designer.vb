@@ -42,7 +42,7 @@ Partial Class frmClientes
         Me.lbl6 = New System.Windows.Forms.Label()
         Me.lbl3 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgv1 = New System.Windows.Forms.DataGridView()
         Me.rctNome = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.rctTelemovel = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
@@ -61,16 +61,19 @@ Partial Class frmClientes
         Me.btnEntrar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.pct1 = New System.Windows.Forms.PictureBox()
         Me.pnl1.SuspendLayout()
         Me.grpApagar.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
         '
         Me.pnl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.pnl1.Controls.Add(Me.pct1)
         Me.pnl1.Controls.Add(Me.lbl1)
-        Me.pnl1.Location = New System.Drawing.Point(76, 27)
+        Me.pnl1.Location = New System.Drawing.Point(74, 24)
         Me.pnl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl1.Name = "pnl1"
         Me.pnl1.Size = New System.Drawing.Size(682, 93)
@@ -79,13 +82,12 @@ Partial Class frmClientes
         'lbl1
         '
         Me.lbl1.BackColor = System.Drawing.Color.Transparent
-        Me.lbl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lbl1.Font = New System.Drawing.Font("Arial", 20.0!)
         Me.lbl1.ForeColor = System.Drawing.Color.Black
-        Me.lbl1.Location = New System.Drawing.Point(0, 0)
+        Me.lbl1.Location = New System.Drawing.Point(96, 21)
         Me.lbl1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(682, 93)
+        Me.lbl1.Size = New System.Drawing.Size(586, 55)
         Me.lbl1.TabIndex = 4
         Me.lbl1.Text = "Clientes"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -265,13 +267,13 @@ Partial Class frmClientes
         Me.lbl2.TabIndex = 20
         Me.lbl2.Text = "Nome do Cliente:"
         '
-        'DataGridView1
+        'dgv1
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(76, 135)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(436, 358)
-        Me.DataGridView1.TabIndex = 15
+        Me.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv1.Location = New System.Drawing.Point(76, 135)
+        Me.dgv1.Name = "dgv1"
+        Me.dgv1.Size = New System.Drawing.Size(436, 351)
+        Me.dgv1.TabIndex = 15
         '
         'rctNome
         '
@@ -289,7 +291,7 @@ Partial Class frmClientes
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctTelemovel, Me.rctIII, Me.rctMorada, Me.rctNIF, Me.rctNome})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(853, 692)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(781, 692)
         Me.ShapeContainer1.TabIndex = 26
         Me.ShapeContainer1.TabStop = False
         '
@@ -427,11 +429,11 @@ Partial Class frmClientes
         '
         'btnEntrar
         '
-        Me.btnEntrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnEntrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnEntrar.FlatAppearance.BorderSize = 0
         Me.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEntrar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEntrar.ForeColor = System.Drawing.Color.White
+        Me.btnEntrar.ForeColor = System.Drawing.Color.Black
         Me.btnEntrar.Location = New System.Drawing.Point(520, 464)
         Me.btnEntrar.Name = "btnEntrar"
         Me.btnEntrar.Size = New System.Drawing.Size(77, 22)
@@ -441,11 +443,11 @@ Partial Class frmClientes
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.ForeColor = System.Drawing.Color.Black
         Me.Button1.Location = New System.Drawing.Point(603, 464)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(72, 22)
@@ -455,11 +457,11 @@ Partial Class frmClientes
         '
         'Button2
         '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
+        Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.Location = New System.Drawing.Point(681, 464)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(77, 22)
@@ -467,12 +469,22 @@ Partial Class frmClientes
         Me.Button2.Text = "Alterar"
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'pct1
+        '
+        Me.pct1.BackgroundImage = CType(resources.GetObject("pct1.BackgroundImage"), System.Drawing.Image)
+        Me.pct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct1.Location = New System.Drawing.Point(3, 5)
+        Me.pct1.Name = "pct1"
+        Me.pct1.Size = New System.Drawing.Size(88, 88)
+        Me.pct1.TabIndex = 42
+        Me.pct1.TabStop = False
+        '
         'frmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(853, 692)
+        Me.ClientSize = New System.Drawing.Size(781, 692)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnEntrar)
@@ -494,7 +506,7 @@ Partial Class frmClientes
         Me.Controls.Add(Me.lbl3)
         Me.Controls.Add(Me.lbl6)
         Me.Controls.Add(Me.grpApagar)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgv1)
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -504,7 +516,8 @@ Partial Class frmClientes
         Me.pnl1.ResumeLayout(False)
         Me.grpApagar.ResumeLayout(False)
         Me.grpApagar.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pct1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -529,7 +542,7 @@ Partial Class frmClientes
     Friend WithEvents lbl6 As System.Windows.Forms.Label
     Friend WithEvents lbl3 As System.Windows.Forms.Label
     Friend WithEvents lbl2 As System.Windows.Forms.Label
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgv1 As System.Windows.Forms.DataGridView
     Friend WithEvents rctNome As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents txtnome As System.Windows.Forms.TextBox
@@ -547,4 +560,5 @@ Partial Class frmClientes
     Friend WithEvents btnEntrar As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents pct1 As System.Windows.Forms.PictureBox
 End Class

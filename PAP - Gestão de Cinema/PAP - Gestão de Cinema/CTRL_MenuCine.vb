@@ -1,19 +1,26 @@
 ﻿Public Class CTRL_MenuCine
     Dim contador As Integer = 0
-    Public Const DIMLBL As Integer = 9
+    Public Const DIMLBL As Integer = 10
     Public botao(DIMLBL) As System.Windows.Forms.Button
 
     Private Sub CTRL_MenuCine_Load(sender As Object, e As System.EventArgs) Handles Me.Load
-        '"Apontar" os apontadores de botões aos botãoes do CTRL / Códigos do procedimento SelecionarBotao(«código»)
+        '"Apontar" os apontadores de botões para os botões do CTRL / Códigos do procedimento SelecionarBotao(«código»)
         botao(0) = btnInicio
-        botao(1) = btnBilhetes
+        botao(1) = btnLugares
         botao(2) = btnClientes
         botao(3) = btnFuncionarios
         botao(4) = btnEncargos
-        botao(5) = btnHorarios
+        botao(5) = btnCalendarios
         botao(6) = btnProdutos
         botao(7) = btnSalas
         botao(8) = btnVendas
+        botao(9) = btnDefinicoes
+    End Sub
+
+    Public Sub Sincronizar_acessos() 'Faz desaparecer os botõess que o funcionário não tem acesso
+        For a As Integer = 0 To DIMLBL - 1
+            botao(a).Visible = frmHome.acesso(a)
+        Next
     End Sub
 
     Private Sub pctBotao_Click(sender As System.Object, e As System.EventArgs) Handles pctBotao.Click
@@ -24,6 +31,7 @@
         frmHome.Hide()
         frmClientes.Hide()
         frmVendas.Hide()
+        frmConfiguracoes.Hide()
     End Sub
 
     Private Sub tmrAnimacao_Tick(sender As System.Object, e As System.EventArgs) Handles tmrAnimacao.Tick
@@ -66,22 +74,23 @@
         End If
     End Sub
 
-
-    Private Sub btnInicio_Click(sender As System.Object, e As System.EventArgs) Handles btnInicio.Click
+    Public Sub IrParaHome() Handles btnInicio.Click
         EsconderTodosForms()
         frmHome.Show()
     End Sub
 
-
-    Private Sub btnClientes_Click(sender As System.Object, e As System.EventArgs) Handles btnClientes.Click
+    Public Sub IrParaClientes() Handles btnClientes.Click
         EsconderTodosForms()
         frmClientes.Show()
-        frmVendas.Refresh()
     End Sub
 
-    Private Sub btnVendas_Click(sender As System.Object, e As System.EventArgs) Handles btnVendas.Click
+    Public Sub IrParaVendas() Handles btnVendas.Click
         EsconderTodosForms()
         frmVendas.Show()
-        frmVendas.Refresh()
+    End Sub
+
+    Public Sub IrParaDefinicoes() Handles btnDefinicoes.Click
+        EsconderTodosForms()
+        frmConfiguracoes.Show()
     End Sub
 End Class

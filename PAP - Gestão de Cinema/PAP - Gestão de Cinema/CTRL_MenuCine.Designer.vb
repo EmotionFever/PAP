@@ -23,18 +23,19 @@ Partial Class CTRL_MenuCine
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CTRL_MenuCine))
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnInicio = New System.Windows.Forms.Button()
-        Me.btnBilhetes = New System.Windows.Forms.Button()
+        Me.btnLugares = New System.Windows.Forms.Button()
         Me.btnClientes = New System.Windows.Forms.Button()
         Me.btnFuncionarios = New System.Windows.Forms.Button()
-        Me.btnFilmes = New System.Windows.Forms.Button()
         Me.btnEncargos = New System.Windows.Forms.Button()
-        Me.btnHorarios = New System.Windows.Forms.Button()
+        Me.btnCalendarios = New System.Windows.Forms.Button()
         Me.btnProdutos = New System.Windows.Forms.Button()
         Me.btnSalas = New System.Windows.Forms.Button()
         Me.btnVendas = New System.Windows.Forms.Button()
+        Me.btnDefinicoes = New System.Windows.Forms.Button()
         Me.pctEncolhido = New System.Windows.Forms.PictureBox()
         Me.pctLogo = New System.Windows.Forms.PictureBox()
         Me.pctBotao = New System.Windows.Forms.PictureBox()
@@ -62,15 +63,15 @@ Partial Class CTRL_MenuCine
         'flp1
         '
         Me.flp1.Controls.Add(Me.btnInicio)
-        Me.flp1.Controls.Add(Me.btnBilhetes)
+        Me.flp1.Controls.Add(Me.btnLugares)
         Me.flp1.Controls.Add(Me.btnClientes)
         Me.flp1.Controls.Add(Me.btnFuncionarios)
-        Me.flp1.Controls.Add(Me.btnFilmes)
         Me.flp1.Controls.Add(Me.btnEncargos)
-        Me.flp1.Controls.Add(Me.btnHorarios)
+        Me.flp1.Controls.Add(Me.btnCalendarios)
         Me.flp1.Controls.Add(Me.btnProdutos)
         Me.flp1.Controls.Add(Me.btnSalas)
         Me.flp1.Controls.Add(Me.btnVendas)
+        Me.flp1.Controls.Add(Me.btnDefinicoes)
         Me.flp1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flp1.Location = New System.Drawing.Point(-3, 103)
         Me.flp1.Name = "flp1"
@@ -94,32 +95,32 @@ Partial Class CTRL_MenuCine
         Me.btnInicio.Size = New System.Drawing.Size(260, 45)
         Me.btnInicio.TabIndex = 3
         Me.btnInicio.Tag = ""
-        Me.btnInicio.Text = "  Fomulário Inicial"
+        Me.btnInicio.Text = "  Menu inicial"
         Me.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnInicio.UseVisualStyleBackColor = False
         '
-        'btnBilhetes
+        'btnLugares
         '
-        Me.btnBilhetes.BackColor = System.Drawing.Color.Firebrick
-        Me.btnBilhetes.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnBilhetes.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
-        Me.btnBilhetes.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
-        Me.btnBilhetes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBilhetes.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBilhetes.ForeColor = System.Drawing.Color.White
-        Me.btnBilhetes.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.bilhetes_converted
-        Me.btnBilhetes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBilhetes.Location = New System.Drawing.Point(3, 54)
-        Me.btnBilhetes.Name = "btnBilhetes"
-        Me.btnBilhetes.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.btnBilhetes.Size = New System.Drawing.Size(260, 45)
-        Me.btnBilhetes.TabIndex = 7
-        Me.btnBilhetes.Tag = ""
-        Me.btnBilhetes.Text = "  Bilhetes"
-        Me.btnBilhetes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBilhetes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnBilhetes.UseVisualStyleBackColor = False
+        Me.btnLugares.BackColor = System.Drawing.Color.Firebrick
+        Me.btnLugares.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnLugares.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
+        Me.btnLugares.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
+        Me.btnLugares.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLugares.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLugares.ForeColor = System.Drawing.Color.White
+        Me.btnLugares.Image = CType(resources.GetObject("btnLugares.Image"), System.Drawing.Image)
+        Me.btnLugares.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLugares.Location = New System.Drawing.Point(3, 54)
+        Me.btnLugares.Name = "btnLugares"
+        Me.btnLugares.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.btnLugares.Size = New System.Drawing.Size(260, 45)
+        Me.btnLugares.TabIndex = 9
+        Me.btnLugares.Tag = ""
+        Me.btnLugares.Text = "  Lugares"
+        Me.btnLugares.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLugares.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnLugares.UseVisualStyleBackColor = False
         '
         'btnClientes
         '
@@ -164,28 +165,6 @@ Partial Class CTRL_MenuCine
         Me.btnFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnFuncionarios.UseVisualStyleBackColor = False
         '
-        'btnFilmes
-        '
-        Me.btnFilmes.BackColor = System.Drawing.Color.Firebrick
-        Me.btnFilmes.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnFilmes.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
-        Me.btnFilmes.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
-        Me.btnFilmes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFilmes.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilmes.ForeColor = System.Drawing.Color.White
-        Me.btnFilmes.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.filmes_converted
-        Me.btnFilmes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnFilmes.Location = New System.Drawing.Point(3, 207)
-        Me.btnFilmes.Name = "btnFilmes"
-        Me.btnFilmes.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.btnFilmes.Size = New System.Drawing.Size(260, 45)
-        Me.btnFilmes.TabIndex = 9
-        Me.btnFilmes.Tag = ""
-        Me.btnFilmes.Text = "  Filmes"
-        Me.btnFilmes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnFilmes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnFilmes.UseVisualStyleBackColor = False
-        '
         'btnEncargos
         '
         Me.btnEncargos.BackColor = System.Drawing.Color.Firebrick
@@ -197,7 +176,7 @@ Partial Class CTRL_MenuCine
         Me.btnEncargos.ForeColor = System.Drawing.Color.White
         Me.btnEncargos.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.graus_converted
         Me.btnEncargos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEncargos.Location = New System.Drawing.Point(3, 258)
+        Me.btnEncargos.Location = New System.Drawing.Point(3, 207)
         Me.btnEncargos.Name = "btnEncargos"
         Me.btnEncargos.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnEncargos.Size = New System.Drawing.Size(260, 45)
@@ -208,27 +187,27 @@ Partial Class CTRL_MenuCine
         Me.btnEncargos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnEncargos.UseVisualStyleBackColor = False
         '
-        'btnHorarios
+        'btnCalendarios
         '
-        Me.btnHorarios.BackColor = System.Drawing.Color.Firebrick
-        Me.btnHorarios.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnHorarios.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
-        Me.btnHorarios.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
-        Me.btnHorarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnHorarios.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHorarios.ForeColor = System.Drawing.Color.White
-        Me.btnHorarios.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.horarios_converted
-        Me.btnHorarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnHorarios.Location = New System.Drawing.Point(3, 309)
-        Me.btnHorarios.Name = "btnHorarios"
-        Me.btnHorarios.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.btnHorarios.Size = New System.Drawing.Size(260, 45)
-        Me.btnHorarios.TabIndex = 11
-        Me.btnHorarios.Tag = ""
-        Me.btnHorarios.Text = "  Horários"
-        Me.btnHorarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnHorarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnHorarios.UseVisualStyleBackColor = False
+        Me.btnCalendarios.BackColor = System.Drawing.Color.Firebrick
+        Me.btnCalendarios.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnCalendarios.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
+        Me.btnCalendarios.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
+        Me.btnCalendarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCalendarios.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCalendarios.ForeColor = System.Drawing.Color.White
+        Me.btnCalendarios.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.horarios_converted
+        Me.btnCalendarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCalendarios.Location = New System.Drawing.Point(3, 258)
+        Me.btnCalendarios.Name = "btnCalendarios"
+        Me.btnCalendarios.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.btnCalendarios.Size = New System.Drawing.Size(260, 45)
+        Me.btnCalendarios.TabIndex = 11
+        Me.btnCalendarios.Tag = ""
+        Me.btnCalendarios.Text = "  Horários"
+        Me.btnCalendarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCalendarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnCalendarios.UseVisualStyleBackColor = False
         '
         'btnProdutos
         '
@@ -241,7 +220,7 @@ Partial Class CTRL_MenuCine
         Me.btnProdutos.ForeColor = System.Drawing.Color.White
         Me.btnProdutos.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.produtos_converted
         Me.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnProdutos.Location = New System.Drawing.Point(3, 360)
+        Me.btnProdutos.Location = New System.Drawing.Point(3, 309)
         Me.btnProdutos.Name = "btnProdutos"
         Me.btnProdutos.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnProdutos.Size = New System.Drawing.Size(260, 45)
@@ -263,7 +242,7 @@ Partial Class CTRL_MenuCine
         Me.btnSalas.ForeColor = System.Drawing.Color.White
         Me.btnSalas.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.salas_converted
         Me.btnSalas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSalas.Location = New System.Drawing.Point(3, 411)
+        Me.btnSalas.Location = New System.Drawing.Point(3, 360)
         Me.btnSalas.Name = "btnSalas"
         Me.btnSalas.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.btnSalas.Size = New System.Drawing.Size(260, 45)
@@ -285,7 +264,7 @@ Partial Class CTRL_MenuCine
         Me.btnVendas.ForeColor = System.Drawing.Color.White
         Me.btnVendas.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.vendas_converted
         Me.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnVendas.Location = New System.Drawing.Point(3, 462)
+        Me.btnVendas.Location = New System.Drawing.Point(3, 411)
         Me.btnVendas.Name = "btnVendas"
         Me.btnVendas.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
         Me.btnVendas.Size = New System.Drawing.Size(260, 45)
@@ -295,6 +274,28 @@ Partial Class CTRL_MenuCine
         Me.btnVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnVendas.UseVisualStyleBackColor = False
+        '
+        'btnDefinicoes
+        '
+        Me.btnDefinicoes.BackColor = System.Drawing.Color.Firebrick
+        Me.btnDefinicoes.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnDefinicoes.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
+        Me.btnDefinicoes.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
+        Me.btnDefinicoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDefinicoes.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDefinicoes.ForeColor = System.Drawing.Color.White
+        Me.btnDefinicoes.Image = CType(resources.GetObject("btnDefinicoes.Image"), System.Drawing.Image)
+        Me.btnDefinicoes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDefinicoes.Location = New System.Drawing.Point(3, 462)
+        Me.btnDefinicoes.Name = "btnDefinicoes"
+        Me.btnDefinicoes.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.btnDefinicoes.Size = New System.Drawing.Size(260, 45)
+        Me.btnDefinicoes.TabIndex = 7
+        Me.btnDefinicoes.Tag = ""
+        Me.btnDefinicoes.Text = "  Bilhetes"
+        Me.btnDefinicoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDefinicoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnDefinicoes.UseVisualStyleBackColor = False
         '
         'pctEncolhido
         '
@@ -352,12 +353,12 @@ Partial Class CTRL_MenuCine
 
     End Sub
     Friend WithEvents btnProdutos As System.Windows.Forms.Button
-    Friend WithEvents btnHorarios As System.Windows.Forms.Button
+    Friend WithEvents btnCalendarios As System.Windows.Forms.Button
     Friend WithEvents btnEncargos As System.Windows.Forms.Button
-    Friend WithEvents btnFilmes As System.Windows.Forms.Button
+    Friend WithEvents btnLugares As System.Windows.Forms.Button
     Friend WithEvents btnClientes As System.Windows.Forms.Button
     Friend WithEvents pnl1 As System.Windows.Forms.Panel
-    Friend WithEvents btnBilhetes As System.Windows.Forms.Button
+    Friend WithEvents btnDefinicoes As System.Windows.Forms.Button
     Friend WithEvents pctEncolhido As System.Windows.Forms.PictureBox
     Friend WithEvents pctLogo As System.Windows.Forms.PictureBox
     Friend WithEvents pctBotao As System.Windows.Forms.PictureBox

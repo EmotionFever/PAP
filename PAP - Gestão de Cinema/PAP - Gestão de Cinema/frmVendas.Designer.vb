@@ -39,11 +39,13 @@ Partial Class frmVendas
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
+        Me.pct1 = New System.Windows.Forms.PictureBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnl1.SuspendLayout()
         Me.flpartigos.SuspendLayout()
         Me.pnltest.SuspendLayout()
         CType(Me.pctProduto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -57,8 +59,9 @@ Partial Class frmVendas
         'pnl1
         '
         Me.pnl1.BackColor = System.Drawing.Color.Thistle
+        Me.pnl1.Controls.Add(Me.pct1)
         Me.pnl1.Controls.Add(Me.lbl1)
-        Me.pnl1.Location = New System.Drawing.Point(74, 26)
+        Me.pnl1.Location = New System.Drawing.Point(74, 24)
         Me.pnl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl1.Name = "pnl1"
         Me.pnl1.Size = New System.Drawing.Size(757, 93)
@@ -69,10 +72,10 @@ Partial Class frmVendas
         Me.lbl1.BackColor = System.Drawing.Color.Transparent
         Me.lbl1.Font = New System.Drawing.Font("Arial", 20.0!)
         Me.lbl1.ForeColor = System.Drawing.Color.Black
-        Me.lbl1.Location = New System.Drawing.Point(0, 22)
+        Me.lbl1.Location = New System.Drawing.Point(96, 22)
         Me.lbl1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(757, 52)
+        Me.lbl1.Size = New System.Drawing.Size(661, 52)
         Me.lbl1.TabIndex = 4
         Me.lbl1.Text = "Vendas"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -222,12 +225,22 @@ Partial Class frmVendas
         Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 609)
         Me.CtrL_MenuCine.TabIndex = 0
         '
+        'pct1
+        '
+        Me.pct1.BackgroundImage = CType(resources.GetObject("pct1.BackgroundImage"), System.Drawing.Image)
+        Me.pct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct1.Location = New System.Drawing.Point(3, 5)
+        Me.pct1.Name = "pct1"
+        Me.pct1.Size = New System.Drawing.Size(88, 88)
+        Me.pct1.TabIndex = 5
+        Me.pct1.TabStop = False
+        '
         'frmVendas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(843, 609)
+        Me.ClientSize = New System.Drawing.Size(855, 609)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnProduto)
@@ -248,6 +261,7 @@ Partial Class frmVendas
         Me.pnltest.ResumeLayout(False)
         Me.pnltest.PerformLayout()
         CType(Me.pctProduto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pct1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -268,4 +282,5 @@ Partial Class frmVendas
     Friend WithEvents btnProduto As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents pct1 As System.Windows.Forms.PictureBox
 End Class
