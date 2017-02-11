@@ -204,7 +204,7 @@ Partial Class CTRL_MenuCine
         Me.btnCalendarios.Size = New System.Drawing.Size(260, 45)
         Me.btnCalendarios.TabIndex = 11
         Me.btnCalendarios.Tag = ""
-        Me.btnCalendarios.Text = "  Horários"
+        Me.btnCalendarios.Text = "  Calendários"
         Me.btnCalendarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCalendarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnCalendarios.UseVisualStyleBackColor = False
@@ -292,7 +292,7 @@ Partial Class CTRL_MenuCine
         Me.btnDefinicoes.Size = New System.Drawing.Size(260, 45)
         Me.btnDefinicoes.TabIndex = 7
         Me.btnDefinicoes.Tag = ""
-        Me.btnDefinicoes.Text = "  Bilhetes"
+        Me.btnDefinicoes.Text = "  Configurações"
         Me.btnDefinicoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnDefinicoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnDefinicoes.UseVisualStyleBackColor = False

@@ -28,30 +28,39 @@ Partial Class frmHome
         Me.pnlLugares = New System.Windows.Forms.Panel()
         Me.lblLugares = New System.Windows.Forms.Label()
         Me.lbl_Lugares = New System.Windows.Forms.Label()
+        Me.pctLugares = New System.Windows.Forms.PictureBox()
         Me.pnlClientes = New System.Windows.Forms.Panel()
         Me.lblClientes = New System.Windows.Forms.Label()
         Me.lbl_Clientes = New System.Windows.Forms.Label()
+        Me.pctClientes = New System.Windows.Forms.PictureBox()
         Me.pnlFuncionarios = New System.Windows.Forms.Panel()
         Me.lblFuncionarios = New System.Windows.Forms.Label()
         Me.lbl_Funcionarios = New System.Windows.Forms.Label()
+        Me.pctFuncionarios = New System.Windows.Forms.PictureBox()
         Me.pnlEncargos = New System.Windows.Forms.Panel()
         Me.lblEncargos = New System.Windows.Forms.Label()
         Me.lbl_Encargos = New System.Windows.Forms.Label()
+        Me.pctEncargos = New System.Windows.Forms.PictureBox()
         Me.pnlCalendarios = New System.Windows.Forms.Panel()
         Me.lblCalendarios = New System.Windows.Forms.Label()
         Me.lbl_Calendarios = New System.Windows.Forms.Label()
+        Me.pctCalendarios = New System.Windows.Forms.PictureBox()
         Me.pnlProdutos = New System.Windows.Forms.Panel()
         Me.lblProdutos = New System.Windows.Forms.Label()
         Me.lbl_Produtos = New System.Windows.Forms.Label()
+        Me.pctProdutos = New System.Windows.Forms.PictureBox()
         Me.pnlSalas = New System.Windows.Forms.Panel()
         Me.lblSalas = New System.Windows.Forms.Label()
         Me.lbl_Salas = New System.Windows.Forms.Label()
+        Me.pctSalas = New System.Windows.Forms.PictureBox()
         Me.pnlVendas = New System.Windows.Forms.Panel()
         Me.lblVendas = New System.Windows.Forms.Label()
         Me.lbl_Vendas = New System.Windows.Forms.Label()
+        Me.pctVendas = New System.Windows.Forms.PictureBox()
         Me.pnlDefinicoes = New System.Windows.Forms.Panel()
         Me.lblDefinicoes = New System.Windows.Forms.Label()
         Me.lbl_Definicoes = New System.Windows.Forms.Label()
+        Me.pctDefinicoes = New System.Windows.Forms.PictureBox()
         Me.lblx3 = New System.Windows.Forms.Label()
         Me.lblx5 = New System.Windows.Forms.Label()
         Me.lblx7 = New System.Windows.Forms.Label()
@@ -64,38 +73,30 @@ Partial Class frmHome
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.lblPergunta = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.pctLugares = New System.Windows.Forms.PictureBox()
-        Me.pctClientes = New System.Windows.Forms.PictureBox()
-        Me.pctFuncionarios = New System.Windows.Forms.PictureBox()
-        Me.pctEncargos = New System.Windows.Forms.PictureBox()
-        Me.pctCalendarios = New System.Windows.Forms.PictureBox()
-        Me.pctProdutos = New System.Windows.Forms.PictureBox()
-        Me.pctSalas = New System.Windows.Forms.PictureBox()
-        Me.pctVendas = New System.Windows.Forms.PictureBox()
-        Me.pctDefinicoes = New System.Windows.Forms.PictureBox()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.flp1.SuspendLayout()
         Me.pnlLugares.SuspendLayout()
+        CType(Me.pctLugares, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlClientes.SuspendLayout()
+        CType(Me.pctClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFuncionarios.SuspendLayout()
+        CType(Me.pctFuncionarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlEncargos.SuspendLayout()
+        CType(Me.pctEncargos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlCalendarios.SuspendLayout()
+        CType(Me.pctCalendarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlProdutos.SuspendLayout()
+        CType(Me.pctProdutos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlSalas.SuspendLayout()
+        CType(Me.pctSalas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlVendas.SuspendLayout()
+        CType(Me.pctVendas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDefinicoes.SuspendLayout()
+        CType(Me.pctDefinicoes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAndante.SuspendLayout()
         Me.pnl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctLugares, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctClientes, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctFuncionarios, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctEncargos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctCalendarios, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctProdutos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctSalas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctVendas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctDefinicoes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'flp1
@@ -109,10 +110,10 @@ Partial Class frmHome
         Me.flp1.Controls.Add(Me.pnlSalas)
         Me.flp1.Controls.Add(Me.pnlVendas)
         Me.flp1.Controls.Add(Me.pnlDefinicoes)
-        Me.flp1.Location = New System.Drawing.Point(80, 146)
+        Me.flp1.Location = New System.Drawing.Point(76, 146)
         Me.flp1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.flp1.Name = "flp1"
-        Me.flp1.Size = New System.Drawing.Size(553, 396)
+        Me.flp1.Size = New System.Drawing.Size(556, 451)
         Me.flp1.TabIndex = 4
         '
         'pnlLugares
@@ -125,7 +126,7 @@ Partial Class frmHome
         Me.pnlLugares.Location = New System.Drawing.Point(2, 3)
         Me.pnlLugares.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnlLugares.Name = "pnlLugares"
-        Me.pnlLugares.Size = New System.Drawing.Size(176, 125)
+        Me.pnlLugares.Size = New System.Drawing.Size(180, 137)
         Me.pnlLugares.TabIndex = 4
         '
         'lblLugares
@@ -135,7 +136,7 @@ Partial Class frmHome
         Me.lblLugares.Location = New System.Drawing.Point(0, 55)
         Me.lblLugares.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblLugares.Name = "lblLugares"
-        Me.lblLugares.Size = New System.Drawing.Size(176, 61)
+        Me.lblLugares.Size = New System.Drawing.Size(176, 82)
         Me.lblLugares.TabIndex = 3
         Me.lblLugares.Text = "Pode XXXX, XXXX, XXXX e XXXX lugares"
         Me.lblLugares.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -152,6 +153,18 @@ Partial Class frmHome
         Me.lbl_Lugares.Text = "Lugares"
         Me.lbl_Lugares.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pctLugares
+        '
+        Me.pctLugares.BackgroundImage = CType(resources.GetObject("pctLugares.BackgroundImage"), System.Drawing.Image)
+        Me.pctLugares.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctLugares.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pctLugares.Location = New System.Drawing.Point(4, 3)
+        Me.pctLugares.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pctLugares.Name = "pctLugares"
+        Me.pctLugares.Size = New System.Drawing.Size(55, 52)
+        Me.pctLugares.TabIndex = 1
+        Me.pctLugares.TabStop = False
+        '
         'pnlClientes
         '
         Me.pnlClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -159,10 +172,10 @@ Partial Class frmHome
         Me.pnlClientes.Controls.Add(Me.lbl_Clientes)
         Me.pnlClientes.Controls.Add(Me.pctClientes)
         Me.pnlClientes.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlClientes.Location = New System.Drawing.Point(182, 3)
+        Me.pnlClientes.Location = New System.Drawing.Point(186, 3)
         Me.pnlClientes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnlClientes.Name = "pnlClientes"
-        Me.pnlClientes.Size = New System.Drawing.Size(176, 125)
+        Me.pnlClientes.Size = New System.Drawing.Size(180, 137)
         Me.pnlClientes.TabIndex = 5
         '
         'lblClientes
@@ -172,7 +185,7 @@ Partial Class frmHome
         Me.lblClientes.Location = New System.Drawing.Point(0, 55)
         Me.lblClientes.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblClientes.Name = "lblClientes"
-        Me.lblClientes.Size = New System.Drawing.Size(176, 61)
+        Me.lblClientes.Size = New System.Drawing.Size(176, 82)
         Me.lblClientes.TabIndex = 3
         Me.lblClientes.Text = "Pode XXXX, XXXX, XXXX e XXXX clientes"
         Me.lblClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -185,9 +198,21 @@ Partial Class frmHome
         Me.lbl_Clientes.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl_Clientes.Name = "lbl_Clientes"
         Me.lbl_Clientes.Size = New System.Drawing.Size(116, 55)
-        Me.lbl_Clientes.TabIndex = 2
+        Me.lbl_Clientes.TabIndex = 24
         Me.lbl_Clientes.Text = "Clientes"
         Me.lbl_Clientes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'pctClientes
+        '
+        Me.pctClientes.BackgroundImage = CType(resources.GetObject("pctClientes.BackgroundImage"), System.Drawing.Image)
+        Me.pctClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctClientes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pctClientes.Location = New System.Drawing.Point(4, 3)
+        Me.pctClientes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pctClientes.Name = "pctClientes"
+        Me.pctClientes.Size = New System.Drawing.Size(55, 52)
+        Me.pctClientes.TabIndex = 1
+        Me.pctClientes.TabStop = False
         '
         'pnlFuncionarios
         '
@@ -196,10 +221,10 @@ Partial Class frmHome
         Me.pnlFuncionarios.Controls.Add(Me.lbl_Funcionarios)
         Me.pnlFuncionarios.Controls.Add(Me.pctFuncionarios)
         Me.pnlFuncionarios.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlFuncionarios.Location = New System.Drawing.Point(362, 3)
+        Me.pnlFuncionarios.Location = New System.Drawing.Point(370, 3)
         Me.pnlFuncionarios.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnlFuncionarios.Name = "pnlFuncionarios"
-        Me.pnlFuncionarios.Size = New System.Drawing.Size(176, 125)
+        Me.pnlFuncionarios.Size = New System.Drawing.Size(180, 137)
         Me.pnlFuncionarios.TabIndex = 0
         '
         'lblFuncionarios
@@ -209,7 +234,7 @@ Partial Class frmHome
         Me.lblFuncionarios.Location = New System.Drawing.Point(0, 55)
         Me.lblFuncionarios.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblFuncionarios.Name = "lblFuncionarios"
-        Me.lblFuncionarios.Size = New System.Drawing.Size(176, 61)
+        Me.lblFuncionarios.Size = New System.Drawing.Size(176, 82)
         Me.lblFuncionarios.TabIndex = 3
         Me.lblFuncionarios.Text = "Pode XXXX, XXXX, XXXX e XXXX funcionários"
         Me.lblFuncionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -226,6 +251,18 @@ Partial Class frmHome
         Me.lbl_Funcionarios.Text = "Funcionários"
         Me.lbl_Funcionarios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pctFuncionarios
+        '
+        Me.pctFuncionarios.BackgroundImage = CType(resources.GetObject("pctFuncionarios.BackgroundImage"), System.Drawing.Image)
+        Me.pctFuncionarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctFuncionarios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pctFuncionarios.Location = New System.Drawing.Point(0, 0)
+        Me.pctFuncionarios.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pctFuncionarios.Name = "pctFuncionarios"
+        Me.pctFuncionarios.Size = New System.Drawing.Size(59, 55)
+        Me.pctFuncionarios.TabIndex = 1
+        Me.pctFuncionarios.TabStop = False
+        '
         'pnlEncargos
         '
         Me.pnlEncargos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -233,10 +270,10 @@ Partial Class frmHome
         Me.pnlEncargos.Controls.Add(Me.lbl_Encargos)
         Me.pnlEncargos.Controls.Add(Me.pctEncargos)
         Me.pnlEncargos.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlEncargos.Location = New System.Drawing.Point(2, 134)
+        Me.pnlEncargos.Location = New System.Drawing.Point(2, 146)
         Me.pnlEncargos.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnlEncargos.Name = "pnlEncargos"
-        Me.pnlEncargos.Size = New System.Drawing.Size(176, 125)
+        Me.pnlEncargos.Size = New System.Drawing.Size(180, 137)
         Me.pnlEncargos.TabIndex = 7
         '
         'lblEncargos
@@ -246,7 +283,7 @@ Partial Class frmHome
         Me.lblEncargos.Location = New System.Drawing.Point(0, 55)
         Me.lblEncargos.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblEncargos.Name = "lblEncargos"
-        Me.lblEncargos.Size = New System.Drawing.Size(176, 61)
+        Me.lblEncargos.Size = New System.Drawing.Size(176, 82)
         Me.lblEncargos.TabIndex = 3
         Me.lblEncargos.Text = "Pode XXXX, XXXX, XXXX e XXXX encargos"
         Me.lblEncargos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -263,6 +300,18 @@ Partial Class frmHome
         Me.lbl_Encargos.Text = "Encargos"
         Me.lbl_Encargos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pctEncargos
+        '
+        Me.pctEncargos.BackgroundImage = CType(resources.GetObject("pctEncargos.BackgroundImage"), System.Drawing.Image)
+        Me.pctEncargos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctEncargos.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pctEncargos.Location = New System.Drawing.Point(4, 3)
+        Me.pctEncargos.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pctEncargos.Name = "pctEncargos"
+        Me.pctEncargos.Size = New System.Drawing.Size(55, 52)
+        Me.pctEncargos.TabIndex = 1
+        Me.pctEncargos.TabStop = False
+        '
         'pnlCalendarios
         '
         Me.pnlCalendarios.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -270,10 +319,10 @@ Partial Class frmHome
         Me.pnlCalendarios.Controls.Add(Me.lbl_Calendarios)
         Me.pnlCalendarios.Controls.Add(Me.pctCalendarios)
         Me.pnlCalendarios.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlCalendarios.Location = New System.Drawing.Point(182, 134)
+        Me.pnlCalendarios.Location = New System.Drawing.Point(186, 146)
         Me.pnlCalendarios.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnlCalendarios.Name = "pnlCalendarios"
-        Me.pnlCalendarios.Size = New System.Drawing.Size(176, 125)
+        Me.pnlCalendarios.Size = New System.Drawing.Size(180, 137)
         Me.pnlCalendarios.TabIndex = 8
         '
         'lblCalendarios
@@ -283,7 +332,7 @@ Partial Class frmHome
         Me.lblCalendarios.Location = New System.Drawing.Point(0, 55)
         Me.lblCalendarios.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblCalendarios.Name = "lblCalendarios"
-        Me.lblCalendarios.Size = New System.Drawing.Size(176, 61)
+        Me.lblCalendarios.Size = New System.Drawing.Size(176, 82)
         Me.lblCalendarios.TabIndex = 3
         Me.lblCalendarios.Text = "Pode XXXX, XXXX, XXXX e XXXX calendários de salas"
         Me.lblCalendarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -300,6 +349,18 @@ Partial Class frmHome
         Me.lbl_Calendarios.Text = "Calendários"
         Me.lbl_Calendarios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pctCalendarios
+        '
+        Me.pctCalendarios.BackgroundImage = CType(resources.GetObject("pctCalendarios.BackgroundImage"), System.Drawing.Image)
+        Me.pctCalendarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctCalendarios.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pctCalendarios.Location = New System.Drawing.Point(2, 3)
+        Me.pctCalendarios.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pctCalendarios.Name = "pctCalendarios"
+        Me.pctCalendarios.Size = New System.Drawing.Size(57, 52)
+        Me.pctCalendarios.TabIndex = 1
+        Me.pctCalendarios.TabStop = False
+        '
         'pnlProdutos
         '
         Me.pnlProdutos.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -307,10 +368,10 @@ Partial Class frmHome
         Me.pnlProdutos.Controls.Add(Me.lbl_Produtos)
         Me.pnlProdutos.Controls.Add(Me.pctProdutos)
         Me.pnlProdutos.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlProdutos.Location = New System.Drawing.Point(362, 134)
+        Me.pnlProdutos.Location = New System.Drawing.Point(370, 146)
         Me.pnlProdutos.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnlProdutos.Name = "pnlProdutos"
-        Me.pnlProdutos.Size = New System.Drawing.Size(176, 125)
+        Me.pnlProdutos.Size = New System.Drawing.Size(180, 137)
         Me.pnlProdutos.TabIndex = 9
         '
         'lblProdutos
@@ -320,7 +381,7 @@ Partial Class frmHome
         Me.lblProdutos.Location = New System.Drawing.Point(0, 55)
         Me.lblProdutos.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblProdutos.Name = "lblProdutos"
-        Me.lblProdutos.Size = New System.Drawing.Size(176, 61)
+        Me.lblProdutos.Size = New System.Drawing.Size(176, 82)
         Me.lblProdutos.TabIndex = 3
         Me.lblProdutos.Text = "Pode XXXX, XXXX, XXXX e XXXX produtos"
         Me.lblProdutos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -337,6 +398,18 @@ Partial Class frmHome
         Me.lbl_Produtos.Text = "Produtos"
         Me.lbl_Produtos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pctProdutos
+        '
+        Me.pctProdutos.BackgroundImage = CType(resources.GetObject("pctProdutos.BackgroundImage"), System.Drawing.Image)
+        Me.pctProdutos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctProdutos.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pctProdutos.Location = New System.Drawing.Point(2, 3)
+        Me.pctProdutos.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pctProdutos.Name = "pctProdutos"
+        Me.pctProdutos.Size = New System.Drawing.Size(57, 52)
+        Me.pctProdutos.TabIndex = 1
+        Me.pctProdutos.TabStop = False
+        '
         'pnlSalas
         '
         Me.pnlSalas.BackColor = System.Drawing.Color.PaleTurquoise
@@ -344,10 +417,10 @@ Partial Class frmHome
         Me.pnlSalas.Controls.Add(Me.lbl_Salas)
         Me.pnlSalas.Controls.Add(Me.pctSalas)
         Me.pnlSalas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlSalas.Location = New System.Drawing.Point(2, 265)
+        Me.pnlSalas.Location = New System.Drawing.Point(2, 289)
         Me.pnlSalas.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnlSalas.Name = "pnlSalas"
-        Me.pnlSalas.Size = New System.Drawing.Size(176, 125)
+        Me.pnlSalas.Size = New System.Drawing.Size(180, 137)
         Me.pnlSalas.TabIndex = 10
         '
         'lblSalas
@@ -357,7 +430,7 @@ Partial Class frmHome
         Me.lblSalas.Location = New System.Drawing.Point(0, 55)
         Me.lblSalas.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSalas.Name = "lblSalas"
-        Me.lblSalas.Size = New System.Drawing.Size(176, 61)
+        Me.lblSalas.Size = New System.Drawing.Size(176, 82)
         Me.lblSalas.TabIndex = 3
         Me.lblSalas.Text = "Pode XXXX, XXXX, XXXX e XXXX salas"
         Me.lblSalas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -374,6 +447,18 @@ Partial Class frmHome
         Me.lbl_Salas.Text = "Salas"
         Me.lbl_Salas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pctSalas
+        '
+        Me.pctSalas.BackgroundImage = CType(resources.GetObject("pctSalas.BackgroundImage"), System.Drawing.Image)
+        Me.pctSalas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctSalas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pctSalas.Location = New System.Drawing.Point(0, 0)
+        Me.pctSalas.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pctSalas.Name = "pctSalas"
+        Me.pctSalas.Size = New System.Drawing.Size(59, 55)
+        Me.pctSalas.TabIndex = 1
+        Me.pctSalas.TabStop = False
+        '
         'pnlVendas
         '
         Me.pnlVendas.BackColor = System.Drawing.Color.Thistle
@@ -381,10 +466,10 @@ Partial Class frmHome
         Me.pnlVendas.Controls.Add(Me.lbl_Vendas)
         Me.pnlVendas.Controls.Add(Me.pctVendas)
         Me.pnlVendas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlVendas.Location = New System.Drawing.Point(182, 265)
+        Me.pnlVendas.Location = New System.Drawing.Point(186, 289)
         Me.pnlVendas.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnlVendas.Name = "pnlVendas"
-        Me.pnlVendas.Size = New System.Drawing.Size(176, 125)
+        Me.pnlVendas.Size = New System.Drawing.Size(180, 137)
         Me.pnlVendas.TabIndex = 11
         '
         'lblVendas
@@ -394,7 +479,7 @@ Partial Class frmHome
         Me.lblVendas.Location = New System.Drawing.Point(0, 55)
         Me.lblVendas.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblVendas.Name = "lblVendas"
-        Me.lblVendas.Size = New System.Drawing.Size(176, 61)
+        Me.lblVendas.Size = New System.Drawing.Size(176, 82)
         Me.lblVendas.TabIndex = 3
         Me.lblVendas.Text = "Pode XXXX, XXXX, XXXX e XXXX vendas"
         Me.lblVendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -411,6 +496,18 @@ Partial Class frmHome
         Me.lbl_Vendas.Text = "Vendas"
         Me.lbl_Vendas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pctVendas
+        '
+        Me.pctVendas.BackgroundImage = CType(resources.GetObject("pctVendas.BackgroundImage"), System.Drawing.Image)
+        Me.pctVendas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctVendas.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pctVendas.Location = New System.Drawing.Point(2, 3)
+        Me.pctVendas.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pctVendas.Name = "pctVendas"
+        Me.pctVendas.Size = New System.Drawing.Size(57, 52)
+        Me.pctVendas.TabIndex = 1
+        Me.pctVendas.TabStop = False
+        '
         'pnlDefinicoes
         '
         Me.pnlDefinicoes.BackColor = System.Drawing.Color.PeachPuff
@@ -418,10 +515,10 @@ Partial Class frmHome
         Me.pnlDefinicoes.Controls.Add(Me.lbl_Definicoes)
         Me.pnlDefinicoes.Controls.Add(Me.pctDefinicoes)
         Me.pnlDefinicoes.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlDefinicoes.Location = New System.Drawing.Point(362, 265)
+        Me.pnlDefinicoes.Location = New System.Drawing.Point(370, 289)
         Me.pnlDefinicoes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnlDefinicoes.Name = "pnlDefinicoes"
-        Me.pnlDefinicoes.Size = New System.Drawing.Size(176, 125)
+        Me.pnlDefinicoes.Size = New System.Drawing.Size(180, 137)
         Me.pnlDefinicoes.TabIndex = 12
         '
         'lblDefinicoes
@@ -431,7 +528,7 @@ Partial Class frmHome
         Me.lblDefinicoes.Location = New System.Drawing.Point(0, 55)
         Me.lblDefinicoes.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblDefinicoes.Name = "lblDefinicoes"
-        Me.lblDefinicoes.Size = New System.Drawing.Size(176, 61)
+        Me.lblDefinicoes.Size = New System.Drawing.Size(176, 82)
         Me.lblDefinicoes.TabIndex = 3
         Me.lblDefinicoes.Text = "Pode ver e alterar as informações da sua conta"
         Me.lblDefinicoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -447,6 +544,18 @@ Partial Class frmHome
         Me.lbl_Definicoes.TabIndex = 2
         Me.lbl_Definicoes.Text = "Definições"
         Me.lbl_Definicoes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'pctDefinicoes
+        '
+        Me.pctDefinicoes.BackgroundImage = CType(resources.GetObject("pctDefinicoes.BackgroundImage"), System.Drawing.Image)
+        Me.pctDefinicoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctDefinicoes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pctDefinicoes.Location = New System.Drawing.Point(4, 3)
+        Me.pctDefinicoes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pctDefinicoes.Name = "pctDefinicoes"
+        Me.pctDefinicoes.Size = New System.Drawing.Size(55, 52)
+        Me.pctDefinicoes.TabIndex = 1
+        Me.pctDefinicoes.TabStop = False
         '
         'lblx3
         '
@@ -575,7 +684,7 @@ Partial Class frmHome
         Me.lblPergunta.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPergunta.Name = "lblPergunta"
         Me.lblPergunta.Size = New System.Drawing.Size(463, 78)
-        Me.lblPergunta.TabIndex = 4
+        Me.lblPergunta.TabIndex = 1
         Me.lblPergunta.Text = "O que deseja fazer, Utilizador?"
         Me.lblPergunta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -591,114 +700,6 @@ Partial Class frmHome
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
         '
-        'pctLugares
-        '
-        Me.pctLugares.BackgroundImage = CType(resources.GetObject("pctLugares.BackgroundImage"), System.Drawing.Image)
-        Me.pctLugares.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctLugares.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pctLugares.Location = New System.Drawing.Point(4, 3)
-        Me.pctLugares.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pctLugares.Name = "pctLugares"
-        Me.pctLugares.Size = New System.Drawing.Size(55, 52)
-        Me.pctLugares.TabIndex = 1
-        Me.pctLugares.TabStop = False
-        '
-        'pctClientes
-        '
-        Me.pctClientes.BackgroundImage = CType(resources.GetObject("pctClientes.BackgroundImage"), System.Drawing.Image)
-        Me.pctClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctClientes.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pctClientes.Location = New System.Drawing.Point(4, 3)
-        Me.pctClientes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pctClientes.Name = "pctClientes"
-        Me.pctClientes.Size = New System.Drawing.Size(55, 52)
-        Me.pctClientes.TabIndex = 1
-        Me.pctClientes.TabStop = False
-        '
-        'pctFuncionarios
-        '
-        Me.pctFuncionarios.BackgroundImage = CType(resources.GetObject("pctFuncionarios.BackgroundImage"), System.Drawing.Image)
-        Me.pctFuncionarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctFuncionarios.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pctFuncionarios.Location = New System.Drawing.Point(0, 0)
-        Me.pctFuncionarios.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pctFuncionarios.Name = "pctFuncionarios"
-        Me.pctFuncionarios.Size = New System.Drawing.Size(59, 55)
-        Me.pctFuncionarios.TabIndex = 1
-        Me.pctFuncionarios.TabStop = False
-        '
-        'pctEncargos
-        '
-        Me.pctEncargos.BackgroundImage = CType(resources.GetObject("pctEncargos.BackgroundImage"), System.Drawing.Image)
-        Me.pctEncargos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctEncargos.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pctEncargos.Location = New System.Drawing.Point(4, 3)
-        Me.pctEncargos.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pctEncargos.Name = "pctEncargos"
-        Me.pctEncargos.Size = New System.Drawing.Size(55, 52)
-        Me.pctEncargos.TabIndex = 1
-        Me.pctEncargos.TabStop = False
-        '
-        'pctCalendarios
-        '
-        Me.pctCalendarios.BackgroundImage = CType(resources.GetObject("pctCalendarios.BackgroundImage"), System.Drawing.Image)
-        Me.pctCalendarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctCalendarios.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pctCalendarios.Location = New System.Drawing.Point(2, 3)
-        Me.pctCalendarios.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pctCalendarios.Name = "pctCalendarios"
-        Me.pctCalendarios.Size = New System.Drawing.Size(57, 52)
-        Me.pctCalendarios.TabIndex = 1
-        Me.pctCalendarios.TabStop = False
-        '
-        'pctProdutos
-        '
-        Me.pctProdutos.BackgroundImage = CType(resources.GetObject("pctProdutos.BackgroundImage"), System.Drawing.Image)
-        Me.pctProdutos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctProdutos.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pctProdutos.Location = New System.Drawing.Point(2, 3)
-        Me.pctProdutos.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pctProdutos.Name = "pctProdutos"
-        Me.pctProdutos.Size = New System.Drawing.Size(57, 52)
-        Me.pctProdutos.TabIndex = 1
-        Me.pctProdutos.TabStop = False
-        '
-        'pctSalas
-        '
-        Me.pctSalas.BackgroundImage = CType(resources.GetObject("pctSalas.BackgroundImage"), System.Drawing.Image)
-        Me.pctSalas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctSalas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pctSalas.Location = New System.Drawing.Point(0, 0)
-        Me.pctSalas.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pctSalas.Name = "pctSalas"
-        Me.pctSalas.Size = New System.Drawing.Size(59, 55)
-        Me.pctSalas.TabIndex = 1
-        Me.pctSalas.TabStop = False
-        '
-        'pctVendas
-        '
-        Me.pctVendas.BackgroundImage = CType(resources.GetObject("pctVendas.BackgroundImage"), System.Drawing.Image)
-        Me.pctVendas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctVendas.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pctVendas.Location = New System.Drawing.Point(2, 3)
-        Me.pctVendas.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pctVendas.Name = "pctVendas"
-        Me.pctVendas.Size = New System.Drawing.Size(57, 52)
-        Me.pctVendas.TabIndex = 1
-        Me.pctVendas.TabStop = False
-        '
-        'pctDefinicoes
-        '
-        Me.pctDefinicoes.BackgroundImage = CType(resources.GetObject("pctDefinicoes.BackgroundImage"), System.Drawing.Image)
-        Me.pctDefinicoes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctDefinicoes.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pctDefinicoes.Location = New System.Drawing.Point(4, 3)
-        Me.pctDefinicoes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pctDefinicoes.Name = "pctDefinicoes"
-        Me.pctDefinicoes.Size = New System.Drawing.Size(55, 52)
-        Me.pctDefinicoes.TabIndex = 1
-        Me.pctDefinicoes.TabStop = False
-        '
         'CtrL_MenuCine
         '
         Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
@@ -708,12 +709,22 @@ Partial Class frmHome
         Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 650)
         Me.CtrL_MenuCine.TabIndex = 2
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(446, 604)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(661, 650)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.pnl1)
         Me.Controls.Add(Me.flp1)
@@ -727,27 +738,27 @@ Partial Class frmHome
         Me.Text = "Menu inicial"
         Me.flp1.ResumeLayout(False)
         Me.pnlLugares.ResumeLayout(False)
+        CType(Me.pctLugares, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlClientes.ResumeLayout(False)
+        CType(Me.pctClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlFuncionarios.ResumeLayout(False)
+        CType(Me.pctFuncionarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlEncargos.ResumeLayout(False)
+        CType(Me.pctEncargos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlCalendarios.ResumeLayout(False)
+        CType(Me.pctCalendarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlProdutos.ResumeLayout(False)
+        CType(Me.pctProdutos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlSalas.ResumeLayout(False)
+        CType(Me.pctSalas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlVendas.ResumeLayout(False)
+        CType(Me.pctVendas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlDefinicoes.ResumeLayout(False)
+        CType(Me.pctDefinicoes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAndante.ResumeLayout(False)
         Me.pnlAndante.PerformLayout()
         Me.pnl1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctLugares, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctClientes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctFuncionarios, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctEncargos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctCalendarios, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctProdutos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctSalas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctVendas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctDefinicoes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -801,4 +812,5 @@ Partial Class frmHome
     Friend WithEvents lblDefinicoes As System.Windows.Forms.Label
     Friend WithEvents lbl_Definicoes As System.Windows.Forms.Label
     Friend WithEvents pctDefinicoes As System.Windows.Forms.PictureBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

@@ -25,6 +25,9 @@ Public Class frmHome
         lblI(5) = lblx6
         lblI(6) = lblx7
 
+        For x As Integer = 0 To DIMLBL - 1
+            lblI(x).Text = ""
+        Next
 
         pnlLugares.Hide()
         pnlClientes.Hide()
@@ -86,6 +89,7 @@ Public Class frmHome
         End If
         ligacao.Dispose()
 
+        'Posicionar labels "antes" do painelAndante 
         lblx1.Location = New Point(pnlAndante.Size.Width, 0)
         For x As Integer = 1 To DIMLBL - 1 ' Tem de começar no 1 porque a localização da lbl(0), que é igual a lblNome, já está definida e tem sempre texto
             If lblI(x).Text <> "" Then
@@ -158,16 +162,12 @@ Public Class frmHome
         CtrL_MenuCine.Sincronizar_acessos()
     End Sub
 
-    Private Sub frmHome_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        End
-    End Sub
-
     Private Sub tmr_Tick(sender As System.Object, e As System.EventArgs) Handles tmr.Tick
         For x As Integer = 0 To cont_lbl
             lblI(x).Location = New Point(lblI(x).Location.X - 1, 0)
-            If lblI(x).Location.X = -lblI(x).Size.Width Then
+            If lblI(cont_lbl).Location.X + lblI(cont_lbl).Width <= 0 Then
                 If x = 0 Then
-                    lblI(0).Location = New Point(lblI(cont_lbl).Location.X + lblI(cont_lbl).Width + ESPACAMENTO * 50)
+                    lblI(0).Location = New Point(pnlAndante.Width, 0)
                 Else
                     lblI(x).Location = New Point(lblI(x - 1).Location.X + lblI(x - 1).Width + ESPACAMENTO)
                 End If

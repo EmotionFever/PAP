@@ -27,11 +27,11 @@
         tmrAnimacao.Enabled = True
     End Sub
 
-    Private Sub EsconderTodosForms()
-        frmHome.Hide()
-        frmClientes.Hide()
-        frmVendas.Hide()
-        frmConfiguracoes.Hide()
+    Private Sub EsconderTodosForms() 'exceto o frmLogin
+        frmHome.Close()
+        frmClientes.Close()
+        frmVendas.Close()
+        frmConfiguracoes.Close()
     End Sub
 
     Private Sub tmrAnimacao_Tick(sender As System.Object, e As System.EventArgs) Handles tmrAnimacao.Tick

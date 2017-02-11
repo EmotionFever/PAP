@@ -61,9 +61,8 @@ Public Class frmLogin
 
             If txtPass.Text = leitor.GetString("palavra_passe") Then
                 codF = leitor.GetInt32("codF")
-                Me.Hide()
                 frmHome.Show()
-
+                Me.Hide()
             Else
                 lblErroPass.Text = "Palavra-passe incorreta"
                 rctPass.BackColor = Color.LightSalmon
@@ -110,5 +109,9 @@ Public Class frmLogin
 
     Private Sub txtPass_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPass.TextChanged
         restaurarPass()
+    End Sub
+
+    Private Sub frmLogin_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

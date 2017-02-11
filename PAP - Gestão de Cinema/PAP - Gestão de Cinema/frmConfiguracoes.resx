@@ -345,6 +345,16 @@
         s/HfXCmXyvfkfDlb4o1JLOhHyodkd4k3Ly+ReCOzuPv+AeTmnyP/H1IF/PmJtXicAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnPass.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        pgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADXSURBVEhLtZax
+        DcJQDERTskB6RknJPKkpMhqjIEZgAbgT+flnyyhgOZZepDv7n4sfKRlQM3iCF4qPENTCmZUl8B/gCkZ3
+        7hNOtOFB7S1o3MFZ+r3ZzAjUrwvItoS1NdqhCNQ/CwiXjKCb7VAEagIMI5P43xYQ3okxLhq6B+oEbuvZ
+        CF582KgkNCsJzUpCs5LQrCQ0K+nCv4ZZNNMIP5hFM43wg1k00wg/mEUzjfCDWTTTCD+YRTON8INZNNMI
+        P5hFM43wg1k004sj6B/9A2B2/20pBpnD/AZL4Oou7gtP8gAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btnTlm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -489,6 +499,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8B9//PH/qS2WmcsI7UMAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="tmrPiscar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAMoAAAEAIABoQQMAFgAAACgAAAAAAQAAlAEAAAEAIAAAAAAAACgDACMuAAAjLgAAAAAAAAAA
