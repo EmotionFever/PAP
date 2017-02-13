@@ -24,13 +24,12 @@ Partial Class frmClientes
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClientes))
         Me.pnl1 = New System.Windows.Forms.Panel()
+        Me.pct1 = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
-        Me.grpApagar = New System.Windows.Forms.GroupBox()
         Me.lblidade = New System.Windows.Forms.Label()
         Me.lbllocalidade = New System.Windows.Forms.Label()
         Me.lblnome = New System.Windows.Forms.Label()
         Me.lblemail = New System.Windows.Forms.Label()
-        Me.btnApagar = New System.Windows.Forms.Button()
         Me.lbl13 = New System.Windows.Forms.Label()
         Me.lbl12 = New System.Windows.Forms.Label()
         Me.lbl10 = New System.Windows.Forms.Label()
@@ -50,22 +49,22 @@ Partial Class frmClientes
         Me.rctMorada = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctNIF = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.txtnome = New System.Windows.Forms.TextBox()
-        Me.txtemail = New System.Windows.Forms.TextBox()
+        Me.txtRua = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtMorada = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ckkTel = New System.Windows.Forms.CheckBox()
-        Me.mtbTel = New System.Windows.Forms.MaskedTextBox()
+        Me.mtbTlm = New System.Windows.Forms.MaskedTextBox()
         Me.mtbNIF = New System.Windows.Forms.MaskedTextBox()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.btnEntrar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.pct1 = New System.Windows.Forms.PictureBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnDesativar = New System.Windows.Forms.Button()
+        Me.cmblocalidade = New System.Windows.Forms.ComboBox()
         Me.pnl1.SuspendLayout()
-        Me.grpApagar.SuspendLayout()
-        CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
@@ -78,6 +77,16 @@ Partial Class frmClientes
         Me.pnl1.Name = "pnl1"
         Me.pnl1.Size = New System.Drawing.Size(682, 93)
         Me.pnl1.TabIndex = 4
+        '
+        'pct1
+        '
+        Me.pct1.BackgroundImage = CType(resources.GetObject("pct1.BackgroundImage"), System.Drawing.Image)
+        Me.pct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct1.Location = New System.Drawing.Point(3, 5)
+        Me.pct1.Name = "pct1"
+        Me.pct1.Size = New System.Drawing.Size(88, 88)
+        Me.pct1.TabIndex = 42
+        Me.pct1.TabStop = False
         '
         'lbl1
         '
@@ -92,111 +101,93 @@ Partial Class frmClientes
         Me.lbl1.Text = "Clientes"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'grpApagar
-        '
-        Me.grpApagar.Controls.Add(Me.lblidade)
-        Me.grpApagar.Controls.Add(Me.lbllocalidade)
-        Me.grpApagar.Controls.Add(Me.lblnome)
-        Me.grpApagar.Controls.Add(Me.lblemail)
-        Me.grpApagar.Controls.Add(Me.btnApagar)
-        Me.grpApagar.Controls.Add(Me.lbl13)
-        Me.grpApagar.Controls.Add(Me.lbl12)
-        Me.grpApagar.Controls.Add(Me.lbl10)
-        Me.grpApagar.Controls.Add(Me.lbl9)
-        Me.grpApagar.ForeColor = System.Drawing.Color.White
-        Me.grpApagar.Location = New System.Drawing.Point(76, 499)
-        Me.grpApagar.Name = "grpApagar"
-        Me.grpApagar.Size = New System.Drawing.Size(312, 155)
-        Me.grpApagar.TabIndex = 14
-        Me.grpApagar.TabStop = False
-        Me.grpApagar.Text = "Apagar"
-        '
         'lblidade
         '
         Me.lblidade.AutoSize = True
-        Me.lblidade.Location = New System.Drawing.Point(126, 47)
+        Me.lblidade.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblidade.ForeColor = System.Drawing.Color.White
+        Me.lblidade.Location = New System.Drawing.Point(627, 552)
         Me.lblidade.Name = "lblidade"
-        Me.lblidade.Size = New System.Drawing.Size(16, 13)
+        Me.lblidade.Size = New System.Drawing.Size(19, 14)
         Me.lblidade.TabIndex = 17
         Me.lblidade.Text = "---"
         '
         'lbllocalidade
         '
         Me.lbllocalidade.AutoSize = True
-        Me.lbllocalidade.Location = New System.Drawing.Point(126, 97)
+        Me.lbllocalidade.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbllocalidade.ForeColor = System.Drawing.Color.White
+        Me.lbllocalidade.Location = New System.Drawing.Point(627, 596)
         Me.lbllocalidade.Name = "lbllocalidade"
-        Me.lbllocalidade.Size = New System.Drawing.Size(16, 13)
+        Me.lbllocalidade.Size = New System.Drawing.Size(19, 14)
         Me.lbllocalidade.TabIndex = 20
         Me.lbllocalidade.Text = "---"
         '
         'lblnome
         '
         Me.lblnome.AutoSize = True
-        Me.lblnome.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblnome.Location = New System.Drawing.Point(126, 22)
+        Me.lblnome.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnome.ForeColor = System.Drawing.Color.White
+        Me.lblnome.Location = New System.Drawing.Point(627, 529)
         Me.lblnome.Name = "lblnome"
-        Me.lblnome.Size = New System.Drawing.Size(16, 13)
+        Me.lblnome.Size = New System.Drawing.Size(19, 14)
         Me.lblnome.TabIndex = 16
         Me.lblnome.Text = "---"
         '
         'lblemail
         '
         Me.lblemail.AutoSize = True
-        Me.lblemail.Location = New System.Drawing.Point(126, 70)
+        Me.lblemail.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblemail.ForeColor = System.Drawing.Color.White
+        Me.lblemail.Location = New System.Drawing.Point(627, 574)
         Me.lblemail.Name = "lblemail"
-        Me.lblemail.Size = New System.Drawing.Size(16, 13)
+        Me.lblemail.Size = New System.Drawing.Size(19, 14)
         Me.lblemail.TabIndex = 19
         Me.lblemail.Text = "---"
-        '
-        'btnApagar
-        '
-        Me.btnApagar.ForeColor = System.Drawing.Color.Black
-        Me.btnApagar.Location = New System.Drawing.Point(16, 122)
-        Me.btnApagar.Name = "btnApagar"
-        Me.btnApagar.Size = New System.Drawing.Size(274, 23)
-        Me.btnApagar.TabIndex = 9
-        Me.btnApagar.Text = "Apagar registo selecionado"
-        Me.btnApagar.UseVisualStyleBackColor = True
         '
         'lbl13
         '
         Me.lbl13.AutoSize = True
-        Me.lbl13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl13.Location = New System.Drawing.Point(13, 97)
+        Me.lbl13.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl13.ForeColor = System.Drawing.Color.White
+        Me.lbl13.Location = New System.Drawing.Point(535, 596)
         Me.lbl13.Name = "lbl13"
-        Me.lbl13.Size = New System.Drawing.Size(62, 13)
+        Me.lbl13.Size = New System.Drawing.Size(57, 14)
         Me.lbl13.TabIndex = 11
-        Me.lbl13.Text = "Localidade:"
+        Me.lbl13.Text = "Telemóvel:"
         '
         'lbl12
         '
         Me.lbl12.AutoSize = True
-        Me.lbl12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl12.Location = New System.Drawing.Point(15, 70)
+        Me.lbl12.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl12.ForeColor = System.Drawing.Color.White
+        Me.lbl12.Location = New System.Drawing.Point(535, 574)
         Me.lbl12.Name = "lbl12"
-        Me.lbl12.Size = New System.Drawing.Size(38, 13)
+        Me.lbl12.Size = New System.Drawing.Size(46, 14)
         Me.lbl12.TabIndex = 9
-        Me.lbl12.Text = "E-mail:"
+        Me.lbl12.Text = "Morada:"
         '
         'lbl10
         '
         Me.lbl10.AutoSize = True
-        Me.lbl10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl10.Location = New System.Drawing.Point(15, 47)
+        Me.lbl10.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl10.ForeColor = System.Drawing.Color.White
+        Me.lbl10.Location = New System.Drawing.Point(535, 552)
         Me.lbl10.Name = "lbl10"
-        Me.lbl10.Size = New System.Drawing.Size(35, 13)
+        Me.lbl10.Size = New System.Drawing.Size(25, 14)
         Me.lbl10.TabIndex = 5
-        Me.lbl10.Text = "Pisos:"
+        Me.lbl10.Text = "NIF:"
         '
         'lbl9
         '
         Me.lbl9.AutoSize = True
-        Me.lbl9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl9.Location = New System.Drawing.Point(15, 22)
+        Me.lbl9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl9.ForeColor = System.Drawing.Color.White
+        Me.lbl9.Location = New System.Drawing.Point(535, 529)
         Me.lbl9.Name = "lbl9"
-        Me.lbl9.Size = New System.Drawing.Size(113, 13)
+        Me.lbl9.Size = New System.Drawing.Size(87, 14)
         Me.lbl9.TabIndex = 0
-        Me.lbl9.Text = "Nome do Condomínio:"
+        Me.lbl9.Text = "Nome do Cliente:"
         '
         'chkMorada
         '
@@ -241,9 +232,9 @@ Partial Class frmClientes
         Me.lbl6.ForeColor = System.Drawing.Color.White
         Me.lbl6.Location = New System.Drawing.Point(518, 258)
         Me.lbl6.Name = "lbl6"
-        Me.lbl6.Size = New System.Drawing.Size(53, 15)
+        Me.lbl6.Size = New System.Drawing.Size(32, 15)
         Me.lbl6.TabIndex = 22
-        Me.lbl6.Text = "Morada:"
+        Me.lbl6.Text = "Rua:"
         '
         'lbl3
         '
@@ -272,7 +263,7 @@ Partial Class frmClientes
         Me.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv1.Location = New System.Drawing.Point(76, 135)
         Me.dgv1.Name = "dgv1"
-        Me.dgv1.Size = New System.Drawing.Size(436, 351)
+        Me.dgv1.Size = New System.Drawing.Size(436, 509)
         Me.dgv1.TabIndex = 15
         '
         'rctNome
@@ -291,7 +282,7 @@ Partial Class frmClientes
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctTelemovel, Me.rctIII, Me.rctMorada, Me.rctNIF, Me.rctNome})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(781, 692)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(781, 662)
         Me.ShapeContainer1.TabIndex = 26
         Me.ShapeContainer1.TabStop = False
         '
@@ -346,16 +337,16 @@ Partial Class frmClientes
         Me.txtnome.TabIndex = 27
         Me.txtnome.Tag = ""
         '
-        'txtemail
+        'txtRua
         '
-        Me.txtemail.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtemail.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtemail.ForeColor = System.Drawing.Color.Black
-        Me.txtemail.Location = New System.Drawing.Point(530, 281)
-        Me.txtemail.Name = "txtemail"
-        Me.txtemail.Size = New System.Drawing.Size(193, 14)
-        Me.txtemail.TabIndex = 28
-        Me.txtemail.Tag = ""
+        Me.txtRua.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtRua.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRua.ForeColor = System.Drawing.Color.Black
+        Me.txtRua.Location = New System.Drawing.Point(530, 280)
+        Me.txtRua.Name = "txtRua"
+        Me.txtRua.Size = New System.Drawing.Size(193, 14)
+        Me.txtRua.TabIndex = 28
+        Me.txtRua.Tag = ""
         '
         'Label1
         '
@@ -364,20 +355,9 @@ Partial Class frmClientes
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(518, 321)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 15)
+        Me.Label1.Size = New System.Drawing.Size(72, 15)
         Me.Label1.TabIndex = 29
-        Me.Label1.Text = "Morada:"
-        '
-        'txtMorada
-        '
-        Me.txtMorada.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtMorada.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMorada.ForeColor = System.Drawing.Color.Black
-        Me.txtMorada.Location = New System.Drawing.Point(528, 342)
-        Me.txtMorada.Name = "txtMorada"
-        Me.txtMorada.Size = New System.Drawing.Size(193, 14)
-        Me.txtMorada.TabIndex = 30
-        Me.txtMorada.Tag = ""
+        Me.Label1.Text = "Localidade:"
         '
         'Label2
         '
@@ -399,15 +379,15 @@ Partial Class frmClientes
         Me.ckkTel.TabIndex = 32
         Me.ckkTel.UseVisualStyleBackColor = True
         '
-        'mtbTel
+        'mtbTlm
         '
-        Me.mtbTel.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.mtbTel.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.mtbTel.Location = New System.Drawing.Point(529, 408)
-        Me.mtbTel.Mask = "000000000"
-        Me.mtbTel.Name = "mtbTel"
-        Me.mtbTel.Size = New System.Drawing.Size(195, 14)
-        Me.mtbTel.TabIndex = 33
+        Me.mtbTlm.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.mtbTlm.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.mtbTlm.Location = New System.Drawing.Point(529, 408)
+        Me.mtbTlm.Mask = "000000000"
+        Me.mtbTlm.Name = "mtbTlm"
+        Me.mtbTlm.Size = New System.Drawing.Size(195, 14)
+        Me.mtbTlm.TabIndex = 33
         '
         'mtbNIF
         '
@@ -424,7 +404,7 @@ Partial Class frmClientes
         Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
         Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
         Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 692)
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 662)
         Me.CtrL_MenuCine.TabIndex = 0
         '
         'btnEntrar
@@ -469,33 +449,67 @@ Partial Class frmClientes
         Me.Button2.Text = "Alterar"
         Me.Button2.UseVisualStyleBackColor = False
         '
-        'pct1
+        'Label3
         '
-        Me.pct1.BackgroundImage = CType(resources.GetObject("pct1.BackgroundImage"), System.Drawing.Image)
-        Me.pct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct1.Location = New System.Drawing.Point(3, 5)
-        Me.pct1.Name = "pct1"
-        Me.pct1.Size = New System.Drawing.Size(88, 88)
-        Me.pct1.TabIndex = 42
-        Me.pct1.TabStop = False
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(517, 502)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(118, 15)
+        Me.Label3.TabIndex = 42
+        Me.Label3.Text = "Cliente selecionado"
+        '
+        'btnDesativar
+        '
+        Me.btnDesativar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnDesativar.FlatAppearance.BorderSize = 0
+        Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDesativar.ForeColor = System.Drawing.Color.Black
+        Me.btnDesativar.Location = New System.Drawing.Point(520, 622)
+        Me.btnDesativar.Name = "btnDesativar"
+        Me.btnDesativar.Size = New System.Drawing.Size(236, 22)
+        Me.btnDesativar.TabIndex = 43
+        Me.btnDesativar.Text = "Desativar Cliente"
+        Me.btnDesativar.UseVisualStyleBackColor = False
+        '
+        'cmblocalidade
+        '
+        Me.cmblocalidade.BackColor = System.Drawing.Color.White
+        Me.cmblocalidade.FormattingEnabled = True
+        Me.cmblocalidade.Location = New System.Drawing.Point(530, 338)
+        Me.cmblocalidade.Name = "cmblocalidade"
+        Me.cmblocalidade.Size = New System.Drawing.Size(193, 21)
+        Me.cmblocalidade.TabIndex = 44
         '
         'frmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(781, 692)
+        Me.ClientSize = New System.Drawing.Size(781, 662)
+        Me.Controls.Add(Me.cmblocalidade)
+        Me.Controls.Add(Me.btnDesativar)
+        Me.Controls.Add(Me.lbllocalidade)
+        Me.Controls.Add(Me.lbl13)
+        Me.Controls.Add(Me.lblemail)
+        Me.Controls.Add(Me.lbl12)
+        Me.Controls.Add(Me.lblidade)
+        Me.Controls.Add(Me.lbl10)
+        Me.Controls.Add(Me.lblnome)
+        Me.Controls.Add(Me.lbl9)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnEntrar)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.mtbNIF)
-        Me.Controls.Add(Me.mtbTel)
+        Me.Controls.Add(Me.mtbTlm)
         Me.Controls.Add(Me.ckkTel)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtMorada)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtemail)
+        Me.Controls.Add(Me.txtRua)
         Me.Controls.Add(Me.txtnome)
         Me.Controls.Add(Me.chkMorada)
         Me.Controls.Add(Me.chkMorada1)
@@ -505,7 +519,6 @@ Partial Class frmClientes
         Me.Controls.Add(Me.lbl2)
         Me.Controls.Add(Me.lbl3)
         Me.Controls.Add(Me.lbl6)
-        Me.Controls.Add(Me.grpApagar)
         Me.Controls.Add(Me.dgv1)
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -514,10 +527,8 @@ Partial Class frmClientes
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"
         Me.pnl1.ResumeLayout(False)
-        Me.grpApagar.ResumeLayout(False)
-        Me.grpApagar.PerformLayout()
-        CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -525,12 +536,10 @@ Partial Class frmClientes
     Friend WithEvents CtrL_MenuCine As PAP___Gestão_de_Cinema.CTRL_MenuCine
     Friend WithEvents pnl1 As System.Windows.Forms.Panel
     Friend WithEvents lbl1 As System.Windows.Forms.Label
-    Friend WithEvents grpApagar As System.Windows.Forms.GroupBox
     Friend WithEvents lblidade As System.Windows.Forms.Label
     Friend WithEvents lbllocalidade As System.Windows.Forms.Label
     Friend WithEvents lblnome As System.Windows.Forms.Label
     Friend WithEvents lblemail As System.Windows.Forms.Label
-    Friend WithEvents btnApagar As System.Windows.Forms.Button
     Friend WithEvents lbl13 As System.Windows.Forms.Label
     Friend WithEvents lbl12 As System.Windows.Forms.Label
     Friend WithEvents lbl10 As System.Windows.Forms.Label
@@ -549,16 +558,18 @@ Partial Class frmClientes
     Friend WithEvents rctIII As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents rctMorada As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents rctNIF As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents txtemail As System.Windows.Forms.TextBox
+    Friend WithEvents txtRua As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents txtMorada As System.Windows.Forms.TextBox
     Friend WithEvents rctTelemovel As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents ckkTel As System.Windows.Forms.CheckBox
-    Friend WithEvents mtbTel As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mtbTlm As System.Windows.Forms.MaskedTextBox
     Friend WithEvents mtbNIF As System.Windows.Forms.MaskedTextBox
     Friend WithEvents btnEntrar As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents pct1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents btnDesativar As System.Windows.Forms.Button
+    Friend WithEvents cmblocalidade As System.Windows.Forms.ComboBox
 End Class
