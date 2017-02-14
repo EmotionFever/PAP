@@ -6,6 +6,7 @@ Public Class frmLogin
     Dim query As String
     Dim leitor As MySqlDataReader
     Public codF As Integer
+    Public acesso(CTRL_MenuCine.DIMLBL) As Boolean
 
     Private Sub restaurarUtl()
         lblErroUtl.Text = ""
@@ -109,9 +110,5 @@ Public Class frmLogin
 
     Private Sub txtPass_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPass.TextChanged
         restaurarPass()
-    End Sub
-
-    Private Sub frmLogin_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

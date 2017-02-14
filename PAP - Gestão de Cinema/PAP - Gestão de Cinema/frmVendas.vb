@@ -13,7 +13,7 @@
 
 
     Private Sub frmVendas_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        End
+        frmVendas_Inserir.Close()
     End Sub
 
     Private Sub lblX_Click(sender As System.Object, e As System.EventArgs) Handles lblX.Click

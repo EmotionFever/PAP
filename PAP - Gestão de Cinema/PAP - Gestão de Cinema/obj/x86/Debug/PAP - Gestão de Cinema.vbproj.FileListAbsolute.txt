@@ -66,3 +66,4 @@ C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\
 C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.Resources.resources
 C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.vbproj.GenerateResource.Cache
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmConfiguracoes.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmDefinicoes.resources

@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class frmConfiguracoes
+Public Class frmDefinicoes
     Dim ligacao As New MySqlConnection("Server=localhost;DataBase=ppap;Uid=root;Pwd=;Connect Timeout=30;")
     Dim adapter As New MySqlDataAdapter
     Dim comando As MySqlCommand

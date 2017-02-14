@@ -2,3 +2,4 @@
 - Criar as novas tabelas e modificar as já existentes
 - Pôr dados na tabelas
 - Resolver o problema com o butão X do form
+- Descobrir se posso fazer um caminho pra uma imagem assim "../All images/Geral/u.jpg" [{CRÍTICO}]

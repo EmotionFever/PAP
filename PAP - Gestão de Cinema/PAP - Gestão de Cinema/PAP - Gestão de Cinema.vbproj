@@ -97,10 +97,10 @@
     <Compile Include="frmClientes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConfiguracoes.Designer.vb">
-      <DependentUpon>frmConfiguracoes.vb</DependentUpon>
+    <Compile Include="frmDefinicoes.Designer.vb">
+      <DependentUpon>frmDefinicoes.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmConfiguracoes.vb">
+    <Compile Include="frmDefinicoes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.vb">
@@ -152,8 +152,8 @@
     <EmbeddedResource Include="frmClientes.resx">
       <DependentUpon>frmClientes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConfiguracoes.resx">
-      <DependentUpon>frmConfiguracoes.vb</DependentUpon>
+    <EmbeddedResource Include="frmDefinicoes.resx">
+      <DependentUpon>frmDefinicoes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>

@@ -74,7 +74,6 @@ Partial Class frmHome
         Me.lblPergunta = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.flp1.SuspendLayout()
         Me.pnlLugares.SuspendLayout()
         CType(Me.pctLugares, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -680,10 +679,10 @@ Partial Class frmHome
         Me.lblPergunta.Cursor = System.Windows.Forms.Cursors.Default
         Me.lblPergunta.Font = New System.Drawing.Font("Arial", 20.0!)
         Me.lblPergunta.ForeColor = System.Drawing.Color.White
-        Me.lblPergunta.Location = New System.Drawing.Point(0, 8)
+        Me.lblPergunta.Location = New System.Drawing.Point(0, 0)
         Me.lblPergunta.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPergunta.Name = "lblPergunta"
-        Me.lblPergunta.Size = New System.Drawing.Size(463, 78)
+        Me.lblPergunta.Size = New System.Drawing.Size(463, 93)
         Me.lblPergunta.TabIndex = 1
         Me.lblPergunta.Text = "O que deseja fazer, Utilizador?"
         Me.lblPergunta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -709,22 +708,12 @@ Partial Class frmHome
         Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 650)
         Me.CtrL_MenuCine.TabIndex = 2
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(446, 604)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(661, 650)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.pnl1)
         Me.Controls.Add(Me.flp1)
@@ -812,5 +801,4 @@ Partial Class frmHome
     Friend WithEvents lblDefinicoes As System.Windows.Forms.Label
     Friend WithEvents lbl_Definicoes As System.Windows.Forms.Label
     Friend WithEvents pctDefinicoes As System.Windows.Forms.PictureBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

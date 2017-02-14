@@ -2,6 +2,8 @@
     Dim contador As Integer = 0
     Public Const DIMLBL As Integer = 10
     Public botao(DIMLBL) As System.Windows.Forms.Button
+    Dim frm(DIMLBL) As Form
+    Dim frmAtual As Form
 
     Private Sub CTRL_MenuCine_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         '"Apontar" os apontadores de botões para os botões do CTRL / Códigos do procedimento SelecionarBotao(«código»)
@@ -15,23 +17,27 @@
         botao(7) = btnSalas
         botao(8) = btnVendas
         botao(9) = btnDefinicoes
+
+        frm(0) = frmHome
+        'frm(1) =frmLugares
+        frm(2) = frmClientes
+        'frm(3) =frmFuncionarios
+        'frm(4) =frmEncargos
+        'frm(5) =frmCalendarios
+        'frm(6) =frmProdutos
+        'frm(7) =frmSalas
+        frm(8) = frmVendas
+        frm(9) = frmDefinicoes
     End Sub
 
     Public Sub Sincronizar_acessos() 'Faz desaparecer os botõess que o funcionário não tem acesso
         For a As Integer = 0 To DIMLBL - 1
-            botao(a).Visible = frmHome.acesso(a)
+            botao(a).Visible = frmLogin.acesso(a)
         Next
     End Sub
 
     Private Sub pctBotao_Click(sender As System.Object, e As System.EventArgs) Handles pctBotao.Click
         tmrAnimacao.Enabled = True
-    End Sub
-
-    Private Sub EsconderTodosForms() 'exceto o frmLogin
-        frmHome.Close()
-        frmClientes.Close()
-        frmVendas.Close()
-        frmConfiguracoes.Close()
     End Sub
 
     Private Sub tmrAnimacao_Tick(sender As System.Object, e As System.EventArgs) Handles tmrAnimacao.Tick
@@ -71,26 +77,27 @@
         If numero >= 0 And numero < DIMLBL Then
             botao(numero).Enabled = False
             botao(numero).BackColor = Color.FromArgb(37, 46, 49)
+            frmAtual = frm(numero)
         End If
     End Sub
 
     Public Sub IrParaHome() Handles btnInicio.Click
-        EsconderTodosForms()
         frmHome.Show()
+        frmAtual.Close()
     End Sub
 
     Public Sub IrParaClientes() Handles btnClientes.Click
-        EsconderTodosForms()
         frmClientes.Show()
+        frmAtual.Close()
     End Sub
 
     Public Sub IrParaVendas() Handles btnVendas.Click
-        EsconderTodosForms()
         frmVendas.Show()
+        frmAtual.Close()
     End Sub
 
     Public Sub IrParaDefinicoes() Handles btnDefinicoes.Click
-        EsconderTodosForms()
-        frmConfiguracoes.Show()
+        frmDefinicoes.Show()
+        frmAtual.Close()
     End Sub
 End Class

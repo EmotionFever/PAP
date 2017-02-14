@@ -7,7 +7,6 @@ Public Class frmHome
     Dim leitor As MySqlDataReader
     Public Const DIMLBL As Integer = 7
     Dim lblI(DIMLBL) As Label
-    Public acesso(CtrL_MenuCine.DIMLBL) As Boolean
     Public Const ESPACAMENTO As Integer = 6
     Dim cont_lbl As Integer = 0
 
@@ -107,56 +106,56 @@ Public Class frmHome
         ligacao.Open()
 
         leitor = comando.ExecuteReader
-        acesso(0) = True 'Ao Menu principal, todos têm acesso
+        frmLogin.acesso(0) = True 'Ao Menu principal, todos têm acesso
         While leitor.Read
             If leitor.GetString("tabela").Contains("Lugares") Then
                 pnlLugares.Show()
                 lblLugares.Text = "Pode" + leitor.GetString("permissoes") + " lugares"
-                acesso(1) = True
+                frmLogin.acesso(1) = True
             End If
 
             If leitor.GetString("tabela").Contains("Clientes") Then
                 pnlClientes.Show()
                 lblClientes.Text = "Pode" + leitor.GetString("permissoes") + " clientes"
-                acesso(2) = True
+                frmLogin.acesso(2) = True
             End If
 
             If leitor.GetString("tabela").Contains("Funcionarios") Then
                 pnlFuncionarios.Show()
                 lblFuncionarios.Text = "Pode" + leitor.GetString("permissoes") + " funcionários"
-                acesso(3) = True
+                frmLogin.acesso(3) = True
             End If
 
             If leitor.GetString("tabela").Contains("Encargos") Then
                 pnlEncargos.Show()
                 lblEncargos.Text = "Pode" + leitor.GetString("permissoes") + " encargos"
-                acesso(4) = True
+                frmLogin.acesso(4) = True
             End If
 
             If leitor.GetString("tabela").Contains("Calendarios") Then
                 pnlCalendarios.Show()
                 lblCalendarios.Text = "Pode" + leitor.GetString("permissoes") + " calendários de salas"
-                acesso(5) = True
+                frmLogin.acesso(5) = True
             End If
 
             If leitor.GetString("tabela").Contains("Produtos") Then
                 pnlProdutos.Show()
                 lblProdutos.Text = "Pode" + leitor.GetString("permissoes") + " produtos"
-                acesso(6) = True
+                frmLogin.acesso(6) = True
             End If
 
             If leitor.GetString("tabela").Contains("Salas") Then
                 pnlSalas.Show()
                 lblSalas.Text = "Pode" + leitor.GetString("permissoes") + " salas"
-                acesso(7) = True
+                frmLogin.acesso(7) = True
             End If
 
             If leitor.GetString("tabela").Contains("Vendas") Then
                 pnlVendas.Show()
                 lblVendas.Text = "Pode" + leitor.GetString("permissoes") + " vendas"
-                acesso(8) = True
+                frmLogin.acesso(8) = True
             End If
-            acesso(9) = True 'Às definições da sua conta, todos têm acesso
+            frmLogin.acesso(9) = True 'Às definições da sua conta, todos têm acesso
         End While
         ligacao.Dispose()
         CtrL_MenuCine.Sincronizar_acessos()
@@ -194,4 +193,5 @@ Public Class frmHome
     Private Sub lbl_Definicoes_Click(sender As System.Object, e As System.EventArgs) Handles lbl_Definicoes.Click, lblDefinicoes.Click, pctDefinicoes.Click, pnlDefinicoes.Click
         CtrL_MenuCine.IrParaDefinicoes()
     End Sub
+
 End Class
