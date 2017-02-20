@@ -50,7 +50,7 @@ Public Class frmLogin
             Exit Sub
         End If
 
-        query = "select * from funcionarios where nome='" + txtNome.Text + "'"
+        query = "select * from funcionarios where username='" + txtNome.Text + "'"
         comando = New MySqlCommand(query, ligacao)
         ligacao.Open()
         leitor = comando.ExecuteReader

@@ -13,14 +13,14 @@ Public Class frmDefinicoes
         End
     End Sub
     Private Sub Atualizar_dados()
-        query = "select Funcionarios.nome as nome, IFNULL(telemovel,'-') as telemovel, ifnull(localidades.nome,'-') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + frmLogin.codF.ToString
+        query = "select username, IFNULL(Funcionarios.nome,'-') as nome, IFNULL(telemovel,'-') as telemovel, ifnull(localidades.nome,'-') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + frmLogin.codF.ToString
 
         comando = New MySqlCommand(query, ligacao)
         ligacao.Open()
         leitor = comando.ExecuteReader
         leitor.Read()
-
         lblNome.Text = leitor.GetString("nome")
+        lblUsername.Text = leitor.GetString("username")
         If leitor.GetString("idade") <> "-" Then
             lblIdade.Text = leitor.GetString("idade") + " anos"
         Else
@@ -32,8 +32,9 @@ Public Class frmDefinicoes
     End Sub
 
     Private Sub frmConfiguracoes_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        query = "select Funcionarios.nome as nome, IFNULL(telemovel,'-') as telemovel, ifnull(localidades.nome,'-') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo, palavra_passe from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + frmLogin.codF.ToString
         Dim codLo As Integer
+        query = "select username, Funcionarios.nome as nome, IFNULL(telemovel,'-') as telemovel, ifnull(localidades.nome,'-') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo, palavra_passe from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + frmLogin.codF.ToString
+
 
         comando = New MySqlCommand(query, ligacao)
         ligacao.Open()
@@ -41,6 +42,7 @@ Public Class frmDefinicoes
         leitor.Read()
 
         lblNome.Text = leitor.GetString("nome")
+        lblUsername.Text = leitor.GetString("username")
         If leitor.GetString("idade") <> "-" Then
             lblIdade.Text = leitor.GetString("idade") + " anos"
         Else
@@ -51,6 +53,7 @@ Public Class frmDefinicoes
         lblTlm.Text = leitor.GetString("telemovel")
 
         txtnome.Text = leitor.GetString("nome")
+        txtUsername.Text = leitor.GetString("username")
         If leitor.GetInt32("dia") > 0 Then
             dtpDatanasc.Value = leitor.GetInt32("dia").ToString + "/" + leitor.GetInt32("mes").ToString + "/" + leitor.GetInt32("ano").ToString
         End If
@@ -209,7 +212,32 @@ Public Class frmDefinicoes
         End If
     End Sub
 
-    Private Sub chkTexto_CheckedChanged_1(sender As System.Object, e As System.EventArgs) Handles chkTexto.CheckedChanged
+    Private Sub btnUsername_Click(sender As System.Object, e As System.EventArgs) Handles btnUsername.Click
+        If txtrua.Text <> "" Then
+            query = "select username from funcionarios where username = '" + txtUsername.Text + "'"
+            comando = New MySqlCommand(query, ligacao)
+            ligacao.Open()
+            leitor = comando.ExecuteReader
+            If leitor.Read Then
+                leitor.Dispose()
+                MessageBox.Show("Para guardar um nome de utilizador tem de ter escrito um disponível", "Username não único", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            End If
+            leitor.Dispose()
 
+            comando.Connection = ligacao
+            comando.CommandText = "update funcionarios set rua='" + txtrua.Text + "' where codF=" + frmLogin.codF.ToString
+            ligacao.Open()
+            comando.ExecuteNonQuery()
+            ligacao.Close()
+
+            MessageBox.Show("O seu antigo nome de utilizador, '" + lblUsername.Text + "', foi alterado para '" + txtUsername.Text + "'.", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Atualizar_dados()
+            lbl = lblRua
+            npisca = 0
+            tmrPiscar.Start()
+        Else
+            MessageBox.Show("Para guardar um nome de utilizador tem de ter escrito um", "Campo Username vazio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
     End Sub
 End Class
