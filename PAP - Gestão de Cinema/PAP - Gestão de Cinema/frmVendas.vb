@@ -11,10 +11,6 @@
         frmVendas_Inserir.Show()
     End Sub
 
-    Private Sub lblX_Click(sender As System.Object, e As System.EventArgs) Handles lblX.Click
-        pnltest.Hide()
-    End Sub
-
     Private Sub frmVendas_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
     End Sub
@@ -23,5 +19,10 @@
         Dim btnx As Button = DirectCast(sender, Button)
 
 
+    End Sub
+
+    Private Sub btnOutro_Click(sender As System.Object, e As System.EventArgs) Handles btnOutro.Click
+        frmClientes.Show()
+        Me.Close()
     End Sub
 End Class

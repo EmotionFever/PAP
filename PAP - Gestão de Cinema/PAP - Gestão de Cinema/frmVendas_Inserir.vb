@@ -268,7 +268,7 @@ Public Class frmVendas_Inserir
 
         Dim btnx As Button = DirectCast(sender, Button)
         If prod(btnx.Tag).quant > 0 Then
-            lblprod.Text = "Digite quantas unidade deseja de " + Replace(prod(btnx.Tag).lbl(0).Text, "Nome: ", "")
+            lblprod.Text = "Digite quantas unidades deseja de " + Replace(prod(btnx.Tag).lbl(0).Text, "Nome: ", "")
             nmrQuant.Value = 1
             nmrQuant.Maximum = prod(btnx.Tag).quant
             lblquant.Text = "Só existem " + prod(btnx.Tag).quant.ToString + " unidades"

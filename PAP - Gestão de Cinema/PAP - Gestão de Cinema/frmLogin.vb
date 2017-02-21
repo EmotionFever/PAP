@@ -111,4 +111,8 @@ Public Class frmLogin
     Private Sub txtPass_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPass.TextChanged
         restaurarPass()
     End Sub
+
+    Private Sub frmLogin_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

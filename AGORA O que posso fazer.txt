@@ -1,5 +1,7 @@
 - Rever os Use Cases
 - Criar as novas tabelas e modificar as já existentes
-- Pôr dados na tabelas
+- Pôr dados nas tabelas
 - Resolver o problema com o butão X do form
 - Descobrir se posso fazer um caminho pra uma imagem assim "../All images/Geral/u.jpg" [{CRÍTICO}]
+- Acabar o desativar do form Clientes
+- Redimensionar colunas da DataGridView por código DO form Clientes
