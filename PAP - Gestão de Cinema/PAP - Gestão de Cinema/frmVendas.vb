@@ -11,11 +11,6 @@
         frmVendas_Inserir.Show()
     End Sub
 
-
-    Private Sub frmVendas_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        frmVendas_Inserir.Close()
-    End Sub
-
     Private Sub lblX_Click(sender As System.Object, e As System.EventArgs) Handles lblX.Click
         pnltest.Hide()
     End Sub

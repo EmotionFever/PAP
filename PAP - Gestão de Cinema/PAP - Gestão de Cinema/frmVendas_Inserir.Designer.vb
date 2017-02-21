@@ -28,8 +28,15 @@ Partial Class frmVendas_Inserir
         Me.flpcategorias = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnBilhetes = New System.Windows.Forms.Button()
         Me.btnVoltar = New System.Windows.Forms.Button()
+        Me.lblprod = New System.Windows.Forms.Label()
+        Me.grp1 = New System.Windows.Forms.GroupBox()
+        Me.nmrQuant = New System.Windows.Forms.NumericUpDown()
+        Me.btnConfirmar = New System.Windows.Forms.Button()
+        Me.lblquant = New System.Windows.Forms.Label()
         Me.pnl1.SuspendLayout()
         Me.flpcategorias.SuspendLayout()
+        Me.grp1.SuspendLayout()
+        CType(Me.nmrQuant, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
@@ -99,12 +106,74 @@ Partial Class frmVendas_Inserir
         Me.btnVoltar.TabIndex = 21
         Me.btnVoltar.UseVisualStyleBackColor = False
         '
+        'lblprod
+        '
+        Me.lblprod.AutoEllipsis = True
+        Me.lblprod.BackColor = System.Drawing.Color.Transparent
+        Me.lblprod.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblprod.ForeColor = System.Drawing.Color.White
+        Me.lblprod.Location = New System.Drawing.Point(6, 16)
+        Me.lblprod.Name = "lblprod"
+        Me.lblprod.Size = New System.Drawing.Size(326, 20)
+        Me.lblprod.TabIndex = 22
+        Me.lblprod.Text = "Digite quantas unidade deseja de XXXXX"
+        '
+        'grp1
+        '
+        Me.grp1.Controls.Add(Me.lblquant)
+        Me.grp1.Controls.Add(Me.btnConfirmar)
+        Me.grp1.Controls.Add(Me.nmrQuant)
+        Me.grp1.Controls.Add(Me.lblprod)
+        Me.grp1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grp1.ForeColor = System.Drawing.Color.White
+        Me.grp1.Location = New System.Drawing.Point(11, 427)
+        Me.grp1.Name = "grp1"
+        Me.grp1.Size = New System.Drawing.Size(338, 107)
+        Me.grp1.TabIndex = 23
+        Me.grp1.TabStop = False
+        Me.grp1.Text = "Quantos produtos deseja?"
+        '
+        'nmrQuant
+        '
+        Me.nmrQuant.Location = New System.Drawing.Point(9, 39)
+        Me.nmrQuant.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.nmrQuant.Name = "nmrQuant"
+        Me.nmrQuant.Size = New System.Drawing.Size(114, 20)
+        Me.nmrQuant.TabIndex = 23
+        Me.nmrQuant.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'btnConfirmar
+        '
+        Me.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnConfirmar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConfirmar.ForeColor = System.Drawing.Color.Black
+        Me.btnConfirmar.Location = New System.Drawing.Point(8, 69)
+        Me.btnConfirmar.Name = "btnConfirmar"
+        Me.btnConfirmar.Size = New System.Drawing.Size(323, 27)
+        Me.btnConfirmar.TabIndex = 24
+        Me.btnConfirmar.Tag = ""
+        Me.btnConfirmar.Text = "Confirmar"
+        Me.btnConfirmar.UseVisualStyleBackColor = False
+        '
+        'lblquant
+        '
+        Me.lblquant.AutoSize = True
+        Me.lblquant.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblquant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lblquant.Location = New System.Drawing.Point(141, 41)
+        Me.lblquant.Name = "lblquant"
+        Me.lblquant.Size = New System.Drawing.Size(132, 14)
+        Me.lblquant.TabIndex = 25
+        Me.lblquant.Text = "Só existem x unidades"
+        '
         'frmVendas_Inserir
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(360, 419)
+        Me.ClientSize = New System.Drawing.Size(360, 547)
+        Me.Controls.Add(Me.grp1)
         Me.Controls.Add(Me.flpcategorias)
         Me.Controls.Add(Me.btnVoltar)
         Me.Controls.Add(Me.pnl1)
@@ -115,6 +184,9 @@ Partial Class frmVendas_Inserir
         Me.TopMost = True
         Me.pnl1.ResumeLayout(False)
         Me.flpcategorias.ResumeLayout(False)
+        Me.grp1.ResumeLayout(False)
+        Me.grp1.PerformLayout()
+        CType(Me.nmrQuant, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -124,4 +196,9 @@ Partial Class frmVendas_Inserir
     Friend WithEvents flpcategorias As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents btnBilhetes As System.Windows.Forms.Button
     Friend WithEvents btnVoltar As System.Windows.Forms.Button
+    Friend WithEvents lblprod As System.Windows.Forms.Label
+    Friend WithEvents grp1 As System.Windows.Forms.GroupBox
+    Friend WithEvents btnConfirmar As System.Windows.Forms.Button
+    Friend WithEvents nmrQuant As System.Windows.Forms.NumericUpDown
+    Friend WithEvents lblquant As System.Windows.Forms.Label
 End Class

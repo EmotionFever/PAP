@@ -11,7 +11,10 @@ Public Class frmVendas_Inserir
     Dim cont_bilhete As Integer = 0
     Public Const MAX_PRODUTOS As Integer = 50 ' A base de dados não deve ter mais que «MAX_PRODUTOS» produtos!!!!
     Public prod(MAX_PRODUTOS) As Produto
+    Dim form_quant As Integer = 0
+    Dim pos_corrente As Integer
     Private Sub frmVendas_Inserir_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        Me.Size = New System.Drawing.Size(366, 445)
 
         'Guardo todos mas TODOS os produtos no array prod(MAX_PRODUTOS)
 
@@ -262,106 +265,102 @@ Public Class frmVendas_Inserir
     End Sub
 
     Private Sub ProdutoClicado(ByVal sender As Object, ByVal e As EventArgs)
-        'TENHO de fazer com que a label do stock diminua a quantidade selecionada aqui!!!!!!!!!!!!!!
 
         Dim btnx As Button = DirectCast(sender, Button)
+        If prod(btnx.Tag).quant > 0 Then
+            lblprod.Text = "Digite quantas unidade deseja de " + Replace(prod(btnx.Tag).lbl(0).Text, "Nome: ", "")
+            nmrQuant.Value = 1
+            nmrQuant.Maximum = prod(btnx.Tag).quant
+            lblquant.Text = "Só existem " + prod(btnx.Tag).quant.ToString + " unidades"
+            pos_corrente = btnx.Tag
 
+            Me.Size = New System.Drawing.Size(366, 571)
+        Else
+            MessageBox.Show("Não existem produtos em stock", "Sem stock", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub btnConfirmar_Click(sender As System.Object, e As System.EventArgs) Handles btnConfirmar.Click
+        'TENHO de fazer com que a label do stock diminua a quantidade selecionada aqui!!!!!!!!!!!!!!
+
+        form_quant = nmrQuant.Value
         If frmVendas.cont_art < frmVendas.MAX_ARTIGOS Then
-
-
-
-
-
-
-
             Try
-                query = "select * from produtos where codP=" + prod(btnx.Tag).codP.ToString
+                query = "select * from produtos where codP=" + prod(pos_corrente).codP.ToString
                 comando = New MySqlCommand(query, ligacao)
 
                 ligacao.Open()
                 leitor = comando.ExecuteReader
                 leitor.Read()
 
-                Dim quantidade As Integer = 0
-                quantidade = CInt(InputBox("Digite a quantidade que deseja desse produto ", "Quantos produtos deseja?"))
-                If quantidade > 0 Then
-                    If quantidade <= prod(btnx.Tag).quant Then
-                        prod(btnx.Tag).quant -= quantidade
-                        prod(btnx.Tag).lbl(1).Text = "Stock: " + prod(btnx.Tag).quant.ToString
+                prod(pos_corrente).quant -= form_quant
+                prod(pos_corrente).lbl(1).Text = "Stock: " + prod(pos_corrente).quant.ToString
+                Me.Size = New System.Drawing.Size(366, 445)
 
+                frmVendas.art(frmVendas.cont_art) = New Artigo
 
+                frmVendas.art(frmVendas.cont_art).pnl = New Panel
+                frmVendas.art(frmVendas.cont_art).pnl.Size = New System.Drawing.Size(289, 74) 'atribuir tamanho
+                frmVendas.art(frmVendas.cont_art).pnl.BackColor = Color.Firebrick
+                frmVendas.art(frmVendas.cont_art).pnl.BorderStyle = BorderStyle.Fixed3D
+                frmVendas.flpartigos.Controls.Add(frmVendas.art(frmVendas.cont_art).pnl) 'Adicionar ao formulário
 
-                        frmVendas.art(frmVendas.cont_art) = New Artigo
+                frmVendas.art(frmVendas.cont_art).btn = New Button
+                frmVendas.art(frmVendas.cont_art).btn.Location = New System.Drawing.Point(245, 24)
+                frmVendas.art(frmVendas.cont_art).btn.AutoSize = False
+                frmVendas.art(frmVendas.cont_art).btn.Size = New System.Drawing.Size(25, 25)
+                frmVendas.art(frmVendas.cont_art).btn.BackgroundImage = My.Resources.lixo
+                frmVendas.art(frmVendas.cont_art).btn.BackgroundImageLayout = ImageLayout.Zoom
+                frmVendas.art(frmVendas.cont_art).btn.FlatStyle = FlatStyle.Flat
+                frmVendas.art(frmVendas.cont_art).btn.FlatAppearance.BorderSize = 0
+                frmVendas.art(frmVendas.cont_art).btn.Tag = frmVendas.cont_art
+                frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).btn)
+                frmVendas.art(frmVendas.cont_art).btn.BringToFront()
+                AddHandler frmVendas.art(frmVendas.cont_art).btn.Click, AddressOf frmVendas.ApagarProduto
 
-                        frmVendas.art(frmVendas.cont_art).pnl = New Panel
-                        frmVendas.art(frmVendas.cont_art).pnl.Size = New System.Drawing.Size(289, 74) 'atribuir tamanho
-                        frmVendas.art(frmVendas.cont_art).pnl.BackColor = Color.Firebrick
-                        frmVendas.art(frmVendas.cont_art).pnl.BorderStyle = BorderStyle.Fixed3D
-                        frmVendas.flpartigos.Controls.Add(frmVendas.art(frmVendas.cont_art).pnl) 'Adicionar ao formulário
+                frmVendas.art(frmVendas.cont_art).pct = New PictureBox
+                frmVendas.art(frmVendas.cont_art).pct.Size = New System.Drawing.Size(72, 72)
+                frmVendas.art(frmVendas.cont_art).pct.Location = New System.Drawing.Point(0, 0)
+                'pct.BackgroundImage = «« Imagem »» -------> <---------
+                frmVendas.art(frmVendas.cont_art).pct.BackgroundImageLayout = ImageLayout.Zoom
+                frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).pct)
 
-                        frmVendas.art(frmVendas.cont_art).btn = New Button
-                        frmVendas.art(frmVendas.cont_art).btn.Location = New System.Drawing.Point(245, 24)
-                        frmVendas.art(frmVendas.cont_art).btn.AutoSize = False
-                        frmVendas.art(frmVendas.cont_art).btn.Size = New System.Drawing.Size(25, 25)
-                        frmVendas.art(frmVendas.cont_art).btn.BackgroundImage = My.Resources.lixo
-                        frmVendas.art(frmVendas.cont_art).btn.BackgroundImageLayout = ImageLayout.Zoom
-                        frmVendas.art(frmVendas.cont_art).btn.FlatStyle = FlatStyle.Flat
-                        frmVendas.art(frmVendas.cont_art).btn.FlatAppearance.BorderSize = 0
-                        frmVendas.art(frmVendas.cont_art).btn.Tag = frmVendas.cont_art
-                        frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).btn)
-                        frmVendas.art(frmVendas.cont_art).btn.BringToFront()
-                        AddHandler frmVendas.art(frmVendas.cont_art).btn.Click, AddressOf frmVendas.ApagarProduto
+                frmVendas.art(frmVendas.cont_art).lbl(0) = New Label
+                frmVendas.art(frmVendas.cont_art).lbl(0).Location = New System.Drawing.Point(72, 4)
+                frmVendas.art(frmVendas.cont_art).lbl(0).Font = New Font("Arial", 8, FontStyle.Bold)
+                frmVendas.art(frmVendas.cont_art).lbl(0).ForeColor = Color.White
+                frmVendas.art(frmVendas.cont_art).lbl(0).Text = leitor.GetString("nome")
+                frmVendas.art(frmVendas.cont_art).lbl(0).AutoSize = False
+                frmVendas.art(frmVendas.cont_art).lbl(0).Size = New System.Drawing.Size(210, 20)
+                frmVendas.art(frmVendas.cont_art).lbl(0).AutoEllipsis = True 'Coloca "..." se o texto exceder o tamanho da label
+                frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).lbl(0))
 
-                        frmVendas.art(frmVendas.cont_art).pct = New PictureBox
-                        frmVendas.art(frmVendas.cont_art).pct.Size = New System.Drawing.Size(72, 72)
-                        frmVendas.art(frmVendas.cont_art).pct.Location = New System.Drawing.Point(0, 0)
-                        'pct.BackgroundImage = «« Imagem »» -------> <---------
-                        frmVendas.art(frmVendas.cont_art).pct.BackgroundImageLayout = ImageLayout.Zoom
-                        frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).pct)
+                frmVendas.art(frmVendas.cont_art).lbl(1) = New Label
+                frmVendas.art(frmVendas.cont_art).lbl(1).Location = New System.Drawing.Point(72, 27)
+                frmVendas.art(frmVendas.cont_art).lbl(1).Font = New Font("Arial", 8, FontStyle.Regular)
+                frmVendas.art(frmVendas.cont_art).lbl(1).ForeColor = Color.White
+                frmVendas.art(frmVendas.cont_art).lbl(1).Text = form_quant.ToString + " x " + Math.Round(leitor.GetDouble("preco"), 2).ToString
+                frmVendas.art(frmVendas.cont_art).lbl(1).AutoSize = False
+                frmVendas.art(frmVendas.cont_art).lbl(1).Size = New System.Drawing.Size(210, 20)
+                frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).lbl(1))
 
-                        frmVendas.art(frmVendas.cont_art).lbl(0) = New Label
-                        frmVendas.art(frmVendas.cont_art).lbl(0).Location = New System.Drawing.Point(72, 4)
-                        frmVendas.art(frmVendas.cont_art).lbl(0).Font = New Font("Arial", 8, FontStyle.Bold)
-                        frmVendas.art(frmVendas.cont_art).lbl(0).ForeColor = Color.White
-                        frmVendas.art(frmVendas.cont_art).lbl(0).Text = leitor.GetString("nome")
-                        frmVendas.art(frmVendas.cont_art).lbl(0).AutoSize = False
-                        frmVendas.art(frmVendas.cont_art).lbl(0).Size = New System.Drawing.Size(210, 20)
-                        frmVendas.art(frmVendas.cont_art).lbl(0).AutoEllipsis = True 'Coloca "..." se o texto exceder o tamanho da label
-                        frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).lbl(0))
+                frmVendas.art(frmVendas.cont_art).lbl(2) = New Label
+                frmVendas.art(frmVendas.cont_art).lbl(2).Location = New System.Drawing.Point(72, 49)
+                frmVendas.art(frmVendas.cont_art).lbl(2).Font = New Font("Arial", 8, FontStyle.Regular)
+                frmVendas.art(frmVendas.cont_art).lbl(2).ForeColor = Color.White
+                frmVendas.art(frmVendas.cont_art).lbl(2).Text = "Preço Total: " + Math.Round(leitor.GetDouble("preco") * form_quant, 2).ToString + " €"
+                frmVendas.art(frmVendas.cont_art).lbl(2).AutoSize = False
+                frmVendas.art(frmVendas.cont_art).lbl(2).Size = New System.Drawing.Size(210, 20)
+                frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).lbl(2))
 
-                        frmVendas.art(frmVendas.cont_art).lbl(1) = New Label
-                        frmVendas.art(frmVendas.cont_art).lbl(1).Location = New System.Drawing.Point(72, 27)
-                        frmVendas.art(frmVendas.cont_art).lbl(1).Font = New Font("Arial", 8, FontStyle.Regular)
-                        frmVendas.art(frmVendas.cont_art).lbl(1).ForeColor = Color.White
-                        frmVendas.art(frmVendas.cont_art).lbl(1).Text = quantidade.ToString + " x " + Math.Round(leitor.GetDouble("preco"), 2).ToString
-                        frmVendas.art(frmVendas.cont_art).lbl(1).AutoSize = False
-                        frmVendas.art(frmVendas.cont_art).lbl(1).Size = New System.Drawing.Size(210, 20)
-                        frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).lbl(1))
-
-                        frmVendas.art(frmVendas.cont_art).lbl(2) = New Label
-                        frmVendas.art(frmVendas.cont_art).lbl(2).Location = New System.Drawing.Point(72, 49)
-                        frmVendas.art(frmVendas.cont_art).lbl(2).Font = New Font("Arial", 8, FontStyle.Regular)
-                        frmVendas.art(frmVendas.cont_art).lbl(2).ForeColor = Color.White
-                        frmVendas.art(frmVendas.cont_art).lbl(2).Text = "Preço Total: " + Math.Round(leitor.GetDouble("preco") * quantidade, 2).ToString + " €"
-                        frmVendas.art(frmVendas.cont_art).lbl(2).AutoSize = False
-                        frmVendas.art(frmVendas.cont_art).lbl(2).Size = New System.Drawing.Size(210, 20)
-                        frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).lbl(2))
-
-                        frmVendas.art(frmVendas.cont_art).listado = True
-                        frmVendas.cont_art += 1
-
-                    Else
-                        MessageBox.Show("Não é possível vender " + quantidade.ToString + " unidades de " + leitor.GetString("nome") + " visto que só existem " + prod(btnx.Tag).quant.ToString + " desse artigo disponíveis ", "Excedeu o stock disponível para esse artigo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                    End If
-                Else
-                    MessageBox.Show("Não pode adicionar '" + quantidade.ToString + "' artigos. Tem de digitar um número inteiro maior que 0.", "Não adicionou um número válido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                End If
+                frmVendas.art(frmVendas.cont_art).listado = True
+                frmVendas.cont_art += 1
 
             Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            Finally
-                ligacao.Close()
-            End Try
+            MessageBox.Show(ex.Message)
+        Finally
+            ligacao.Close()
+        End Try
 
 
         Else
