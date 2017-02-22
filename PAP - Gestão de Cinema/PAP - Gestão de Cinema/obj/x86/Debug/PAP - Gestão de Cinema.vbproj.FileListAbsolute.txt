@@ -70,3 +70,4 @@ C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.exe.config
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmDefinicoes.resources
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmInput.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.exe.config

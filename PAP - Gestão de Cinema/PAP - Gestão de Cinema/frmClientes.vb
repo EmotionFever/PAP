@@ -83,7 +83,7 @@ Public Class frmClientes
     Sub ver()
         adapter.SelectCommand = New MySqlCommand
         adapter.SelectCommand.Connection = ligacao
-        adapter.SelectCommand.CommandText = "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel  from clientes, localidades where localidades.codlo=clientes.codlo"
+        adapter.SelectCommand.CommandText = "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel  from clientes, localidades where localidades.codlo=clientes.codlo and ativado=1"
         DS.Clear()
         ligacao.Open()
         adapter.Fill(DS, "clientes")
@@ -100,13 +100,19 @@ Public Class frmClientes
     End Sub
 
     Private Sub dgv1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv1.CellClick
-        ' Quando o utilizador clica numa célula do DGV este código seleciona a linha toda
-        Dim i As Integer = dgv1.CurrentCell.RowIndex
-        dgv1.Rows(i).Selected = True
 
-        'Como foi selecionada uma linha posso (re)ativar os botões apagar e alterar
-        btnDesativar.Enabled = True
-        btnAlterar.Enabled = True
+        ' Quando o utilizador clica numa célula do DGV este código seleciona a linha toda
+        Try
+            Dim i As Integer = dgv1.CurrentCell.RowIndex
+            dgv1.Rows(i).Selected = True
+
+            'Como foi selecionada uma linha posso (re)ativar os botões apagar e alterar
+            btnDesativar.Enabled = True
+            btnAlterar.Enabled = True
+        Catch ex As Exception
+            btnDesativar.Enabled = False
+            btnAlterar.Enabled = False
+        End Try
 
         'Tiro o rasurado e coloco os valores da linha selecionada nas labels
         For a As Integer = 0 To CAMPOSC - 1
@@ -213,7 +219,7 @@ Public Class frmClientes
                     'O código é muito parecido ao pesquisar... invés de procurar esses campos altera-os
                     If chknome.Checked Then
                         If Not (txtnome.Text = "" Or IsNumeric(txtnome.Text)) Then
-                            pquery += " clientes.nome='" + txtnome.Text + "'"
+                            pquery += " nome='" + txtnome.Text + "'"
                             lbl(0).Font = New Font(lbl(0).Font, lbl(0).Font.Style Or FontStyle.Strikeout)
                         Else
                             str_erro += "Não escreveu um nome válido. "
@@ -223,9 +229,9 @@ Public Class frmClientes
                     If chkNIF.Checked Then
                         If Not (mtbNIF.Text = "" Or mtbNIF.Text.Length < 9) Then
                             If pquery <> "" Then
-                                pquery += " and"
+                                pquery += ","
                             End If
-                            pquery += " NIF=" + mtbNIF.Text
+                            pquery += " NIF='" + mtbNIF.Text + "'"
                             lbl(1).Font = New Font(lbl(1).Font, lbl(1).Font.Style Or FontStyle.Strikeout)
                         Else
                             str_erro += "Não escreveu um NIF. "
@@ -234,7 +240,7 @@ Public Class frmClientes
                     If chkRua.Checked Then
                         If Not (txtRua.Text = "" Or IsNumeric(txtRua.Text)) Then
                             If pquery <> "" Then
-                                pquery += " and"
+                                pquery += ","
                             End If
                             pquery += " Rua='" + txtRua.Text + "'"
                             lbl(2).Font = New Font(lbl(2).Font, lbl(2).Font.Style Or FontStyle.Strikeout)
@@ -245,7 +251,7 @@ Public Class frmClientes
                     If chkLocalidade.Checked Then
                         If cmblocalidade.Text <> "" Then
                             If pquery <> "" Then
-                                pquery += " and"
+                                pquery += ","
                             End If
                             pquery += " clientes.codlo=" + cmblocalidade.SelectedValue.ToString
                             lbl(3).Font = New Font(lbl(3).Font, lbl(3).Font.Style Or FontStyle.Strikeout)
@@ -256,9 +262,9 @@ Public Class frmClientes
                     If chkTlm.Checked Then
                         If Not (mtbTlm.Text = "" Or mtbTlm.Text.Length < 9) Then
                             If pquery <> "" Then
-                                pquery += " and"
+                                pquery += ","
                             End If
-                            pquery += " NIF=" + mtbNIF.Text
+                            pquery += " telemovel='" + mtbTlm.Text + "'"
                             lbl(4).Font = New Font(lbl(4).Font, lbl(4).Font.Style Or FontStyle.Strikeout)
                         Else
                             str_erro += "Não escreveu um número de telemóvel válido. "
@@ -266,7 +272,7 @@ Public Class frmClientes
                     End If
                     If str_erro = "" Then
                         If pquery <> "" Then
-
+                            MessageBox.Show(str_erro)
                             pquery = "update clientes set" + pquery + " where codc=" + dgv1.CurrentRow.Cells(0).Value.ToString
                             Dim comando As New MySqlCommand
                             comando.Connection = ligacao
@@ -291,18 +297,24 @@ Public Class frmClientes
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ligacao.Close()
             End Try
+        Else
+            MessageBox.Show("Não selecionou nenhuma linha", "Selecione uma linha", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
     Private Sub frmClientes_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+        btnDesativar.Enabled = False
+        btnAlterar.Enabled = False
+
         ver()
+
         lbl(0) = lblnome
         lbl(1) = lblNIF
         lbl(2) = lblRua
         lbl(3) = lblLocalidade
         lbl(4) = lblTlm
 
-        'Aqui, encho a combobox com dados para os utilizador escolher
+        'Aqui, encho a combobox com dados para o utilizador escolher
         DS1 = New DataSet
 
         adapter.SelectCommand = New MySqlCommand
@@ -323,11 +335,9 @@ Public Class frmClientes
         'Apago os dados da linha selecionada na base de dados
         Dim query As String
         If dgv1.SelectedRows.Count > 0 Then
-
-
             Try
                 If Not dgv1.CurrentRow.IsNewRow Then
-                    query = "delete from condominios where codc = " + dgv1.CurrentRow.Cells(0).Value.ToString
+                    query = "update clientes set ativado=0 where codc = " + dgv1.CurrentRow.Cells(0).Value.ToString
 
                     Dim comando As New MySqlCommand(query, ligacao)
                     ligacao.Open()
@@ -340,11 +350,9 @@ Public Class frmClientes
                         lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout) ' Tudo isto quando podia simplesmente utlizar "lbl(a).FontStyle.Strikeout=True"!
                     Next
 
-                    MessageBox.Show("O registo que selecionou foi apagado", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("O registo que selecionou foi desativado", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Catch ex As Exception
-                'Normalmente, é sempre este o erro. Como não posso fazer nada acerca dele, acautelo-me
-                MessageBox.Show("Provavelmente, está a apagar um condominio com registos da tabela escalas associados. Infelizmente, terá de apagar primeiro os registos das escalas associadas a este condominio e, sim, depois, apagá-lo", ex.Message)
                 ligacao.Close()
             End Try
         End If
@@ -365,7 +373,7 @@ Public Class frmClientes
         End If
         If chkNIF.Checked Then
             If mtbNIF.Text <> "" And mtbNIF.Text.Length <= 9 Then 'Pode-se procurar sequencias de números
-                pquery += " and NIF = '" + mtbNIF.Text + "'"
+                pquery += " and NIF like '%" + mtbNIF.Text + "%'"
             Else
                 str_erro += "Não escreveu um NIF. "
             End If
@@ -399,7 +407,7 @@ Public Class frmClientes
             If pquery <> "" Then
                 adapter.SelectCommand = New MySqlCommand
                 adapter.SelectCommand.Connection = ligacao
-                adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from condominios, localidades where localidades.codl=condominios.codl" + pquery
+                adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from clientes, localidades where localidades.codlo=clientes.codlo" + pquery
                 DS.Clear()
                 ligacao.Open()
                 adapter.Fill(DS, "clientes")
@@ -420,5 +428,4 @@ Public Class frmClientes
             MessageBox.Show("Erro", str_erro, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
-
 End Class
