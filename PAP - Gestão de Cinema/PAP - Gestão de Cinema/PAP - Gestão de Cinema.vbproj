@@ -103,12 +103,6 @@
     <Compile Include="frmDefinicoes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInput.Designer.vb">
-      <DependentUpon>frmInput.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmInput.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -160,9 +154,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDefinicoes.resx">
       <DependentUpon>frmDefinicoes.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmInput.resx">
-      <DependentUpon>frmInput.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>

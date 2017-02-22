@@ -39,7 +39,6 @@ Partial Class frmDefinicoes
         Me.mtbTlm = New System.Windows.Forms.MaskedTextBox()
         Me.btnTlm = New System.Windows.Forms.Button()
         Me.lbl6 = New System.Windows.Forms.Label()
-        Me.btnOutra = New System.Windows.Forms.Button()
         Me.btnLocalidade = New System.Windows.Forms.Button()
         Me.cmblocalidade = New System.Windows.Forms.ComboBox()
         Me.txtrua = New System.Windows.Forms.TextBox()
@@ -133,7 +132,6 @@ Partial Class frmDefinicoes
         Me.grb1.Controls.Add(Me.mtbTlm)
         Me.grb1.Controls.Add(Me.btnTlm)
         Me.grb1.Controls.Add(Me.lbl6)
-        Me.grb1.Controls.Add(Me.btnOutra)
         Me.grb1.Controls.Add(Me.btnLocalidade)
         Me.grb1.Controls.Add(Me.cmblocalidade)
         Me.grb1.Controls.Add(Me.txtrua)
@@ -278,20 +276,6 @@ Partial Class frmDefinicoes
         Me.lbl6.TabIndex = 39
         Me.lbl6.Text = "O seu número de telemóvel:"
         '
-        'btnOutra
-        '
-        Me.btnOutra.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnOutra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnOutra.FlatAppearance.BorderSize = 0
-        Me.btnOutra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOutra.ForeColor = System.Drawing.Color.Black
-        Me.btnOutra.Location = New System.Drawing.Point(613, 163)
-        Me.btnOutra.Name = "btnOutra"
-        Me.btnOutra.Size = New System.Drawing.Size(46, 31)
-        Me.btnOutra.TabIndex = 38
-        Me.btnOutra.Text = "Outra"
-        Me.btnOutra.UseVisualStyleBackColor = False
-        '
         'btnLocalidade
         '
         Me.btnLocalidade.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -307,9 +291,11 @@ Partial Class frmDefinicoes
         '
         'cmblocalidade
         '
+        Me.cmblocalidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmblocalidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmblocalidade.BackColor = System.Drawing.Color.White
         Me.cmblocalidade.FormattingEnabled = True
-        Me.cmblocalidade.Location = New System.Drawing.Point(365, 168)
+        Me.cmblocalidade.Location = New System.Drawing.Point(365, 169)
         Me.cmblocalidade.Name = "cmblocalidade"
         Me.cmblocalidade.Size = New System.Drawing.Size(193, 23)
         Me.cmblocalidade.TabIndex = 23
@@ -381,7 +367,7 @@ Partial Class frmDefinicoes
         Me.dtpDatanasc.Cursor = System.Windows.Forms.Cursors.Default
         Me.dtpDatanasc.CustomFormat = ""
         Me.dtpDatanasc.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDatanasc.Location = New System.Drawing.Point(365, 44)
+        Me.dtpDatanasc.Location = New System.Drawing.Point(365, 45)
         Me.dtpDatanasc.Name = "dtpDatanasc"
         Me.dtpDatanasc.Size = New System.Drawing.Size(193, 21)
         Me.dtpDatanasc.TabIndex = 31
@@ -510,7 +496,7 @@ Partial Class frmDefinicoes
         Me.pctFuncionario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pctFuncionario.Location = New System.Drawing.Point(74, 155)
         Me.pctFuncionario.Name = "pctFuncionario"
-        Me.pctFuncionario.Size = New System.Drawing.Size(126, 123)
+        Me.pctFuncionario.Size = New System.Drawing.Size(126, 127)
         Me.pctFuncionario.TabIndex = 23
         Me.pctFuncionario.TabStop = False
         '
@@ -542,7 +528,7 @@ Partial Class frmDefinicoes
         Me.lblRua.AutoSize = True
         Me.lblRua.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRua.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblRua.Location = New System.Drawing.Point(206, 227)
+        Me.lblRua.Location = New System.Drawing.Point(206, 228)
         Me.lblRua.Name = "lblRua"
         Me.lblRua.Size = New System.Drawing.Size(31, 16)
         Me.lblRua.TabIndex = 44
@@ -553,7 +539,7 @@ Partial Class frmDefinicoes
         Me.lblLocalidade.AutoSize = True
         Me.lblLocalidade.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLocalidade.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblLocalidade.Location = New System.Drawing.Point(206, 244)
+        Me.lblLocalidade.Location = New System.Drawing.Point(206, 247)
         Me.lblLocalidade.Name = "lblLocalidade"
         Me.lblLocalidade.Size = New System.Drawing.Size(70, 16)
         Me.lblLocalidade.TabIndex = 45
@@ -564,7 +550,7 @@ Partial Class frmDefinicoes
         Me.lblTlm.AutoSize = True
         Me.lblTlm.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTlm.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblTlm.Location = New System.Drawing.Point(206, 262)
+        Me.lblTlm.Location = New System.Drawing.Point(206, 266)
         Me.lblTlm.Name = "lblTlm"
         Me.lblTlm.Size = New System.Drawing.Size(80, 16)
         Me.lblTlm.TabIndex = 46
@@ -590,7 +576,7 @@ Partial Class frmDefinicoes
         Me.lblUsername.AutoSize = True
         Me.lblUsername.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblUsername.Location = New System.Drawing.Point(206, 193)
+        Me.lblUsername.Location = New System.Drawing.Point(206, 190)
         Me.lblUsername.Name = "lblUsername"
         Me.lblUsername.Size = New System.Drawing.Size(116, 16)
         Me.lblUsername.TabIndex = 48
@@ -653,7 +639,6 @@ Partial Class frmDefinicoes
     Friend WithEvents rct1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents lbl5 As System.Windows.Forms.Label
     Friend WithEvents rct4 As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents btnOutra As System.Windows.Forms.Button
     Friend WithEvents btnLocalidade As System.Windows.Forms.Button
     Friend WithEvents cmblocalidade As System.Windows.Forms.ComboBox
     Friend WithEvents txtrua As System.Windows.Forms.TextBox

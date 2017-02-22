@@ -127,10 +127,6 @@ Public Class frmClientes
         CtrL_MenuCine.SelecionarBotao(2)
     End Sub
 
-    Private Sub frmClientes_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        End
-    End Sub
-
 
     Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
         'Insiro os dados na base de dados
