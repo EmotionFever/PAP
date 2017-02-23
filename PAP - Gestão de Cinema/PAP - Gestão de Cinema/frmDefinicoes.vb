@@ -179,7 +179,7 @@ Public Class frmDefinicoes
                     comando.ExecuteNonQuery()
                     ligacao.Close()
 
-                    'Descobri o codLo dessa localidade
+                    'Descobrir o codLo dessa localidade
                     query = "select codlo from localidades where nome='" + cmblocalidade.Text + "'"
                     comando = New MySqlCommand(query, ligacao)
                     ligacao.Open()
@@ -188,7 +188,7 @@ Public Class frmDefinicoes
                     codLo = leitor.GetInt32("codlo")
                     ligacao.Close()
 
-                    'Associá-la à conta
+                    'Associá-la ao registo do funcionário
                     comando.Connection = ligacao
                     comando.CommandText = "update funcionarios set codlo=" + codLo.ToString + " where codF=" + frmLogin.codF.ToString
                     ligacao.Open()
@@ -199,9 +199,8 @@ Public Class frmDefinicoes
 
                     MessageBox.Show("A localidade " + cmblocalidade.Text + "foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Catch ex As Exception
-                    MessageBox.Show("A localidade " + cmblocalidade.Text + "não foi inserida", "Insersão sem sucesso: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Finally
                     ligacao.Close()
+                    MessageBox.Show("A localidade " + cmblocalidade.Text + "não foi inserida: " + ex.Message, "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             End If
             MessageBox.Show("A sua antiga localidade, '" + lblLocalidade.Text + "', foi alterada para '" + cmblocalidade.Text + "'.", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -228,7 +227,7 @@ Public Class frmDefinicoes
             npisca = 0
             tmrPiscar.Start()
         Else
-            MessageBox.Show("Um número de telemóvel tem de ter 9 números", "Número de telemóvel invalido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Um número de telemóvel tem de ter 9 dígitos", "Número de telemóvel invalido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
@@ -273,7 +272,7 @@ Public Class frmDefinicoes
     End Sub
 
     Private Sub btnUsername_Click(sender As System.Object, e As System.EventArgs) Handles btnUsername.Click
-        If txtrua.Text <> "" Then
+        If txtUsername.Text <> "" Then
             query = "select username from funcionarios where username='" + txtUsername.Text + "'"
             comando = New MySqlCommand(query, ligacao)
             ligacao.Open()
@@ -285,7 +284,7 @@ Public Class frmDefinicoes
                 comando.CommandText = "update funcionarios set username='" + txtUsername.Text + "' where codF=" + frmLogin.codF.ToString
                 ligacao.Open()
                 comando.ExecuteNonQuery()
-                ligacao.close()
+                ligacao.Close()
 
                 MessageBox.Show("O seu antigo nome de utilizador, '" + lblUsername.Text + "', foi alterado para '" + txtUsername.Text + "'.", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Atualizar_dados()

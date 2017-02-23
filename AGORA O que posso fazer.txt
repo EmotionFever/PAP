@@ -6,3 +6,4 @@
 - Acabar o desativar do form Clientes
 - Redimensionar colunas da DataGridView por código DO form Clientes
 - Fazer com que quando insiro outra vez o memso artigo, no FormVendas, somar às unidades que lá estão
+- Refazer o Procurar do FormClientes com as novas funções de estado

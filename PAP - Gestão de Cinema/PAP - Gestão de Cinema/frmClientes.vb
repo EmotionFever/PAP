@@ -3,143 +3,120 @@ Public Class frmClientes
     Dim ligacao As New MySqlConnection("Server=localhost;DataBase=ppap;Uid=root;Pwd=;Connect Timeout=30;")
     Dim adapter As New MySqlDataAdapter
     Dim DS As DataSet = New DataSet
+    Dim DS1 As DataSet = New DataSet
+    Dim DS2 As DataSet = New DataSet
     Dim comando As MySqlCommand
-    Dim DS1 As DataSet
     Public Const CAMPOSC As Integer = 5
     Dim lbl(CAMPOSC) As Label
 
-    Function verificacao() As Boolean 'Verificar os valores ou textos dos objetos input. Apenas verifico os obrigatórios
-        Dim str_erro As String = ""
-        If txtnome.Text = "" Or IsNumeric(txtnome.Text) Then
-            str_erro += "Não escreveu um nome válido. "
-            txtnome.BackColor = Color.Salmon
-            rctNome.BackColor = Color.Salmon
-            rctLocalidade.BorderColor = Color.Salmon
-            rctNome.BorderColor = Color.Salmon
-            txtnome.ForeColor = Color.Red
-
-        Else
-            txtnome.BackColor = Color.LightGreen
-            rctNome.BackColor = Color.LightGreen
-            rctLocalidade.BorderColor = Color.LightGreen
-            rctNome.BorderColor = Color.LightGreen
-        End If
-        If mtbNIF.Text = "" Or mtbNIF.Text.Length < 9 Then
-            str_erro += "Não escreveu um NIF. "
-            mtbNIF.BackColor = Color.Salmon
-            rctNIF.BackColor = Color.Salmon
-            rctNIF.BorderColor = Color.Salmon
-        Else
-            mtbNIF.BackColor = Color.LightGreen
-            rctNIF.BackColor = Color.LightGreen
-            rctNIF.BorderColor = Color.LightGreen
-        End If
-
-        If txtRua.Text <> "" Then
-            If IsNumeric(txtRua.Text) Then
-                str_erro += "Não escreveu uma rua válida. "
-                txtRua.BackColor = Color.Salmon
-                rctRua.BackColor = Color.Salmon
-                rctRua.BorderColor = Color.Salmon
-                txtRua.ForeColor = Color.Red
+    Function verificacao(rct As PowerPacks.RectangleShape, obj As Object) As String
+        If TypeOf obj Is TextBox Then
+            If obj.Text = "" Or IsNumeric(obj.Text) Then
+                AlterarEstado(rct, obj, "errar")
+                Return "Não escreveu um " + obj.tag.ToString + " válido. "
             Else
-                txtRua.BackColor = Color.LightGreen
-                rctRua.BackColor = Color.LightGreen
-                rctRua.BorderColor = Color.LightGreen
+                AlterarEstado(rct, obj, "acertar")
+                Return ""
             End If
         End If
-
-        If cmblocalidade.Text = "" Then
-            str_erro += "Não escolheu uma localidade. "
-            rctLocalidade.BackColor = Color.Salmon
-            rctLocalidade.BorderColor = Color.Salmon
-        Else
-            rctLocalidade.BackColor = Color.LightGreen
-            rctLocalidade.BorderColor = Color.LightGreen
-        End If
-
-        If mtbTlm.Text <> "" Then
-            If mtbTlm.Text.Length < 9 Then
-                str_erro += "Não escreveu um número de telemóvel. "
-                mtbNIF.BackColor = Color.Salmon
-                rctNIF.BackColor = Color.Salmon
-                rctNIF.BorderColor = Color.Salmon
-                txtRua.ForeColor = Color.Red
+        If TypeOf obj Is MaskedTextBox Then
+            If obj.Text = "" Or obj.Text.Length < 9 Then
+                AlterarEstado(rct, obj, "errar")
+                Return "Não escreveu um " + obj.tag.ToString + ". "
             Else
-                mtbNIF.BackColor = Color.LightGreen
-                rctNIF.BackColor = Color.LightGreen
-                rctNIF.BorderColor = Color.LightGreen
+                AlterarEstado(rct, obj, "acertar")
+                Return ""
             End If
         End If
-
-        If str_erro <> "" Then
-            MessageBox.Show(str_erro, "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-        Else
-            Return True
+        If TypeOf obj Is ComboBox Then
+            If obj.Text = "" Then
+                AlterarEstado(rct, "errar")
+                Return "Não escolheu uma " + obj.tag.ToString + ". "
+            Else
+                AlterarEstado(rct, "acertar")
+                Return ""
+            End If
         End If
     End Function
 
     Sub ver()
         Try
-            If tbc1.TabIndex = 0 Then
-                adapter.SelectCommand = New MySqlCommand
-                adapter.SelectCommand.Connection = ligacao
+            'DataGridView Ativado
+            adapter.SelectCommand = New MySqlCommand
+            adapter.SelectCommand.Connection = ligacao
 
-                adapter.SelectCommand.CommandText = "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
-                                                    "from clientes, localidades where localidades.codlo=clientes.codlo and ativado=1"
+            adapter.SelectCommand.CommandText = "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
+                                                "from clientes, localidades where localidades.codlo=clientes.codlo and ativado=1"
 
-                DS.Clear()
-                ligacao.Open()
-                adapter.Fill(DS, "clientes")
-                ligacao.Close()
+            DS.Clear()
+            ligacao.Open()
+            adapter.Fill(DS, "clientes")
+            ligacao.Close()
 
-                dgvAtivado.AutoGenerateColumns = True
-                dgvAtivado.DataSource = DS
-                dgvAtivado.DataMember = "clientes"
-                dgvAtivado.Columns.Item("codc").Visible = False
+            dgvAtivado.AutoGenerateColumns = True
+            dgvAtivado.DataSource = DS
+            dgvAtivado.DataMember = "clientes"
+            dgvAtivado.Columns.Item("codc").Visible = False
 
-                'Covém desativar estes botões
-                btnDesativar.Enabled = False
-                btnAlterar.Enabled = False
-            ElseIf tbc1.TabIndex = 1 Then
-                adapter.SelectCommand = New MySqlCommand
-                adapter.SelectCommand.Connection = ligacao
+            'Covém desativar estes botões
+            btnDesativar.Enabled = False
+            btnAlterar.Enabled = False
 
-                adapter.SelectCommand.CommandText = "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
-                                                    "from clientes, localidades where localidades.codlo=clientes.codlo and ativado=1"
+            'DataGridView DESAtivado
+            adapter.SelectCommand = New MySqlCommand
+            adapter.SelectCommand.Connection = ligacao
 
-                DS.Clear()
-                ligacao.Open()
-                adapter.Fill(DS, "clientes")
-                ligacao.Close()
+            adapter.SelectCommand.CommandText = "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
+                                                "from clientes, localidades where localidades.codlo=clientes.codlo and ativado=0"
 
-                dgvDesativado.AutoGenerateColumns = True
-                dgvDesativado.DataSource = DS
-                dgvDesativado.DataMember = "clientes"
-                dgvDesativado.Columns.Item("codc").Visible = False
+            DS2.Clear()
+            ligacao.Open()
+            adapter.Fill(DS2, "clientes")
+            ligacao.Close()
 
-                'Covém desativar estes botões
-                btnAtivar.Enabled = False
-            End If
+            dgvDesativado.AutoGenerateColumns = True
+            dgvDesativado.DataSource = DS2
+            dgvDesativado.DataMember = "clientes"
+            dgvDesativado.Columns.Item("codc").Visible = False
+
+            'Covém desativar estes botões
+            btnAtivar.Enabled = False
+
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Erro a Ver", MessageBoxButtons.OK, MessageBoxIcon.Error)
             ligacao.Close()
         End Try
     End Sub
 
-    Private Sub dgv1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvAtivado.CellClick
+    Private Sub dgvDesativado_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDesativado.CellClick
+
+        ' Quando o utilizador clica numa célula do DGV este código seleciona a linha toda
+        Try
+            Dim i As Integer = dgvDesativado.CurrentCell.RowIndex
+            dgvDesativado.Rows(i).Selected = True
+            btnAtivar.Enabled = True
+        Catch ex As Exception
+            btnAtivar.Enabled = False
+        End Try
+
+        'Tiro o rasurado caso esteja a mostrar os clientes ativados senão  e coloco os valores da linha selecionada nas labels
+        For a As Integer = 0 To CAMPOSC - 1
+            lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout)
+            lbl(a).Text = dgvDesativado.CurrentRow.Cells(a + 1).Value.ToString
+        Next
+    End Sub
+
+    Private Sub dgvAtivado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvAtivado.CellClick
 
         ' Quando o utilizador clica numa célula do DGV este código seleciona a linha toda
         Try
             Dim i As Integer = dgvAtivado.CurrentCell.RowIndex
             dgvAtivado.Rows(i).Selected = True
 
-            If tbc1.TabIndex = 0 Then
-                'Como foi selecionada uma linha posso (re)ativar os botões apagar e alterar
-                btnDesativar.Enabled = True
-                btnAlterar.Enabled = True
-            End If
+            'Como foi selecionada uma linha posso (re)ativar os botões apagar e alterar
+            btnDesativar.Enabled = True
+            btnAlterar.Enabled = True
+
         Catch ex As Exception
             btnDesativar.Enabled = False
             btnAlterar.Enabled = False
@@ -147,11 +124,7 @@ Public Class frmClientes
 
         'Tiro o rasurado caso esteja a mostrar os clientes ativados senão  e coloco os valores da linha selecionada nas labels
         For a As Integer = 0 To CAMPOSC - 1
-            If tbc1.TabIndex = 0 Then
-                lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style And Not FontStyle.Strikeout)
-            Else
-                lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout)
-            End If
+            lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style And Not FontStyle.Strikeout)
             lbl(a).Text = dgvAtivado.CurrentRow.Cells(a + 1).Value.ToString
         Next
     End Sub
@@ -164,13 +137,24 @@ Public Class frmClientes
 
 
     Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
+        Dim str_erro As String = ""
+        str_erro += verificacao(rctNome, txtnome)
+        str_erro += verificacao(rctNIF, mtbNIF)
+        If txtRua.Text <> "" Then
+            str_erro += verificacao(rctRua, txtRua)
+        End If
+        str_erro += verificacao(rctLocalidade, cmblocalidade)
+        If mtbTlm.Text <> "" Then
+            str_erro += verificacao(rctTlm, mtbTlm)
+        End If
+
         'Insiro os dados na base de dados
-        If verificacao() Then
+        If str_erro = "" Then
             comando = New MySqlCommand
 
             comando.Connection = ligacao
-            comando.CommandText = "insert into clientes (nome,NIF,rua,codlo,telemovel) " &
-            "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + cmblocalidade.SelectedValue.ToString + ",'" + mtbTlm.Text + "')"
+            comando.CommandText = "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
+            "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + cmblocalidade.SelectedValue.ToString + ",'" + mtbTlm.Text + "',1)"
             ligacao.Open()
             comando.ExecuteNonQuery()
             ligacao.Close()
@@ -180,62 +164,72 @@ Public Class frmClientes
 
             'Limpo os objetos input do formulário
             txtnome.Text = ""
-            restaurar(rctNome, txtnome)
+            AlterarEstado(rctNome, txtnome, "restaurar")
 
             mtbNIF.Text = ""
-            restaurar(rctNIF, mtbNIF)
+            AlterarEstado(rctNIF, mtbNIF, "restaurar")
 
             txtRua.Text = ""
-            restaurar(rctRua, txtRua)
+            AlterarEstado(rctRua, txtRua, "restaurar")
 
             cmblocalidade.Text = ""
-            restaurar(rctLocalidade)
+            AlterarEstado(rctLocalidade, "restaurar")
 
             mtbTlm.Text = ""
-            restaurar(rctTlm, mtbTlm)
+            AlterarEstado(rctTlm, mtbTlm, "restaurar")
+        Else
+            MessageBox.Show(str_erro, "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
-    Private Sub restaurar(rct As PowerPacks.RectangleShape, obj As Object)
-        obj.BackColor = Color.White
-        rct.BackColor = Color.White
-        rct.BorderColor = Color.White
-        obj.ForeColor = Color.Black
+    Private Sub AlterarEstado(rct As PowerPacks.RectangleShape, obj As Object, str As String)
+        If str = "restaurar" Then
+            obj.BackColor = Color.White
+            rct.BackColor = Color.White
+            rct.BorderColor = Color.White
+            obj.ForeColor = Color.Black
+        ElseIf str = "errar" Then
+            obj.BackColor = Color.LightSalmon
+            rct.BackColor = Color.LightSalmon
+            rct.BorderColor = Color.LightSalmon
+            obj.ForeColor = Color.Red
+        ElseIf str = "acertar" Then
+            obj.BackColor = Color.LightGreen
+            rct.BackColor = Color.LightGreen
+            rct.BorderColor = Color.LightGreen
+        End If
     End Sub
-    Private Sub restaurar(rct As PowerPacks.RectangleShape)
-        rct.BackColor = Color.White
-        rct.BorderColor = Color.White
-    End Sub
-
-    Private Sub destacar(rct As PowerPacks.RectangleShape, obj As Object)
-        obj.BackColor = Color.LightSalmon
-        rct.BackColor = Color.LightSalmon
-        rct.BorderColor = Color.LightSalmon
-        obj.ForeColor = Color.Red
-    End Sub
-    Private Sub destacar(rct As PowerPacks.RectangleShape)
-        rct.BackColor = Color.LightSalmon
-        rct.BorderColor = Color.LightSalmon
+    Private Sub AlterarEstado(rct As PowerPacks.RectangleShape, str As String)
+        If str = "restaurar" Then
+            rct.BackColor = Color.White
+            rct.BorderColor = Color.White
+        ElseIf str = "errar" Then
+            rct.BackColor = Color.LightSalmon
+            rct.BorderColor = Color.LightSalmon
+        ElseIf str = "acertar" Then
+            rct.BackColor = Color.LightGreen
+            rct.BorderColor = Color.LightGreen
+        End If
     End Sub
 
     Private Sub txtnome_TextChanged(sender As Object, e As System.EventArgs) Handles txtnome.TextChanged
-        restaurar(rctNome, txtnome)
+        AlterarEstado(rctNome, txtnome, "restaurar")
     End Sub
 
     Private Sub mtbNIF_TextChanged(sender As Object, e As System.EventArgs) Handles mtbNIF.TextChanged
-        restaurar(rctNIF, mtbNIF)
+        AlterarEstado(rctNIF, mtbNIF, "restaurar")
     End Sub
 
     Private Sub txtRua_TextChanged(sender As Object, e As System.EventArgs) Handles txtRua.TextChanged
-        restaurar(rctRua, txtRua)
+        AlterarEstado(rctRua, txtRua, "restaurar")
     End Sub
 
     Private Sub cmblocalidade_TextChanged(sender As Object, e As System.EventArgs) Handles cmblocalidade.TextChanged
-        restaurar(rctLocalidade)
+        AlterarEstado(rctLocalidade, "restaurar")
     End Sub
 
     Private Sub mtbTlm_TextChanged(sender As Object, e As System.EventArgs) Handles mtbTlm.TextChanged
-        restaurar(rctTlm, mtbTlm)
+        AlterarEstado(rctTlm, mtbTlm, "restaurar")
     End Sub
 
     Private Sub btnAlterar_Click(sender As System.Object, e As System.EventArgs) Handles btnAlterar.Click
@@ -251,7 +245,7 @@ Public Class frmClientes
                         lbl(0).Font = New Font(lbl(0).Font, lbl(0).Font.Style Or FontStyle.Strikeout)
                     Else
                         str_erro += "Não escreveu um nome válido. "
-                        destacar(rctNome, txtnome)
+                        AlterarEstado(rctNome, txtnome, "errar")
                     End If
                 End If
                 If chkNIF.Checked Then
@@ -263,6 +257,7 @@ Public Class frmClientes
                         lbl(1).Font = New Font(lbl(1).Font, lbl(1).Font.Style Or FontStyle.Strikeout)
                     Else
                         str_erro += "Não escreveu um NIF. "
+                        AlterarEstado(rctNIF, mtbNIF, "errar")
                     End If
                 End If
                 If chkRua.Checked Then
@@ -274,6 +269,7 @@ Public Class frmClientes
                         lbl(2).Font = New Font(lbl(2).Font, lbl(2).Font.Style Or FontStyle.Strikeout)
                     Else
                         str_erro += "Não escreveu uma rua. "
+                        AlterarEstado(rctRua, txtRua, "errar")
                     End If
                 End If
                 If chkLocalidade.Checked Then
@@ -285,6 +281,7 @@ Public Class frmClientes
                         lbl(3).Font = New Font(lbl(3).Font, lbl(3).Font.Style Or FontStyle.Strikeout)
                     Else
                         str_erro += "Não escolheu uma localidade. "
+                        AlterarEstado(rctLocalidade, "errar")
                     End If
                 End If
                 If chkTlm.Checked Then
@@ -296,6 +293,7 @@ Public Class frmClientes
                         lbl(4).Font = New Font(lbl(4).Font, lbl(4).Font.Style Or FontStyle.Strikeout)
                     Else
                         str_erro += "Não escreveu um número de telemóvel válido. "
+                        AlterarEstado(rctTlm, mtbTlm, "errar")
                     End If
                 End If
                 If str_erro = "" Then
@@ -320,6 +318,8 @@ Public Class frmClientes
                     Else
                         MessageBox.Show("Não selecionou nenhum campo para alterar")
                     End If
+                Else
+                    MessageBox.Show("Atenção", str_erro, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
             End If
         End If
@@ -432,39 +432,58 @@ Public Class frmClientes
         'Caso o pquery esteja vazio significa que o utilizador não escolheu nenhum campo, ou seja "ERRRRRRRO"!!!!
         If str_erro = "" Then
             If pquery <> "" Then
-                adapter.SelectCommand = New MySqlCommand
-                adapter.SelectCommand.Connection = ligacao
-                adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from clientes, localidades where localidades.codlo=clientes.codlo" + pquery
-                DS.Clear()
-                ligacao.Open()
-                adapter.Fill(DS, "clientes")
-                ligacao.Close()
+                If tbc1.SelectedIndex = 0 Then
+                    adapter.SelectCommand = New MySqlCommand
+                    adapter.SelectCommand.Connection = ligacao
+                    adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from clientes, localidades where ativado=1 and localidades.codlo=clientes.codlo" + pquery
+                    DS.Clear()
+                    ligacao.Open()
+                    adapter.Fill(DS, "clientes")
+                    ligacao.Close()
 
-                dgvAtivado.AutoGenerateColumns = True
-                dgvAtivado.DataSource = DS
-                dgvAtivado.DataMember = "clientes"
-                dgvAtivado.Columns.Item("codc").Visible = False
+                    dgvAtivado.AutoGenerateColumns = True
+                    dgvAtivado.DataSource = DS
+                    dgvAtivado.DataMember = "clientes"
+                    dgvAtivado.Columns.Item("codc").Visible = False
 
-                'Como fiquei sem nenhum linha selecionada tenho de desativar os botões
-                btnDesativar.Enabled = False
-                btnAlterar.Enabled = False
+                    'Como fiquei sem nenhum linha selecionada tenho de desativar os botões
+                    btnDesativar.Enabled = False
+                    btnAlterar.Enabled = False
+                End If
+                If tbc1.SelectedIndex = 1 Then
+                    adapter.SelectCommand = New MySqlCommand
+                    adapter.SelectCommand.Connection = ligacao
+                    adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from clientes, localidades where ativado=0 and localidades.codlo=clientes.codlo" + pquery
+                    DS.Clear()
+                    ligacao.Open()
+                    adapter.Fill(DS, "clientes")
+                    ligacao.Close()
+
+                    dgvAtivado.AutoGenerateColumns = True
+                    dgvAtivado.DataSource = DS
+                    dgvAtivado.DataMember = "clientes"
+                    dgvAtivado.Columns.Item("codc").Visible = False
+                End If
             Else
                 MessageBox.Show("Não selecionou nenhum campo para a pesquisa", "Sem campo para pesquisa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         Else
-            MessageBox.Show("Erro", str_erro, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Atenção", str_erro, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
-    Private Sub tbc1_TabIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.TabIndexChanged
-        If tbc1.TabIndex = 0 Then
+    Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
+        If tbc1.SelectedIndex = 0 Then
             btnInserir.Enabled = True
-            btnProcurar.Enabled = True
+            If dgvAtivado.SelectedRows.Count > 0 Then
+                btnAlterar.Enabled = True
+                btnDesativar.Enabled = True
+            End If
             btnDesativar.Show()
         End If
-        If tbc1.TabIndex = 1 Then
+        If tbc1.SelectedIndex = 1 Then
             btnInserir.Enabled = False
-            btnProcurar.Enabled = False
+            btnAlterar.Enabled = False
             btnDesativar.Hide()
         End If
     End Sub
@@ -472,30 +491,29 @@ Public Class frmClientes
     Private Sub btnAtivar_Click(sender As Object, e As System.EventArgs) Handles btnAtivar.Click
         'Desativo os dados da linha selecionada na base de dados
         Dim query As String
-        If dgvAtivado.SelectedRows.Count > 0 Then
+        If dgvDesativado.SelectedRows.Count > 0 Then
 
-            If Not dgvAtivado.CurrentRow.IsNewRow Then
-                Try
-                    query = "update clientes set ativado=1 where codc = " + dgvAtivado.CurrentRow.Cells(0).Value.ToString
+            Try
+                query = "update clientes set ativado=1 where codc = " + dgvDesativado.CurrentRow.Cells(0).Value.ToString
 
-                    Dim comando As New MySqlCommand(query, ligacao)
-                    ligacao.Open()
-                    comando.ExecuteNonQuery()
-                    ligacao.Close()
-                    ver()
+                Dim comando As New MySqlCommand(query, ligacao)
+                ligacao.Open()
+                comando.ExecuteNonQuery()
+                ligacao.Close()
+                ver()
 
-                    'Isto muda o texto da label (que cada apontador de label está apontar)
-                    For a As Integer = 0 To 3
-                        lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style And Not FontStyle.Strikeout) ' Tudo isto quando podia simplesmente utlizar "lbl(a).FontStyle.Strikeout=false"!
-                    Next
+                'Isto muda o texto da label (que cada apontador de label está apontar)
+                For a As Integer = 0 To 3
+                    lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style And Not FontStyle.Strikeout) ' Tudo isto quando podia simplesmente utlizar "lbl(a).FontStyle.Strikeout=false"!
+                Next
 
-                    MessageBox.Show("O registo que selecionou foi desativado", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message, "Erro a Ativar", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    ligacao.Close()
-                End Try
-            End If
-
+                MessageBox.Show("O registo que selecionou foi ativado", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Erro a Ativar", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ligacao.Close()
+            End Try
         End If
     End Sub
+
+
 End Class

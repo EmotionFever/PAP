@@ -22,135 +22,6 @@ CREATE DATABASE IF NOT EXISTS ppap;
 USE ppap;
 
 --
--- Definition of table `aux_cat`
---
-
-DROP TABLE IF EXISTS `aux_cat`;
-CREATE TABLE `aux_cat` (
-  `codAC` int(11) NOT NULL auto_increment,
-  `codFl` int(11) default NULL,
-  `codCat` int(11) default NULL,
-  PRIMARY KEY  (`codAC`),
-  KEY `codFl` (`codFl`),
-  KEY `codCat` (`codCat`),
-  CONSTRAINT `aux_cat_ibfk_2` FOREIGN KEY (`codFl`) REFERENCES `filmes` (`codFl`),
-  CONSTRAINT `aux_cat_ibfk_3` FOREIGN KEY (`codCat`) REFERENCES `categorias` (`codCat`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `aux_cat`
---
-
-/*!40000 ALTER TABLE `aux_cat` DISABLE KEYS */;
-INSERT INTO `aux_cat` (`codAC`,`codFl`,`codCat`) VALUES 
- (1,2,1),
- (2,2,2),
- (3,3,4),
- (4,4,4),
- (5,6,6),
- (6,6,7),
- (7,7,6),
- (8,7,7),
- (9,8,2),
- (10,8,3);
-/*!40000 ALTER TABLE `aux_cat` ENABLE KEYS */;
-
-
---
--- Definition of table `aux_enc`
---
-
-DROP TABLE IF EXISTS `aux_enc`;
-CREATE TABLE `aux_enc` (
-  `codAE` int(11) NOT NULL auto_increment,
-  `codE` int(11) default NULL,
-  `codPe` int(11) default NULL,
-  `codTa` int(11) default NULL,
-  PRIMARY KEY  (`codAE`),
-  KEY `codE` (`codE`),
-  KEY `codPe` (`codPe`),
-  KEY `codTa` (`codTa`),
-  CONSTRAINT `aux_enc_ibfk_1` FOREIGN KEY (`codE`) REFERENCES `encargos` (`codE`),
-  CONSTRAINT `aux_enc_ibfk_2` FOREIGN KEY (`codPe`) REFERENCES `permissoes` (`codPe`),
-  CONSTRAINT `aux_enc_ibfk_3` FOREIGN KEY (`codTa`) REFERENCES `tabelas` (`codTa`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `aux_enc`
---
-
-/*!40000 ALTER TABLE `aux_enc` DISABLE KEYS */;
-INSERT INTO `aux_enc` (`codAE`,`codE`,`codPe`,`codTa`) VALUES 
- (1,1,1,4),
- (2,1,2,4),
- (3,1,3,4),
- (4,1,4,4);
-/*!40000 ALTER TABLE `aux_enc` ENABLE KEYS */;
-
-
---
--- Definition of table `aux_pai`
---
-
-DROP TABLE IF EXISTS `aux_pai`;
-CREATE TABLE `aux_pai` (
-  `codAP` int(11) NOT NULL auto_increment,
-  `codFl` int(11) default NULL,
-  `codPs` int(11) default NULL,
-  PRIMARY KEY  (`codAP`),
-  KEY `codFl` (`codFl`),
-  KEY `codPs` (`codPs`),
-  CONSTRAINT `aux_pai_ibfk_1` FOREIGN KEY (`codFl`) REFERENCES `filmes` (`codFl`),
-  CONSTRAINT `aux_pai_ibfk_2` FOREIGN KEY (`codPs`) REFERENCES `paises` (`codPs`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `aux_pai`
---
-
-/*!40000 ALTER TABLE `aux_pai` DISABLE KEYS */;
-INSERT INTO `aux_pai` (`codAP`,`codFl`,`codPs`) VALUES 
- (1,2,1),
- (2,3,1),
- (3,4,1),
- (4,6,1),
- (5,7,1),
- (6,8,2),
- (7,2,6),
- (8,2,4),
- (9,2,5);
-/*!40000 ALTER TABLE `aux_pai` ENABLE KEYS */;
-
-
---
--- Definition of table `aux_vend`
---
-
-DROP TABLE IF EXISTS `aux_vend`;
-CREATE TABLE `aux_vend` (
-  `codAV` int(11) NOT NULL auto_increment,
-  `codP` int(11) default NULL,
-  `codV` int(11) default NULL,
-  `quantidade` int(11) default NULL,
-  `codCat` int(11) default NULL,
-  PRIMARY KEY  (`codAV`),
-  KEY `codP` (`codP`),
-  KEY `codV` (`codV`),
-  KEY `codCat` (`codCat`),
-  CONSTRAINT `aux_vend_ibfk_1` FOREIGN KEY (`codP`) REFERENCES `produtos` (`codP`),
-  CONSTRAINT `aux_vend_ibfk_2` FOREIGN KEY (`codV`) REFERENCES `vendas` (`codV`),
-  CONSTRAINT `aux_vend_ibfk_3` FOREIGN KEY (`codCat`) REFERENCES `categorias` (`codCat`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `aux_vend`
---
-
-/*!40000 ALTER TABLE `aux_vend` DISABLE KEYS */;
-/*!40000 ALTER TABLE `aux_vend` ENABLE KEYS */;
-
-
---
 -- Definition of table `bilhetes`
 --
 
@@ -643,6 +514,135 @@ CREATE TABLE `vendas` (
 
 /*!40000 ALTER TABLE `vendas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `vendas` ENABLE KEYS */;
+
+--
+-- Definition of table `aux_cat`
+--
+
+DROP TABLE IF EXISTS `aux_cat`;
+CREATE TABLE `aux_cat` (
+  `codAC` int(11) NOT NULL auto_increment,
+  `codFl` int(11) default NULL,
+  `codCat` int(11) default NULL,
+  PRIMARY KEY  (`codAC`),
+  KEY `codFl` (`codFl`),
+  KEY `codCat` (`codCat`),
+  CONSTRAINT `aux_cat_ibfk_2` FOREIGN KEY (`codFl`) REFERENCES `filmes` (`codFl`),
+  CONSTRAINT `aux_cat_ibfk_3` FOREIGN KEY (`codCat`) REFERENCES `categorias` (`codCat`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `aux_cat`
+--
+
+/*!40000 ALTER TABLE `aux_cat` DISABLE KEYS */;
+INSERT INTO `aux_cat` (`codAC`,`codFl`,`codCat`) VALUES 
+ (1,2,1),
+ (2,2,2),
+ (3,3,4),
+ (4,4,4),
+ (5,6,6),
+ (6,6,7),
+ (7,7,6),
+ (8,7,7),
+ (9,8,2),
+ (10,8,3);
+/*!40000 ALTER TABLE `aux_cat` ENABLE KEYS */;
+
+
+--
+-- Definition of table `aux_enc`
+--
+
+DROP TABLE IF EXISTS `aux_enc`;
+CREATE TABLE `aux_enc` (
+  `codAE` int(11) NOT NULL auto_increment,
+  `codE` int(11) default NULL,
+  `codPe` int(11) default NULL,
+  `codTa` int(11) default NULL,
+  PRIMARY KEY  (`codAE`),
+  KEY `codE` (`codE`),
+  KEY `codPe` (`codPe`),
+  KEY `codTa` (`codTa`),
+  CONSTRAINT `aux_enc_ibfk_1` FOREIGN KEY (`codE`) REFERENCES `encargos` (`codE`),
+  CONSTRAINT `aux_enc_ibfk_2` FOREIGN KEY (`codPe`) REFERENCES `permissoes` (`codPe`),
+  CONSTRAINT `aux_enc_ibfk_3` FOREIGN KEY (`codTa`) REFERENCES `tabelas` (`codTa`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `aux_enc`
+--
+
+/*!40000 ALTER TABLE `aux_enc` DISABLE KEYS */;
+INSERT INTO `aux_enc` (`codAE`,`codE`,`codPe`,`codTa`) VALUES 
+ (1,1,1,4),
+ (2,1,2,4),
+ (3,1,3,4),
+ (4,1,4,4);
+/*!40000 ALTER TABLE `aux_enc` ENABLE KEYS */;
+
+
+--
+-- Definition of table `aux_pai`
+--
+
+DROP TABLE IF EXISTS `aux_pai`;
+CREATE TABLE `aux_pai` (
+  `codAP` int(11) NOT NULL auto_increment,
+  `codFl` int(11) default NULL,
+  `codPs` int(11) default NULL,
+  PRIMARY KEY  (`codAP`),
+  KEY `codFl` (`codFl`),
+  KEY `codPs` (`codPs`),
+  CONSTRAINT `aux_pai_ibfk_1` FOREIGN KEY (`codFl`) REFERENCES `filmes` (`codFl`),
+  CONSTRAINT `aux_pai_ibfk_2` FOREIGN KEY (`codPs`) REFERENCES `paises` (`codPs`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `aux_pai`
+--
+
+/*!40000 ALTER TABLE `aux_pai` DISABLE KEYS */;
+INSERT INTO `aux_pai` (`codAP`,`codFl`,`codPs`) VALUES 
+ (1,2,1),
+ (2,3,1),
+ (3,4,1),
+ (4,6,1),
+ (5,7,1),
+ (6,8,2),
+ (7,2,6),
+ (8,2,4),
+ (9,2,5);
+/*!40000 ALTER TABLE `aux_pai` ENABLE KEYS */;
+
+
+--
+-- Definition of table `aux_vend`
+--
+
+DROP TABLE IF EXISTS `aux_vend`;
+CREATE TABLE `aux_vend` (
+  `codAV` int(11) NOT NULL auto_increment,
+  `codP` int(11) default NULL,
+  `codV` int(11) default NULL,
+  `quantidade` int(11) default NULL,
+  `codCat` int(11) default NULL,
+  PRIMARY KEY  (`codAV`),
+  KEY `codP` (`codP`),
+  KEY `codV` (`codV`),
+  KEY `codCat` (`codCat`),
+  CONSTRAINT `aux_vend_ibfk_1` FOREIGN KEY (`codP`) REFERENCES `produtos` (`codP`),
+  CONSTRAINT `aux_vend_ibfk_2` FOREIGN KEY (`codV`) REFERENCES `vendas` (`codV`),
+  CONSTRAINT `aux_vend_ibfk_3` FOREIGN KEY (`codCat`) REFERENCES `categorias` (`codCat`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `aux_vend`
+--
+
+/*!40000 ALTER TABLE `aux_vend` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aux_vend` ENABLE KEYS */;
+
 
 
 

@@ -287,12 +287,12 @@ Partial Class frmClientes
         Me.dgvAtivado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvAtivado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvAtivado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvAtivado.Location = New System.Drawing.Point(3, 3)
+        Me.dgvAtivado.Location = New System.Drawing.Point(0, 0)
         Me.dgvAtivado.Name = "dgvAtivado"
         Me.dgvAtivado.ReadOnly = True
         Me.dgvAtivado.RowHeadersVisible = False
         Me.dgvAtivado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.dgvAtivado.Size = New System.Drawing.Size(423, 463)
+        Me.dgvAtivado.Size = New System.Drawing.Size(429, 469)
         Me.dgvAtivado.TabIndex = 15
         '
         'rctNome
@@ -365,7 +365,7 @@ Partial Class frmClientes
         Me.txtnome.Name = "txtnome"
         Me.txtnome.Size = New System.Drawing.Size(193, 14)
         Me.txtnome.TabIndex = 27
-        Me.txtnome.Tag = ""
+        Me.txtnome.Tag = "nome"
         '
         'txtRua
         '
@@ -377,7 +377,7 @@ Partial Class frmClientes
         Me.txtRua.Name = "txtRua"
         Me.txtRua.Size = New System.Drawing.Size(193, 14)
         Me.txtRua.TabIndex = 28
-        Me.txtRua.Tag = ""
+        Me.txtRua.Tag = "rua"
         '
         'lbl90
         '
@@ -419,6 +419,7 @@ Partial Class frmClientes
         Me.mtbTlm.Name = "mtbTlm"
         Me.mtbTlm.Size = New System.Drawing.Size(195, 14)
         Me.mtbTlm.TabIndex = 33
+        Me.mtbTlm.Tag = "telemóvel"
         '
         'mtbNIF
         '
@@ -429,6 +430,7 @@ Partial Class frmClientes
         Me.mtbNIF.Name = "mtbNIF"
         Me.mtbNIF.Size = New System.Drawing.Size(195, 14)
         Me.mtbNIF.TabIndex = 35
+        Me.mtbNIF.Tag = "NIF"
         '
         'btnInserir
         '
@@ -505,6 +507,7 @@ Partial Class frmClientes
         Me.cmblocalidade.Name = "cmblocalidade"
         Me.cmblocalidade.Size = New System.Drawing.Size(193, 21)
         Me.cmblocalidade.TabIndex = 44
+        Me.cmblocalidade.Tag = "localidade"
         '
         'lbl94
         '
@@ -554,7 +557,6 @@ Partial Class frmClientes
         Me.tbpAtivado.Controls.Add(Me.dgvAtivado)
         Me.tbpAtivado.Location = New System.Drawing.Point(4, 23)
         Me.tbpAtivado.Name = "tbpAtivado"
-        Me.tbpAtivado.Padding = New System.Windows.Forms.Padding(3)
         Me.tbpAtivado.Size = New System.Drawing.Size(431, 471)
         Me.tbpAtivado.TabIndex = 1
         Me.tbpAtivado.Text = "Clientes ativados"
@@ -566,7 +568,6 @@ Partial Class frmClientes
         Me.tbpDesativado.Controls.Add(Me.dgvDesativado)
         Me.tbpDesativado.Location = New System.Drawing.Point(4, 23)
         Me.tbpDesativado.Name = "tbpDesativado"
-        Me.tbpDesativado.Padding = New System.Windows.Forms.Padding(3)
         Me.tbpDesativado.Size = New System.Drawing.Size(431, 471)
         Me.tbpDesativado.TabIndex = 2
         Me.tbpDesativado.Text = "Clientes desativados"
@@ -587,12 +588,12 @@ Partial Class frmClientes
         Me.dgvDesativado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvDesativado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvDesativado.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvDesativado.Location = New System.Drawing.Point(3, 3)
+        Me.dgvDesativado.Location = New System.Drawing.Point(0, 0)
         Me.dgvDesativado.Name = "dgvDesativado"
         Me.dgvDesativado.ReadOnly = True
         Me.dgvDesativado.RowHeadersVisible = False
         Me.dgvDesativado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.dgvDesativado.Size = New System.Drawing.Size(423, 463)
+        Me.dgvDesativado.Size = New System.Drawing.Size(429, 469)
         Me.dgvDesativado.TabIndex = 16
         '
         'btnAtivar
