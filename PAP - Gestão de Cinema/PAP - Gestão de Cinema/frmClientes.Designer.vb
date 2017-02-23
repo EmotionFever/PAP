@@ -25,7 +25,6 @@ Partial Class frmClientes
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClientes))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.pct1 = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
@@ -44,7 +43,7 @@ Partial Class frmClientes
         Me.lbl6 = New System.Windows.Forms.Label()
         Me.lbl3 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
-        Me.dgv1 = New System.Windows.Forms.DataGridView()
+        Me.dgvAtivado = New System.Windows.Forms.DataGridView()
         Me.rctNome = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.rctTlm = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
@@ -67,9 +66,18 @@ Partial Class frmClientes
         Me.lbl94 = New System.Windows.Forms.Label()
         Me.lblLocalidade = New System.Windows.Forms.Label()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
+        Me.tbc1 = New System.Windows.Forms.TabControl()
+        Me.tbpAtivado = New System.Windows.Forms.TabPage()
+        Me.tbpDesativado = New System.Windows.Forms.TabPage()
+        Me.dgvDesativado = New System.Windows.Forms.DataGridView()
+        Me.btnAtivar = New System.Windows.Forms.Button()
         Me.pnl1.SuspendLayout()
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgv1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvAtivado, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tbc1.SuspendLayout()
+        Me.tbpAtivado.SuspendLayout()
+        Me.tbpDesativado.SuspendLayout()
+        CType(Me.dgvDesativado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
@@ -263,12 +271,12 @@ Partial Class frmClientes
         Me.lbl2.TabIndex = 20
         Me.lbl2.Text = "*Nome do Cliente:"
         '
-        'dgv1
+        'dgvAtivado
         '
-        Me.dgv1.AllowUserToAddRows = False
-        Me.dgv1.AllowUserToDeleteRows = False
-        Me.dgv1.BackgroundColor = System.Drawing.Color.DimGray
-        Me.dgv1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgvAtivado.AllowUserToAddRows = False
+        Me.dgvAtivado.AllowUserToDeleteRows = False
+        Me.dgvAtivado.BackgroundColor = System.Drawing.Color.DimGray
+        Me.dgvAtivado.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -276,31 +284,16 @@ Partial Class frmClientes
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv1.Location = New System.Drawing.Point(74, 134)
-        Me.dgv1.Name = "dgv1"
-        Me.dgv1.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgv1.RowHeadersVisible = False
-        Me.dgv1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.dgv1.Size = New System.Drawing.Size(436, 489)
-        Me.dgv1.TabIndex = 15
+        Me.dgvAtivado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvAtivado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvAtivado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvAtivado.Location = New System.Drawing.Point(3, 3)
+        Me.dgvAtivado.Name = "dgvAtivado"
+        Me.dgvAtivado.ReadOnly = True
+        Me.dgvAtivado.RowHeadersVisible = False
+        Me.dgvAtivado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgvAtivado.Size = New System.Drawing.Size(423, 463)
+        Me.dgvAtivado.TabIndex = 15
         '
         'rctNome
         '
@@ -318,7 +311,7 @@ Partial Class frmClientes
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctTlm, Me.rctLocalidade, Me.rctRua, Me.rctNIF, Me.rctNome})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(781, 643)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(781, 676)
         Me.ShapeContainer1.TabIndex = 26
         Me.ShapeContainer1.TabStop = False
         '
@@ -497,7 +490,7 @@ Partial Class frmClientes
         Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDesativar.ForeColor = System.Drawing.Color.Black
-        Me.btnDesativar.Location = New System.Drawing.Point(520, 602)
+        Me.btnDesativar.Location = New System.Drawing.Point(521, 602)
         Me.btnDesativar.Name = "btnDesativar"
         Me.btnDesativar.Size = New System.Drawing.Size(236, 22)
         Me.btnDesativar.TabIndex = 43
@@ -540,15 +533,89 @@ Partial Class frmClientes
         Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
         Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
         Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 643)
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 676)
         Me.CtrL_MenuCine.TabIndex = 0
+        '
+        'tbc1
+        '
+        Me.tbc1.Controls.Add(Me.tbpAtivado)
+        Me.tbc1.Controls.Add(Me.tbpDesativado)
+        Me.tbc1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbc1.Location = New System.Drawing.Point(75, 126)
+        Me.tbc1.Name = "tbc1"
+        Me.tbc1.SelectedIndex = 0
+        Me.tbc1.Size = New System.Drawing.Size(439, 498)
+        Me.tbc1.TabIndex = 47
+        '
+        'tbpAtivado
+        '
+        Me.tbpAtivado.BackColor = System.Drawing.Color.Silver
+        Me.tbpAtivado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.tbpAtivado.Controls.Add(Me.dgvAtivado)
+        Me.tbpAtivado.Location = New System.Drawing.Point(4, 23)
+        Me.tbpAtivado.Name = "tbpAtivado"
+        Me.tbpAtivado.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbpAtivado.Size = New System.Drawing.Size(431, 471)
+        Me.tbpAtivado.TabIndex = 1
+        Me.tbpAtivado.Text = "Clientes ativados"
+        '
+        'tbpDesativado
+        '
+        Me.tbpDesativado.BackColor = System.Drawing.Color.Silver
+        Me.tbpDesativado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.tbpDesativado.Controls.Add(Me.dgvDesativado)
+        Me.tbpDesativado.Location = New System.Drawing.Point(4, 23)
+        Me.tbpDesativado.Name = "tbpDesativado"
+        Me.tbpDesativado.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbpDesativado.Size = New System.Drawing.Size(431, 471)
+        Me.tbpDesativado.TabIndex = 2
+        Me.tbpDesativado.Text = "Clientes desativados"
+        '
+        'dgvDesativado
+        '
+        Me.dgvDesativado.AllowUserToAddRows = False
+        Me.dgvDesativado.AllowUserToDeleteRows = False
+        Me.dgvDesativado.BackgroundColor = System.Drawing.Color.DimGray
+        Me.dgvDesativado.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvDesativado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvDesativado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvDesativado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvDesativado.Location = New System.Drawing.Point(3, 3)
+        Me.dgvDesativado.Name = "dgvDesativado"
+        Me.dgvDesativado.ReadOnly = True
+        Me.dgvDesativado.RowHeadersVisible = False
+        Me.dgvDesativado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgvDesativado.Size = New System.Drawing.Size(423, 463)
+        Me.dgvDesativado.TabIndex = 16
+        '
+        'btnAtivar
+        '
+        Me.btnAtivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAtivar.FlatAppearance.BorderSize = 0
+        Me.btnAtivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAtivar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAtivar.ForeColor = System.Drawing.Color.Black
+        Me.btnAtivar.Location = New System.Drawing.Point(521, 602)
+        Me.btnAtivar.Name = "btnAtivar"
+        Me.btnAtivar.Size = New System.Drawing.Size(236, 22)
+        Me.btnAtivar.TabIndex = 48
+        Me.btnAtivar.Text = "Ativar Cliente"
+        Me.btnAtivar.UseVisualStyleBackColor = False
         '
         'frmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(781, 643)
+        Me.ClientSize = New System.Drawing.Size(781, 676)
+        Me.Controls.Add(Me.tbc1)
         Me.Controls.Add(Me.lblLocalidade)
         Me.Controls.Add(Me.lbl94)
         Me.Controls.Add(Me.cmblocalidade)
@@ -581,7 +648,7 @@ Partial Class frmClientes
         Me.Controls.Add(Me.lbl2)
         Me.Controls.Add(Me.lbl3)
         Me.Controls.Add(Me.lbl6)
-        Me.Controls.Add(Me.dgv1)
+        Me.Controls.Add(Me.btnAtivar)
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -590,7 +657,11 @@ Partial Class frmClientes
         Me.Text = "Clientes"
         Me.pnl1.ResumeLayout(False)
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgv1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvAtivado, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tbc1.ResumeLayout(False)
+        Me.tbpAtivado.ResumeLayout(False)
+        Me.tbpDesativado.ResumeLayout(False)
+        CType(Me.dgvDesativado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -613,7 +684,7 @@ Partial Class frmClientes
     Friend WithEvents lbl6 As System.Windows.Forms.Label
     Friend WithEvents lbl3 As System.Windows.Forms.Label
     Friend WithEvents lbl2 As System.Windows.Forms.Label
-    Friend WithEvents dgv1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvAtivado As System.Windows.Forms.DataGridView
     Friend WithEvents rctNome As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents txtnome As System.Windows.Forms.TextBox
@@ -636,4 +707,9 @@ Partial Class frmClientes
     Friend WithEvents cmblocalidade As System.Windows.Forms.ComboBox
     Friend WithEvents lbl94 As System.Windows.Forms.Label
     Friend WithEvents lblLocalidade As System.Windows.Forms.Label
+    Friend WithEvents tbc1 As System.Windows.Forms.TabControl
+    Friend WithEvents tbpAtivado As System.Windows.Forms.TabPage
+    Friend WithEvents tbpDesativado As System.Windows.Forms.TabPage
+    Friend WithEvents dgvDesativado As System.Windows.Forms.DataGridView
+    Friend WithEvents btnAtivar As System.Windows.Forms.Button
 End Class

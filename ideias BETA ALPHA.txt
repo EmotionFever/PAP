@@ -2,6 +2,8 @@
 	PORQUÊ? 	Select bilhetes.codB, filmes.nome as sessao from filmes, calendarios, salas, lugares, bilhetes, vendas where vendas.codV=bilhetes.codV and bilhetes.codB=lugares.codL and lugares.codS=salas.codS and calendarios.codS=salas.codS and calendarios.codFl=filmes.codFl and vendas.datav between calendarios.datai and calendarios.dataf
 	Quando podia!	Select bilhetes.codB, filmes.nome as sessao from filmes, calendarios, bilhetes where bilhetes.codCa=calendarios.codCa and calendarios.codFl=filmes.codFl
 
-- Acrescentar username à tabela 'Funcionarios'
+- Acrescentar username à tabela 'Funcionarios' %%%%%%%%%%%%%%%%%%%%% APROVADO %%%%%%%%%%%%%%%%%%%%
 	PORQUÊ?		Nome de utilizador: Roberta Chaves
 	Quando podia!	Nome de utilizador: Beta97
+
+- Fazer com que cada form tenha um icone característico. PS: O programa principal continua com o da Fita de cinema

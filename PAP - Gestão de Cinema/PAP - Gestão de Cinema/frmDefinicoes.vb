@@ -11,78 +11,101 @@ Public Class frmDefinicoes
     Dim npisca As Integer = 0
     Dim codLo As Integer
     Private Sub Atualizar_dados()
-        query = "select username, IFNULL(Funcionarios.nome,'-') as nome, IFNULL(telemovel,'-') as telemovel, ifnull(localidades.nome,'-') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + frmLogin.codF.ToString
+        Try
+            query = "select username, IFNULL(Funcionarios.nome,'-') as nome, IFNULL(telemovel,'-') as telemovel, ifnull(localidades.nome,'-') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + frmLogin.codF.ToString
 
-        comando = New MySqlCommand(query, ligacao)
-        ligacao.Open()
-        leitor = comando.ExecuteReader
-        leitor.Read()
-        lblNome.Text = leitor.GetString("nome")
-        lblUsername.Text = leitor.GetString("username")
-        If leitor.GetString("idade") <> "-" Then
-            lblIdade.Text = leitor.GetString("idade") + " anos"
-        Else
-            lblIdade.Text = "-"
-        End If
-        lblRua.Text = leitor.GetString("rua")
-        lblLocalidade.Text = leitor.GetString("localidade")
-        lblTlm.Text = leitor.GetString("telemovel")
-        ligacao.Close()
+            comando = New MySqlCommand(query, ligacao)
+            ligacao.Open()
+            leitor = comando.ExecuteReader
+            leitor.Read()
+            lblNome.Text = leitor.GetString("nome")
+            lblUsername.Text = leitor.GetString("username")
+            If leitor.GetString("idade") <> "-" Then
+                lblIdade.Text = leitor.GetString("idade") + " anos"
+            Else
+                lblIdade.Text = "-"
+            End If
+            lblRua.Text = leitor.GetString("rua")
+            lblLocalidade.Text = leitor.GetString("localidade")
+            lblTlm.Text = leitor.GetString("telemovel")
+            ligacao.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Erro a Atualizar dados", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ligacao.Close()
+        End Try
     End Sub
 
     Private Sub EncherComboBox()
-        'ligação para encher a combobox
+        Try
+            'ligação para encher a combobox
 
-        adapter.SelectCommand = New MySqlCommand
-        adapter.SelectCommand.Connection = ligacao
-        adapter.SelectCommand.CommandText = "select * from localidades"
+            adapter.SelectCommand = New MySqlCommand
+            adapter.SelectCommand.Connection = ligacao
+            adapter.SelectCommand.CommandText = "select * from localidades"
 
-        ligacao.Open()
-        adapter.Fill(DS, "localidades")
-        ligacao.Close()
+            ligacao.Open()
+            adapter.Fill(DS, "localidades")
+            ligacao.Close()
 
-        cmblocalidade.DataSource = DS.Tables("localidades")
-        cmblocalidade.DisplayMember = "nome"
-        cmblocalidade.ValueMember = "codlo"
-        If codLo <> 0 Then
-            cmblocalidade.SelectedValue = codLo
-        Else
-            cmblocalidade.Text = ""
-        End If
+            cmblocalidade.DataSource = DS.Tables("localidades")
+            cmblocalidade.DisplayMember = "nome"
+            cmblocalidade.ValueMember = "codlo"
+            If codLo > 0 Then
+                cmblocalidade.SelectedValue = codLo
+            Else
+                cmblocalidade.Text = ""
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Erro a Encher ComboBox", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ligacao.Close()
+        End Try
     End Sub
 
     Private Sub frmConfiguracoes_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        query = "select username, Funcionarios.nome as nome, IFNULL(telemovel,'-') as telemovel, ifnull(localidades.nome,'-') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo, palavra_passe from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + frmLogin.codF.ToString
+        Try
 
 
-        comando = New MySqlCommand(query, ligacao)
-        ligacao.Open()
-        leitor = comando.ExecuteReader
-        leitor.Read()
+            query = "select username, Funcionarios.nome as nome, IFNULL(telemovel,'-') as telemovel, ifnull(localidades.nome,'-') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo, palavra_passe from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + frmLogin.codF.ToString
 
-        lblNome.Text = leitor.GetString("nome")
-        lblUsername.Text = leitor.GetString("username")
-        If leitor.GetString("idade") <> "-" Then
-            lblIdade.Text = leitor.GetString("idade") + " anos"
-        Else
-            lblIdade.Text = "-"
-        End If
-        lblRua.Text = leitor.GetString("rua")
-        lblLocalidade.Text = leitor.GetString("localidade")
-        lblTlm.Text = leitor.GetString("telemovel")
 
-        txtnome.Text = leitor.GetString("nome")
-        txtUsername.Text = leitor.GetString("username")
-        If leitor.GetInt32("dia") > 0 Then
-            dtpDatanasc.Value = leitor.GetInt32("dia").ToString + "/" + leitor.GetInt32("mes").ToString + "/" + leitor.GetInt32("ano").ToString
-        End If
-        txtrua.Text = leitor.GetString("rua")
-        mtbTlm.Text = leitor.GetString("telemovel")
-        txtPass.Text = leitor.GetString("palavra_passe")
-        codLo = leitor.GetInt32("codlo")
-        ligacao.Close()
+            comando = New MySqlCommand(query, ligacao)
+            ligacao.Open()
+            leitor = comando.ExecuteReader
+            leitor.Read()
 
-        EncherComboBox()
+            lblNome.Text = leitor.GetString("nome")
+            lblUsername.Text = leitor.GetString("username")
+            If leitor.GetString("idade") <> "-" Then
+                lblIdade.Text = leitor.GetString("idade") + " anos"
+            Else
+                lblIdade.Text = "-"
+            End If
+            lblRua.Text = leitor.GetString("rua")
+            lblLocalidade.Text = leitor.GetString("localidade")
+            lblTlm.Text = leitor.GetString("telemovel")
+
+            txtnome.Text = leitor.GetString("nome")
+            txtUsername.Text = leitor.GetString("username")
+            If leitor.GetInt32("dia") > 0 Then
+                dtpDatanasc.Value = leitor.GetInt32("dia").ToString + "/" + leitor.GetInt32("mes").ToString + "/" + leitor.GetInt32("ano").ToString
+            End If
+
+            If leitor.GetString("rua") = "-" Then
+                txtrua.Text = ""
+            Else
+                txtrua.Text = leitor.GetString("rua")
+            End If
+
+            mtbTlm.Text = leitor.GetString("telemovel")
+            txtPass.Text = leitor.GetString("palavra_passe")
+
+            codLo = leitor.GetInt32("codlo")
+            ligacao.Close()
+
+            EncherComboBox()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub btnNome_Click(sender As System.Object, e As System.EventArgs) Handles btnNome.Click

@@ -50,54 +50,42 @@ Public Class frmLogin
             Exit Sub
         End If
 
-        query = "select * from funcionarios where username='" + txtNome.Text + "'"
-        comando = New MySqlCommand(query, ligacao)
-        ligacao.Open()
-        leitor = comando.ExecuteReader
-        If leitor.Read Then 'Utilizador existe na base de dados
-            rctUtl.BackColor = Color.LightGreen
-            rctUtl.BorderColor = Color.LightGreen
-            txtNome.BackColor = Color.LightGreen
-            pctUtl.BackColor = Color.LightGreen
+        Try
+            query = "select * from funcionarios where empregado=1 and username='" + txtNome.Text + "'"
+            comando = New MySqlCommand(query, ligacao)
+            ligacao.Open()
+            leitor = comando.ExecuteReader
+            If leitor.Read Then 'Utilizador existe na base de dados
+                rctUtl.BackColor = Color.LightGreen
+                rctUtl.BorderColor = Color.LightGreen
+                txtNome.BackColor = Color.LightGreen
+                pctUtl.BackColor = Color.LightGreen
 
-            If txtPass.Text = leitor.GetString("palavra_passe") Then
-                codF = leitor.GetInt32("codF")
-                frmHome.Show()
-                Me.Hide()
+                If txtPass.Text = leitor.GetString("palavra_passe") Then
+                    codF = leitor.GetInt32("codF")
+                    frmHome.Show()
+                    Me.Hide()
+                Else
+                    lblErroPass.Text = "Palavra-passe incorreta"
+                    rctPass.BackColor = Color.LightSalmon
+                    rctPass.BorderColor = Color.LightSalmon
+                    txtPass.BackColor = Color.LightSalmon
+                    txtPass.ForeColor = Color.Red
+                    pctPass.BackColor = Color.LightSalmon
+                End If
             Else
-                lblErroPass.Text = "Palavra-passe incorreta"
-                rctPass.BackColor = Color.LightSalmon
-                rctPass.BorderColor = Color.LightSalmon
-                txtPass.BackColor = Color.LightSalmon
-                txtPass.ForeColor = Color.Red
-                pctPass.BackColor = Color.LightSalmon
+                lblErroUtl.Text = "Utilizador inexistente"
+                rctUtl.BackColor = Color.LightSalmon
+                rctUtl.BorderColor = Color.LightSalmon
+                txtNome.BackColor = Color.LightSalmon
+                txtNome.ForeColor = Color.Red
+                pctUtl.BackColor = Color.LightSalmon
             End If
-        Else
-            lblErroUtl.Text = "Utilizador inexistente"
-            rctUtl.BackColor = Color.LightSalmon
-            rctUtl.BorderColor = Color.LightSalmon
-            txtNome.BackColor = Color.LightSalmon
-            txtNome.ForeColor = Color.Red
-            pctUtl.BackColor = Color.LightSalmon
-        End If
-        ligacao.Dispose()
-
-        'Se utilizador existe na base de dados
-        '   rctUtl.BackColor = Color.LightGreen
-        '   rctUtl.BorderColor = Color.LightGreen
-        '   txtNome.BackColor = Color.LightGreen
-        '   pctUtl.BackColor = Color.LightGreen
-
-        '   Se txtPass.text = palavrapasse 
-        '       me.hide()
-        '       frmHome.show()
-        'Else
-        '   lblErroUtl.Text = "Utilizador inexistente"
-        '   rctUtl.BackColor = Color.LightSalmon
-        '   rctUtl.BorderColor = Color.LightSalmon
-        '   txtNome.BackColor = Color.LightSalmon
-        '   txtNome.ForeColor = Color.Red
-        '   pct1.BackColor = Color.LightSalmon
+            ligacao.Dispose()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ligacao.Close()
+        End Try
     End Sub
 
     Private Sub lbl3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEntrar.Click
@@ -110,9 +98,5 @@ Public Class frmLogin
 
     Private Sub txtPass_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPass.TextChanged
         restaurarPass()
-    End Sub
-
-    Private Sub frmLogin_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
     End Sub
 End Class
