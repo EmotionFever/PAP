@@ -10,7 +10,7 @@ Public Class frmLogin
 
     Private Sub restaurarUtl()
         lblErroUtl.Text = ""
-        AlterarEstado(rctUtl, txtNome, pctUtl, "errar")
+        AlterarEstado(rctUtl, txtNome, pctUtl, "restaurar")
     End Sub
 
     Private Sub restaurarPass()

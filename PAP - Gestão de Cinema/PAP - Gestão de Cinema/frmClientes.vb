@@ -1,11 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class frmClientes
-    Dim ligacao As New MySqlConnection("Server=localhost;DataBase=ppap;Uid=root;Pwd=;Connect Timeout=30;")
-    Dim adapter As New MySqlDataAdapter
-    Dim DS As DataSet = New DataSet
-    Dim DS1 As DataSet = New DataSet
-    Dim DS2 As DataSet = New DataSet
     Dim comando As MySqlCommand
+    Dim ligacao As New MySqlConnection("Server=localhost;DataBase=ppap;Uid=root;Pwd=;Connect Timeout=30;")
     Public Const CAMPOSC As Integer = 5
     Dim lbl(CAMPOSC) As Label
 
@@ -26,52 +22,21 @@ Public Class frmClientes
     End Sub
 
     Sub ver()
-        Try
-            'DataGridView Ativado
-            adapter.SelectCommand = New MySqlCommand
-            adapter.SelectCommand.Connection = ligacao
+        'DataGridView Ativado
+        mostrar(dgvAtivado, ligacao, "clientes", "codC", "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
+                                            "from clientes, localidades where localidades.codlo=clientes.codlo and ativado=1")
 
-            adapter.SelectCommand.CommandText = "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
-                                                "from clientes, localidades where localidades.codlo=clientes.codlo and ativado=1"
+        'Covém desativar estes botões
+        btnDesativar.Enabled = False
+        btnAlterar.Enabled = False
 
-            DS.Clear()
-            ligacao.Open()
-            adapter.Fill(DS, "clientes")
-            ligacao.Close()
 
-            dgvAtivado.AutoGenerateColumns = True
-            dgvAtivado.DataSource = DS
-            dgvAtivado.DataMember = "clientes"
-            dgvAtivado.Columns.Item("codc").Visible = False
+        'DataGridView DESAtivado
+        mostrar(dgvDesativado, ligacao, "clientes", "codC", "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
+                                 "from clientes, localidades where localidades.codlo=clientes.codlo and ativado=0")
 
-            'Covém desativar estes botões
-            btnDesativar.Enabled = False
-            btnAlterar.Enabled = False
-
-            'DataGridView DESAtivado
-            adapter.SelectCommand = New MySqlCommand
-            adapter.SelectCommand.Connection = ligacao
-
-            adapter.SelectCommand.CommandText = "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
-                                                "from clientes, localidades where localidades.codlo=clientes.codlo and ativado=0"
-
-            DS2.Clear()
-            ligacao.Open()
-            adapter.Fill(DS2, "clientes")
-            ligacao.Close()
-
-            dgvDesativado.AutoGenerateColumns = True
-            dgvDesativado.DataSource = DS2
-            dgvDesativado.DataMember = "clientes"
-            dgvDesativado.Columns.Item("codc").Visible = False
-
-            'Covém desativar estes botões
-            btnAtivar.Enabled = False
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Erro a Ver", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            ligacao.Close()
-        End Try
+        'Covém desativar estes botões
+        btnAtivar.Enabled = False
     End Sub
 
     Private Sub frmClientes_Load(sender As Object, e As System.EventArgs) Handles Me.Load
@@ -87,20 +52,7 @@ Public Class frmClientes
         lbl(4) = lblTlm
 
         'Aqui, encho a combobox com dados para o utilizador escolher
-        DS1 = New DataSet
-
-        adapter.SelectCommand = New MySqlCommand
-        adapter.SelectCommand.Connection = ligacao
-        adapter.SelectCommand.CommandText = "select codlo, nome from localidades"
-
-        ligacao.Open()
-        adapter.Fill(DS1, "localidades")
-        ligacao.Close()
-
-        cmblocalidade.DataSource = DS1.Tables("localidades")
-        cmblocalidade.DisplayMember = "nome"
-        cmblocalidade.ValueMember = "codlo"
-        cmblocalidade.Text = ""
+        encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
     End Sub
 
     Private Sub CtrL_MenuCine1_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
@@ -173,6 +125,8 @@ Public Class frmClientes
             'Volto a mostrar a tabela, desta vez, atualizada.
             ver()
 
+            MessageBox.Show("Registo inserido", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
             'Limpo os objetos input do formulário
             txtnome.Text = ""
             AlterarEstado(rctNome, txtnome, "restaurar")
@@ -234,8 +188,8 @@ Public Class frmClientes
         End If
         If chkTlm.Checked Then
             averiguar = verificacao(rctTlm, mtbTlm)
-            If averiguar = "" Then 'Pode-se procurar sequencias de números
-                pquery += " and telemovel like '%" + mtbTlm.Text + "%'"
+            If averiguar = "" Then
+                pquery += " and telemovel = '" + mtbTlm.Text + "'"
             Else
                 str_erro += averiguar
             End If
@@ -247,36 +201,17 @@ Public Class frmClientes
         If str_erro = "" Then
             If pquery <> "" Then
                 If tbc1.SelectedIndex = 0 Then
-                    adapter.SelectCommand = New MySqlCommand
-                    adapter.SelectCommand.Connection = ligacao
-                    adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from clientes, localidades where ativado=1 and localidades.codlo=clientes.codlo" + pquery
-                    DS.Clear()
-                    ligacao.Open()
-                    adapter.Fill(DS, "clientes")
-                    ligacao.Close()
-
-                    dgvAtivado.AutoGenerateColumns = True
-                    dgvAtivado.DataSource = DS
-                    dgvAtivado.DataMember = "clientes"
-                    dgvAtivado.Columns.Item("codc").Visible = False
+                    mostrar(dgvAtivado, ligacao, "clientes", "codC", "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel " &
+                                        "from clientes, localidades where ativado=1 and localidades.codlo=clientes.codlo" + pquery)
 
                     'Como fiquei sem nenhum linha selecionada tenho de desativar os botões
                     btnDesativar.Enabled = False
                     btnAlterar.Enabled = False
                 End If
                 If tbc1.SelectedIndex = 1 Then
-                    adapter.SelectCommand = New MySqlCommand
-                    adapter.SelectCommand.Connection = ligacao
-                    adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from clientes, localidades where ativado=0 and localidades.codlo=clientes.codlo" + pquery
-                    DS.Clear()
-                    ligacao.Open()
-                    adapter.Fill(DS, "clientes")
-                    ligacao.Close()
-
-                    dgvAtivado.AutoGenerateColumns = True
-                    dgvAtivado.DataSource = DS
-                    dgvAtivado.DataMember = "clientes"
-                    dgvAtivado.Columns.Item("codc").Visible = False
+                    mostrar(dgvAtivado, ligacao, "clientes", "codC", "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel " &
+                                        "from clientes, localidades where ativado=0 and localidades.codlo=clientes.codlo" + pquery)
+                    btnAtivar.Enabled = False
                 End If
             Else
                 MessageBox.Show("Não selecionou nenhum campo para a pesquisa", "Sem campo para pesquisa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -289,64 +224,70 @@ Public Class frmClientes
     Private Sub btnAlterar_Click(sender As System.Object, e As System.EventArgs) Handles btnAlterar.Click
         Dim str_erro As String = ""
         Dim pquery As String = ""
+        Dim averiguar As String = ""
         If dgvAtivado.SelectedRows.Count > 0 Then
             If Not dgvAtivado.CurrentRow.IsNewRow Then
 
                 'O código é muito parecido ao pesquisar... invés de procurar esses campos altera-los
                 If chknome.Checked Then
-                    If Not (txtnome.Text = "" Or IsNumeric(txtnome.Text)) Then
+                    averiguar = verificacao(rctNome, txtnome)
+                    If averiguar = "" Then
                         pquery += " nome='" + txtnome.Text + "'"
                         lbl(0).Font = New Font(lbl(0).Font, lbl(0).Font.Style Or FontStyle.Strikeout)
                     Else
-                        str_erro += "Não escreveu um nome válido. "
+                        str_erro += averiguar
                         AlterarEstado(rctNome, txtnome, "errar")
                     End If
                 End If
                 If chkNIF.Checked Then
-                    If Not (mtbNIF.Text = "" Or mtbNIF.Text.Length < 9) Then
+                    averiguar = verificacao(rctNIF, mtbNIF)
+                    If averiguar = "" Then
                         If pquery <> "" Then
                             pquery += ","
                         End If
                         pquery += " NIF='" + mtbNIF.Text + "'"
                         lbl(1).Font = New Font(lbl(1).Font, lbl(1).Font.Style Or FontStyle.Strikeout)
                     Else
-                        str_erro += "Não escreveu um NIF. "
+                        str_erro += averiguar
                         AlterarEstado(rctNIF, mtbNIF, "errar")
                     End If
                 End If
                 If chkRua.Checked Then
-                    If Not (txtRua.Text = "" Or IsNumeric(txtRua.Text)) Then
+                    averiguar = verificacao(rctRua, txtRua)
+                    If averiguar = "" Then
                         If pquery <> "" Then
                             pquery += ","
                         End If
                         pquery += " Rua='" + txtRua.Text + "'"
                         lbl(2).Font = New Font(lbl(2).Font, lbl(2).Font.Style Or FontStyle.Strikeout)
                     Else
-                        str_erro += "Não escreveu uma rua. "
+                        str_erro += averiguar
                         AlterarEstado(rctRua, txtRua, "errar")
                     End If
                 End If
                 If chkLocalidade.Checked Then
-                    If cmblocalidade.Text <> "" Then
+                    averiguar = verificacao(rctLocalidade, cmblocalidade)
+                    If averiguar = "" Then
                         If pquery <> "" Then
                             pquery += ","
                         End If
                         pquery += " clientes.codlo=" + cmblocalidade.SelectedValue.ToString
                         lbl(3).Font = New Font(lbl(3).Font, lbl(3).Font.Style Or FontStyle.Strikeout)
                     Else
-                        str_erro += "Não escolheu uma localidade. "
+                        str_erro += averiguar
                         AlterarEstado(rctLocalidade, "errar")
                     End If
                 End If
                 If chkTlm.Checked Then
-                    If Not (mtbTlm.Text = "" Or mtbTlm.Text.Length < 9) Then
+                    averiguar = verificacao(rctTlm, mtbTlm)
+                    If averiguar = "" Then
                         If pquery <> "" Then
                             pquery += ","
                         End If
                         pquery += " telemovel='" + mtbTlm.Text + "'"
                         lbl(4).Font = New Font(lbl(4).Font, lbl(4).Font.Style Or FontStyle.Strikeout)
                     Else
-                        str_erro += "Não escreveu um número de telemóvel válido. "
+                        str_erro += averiguar
                         AlterarEstado(rctTlm, mtbTlm, "errar")
                     End If
                 End If
@@ -357,7 +298,6 @@ Public Class frmClientes
                             Dim comando As New MySqlCommand
                             comando.Connection = ligacao
                             comando.CommandText = pquery
-                            DS.Clear()
                             ligacao.Open()
                             comando.ExecuteNonQuery()
                             ligacao.Close()
@@ -365,6 +305,22 @@ Public Class frmClientes
                             ver()
 
                             MessageBox.Show("Registo alterado", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                            'Limpo os objetos input do formulário
+                            txtnome.Text = ""
+                            AlterarEstado(rctNome, txtnome, "restaurar")
+
+                            mtbNIF.Text = ""
+                            AlterarEstado(rctNIF, mtbNIF, "restaurar")
+
+                            txtRua.Text = ""
+                            AlterarEstado(rctRua, txtRua, "restaurar")
+
+                            cmblocalidade.Text = ""
+                            AlterarEstado(rctLocalidade, "restaurar")
+
+                            mtbTlm.Text = ""
+                            AlterarEstado(rctTlm, mtbTlm, "restaurar")
                         Catch ex As Exception
                             MessageBox.Show(ex.Message, "Erro a Alterar", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             ligacao.Close()
@@ -396,7 +352,7 @@ Public Class frmClientes
                     ver()
 
                     'Isto muda o texto da label (que cada apontador de label está apontar)
-                    For a As Integer = 0 To 3
+                    For a As Integer = 0 To CAMPOSC - 1
                         lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout) ' Tudo isto quando podia simplesmente utlizar "lbl(a).FontStyle.Strikeout=True"!
                     Next
 
@@ -425,7 +381,7 @@ Public Class frmClientes
                 ver()
 
                 'Isto muda o texto da label (que cada apontador de label está apontar)
-                For a As Integer = 0 To 3
+                For a As Integer = 0 To CAMPOSC - 1
                     lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style And Not FontStyle.Strikeout) ' Tudo isto quando podia simplesmente utlizar "lbl(a).FontStyle.Strikeout=false"!
                 Next
 
@@ -456,6 +412,4 @@ Public Class frmClientes
     Private Sub mtbTlm_TextChanged(sender As Object, e As System.EventArgs) Handles mtbTlm.TextChanged
         AlterarEstado(rctTlm, mtbTlm, "restaurar")
     End Sub
-
-
 End Class
