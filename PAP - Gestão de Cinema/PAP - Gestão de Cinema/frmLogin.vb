@@ -10,20 +10,12 @@ Public Class frmLogin
 
     Private Sub restaurarUtl()
         lblErroUtl.Text = ""
-        rctUtl.BackColor = Color.White
-        rctUtl.BorderColor = Color.White
-        txtNome.BackColor = Color.White
-        txtNome.ForeColor = Color.Black
-        pctUtl.BackColor = Color.White
+        AlterarEstado(rctUtl, txtNome, pctUtl, "errar")
     End Sub
 
     Private Sub restaurarPass()
         lblErroPass.Text = ""
-        rctPass.BackColor = Color.White
-        rctPass.BorderColor = Color.White
-        txtPass.BackColor = Color.White
-        txtPass.ForeColor = Color.Black
-        pctPass.BackColor = Color.White
+        AlterarEstado(rctPass, txtPass, pctPass, "restaurar")
     End Sub
 
     Private Sub verificacao()
@@ -32,18 +24,12 @@ Public Class frmLogin
 
         If txtNome.Text = "" Then
             lblErroUtl.Text = "Não escreveu o nome de utilizador"
-            rctUtl.BackColor = Color.LightSalmon
-            rctUtl.BorderColor = Color.LightSalmon
-            txtNome.BackColor = Color.LightSalmon
-            pctUtl.BackColor = Color.LightSalmon
+            AlterarEstado(rctUtl, txtNome, pctUtl, "errar")
         End If
 
         If txtPass.Text = "" Then
             lblErroPass.Text = "Não escreveu a palavra-passe"
-            rctPass.BackColor = Color.LightSalmon
-            rctPass.BorderColor = Color.LightSalmon
-            txtPass.BackColor = Color.LightSalmon
-            pctPass.BackColor = Color.LightSalmon
+            AlterarEstado(rctPass, txtPass, pctPass, "errar")
         End If
 
         If lblErroUtl.Text <> "" Or lblErroPass.Text <> "" Then
@@ -56,30 +42,18 @@ Public Class frmLogin
             ligacao.Open()
             leitor = comando.ExecuteReader
             If leitor.Read Then 'Utilizador existe na base de dados
-                rctUtl.BackColor = Color.LightGreen
-                rctUtl.BorderColor = Color.LightGreen
-                txtNome.BackColor = Color.LightGreen
-                pctUtl.BackColor = Color.LightGreen
-
+                AlterarEstado(rctUtl, txtNome, pctUtl, "acertar")
                 If txtPass.Text = leitor.GetString("palavra_passe") Then
                     codF = leitor.GetInt32("codF")
                     frmHome.Show()
                     Me.Hide()
                 Else
                     lblErroPass.Text = "Palavra-passe incorreta"
-                    rctPass.BackColor = Color.LightSalmon
-                    rctPass.BorderColor = Color.LightSalmon
-                    txtPass.BackColor = Color.LightSalmon
-                    txtPass.ForeColor = Color.Red
-                    pctPass.BackColor = Color.LightSalmon
+                    AlterarEstado(rctPass, txtPass, pctPass, "errar")
                 End If
             Else
                 lblErroUtl.Text = "Utilizador inexistente"
-                rctUtl.BackColor = Color.LightSalmon
-                rctUtl.BorderColor = Color.LightSalmon
-                txtNome.BackColor = Color.LightSalmon
-                txtNome.ForeColor = Color.Red
-                pctUtl.BackColor = Color.LightSalmon
+                AlterarEstado(rctUtl, txtNome, pctUtl, "acertar")
             End If
             ligacao.Dispose()
         Catch ex As Exception

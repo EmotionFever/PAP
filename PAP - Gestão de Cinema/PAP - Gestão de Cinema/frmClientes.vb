@@ -9,35 +9,21 @@ Public Class frmClientes
     Public Const CAMPOSC As Integer = 5
     Dim lbl(CAMPOSC) As Label
 
-    Function verificacao(rct As PowerPacks.RectangleShape, obj As Object) As String
-        If TypeOf obj Is TextBox Then
-            If obj.Text = "" Or IsNumeric(obj.Text) Then
-                AlterarEstado(rct, obj, "errar")
-                Return "Não escreveu um " + obj.tag.ToString + " válido. "
-            Else
-                AlterarEstado(rct, obj, "acertar")
-                Return ""
+    Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
+        If tbc1.SelectedIndex = 0 Then
+            btnInserir.Enabled = True
+            If dgvAtivado.SelectedRows.Count > 0 Then
+                btnAlterar.Enabled = True
+                btnDesativar.Enabled = True
             End If
+            btnDesativar.Show()
         End If
-        If TypeOf obj Is MaskedTextBox Then
-            If obj.Text = "" Or obj.Text.Length < 9 Then
-                AlterarEstado(rct, obj, "errar")
-                Return "Não escreveu um " + obj.tag.ToString + ". "
-            Else
-                AlterarEstado(rct, obj, "acertar")
-                Return ""
-            End If
+        If tbc1.SelectedIndex = 1 Then
+            btnInserir.Enabled = False
+            btnAlterar.Enabled = False
+            btnDesativar.Hide()
         End If
-        If TypeOf obj Is ComboBox Then
-            If obj.Text = "" Then
-                AlterarEstado(rct, "errar")
-                Return "Não escolheu uma " + obj.tag.ToString + ". "
-            Else
-                AlterarEstado(rct, "acertar")
-                Return ""
-            End If
-        End If
-    End Function
+    End Sub
 
     Sub ver()
         Try
@@ -88,8 +74,41 @@ Public Class frmClientes
         End Try
     End Sub
 
-    Private Sub dgvDesativado_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDesativado.CellClick
+    Private Sub frmClientes_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+        btnDesativar.Enabled = False
+        btnAlterar.Enabled = False
 
+        ver()
+
+        lbl(0) = lblnome
+        lbl(1) = lblNIF
+        lbl(2) = lblRua
+        lbl(3) = lblLocalidade
+        lbl(4) = lblTlm
+
+        'Aqui, encho a combobox com dados para o utilizador escolher
+        DS1 = New DataSet
+
+        adapter.SelectCommand = New MySqlCommand
+        adapter.SelectCommand.Connection = ligacao
+        adapter.SelectCommand.CommandText = "select codlo, nome from localidades"
+
+        ligacao.Open()
+        adapter.Fill(DS1, "localidades")
+        ligacao.Close()
+
+        cmblocalidade.DataSource = DS1.Tables("localidades")
+        cmblocalidade.DisplayMember = "nome"
+        cmblocalidade.ValueMember = "codlo"
+        cmblocalidade.Text = ""
+    End Sub
+
+    Private Sub CtrL_MenuCine1_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
+        CtrL_MenuCine.Sincronizar_acessos()
+        CtrL_MenuCine.SelecionarBotao(2)
+    End Sub
+
+    Private Sub dgvDesativado_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDesativado.CellClick
         ' Quando o utilizador clica numa célula do DGV este código seleciona a linha toda
         Try
             Dim i As Integer = dgvDesativado.CurrentCell.RowIndex
@@ -99,7 +118,7 @@ Public Class frmClientes
             btnAtivar.Enabled = False
         End Try
 
-        'Tiro o rasurado caso esteja a mostrar os clientes ativados senão  e coloco os valores da linha selecionada nas labels
+        'Tiro o rasurado caso esteja a mostrar os clientes ativados senão coloco os valores da linha selecionada nas labels
         For a As Integer = 0 To CAMPOSC - 1
             lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout)
             lbl(a).Text = dgvDesativado.CurrentRow.Cells(a + 1).Value.ToString
@@ -107,7 +126,6 @@ Public Class frmClientes
     End Sub
 
     Private Sub dgvAtivado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvAtivado.CellClick
-
         ' Quando o utilizador clica numa célula do DGV este código seleciona a linha toda
         Try
             Dim i As Integer = dgvAtivado.CurrentCell.RowIndex
@@ -128,13 +146,6 @@ Public Class frmClientes
             lbl(a).Text = dgvAtivado.CurrentRow.Cells(a + 1).Value.ToString
         Next
     End Sub
-
-
-    Private Sub CtrL_MenuCine1_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
-        CtrL_MenuCine.Sincronizar_acessos()
-        CtrL_MenuCine.SelecionarBotao(2)
-    End Sub
-
 
     Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
         Dim str_erro As String = ""
@@ -182,54 +193,97 @@ Public Class frmClientes
         End If
     End Sub
 
-    Private Sub AlterarEstado(rct As PowerPacks.RectangleShape, obj As Object, str As String)
-        If str = "restaurar" Then
-            obj.BackColor = Color.White
-            rct.BackColor = Color.White
-            rct.BorderColor = Color.White
-            obj.ForeColor = Color.Black
-        ElseIf str = "errar" Then
-            obj.BackColor = Color.LightSalmon
-            rct.BackColor = Color.LightSalmon
-            rct.BorderColor = Color.LightSalmon
-            obj.ForeColor = Color.Red
-        ElseIf str = "acertar" Then
-            obj.BackColor = Color.LightGreen
-            rct.BackColor = Color.LightGreen
-            rct.BorderColor = Color.LightGreen
+    Private Sub btnProcurar_Click(sender As System.Object, e As System.EventArgs) Handles btnProcurar.Click
+        'Basicamente, isto pesquisa na base de dados
+        Dim str_erro As String = ""
+        Dim pquery As String = ""
+        Dim averiguar As String
+
+        'Apenas as checkboxes de um campo com um certo são pesquisados. Ou seja, se eu selecionar o campo ordenado apenas procuro os registos com aquele ordenado mesmo que os outros campos tenham coisas escritas
+        If chknome.Checked Then
+            averiguar = verificacao(rctNome, txtnome)
+            If averiguar = "" Then
+                pquery += " and clientes.nome like '%" + txtnome.Text + "%'"
+            Else
+                str_erro += averiguar
+            End If
         End If
-    End Sub
-    Private Sub AlterarEstado(rct As PowerPacks.RectangleShape, str As String)
-        If str = "restaurar" Then
-            rct.BackColor = Color.White
-            rct.BorderColor = Color.White
-        ElseIf str = "errar" Then
-            rct.BackColor = Color.LightSalmon
-            rct.BorderColor = Color.LightSalmon
-        ElseIf str = "acertar" Then
-            rct.BackColor = Color.LightGreen
-            rct.BorderColor = Color.LightGreen
+        If chkNIF.Checked Then
+            averiguar = verificacao(rctNIF, mtbNIF)
+            If averiguar = "" Then 'Pode-se procurar sequencias de números
+                pquery += " and NIF like '%" + mtbNIF.Text + "%'"
+            Else
+                str_erro += averiguar
+            End If
         End If
-    End Sub
+        If chkRua.Checked Then
+            averiguar = verificacao(rctRua, txtRua)
+            If averiguar = "" Then
+                pquery += " and rua like '%" + txtRua.Text + "%'"
+            Else
+                str_erro += averiguar
+            End If
+        End If
+        If chkLocalidade.Checked Then
+            averiguar = verificacao(rctLocalidade, cmblocalidade)
+            If averiguar = "" Then
+                pquery += " and clientes.codlo=" + cmblocalidade.SelectedValue.ToString
+            Else
+                str_erro += "Não escolheu uma localidade. "
+            End If
+        End If
+        If chkTlm.Checked Then
+            averiguar = verificacao(rctTlm, mtbTlm)
+            If averiguar = "" Then 'Pode-se procurar sequencias de números
+                pquery += " and telemovel like '%" + mtbTlm.Text + "%'"
+            Else
+                str_erro += averiguar
+            End If
+        End If
 
-    Private Sub txtnome_TextChanged(sender As Object, e As System.EventArgs) Handles txtnome.TextChanged
-        AlterarEstado(rctNome, txtnome, "restaurar")
-    End Sub
+        'No final deste if tenho 'parte' de um query
 
-    Private Sub mtbNIF_TextChanged(sender As Object, e As System.EventArgs) Handles mtbNIF.TextChanged
-        AlterarEstado(rctNIF, mtbNIF, "restaurar")
-    End Sub
+        'Caso o pquery esteja vazio significa que o utilizador não escolheu nenhum campo, ou seja "ERRRRRRRO"!!!!
+        If str_erro = "" Then
+            If pquery <> "" Then
+                If tbc1.SelectedIndex = 0 Then
+                    adapter.SelectCommand = New MySqlCommand
+                    adapter.SelectCommand.Connection = ligacao
+                    adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from clientes, localidades where ativado=1 and localidades.codlo=clientes.codlo" + pquery
+                    DS.Clear()
+                    ligacao.Open()
+                    adapter.Fill(DS, "clientes")
+                    ligacao.Close()
 
-    Private Sub txtRua_TextChanged(sender As Object, e As System.EventArgs) Handles txtRua.TextChanged
-        AlterarEstado(rctRua, txtRua, "restaurar")
-    End Sub
+                    dgvAtivado.AutoGenerateColumns = True
+                    dgvAtivado.DataSource = DS
+                    dgvAtivado.DataMember = "clientes"
+                    dgvAtivado.Columns.Item("codc").Visible = False
 
-    Private Sub cmblocalidade_TextChanged(sender As Object, e As System.EventArgs) Handles cmblocalidade.TextChanged
-        AlterarEstado(rctLocalidade, "restaurar")
-    End Sub
+                    'Como fiquei sem nenhum linha selecionada tenho de desativar os botões
+                    btnDesativar.Enabled = False
+                    btnAlterar.Enabled = False
+                End If
+                If tbc1.SelectedIndex = 1 Then
+                    adapter.SelectCommand = New MySqlCommand
+                    adapter.SelectCommand.Connection = ligacao
+                    adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from clientes, localidades where ativado=0 and localidades.codlo=clientes.codlo" + pquery
+                    DS.Clear()
+                    ligacao.Open()
+                    adapter.Fill(DS, "clientes")
+                    ligacao.Close()
 
-    Private Sub mtbTlm_TextChanged(sender As Object, e As System.EventArgs) Handles mtbTlm.TextChanged
-        AlterarEstado(rctTlm, mtbTlm, "restaurar")
+                    dgvAtivado.AutoGenerateColumns = True
+                    dgvAtivado.DataSource = DS
+                    dgvAtivado.DataMember = "clientes"
+                    dgvAtivado.Columns.Item("codc").Visible = False
+                End If
+            Else
+                MessageBox.Show("Não selecionou nenhum campo para a pesquisa", "Sem campo para pesquisa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
+        Else
+            MessageBox.Show("Atenção", str_erro, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
     End Sub
 
     Private Sub btnAlterar_Click(sender As System.Object, e As System.EventArgs) Handles btnAlterar.Click
@@ -326,35 +380,6 @@ Public Class frmClientes
 
     End Sub
 
-    Private Sub frmClientes_Load(sender As Object, e As System.EventArgs) Handles Me.Load
-        btnDesativar.Enabled = False
-        btnAlterar.Enabled = False
-
-        ver()
-
-        lbl(0) = lblnome
-        lbl(1) = lblNIF
-        lbl(2) = lblRua
-        lbl(3) = lblLocalidade
-        lbl(4) = lblTlm
-
-        'Aqui, encho a combobox com dados para o utilizador escolher
-        DS1 = New DataSet
-
-        adapter.SelectCommand = New MySqlCommand
-        adapter.SelectCommand.Connection = ligacao
-        adapter.SelectCommand.CommandText = "select codlo, nome from localidades"
-
-        ligacao.Open()
-        adapter.Fill(DS1, "localidades")
-        ligacao.Close()
-
-        cmblocalidade.DataSource = DS1.Tables("localidades")
-        cmblocalidade.DisplayMember = "nome"
-        cmblocalidade.ValueMember = "codlo"
-        cmblocalidade.Text = ""
-    End Sub
-
     Private Sub btnDesativar_Click(sender As System.Object, e As System.EventArgs) Handles btnDesativar.Click ' EM DESENVOLVIMENTO
         'Desativo os dados da linha selecionada na base de dados
         Dim query As String
@@ -385,109 +410,6 @@ Public Class frmClientes
         End If
     End Sub
 
-    Private Sub btnProcurar_Click(sender As System.Object, e As System.EventArgs) Handles btnProcurar.Click
-        'Basicamente, isto pesquisa na base de dados
-        Dim str_erro As String = ""
-        Dim pquery As String = ""
-
-        'Apenas as checkboxes de um campo com um certo são pesquisados. Ou seja, se eu selecionar o campo ordenado apenas procuro os registos com aquele ordenado mesmo que os outros campos tenham coisas escritas
-        If chknome.Checked Then
-            If Not (txtnome.Text = "" Or IsNumeric(txtnome.Text)) Then
-                pquery += " and clientes.nome like '%" + txtnome.Text + "%'"
-            Else
-                str_erro += "Não escreveu um nome. "
-            End If
-        End If
-        If chkNIF.Checked Then
-            If mtbNIF.Text <> "" And mtbNIF.Text.Length <= 9 Then 'Pode-se procurar sequencias de números
-                pquery += " and NIF like '%" + mtbNIF.Text + "%'"
-            Else
-                str_erro += "Não escreveu um NIF. "
-            End If
-        End If
-        If chkRua.Checked Then
-            If Not (txtRua.Text = "" Or IsNumeric(txtRua.Text)) Then
-                pquery += " and rua like '%" + txtRua.Text + "%'"
-            Else
-                str_erro += "Não escreveu uma rua. "
-            End If
-        End If
-        If chkLocalidade.Checked Then
-            If cmblocalidade.Text <> "" Then
-                pquery += " and clientes.codlo=" + cmblocalidade.SelectedValue.ToString
-            Else
-                str_erro += "Não escolheu uma localidade. "
-            End If
-        End If
-        If chkTlm.Checked Then
-            If mtbTlm.Text <> "" And mtbTlm.Text.Length <= 9 Then 'Pode-se procurar sequencias de números
-                pquery += " and telemovel like '%" + mtbTlm.Text + "%'"
-            Else
-                str_erro += "Não escreveu um número de telemóvel. "
-            End If
-        End If
-
-        'No final deste if tenho 'parte' de um query
-
-        'Caso o pquery esteja vazio significa que o utilizador não escolheu nenhum campo, ou seja "ERRRRRRRO"!!!!
-        If str_erro = "" Then
-            If pquery <> "" Then
-                If tbc1.SelectedIndex = 0 Then
-                    adapter.SelectCommand = New MySqlCommand
-                    adapter.SelectCommand.Connection = ligacao
-                    adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from clientes, localidades where ativado=1 and localidades.codlo=clientes.codlo" + pquery
-                    DS.Clear()
-                    ligacao.Open()
-                    adapter.Fill(DS, "clientes")
-                    ligacao.Close()
-
-                    dgvAtivado.AutoGenerateColumns = True
-                    dgvAtivado.DataSource = DS
-                    dgvAtivado.DataMember = "clientes"
-                    dgvAtivado.Columns.Item("codc").Visible = False
-
-                    'Como fiquei sem nenhum linha selecionada tenho de desativar os botões
-                    btnDesativar.Enabled = False
-                    btnAlterar.Enabled = False
-                End If
-                If tbc1.SelectedIndex = 1 Then
-                    adapter.SelectCommand = New MySqlCommand
-                    adapter.SelectCommand.Connection = ligacao
-                    adapter.SelectCommand.CommandText = "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel  from clientes, localidades where ativado=0 and localidades.codlo=clientes.codlo" + pquery
-                    DS.Clear()
-                    ligacao.Open()
-                    adapter.Fill(DS, "clientes")
-                    ligacao.Close()
-
-                    dgvAtivado.AutoGenerateColumns = True
-                    dgvAtivado.DataSource = DS
-                    dgvAtivado.DataMember = "clientes"
-                    dgvAtivado.Columns.Item("codc").Visible = False
-                End If
-            Else
-                MessageBox.Show("Não selecionou nenhum campo para a pesquisa", "Sem campo para pesquisa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            End If
-        Else
-            MessageBox.Show("Atenção", str_erro, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        End If
-    End Sub
-
-    Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
-        If tbc1.SelectedIndex = 0 Then
-            btnInserir.Enabled = True
-            If dgvAtivado.SelectedRows.Count > 0 Then
-                btnAlterar.Enabled = True
-                btnDesativar.Enabled = True
-            End If
-            btnDesativar.Show()
-        End If
-        If tbc1.SelectedIndex = 1 Then
-            btnInserir.Enabled = False
-            btnAlterar.Enabled = False
-            btnDesativar.Hide()
-        End If
-    End Sub
-
     Private Sub btnAtivar_Click(sender As Object, e As System.EventArgs) Handles btnAtivar.Click
         'Desativo os dados da linha selecionada na base de dados
         Dim query As String
@@ -513,6 +435,26 @@ Public Class frmClientes
                 ligacao.Close()
             End Try
         End If
+    End Sub
+
+    Private Sub txtnome_TextChanged(sender As Object, e As System.EventArgs) Handles txtnome.TextChanged
+        AlterarEstado(rctNome, txtnome, "restaurar")
+    End Sub
+
+    Private Sub mtbNIF_TextChanged(sender As Object, e As System.EventArgs) Handles mtbNIF.TextChanged
+        AlterarEstado(rctNIF, mtbNIF, "restaurar")
+    End Sub
+
+    Private Sub txtRua_TextChanged(sender As Object, e As System.EventArgs) Handles txtRua.TextChanged
+        AlterarEstado(rctRua, txtRua, "restaurar")
+    End Sub
+
+    Private Sub cmblocalidade_TextChanged(sender As Object, e As System.EventArgs) Handles cmblocalidade.TextChanged
+        AlterarEstado(rctLocalidade, "restaurar")
+    End Sub
+
+    Private Sub mtbTlm_TextChanged(sender As Object, e As System.EventArgs) Handles mtbTlm.TextChanged
+        AlterarEstado(rctTlm, mtbTlm, "restaurar")
     End Sub
 
 
