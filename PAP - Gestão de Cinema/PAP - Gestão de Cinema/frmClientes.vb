@@ -1,6 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class frmClientes
-    Dim comando As MySqlCommand
     Dim ligacao As New MySqlConnection("Server=localhost;DataBase=ppap;Uid=root;Pwd=;Connect Timeout=30;")
     Public Const CAMPOSC As Integer = 5
     Dim lbl(CAMPOSC) As Label
@@ -100,10 +99,13 @@ Public Class frmClientes
     End Sub
 
     Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
+
+
         Dim str_erro As String = ""
         str_erro += verificacao(rctNome, txtnome)
         str_erro += verificacao(rctNIF, mtbNIF)
         If txtRua.Text <> "" Then
+
             str_erro += verificacao(rctRua, txtRua)
         End If
         str_erro += verificacao(rctLocalidade, cmblocalidade)
@@ -111,21 +113,14 @@ Public Class frmClientes
             str_erro += verificacao(rctTlm, mtbTlm)
         End If
 
-        'Insiro os dados na base de dados
-        If str_erro = "" Then
-            comando = New MySqlCommand
 
-            comando.Connection = ligacao
-            comando.CommandText = "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
-            "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + cmblocalidade.SelectedValue.ToString + ",'" + mtbTlm.Text + "',1)"
-            ligacao.Open()
-            comando.ExecuteNonQuery()
-            ligacao.Close()
+        If str_erro = "" Then
+            'Insiro os dados na base de dados
+            acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
+            "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + cmblocalidade.SelectedValue.ToString + ",'" + mtbTlm.Text + "',1)")
 
             'Volto a mostrar a tabela, desta vez, atualizada.
             ver()
-
-            MessageBox.Show("Registo inserido", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             'Limpo os objetos input do formulário
             txtnome.Text = ""
@@ -209,7 +204,7 @@ Public Class frmClientes
                     btnAlterar.Enabled = False
                 End If
                 If tbc1.SelectedIndex = 1 Then
-                    mostrar(dgvAtivado, ligacao, "clientes", "codC", "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel " &
+                    mostrar(dgvDesativado, ligacao, "clientes", "codC", "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel " &
                                         "from clientes, localidades where ativado=0 and localidades.codlo=clientes.codlo" + pquery)
                     btnAtivar.Enabled = False
                 End If
@@ -236,7 +231,6 @@ Public Class frmClientes
                         lbl(0).Font = New Font(lbl(0).Font, lbl(0).Font.Style Or FontStyle.Strikeout)
                     Else
                         str_erro += averiguar
-                        AlterarEstado(rctNome, txtnome, "errar")
                     End If
                 End If
                 If chkNIF.Checked Then
@@ -249,7 +243,6 @@ Public Class frmClientes
                         lbl(1).Font = New Font(lbl(1).Font, lbl(1).Font.Style Or FontStyle.Strikeout)
                     Else
                         str_erro += averiguar
-                        AlterarEstado(rctNIF, mtbNIF, "errar")
                     End If
                 End If
                 If chkRua.Checked Then
@@ -262,7 +255,6 @@ Public Class frmClientes
                         lbl(2).Font = New Font(lbl(2).Font, lbl(2).Font.Style Or FontStyle.Strikeout)
                     Else
                         str_erro += averiguar
-                        AlterarEstado(rctRua, txtRua, "errar")
                     End If
                 End If
                 If chkLocalidade.Checked Then
@@ -275,7 +267,6 @@ Public Class frmClientes
                         lbl(3).Font = New Font(lbl(3).Font, lbl(3).Font.Style Or FontStyle.Strikeout)
                     Else
                         str_erro += averiguar
-                        AlterarEstado(rctLocalidade, "errar")
                     End If
                 End If
                 If chkTlm.Checked Then
@@ -288,43 +279,29 @@ Public Class frmClientes
                         lbl(4).Font = New Font(lbl(4).Font, lbl(4).Font.Style Or FontStyle.Strikeout)
                     Else
                         str_erro += averiguar
-                        AlterarEstado(rctTlm, mtbTlm, "errar")
                     End If
                 End If
                 If str_erro = "" Then
                     If pquery <> "" Then
-                        Try
-                            pquery = "update clientes set" + pquery + " where codc=" + dgvAtivado.CurrentRow.Cells(0).Value.ToString
-                            Dim comando As New MySqlCommand
-                            comando.Connection = ligacao
-                            comando.CommandText = pquery
-                            ligacao.Open()
-                            comando.ExecuteNonQuery()
-                            ligacao.Close()
+                        acao("alterar", ligacao, "update clientes set" + pquery + " where codc=" + dgvAtivado.CurrentRow.Cells(0).Value.ToString)
 
-                            ver()
+                        ver()
 
-                            MessageBox.Show("Registo alterado", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        'Limpo os objetos input do formulário
+                        txtnome.Text = ""
+                        AlterarEstado(rctNome, txtnome, "restaurar")
 
-                            'Limpo os objetos input do formulário
-                            txtnome.Text = ""
-                            AlterarEstado(rctNome, txtnome, "restaurar")
+                        mtbNIF.Text = ""
+                        AlterarEstado(rctNIF, mtbNIF, "restaurar")
 
-                            mtbNIF.Text = ""
-                            AlterarEstado(rctNIF, mtbNIF, "restaurar")
+                        txtRua.Text = ""
+                        AlterarEstado(rctRua, txtRua, "restaurar")
 
-                            txtRua.Text = ""
-                            AlterarEstado(rctRua, txtRua, "restaurar")
+                        cmblocalidade.Text = ""
+                        AlterarEstado(rctLocalidade, "restaurar")
 
-                            cmblocalidade.Text = ""
-                            AlterarEstado(rctLocalidade, "restaurar")
-
-                            mtbTlm.Text = ""
-                            AlterarEstado(rctTlm, mtbTlm, "restaurar")
-                        Catch ex As Exception
-                            MessageBox.Show(ex.Message, "Erro a Alterar", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            ligacao.Close()
-                        End Try
+                        mtbTlm.Text = ""
+                        AlterarEstado(rctTlm, mtbTlm, "restaurar")
                     Else
                         MessageBox.Show("Não selecionou nenhum campo para alterar")
                     End If
@@ -342,25 +319,14 @@ Public Class frmClientes
         If dgvAtivado.SelectedRows.Count > 0 Then
 
             If Not dgvAtivado.CurrentRow.IsNewRow Then
-                Try
-                    query = "update clientes set ativado=0 where codc = " + dgvAtivado.CurrentRow.Cells(0).Value.ToString
+                acao("desativar", ligacao, "update clientes set ativado=0 where codc = " + dgvAtivado.CurrentRow.Cells(0).Value.ToString)
 
-                    Dim comando As New MySqlCommand(query, ligacao)
-                    ligacao.Open()
-                    comando.ExecuteNonQuery()
-                    ligacao.Close()
-                    ver()
+                ver()
 
-                    'Isto muda o texto da label (que cada apontador de label está apontar)
-                    For a As Integer = 0 To CAMPOSC - 1
-                        lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout) ' Tudo isto quando podia simplesmente utlizar "lbl(a).FontStyle.Strikeout=True"!
-                    Next
-
-                    MessageBox.Show("O registo que selecionou foi desativado", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message, "Erro a Desativar", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    ligacao.Close()
-                End Try
+                'Isto muda o texto da label (que cada apontador de label está apontar)
+                For a As Integer = 0 To CAMPOSC - 1
+                    lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout) ' Tudo isto quando podia simplesmente utlizar "lbl(a).FontStyle.Strikeout=True"!
+                Next
             End If
 
         End If
@@ -368,28 +334,15 @@ Public Class frmClientes
 
     Private Sub btnAtivar_Click(sender As Object, e As System.EventArgs) Handles btnAtivar.Click
         'Desativo os dados da linha selecionada na base de dados
-        Dim query As String
         If dgvDesativado.SelectedRows.Count > 0 Then
+            acao("ativar", ligacao, "update clientes set ativado=1 where codc = " + dgvDesativado.CurrentRow.Cells(0).Value.ToString)
 
-            Try
-                query = "update clientes set ativado=1 where codc = " + dgvDesativado.CurrentRow.Cells(0).Value.ToString
+            ver()
 
-                Dim comando As New MySqlCommand(query, ligacao)
-                ligacao.Open()
-                comando.ExecuteNonQuery()
-                ligacao.Close()
-                ver()
-
-                'Isto muda o texto da label (que cada apontador de label está apontar)
-                For a As Integer = 0 To CAMPOSC - 1
-                    lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style And Not FontStyle.Strikeout) ' Tudo isto quando podia simplesmente utlizar "lbl(a).FontStyle.Strikeout=false"!
-                Next
-
-                MessageBox.Show("O registo que selecionou foi ativado", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, "Erro a Ativar", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                ligacao.Close()
-            End Try
+            'Isto muda o texto da label (que cada apontador de label está apontar)
+            For a As Integer = 0 To CAMPOSC - 1
+                lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style And Not FontStyle.Strikeout) ' Tudo isto quando podia simplesmente utlizar "lbl(a).FontStyle.Strikeout=false"!
+            Next
         End If
     End Sub
 

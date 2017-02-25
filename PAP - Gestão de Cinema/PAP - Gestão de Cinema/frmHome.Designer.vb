@@ -713,7 +713,7 @@ Partial Class frmHome
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(661, 650)
+        Me.ClientSize = New System.Drawing.Size(657, 650)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.pnl1)
         Me.Controls.Add(Me.flp1)

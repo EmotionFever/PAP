@@ -59,8 +59,8 @@ Module mdlAcoes
                 AlterarEstado(rct, obj, "acertar")
                 Return ""
             End If
-        End If
-        If TypeOf obj Is MaskedTextBox Then
+
+        ElseIf TypeOf obj Is MaskedTextBox Then
             If obj.Text = "" Or obj.Text.Length < 9 Then
                 AlterarEstado(rct, obj, "errar")
                 Return "Não escreveu um " + obj.tag.ToString + ". "
@@ -68,8 +68,8 @@ Module mdlAcoes
                 AlterarEstado(rct, obj, "acertar")
                 Return ""
             End If
-        End If
-        If TypeOf obj Is ComboBox Then
+
+        ElseIf TypeOf obj Is ComboBox Then
             If obj.Text = "" Then
                 AlterarEstado(rct, "errar")
                 Return "Não escolheu uma " + obj.tag.ToString + ". "
@@ -77,6 +77,10 @@ Module mdlAcoes
                 AlterarEstado(rct, "acertar")
                 Return ""
             End If
+
+
+        Else
+            Return "Erro"
         End If
     End Function
 
@@ -121,5 +125,17 @@ Module mdlAcoes
         cmb.DisplayMember = campo
         cmb.ValueMember = chave_primaria
         cmb.Text = ""
+    End Sub
+
+    Public Sub acao(ByVal objetivo As String, ByRef ligacao As MySqlConnection, ByVal ordem As String) 'Comandos
+        Dim comando As MySqlCommand = New MySqlCommand
+
+        comando.Connection = ligacao
+        comando.CommandText = ordem
+        ligacao.Open()
+        comando.ExecuteNonQuery()
+        ligacao.Close()
+
+        MessageBox.Show("O ato de " + objetivo + " foi realizado com sucesso", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 End Module
