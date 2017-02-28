@@ -1,6 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class frmClientes
     Dim ligacao As New MySqlConnection("Server=localhost;DataBase=ppap;Uid=root;Pwd=;Connect Timeout=30;")
+    Dim comando As MySqlCommand
+    Dim leitor As MySqlDataReader
     Public Const CAMPOSC As Integer = 5
     Dim lbl(CAMPOSC) As Label
 
@@ -52,28 +54,12 @@ Public Class frmClientes
 
         'Aqui, encho a combobox com dados para o utilizador escolher
         encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
+        cmblocalidade.Text = ""
     End Sub
 
     Private Sub CtrL_MenuCine1_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
         CtrL_MenuCine.Sincronizar_acessos()
         CtrL_MenuCine.SelecionarBotao(2)
-    End Sub
-
-    Private Sub dgvDesativado_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDesativado.CellClick
-        ' Quando o utilizador clica numa célula do DGV este código seleciona a linha toda
-        Try
-            Dim i As Integer = dgvDesativado.CurrentCell.RowIndex
-            dgvDesativado.Rows(i).Selected = True
-            btnAtivar.Enabled = True
-        Catch ex As Exception
-            btnAtivar.Enabled = False
-        End Try
-
-        'Tiro o rasurado caso esteja a mostrar os clientes ativados senão coloco os valores da linha selecionada nas labels
-        For a As Integer = 0 To CAMPOSC - 1
-            lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout)
-            lbl(a).Text = dgvDesativado.CurrentRow.Cells(a + 1).Value.ToString
-        Next
     End Sub
 
     Private Sub dgvAtivado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvAtivado.CellClick
@@ -98,9 +84,25 @@ Public Class frmClientes
         Next
     End Sub
 
+    Private Sub dgvDesativado_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDesativado.CellClick
+        ' Quando o utilizador clica numa célula do DGV este código seleciona a linha toda
+        Try
+            Dim i As Integer = dgvDesativado.CurrentCell.RowIndex
+            dgvDesativado.Rows(i).Selected = True
+            btnAtivar.Enabled = True
+        Catch ex As Exception
+            btnAtivar.Enabled = False
+        End Try
+
+        'Tiro o rasurado caso esteja a mostrar os clientes ativados senão coloco os valores da linha selecionada nas labels
+        For a As Integer = 0 To CAMPOSC - 1
+            lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout)
+            lbl(a).Text = dgvDesativado.CurrentRow.Cells(a + 1).Value.ToString
+        Next
+    End Sub
+
     Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
-
-
+        Dim codLo As Integer
         Dim str_erro As String = ""
         str_erro += verificacao(rctNome, txtnome)
         str_erro += verificacao(rctNIF, mtbNIF)
@@ -115,13 +117,6 @@ Public Class frmClientes
 
 
         If str_erro = "" Then
-            'Insiro os dados na base de dados
-            acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
-            "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + cmblocalidade.SelectedValue.ToString + ",'" + mtbTlm.Text + "',1)")
-
-            'Volto a mostrar a tabela, desta vez, atualizada.
-            ver()
-
             'Limpo os objetos input do formulário
             txtnome.Text = ""
             AlterarEstado(rctNome, txtnome, "restaurar")
@@ -132,11 +127,42 @@ Public Class frmClientes
             txtRua.Text = ""
             AlterarEstado(rctRua, txtRua, "restaurar")
 
-            cmblocalidade.Text = ""
-            AlterarEstado(rctLocalidade, "restaurar")
-
             mtbTlm.Text = ""
             AlterarEstado(rctTlm, mtbTlm, "restaurar")
+            If cmblocalidade.SelectedValue IsNot Nothing Then
+                'Insiro os dados na base de dados
+                acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
+                "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + cmblocalidade.SelectedValue.ToString + ",'" + mtbTlm.Text + "',1)", 1)
+
+                'Volto a mostrar a tabela, desta vez, atualizada.
+                ver()
+            Else
+                Try
+                    'Inserir a nova localidade
+                    acao("inserir", ligacao, "insert into localidades (nome) values ('" + cmblocalidade.Text + "')", 0)
+
+                    'Descobrir o codLo dessa localidade
+                    comando = New MySqlCommand("select codlo from localidades where nome='" + cmblocalidade.Text + "'", ligacao)
+                    ligacao.Open()
+                    leitor = comando.ExecuteReader
+                    leitor.Read()
+                    codLo = leitor.GetInt32("codlo")
+                    ligacao.Close()
+
+                    'Associá-la ao registo do funcionário
+                    acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
+               "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + codLo + ",'" + mtbTlm.Text + "',1)", 1)
+
+                    encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
+                    cmblocalidade.Text = ""
+                    MessageBox.Show("A localidade " + cmblocalidade.Text + "foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Catch ex As Exception
+                    ligacao.Close()
+                    MessageBox.Show("A localidade " + cmblocalidade.Text + " não foi inserida: " + ex.Message, "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+            cmblocalidade.Text = ""
+            AlterarEstado(rctLocalidade, "restaurar")
         Else
             MessageBox.Show(str_erro, "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
@@ -283,7 +309,7 @@ Public Class frmClientes
                 End If
                 If str_erro = "" Then
                     If pquery <> "" Then
-                        acao("alterar", ligacao, "update clientes set" + pquery + " where codc=" + dgvAtivado.CurrentRow.Cells(0).Value.ToString)
+                        acao("alterar", ligacao, "update clientes set" + pquery + " where codc=" + dgvAtivado.CurrentRow.Cells(0).Value.ToString, 1)
 
                         ver()
 
@@ -315,11 +341,10 @@ Public Class frmClientes
 
     Private Sub btnDesativar_Click(sender As System.Object, e As System.EventArgs) Handles btnDesativar.Click ' EM DESENVOLVIMENTO
         'Desativo os dados da linha selecionada na base de dados
-        Dim query As String
         If dgvAtivado.SelectedRows.Count > 0 Then
 
             If Not dgvAtivado.CurrentRow.IsNewRow Then
-                acao("desativar", ligacao, "update clientes set ativado=0 where codc = " + dgvAtivado.CurrentRow.Cells(0).Value.ToString)
+                acao("desativar", ligacao, "update clientes set ativado=0 where codc = " + dgvAtivado.CurrentRow.Cells(0).Value.ToString, 1)
 
                 ver()
 
@@ -335,7 +360,7 @@ Public Class frmClientes
     Private Sub btnAtivar_Click(sender As Object, e As System.EventArgs) Handles btnAtivar.Click
         'Desativo os dados da linha selecionada na base de dados
         If dgvDesativado.SelectedRows.Count > 0 Then
-            acao("ativar", ligacao, "update clientes set ativado=1 where codc = " + dgvDesativado.CurrentRow.Cells(0).Value.ToString)
+            acao("ativar", ligacao, "update clientes set ativado=1 where codc = " + dgvDesativado.CurrentRow.Cells(0).Value.ToString, 1)
 
             ver()
 

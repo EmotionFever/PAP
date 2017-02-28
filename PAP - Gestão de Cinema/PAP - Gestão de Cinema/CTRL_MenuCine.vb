@@ -8,7 +8,7 @@
     Private Sub CTRL_MenuCine_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         '"Apontar" os apontadores de botões para os botões do CTRL / Códigos do procedimento SelecionarBotao(«código»)
         botao(0) = btnInicio
-        botao(1) = btnLugares
+        botao(1) = btnFilmes
         botao(2) = btnClientes
         botao(3) = btnFuncionarios
         botao(4) = btnEncargos
@@ -81,6 +81,11 @@
         End If
     End Sub
 
+    Private Sub btnFilmes_Click(sender As System.Object, e As System.EventArgs) Handles btnFilmes.Click
+        frmFilmes.Show()
+        frmAtual.Close()
+    End Sub
+
     Public Sub IrParaHome() Handles btnInicio.Click
         frmHome.Show()
         frmAtual.Close()
@@ -98,6 +103,30 @@
 
     Public Sub IrParaDefinicoes() Handles btnDefinicoes.Click
         frmDefinicoes.Show()
+        frmAtual.Close()
+    End Sub
+    Public Sub IrParaFuncionarios() Handles btnFuncionarios.Click
+        frmFuncionarios.Show()
+        frmAtual.Close()
+    End Sub
+
+    Public Sub IrParaEncargos() Handles btnEncargos.Click
+        frmEncargos.Show()
+        frmAtual.Close()
+    End Sub
+
+    Public Sub IrParaCalendarios() Handles btnCalendarios.Click
+        frmCalendarios.Show()
+        frmAtual.Close()
+    End Sub
+
+    Public Sub IrParaProdutos() Handles btnProdutos.Click
+        frmProdutos.Show()
+        frmAtual.Close()
+    End Sub
+
+    Public Sub IrParaSalas() Handles btnSalas.Click
+        frmSalas.Show()
         frmAtual.Close()
     End Sub
 End Class

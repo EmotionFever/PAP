@@ -22,11 +22,10 @@ Partial Class frmClientes
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClientes))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClientes))
         Me.pnl1 = New System.Windows.Forms.Panel()
-        Me.pct1 = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.lblNIF = New System.Windows.Forms.Label()
         Me.lblTlm = New System.Windows.Forms.Label()
@@ -71,13 +70,14 @@ Partial Class frmClientes
         Me.tbpDesativado = New System.Windows.Forms.TabPage()
         Me.dgvDesativado = New System.Windows.Forms.DataGridView()
         Me.btnAtivar = New System.Windows.Forms.Button()
+        Me.pct1 = New System.Windows.Forms.PictureBox()
         Me.pnl1.SuspendLayout()
-        CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvAtivado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbc1.SuspendLayout()
         Me.tbpAtivado.SuspendLayout()
         Me.tbpDesativado.SuspendLayout()
         CType(Me.dgvDesativado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
@@ -90,16 +90,6 @@ Partial Class frmClientes
         Me.pnl1.Name = "pnl1"
         Me.pnl1.Size = New System.Drawing.Size(682, 93)
         Me.pnl1.TabIndex = 4
-        '
-        'pct1
-        '
-        Me.pct1.BackgroundImage = CType(resources.GetObject("pct1.BackgroundImage"), System.Drawing.Image)
-        Me.pct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct1.Location = New System.Drawing.Point(3, 5)
-        Me.pct1.Name = "pct1"
-        Me.pct1.Size = New System.Drawing.Size(88, 88)
-        Me.pct1.TabIndex = 42
-        Me.pct1.TabStop = False
         '
         'lbl1
         '
@@ -610,6 +600,16 @@ Partial Class frmClientes
         Me.btnAtivar.Text = "Ativar Cliente"
         Me.btnAtivar.UseVisualStyleBackColor = False
         '
+        'pct1
+        '
+        Me.pct1.BackgroundImage = CType(resources.GetObject("pct1.BackgroundImage"), System.Drawing.Image)
+        Me.pct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct1.Location = New System.Drawing.Point(3, 5)
+        Me.pct1.Name = "pct1"
+        Me.pct1.Size = New System.Drawing.Size(88, 88)
+        Me.pct1.TabIndex = 42
+        Me.pct1.TabStop = False
+        '
         'frmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -657,12 +657,12 @@ Partial Class frmClientes
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"
         Me.pnl1.ResumeLayout(False)
-        CType(Me.pct1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvAtivado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbc1.ResumeLayout(False)
         Me.tbpAtivado.ResumeLayout(False)
         Me.tbpDesativado.ResumeLayout(False)
         CType(Me.dgvDesativado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pct1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -702,7 +702,6 @@ Partial Class frmClientes
     Friend WithEvents btnInserir As System.Windows.Forms.Button
     Friend WithEvents btnProcurar As System.Windows.Forms.Button
     Friend WithEvents btnAlterar As System.Windows.Forms.Button
-    Friend WithEvents pct1 As System.Windows.Forms.PictureBox
     Friend WithEvents lbl92 As System.Windows.Forms.Label
     Friend WithEvents btnDesativar As System.Windows.Forms.Button
     Friend WithEvents cmblocalidade As System.Windows.Forms.ComboBox
@@ -713,4 +712,5 @@ Partial Class frmClientes
     Friend WithEvents tbpDesativado As System.Windows.Forms.TabPage
     Friend WithEvents dgvDesativado As System.Windows.Forms.DataGridView
     Friend WithEvents btnAtivar As System.Windows.Forms.Button
+    Friend WithEvents pct1 As System.Windows.Forms.PictureBox
 End Class

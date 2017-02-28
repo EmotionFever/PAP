@@ -108,26 +108,30 @@ Module mdlAcoes
         End Try
     End Sub
 
-    Public Sub encher(ByRef cmb As ComboBox, ligacao As MySqlConnection, ByVal nome_tabela As String, ByVal campo As String, ByVal chave_primaria As String, ByVal query As String) 'ComboBoxes
-        'Aqui, encho a combobox com dados para o utilizador escolher
-        Dim adapter As New MySqlDataAdapter
-        Dim ds As DataSet = New DataSet
+    Public Sub encher(ByRef cmb As Object, ligacao As MySqlConnection, ByVal nome_tabela As String, ByVal campo As String, ByVal chave_primaria As String, ByVal query As String) 'ComboBoxes
+        If TypeOf cmb Is ComboBox Or TypeOf cmb Is ListBox Then
+            'Aqui, encho a combobox com dados para o utilizador escolher
+            Dim adapter As New MySqlDataAdapter
+            Dim ds As DataSet = New DataSet
 
-        adapter.SelectCommand = New MySqlCommand
-        adapter.SelectCommand.Connection = ligacao
-        adapter.SelectCommand.CommandText = query
+            adapter.SelectCommand = New MySqlCommand
+            adapter.SelectCommand.Connection = ligacao
+            adapter.SelectCommand.CommandText = query
 
-        ligacao.Open()
-        adapter.Fill(ds, nome_tabela)
-        ligacao.Close()
+            ligacao.Open()
+            adapter.Fill(ds, nome_tabela)
+            ligacao.Close()
 
-        cmb.DataSource = ds.Tables(nome_tabela)
-        cmb.DisplayMember = campo
-        cmb.ValueMember = chave_primaria
-        cmb.Text = ""
+            cmb.DataSource = ds.Tables(nome_tabela)
+            cmb.DisplayMember = campo
+            cmb.ValueMember = chave_primaria
+        Else
+            ligacao.Close()
+            MessageBox.Show("Parametro de entrada do procedimento Encher inválido")
+        End If
     End Sub
 
-    Public Sub acao(ByVal objetivo As String, ByRef ligacao As MySqlConnection, ByVal ordem As String) 'Comandos
+    Public Sub acao(ByVal objetivo As String, ByRef ligacao As MySqlConnection, ByVal ordem As String, MessagemAutomatica As Boolean) 'Comandos
         Dim comando As MySqlCommand = New MySqlCommand
 
         comando.Connection = ligacao
@@ -135,7 +139,8 @@ Module mdlAcoes
         ligacao.Open()
         comando.ExecuteNonQuery()
         ligacao.Close()
-
-        MessageBox.Show("O ato de " + objetivo + " foi realizado com sucesso", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        If MessagemAutomatica = True Then
+            MessageBox.Show("O ato de " + objetivo + " foi realizado com sucesso", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 End Module

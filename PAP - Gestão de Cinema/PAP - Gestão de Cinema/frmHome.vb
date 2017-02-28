@@ -28,7 +28,7 @@ Public Class frmHome
             lblI(x).Text = ""
         Next
 
-        pnlLugares.Hide()
+        pnlFilmes.Hide()
         pnlClientes.Hide()
         pnlFuncionarios.Hide()
         pnlEncargos.Hide()
@@ -108,9 +108,9 @@ Public Class frmHome
         leitor = comando.ExecuteReader
         frmLogin.acesso(0) = True 'Ao Menu principal, todos têm acesso
         While leitor.Read
-            If leitor.GetString("tabela").Contains("Lugares") Then
-                pnlLugares.Show()
-                lblLugares.Text = "Pode" + leitor.GetString("permissoes") + " lugares"
+            If leitor.GetString("tabela").Contains("Filmes") Then
+                pnlFilmes.Show()
+                lblFilmes.Text = "Pode" + leitor.GetString("permissoes") + " filmes"
                 frmLogin.acesso(1) = True
             End If
 

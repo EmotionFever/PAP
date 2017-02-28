@@ -27,7 +27,7 @@ Partial Class CTRL_MenuCine
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnInicio = New System.Windows.Forms.Button()
-        Me.btnLugares = New System.Windows.Forms.Button()
+        Me.btnFilmes = New System.Windows.Forms.Button()
         Me.btnClientes = New System.Windows.Forms.Button()
         Me.btnFuncionarios = New System.Windows.Forms.Button()
         Me.btnEncargos = New System.Windows.Forms.Button()
@@ -63,7 +63,7 @@ Partial Class CTRL_MenuCine
         'flp1
         '
         Me.flp1.Controls.Add(Me.btnInicio)
-        Me.flp1.Controls.Add(Me.btnLugares)
+        Me.flp1.Controls.Add(Me.btnFilmes)
         Me.flp1.Controls.Add(Me.btnClientes)
         Me.flp1.Controls.Add(Me.btnFuncionarios)
         Me.flp1.Controls.Add(Me.btnEncargos)
@@ -100,27 +100,27 @@ Partial Class CTRL_MenuCine
         Me.btnInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnInicio.UseVisualStyleBackColor = False
         '
-        'btnLugares
+        'btnFilmes
         '
-        Me.btnLugares.BackColor = System.Drawing.Color.Firebrick
-        Me.btnLugares.Dock = System.Windows.Forms.DockStyle.Left
-        Me.btnLugares.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
-        Me.btnLugares.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
-        Me.btnLugares.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLugares.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLugares.ForeColor = System.Drawing.Color.White
-        Me.btnLugares.Image = CType(resources.GetObject("btnLugares.Image"), System.Drawing.Image)
-        Me.btnLugares.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLugares.Location = New System.Drawing.Point(3, 54)
-        Me.btnLugares.Name = "btnLugares"
-        Me.btnLugares.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.btnLugares.Size = New System.Drawing.Size(260, 45)
-        Me.btnLugares.TabIndex = 9
-        Me.btnLugares.Tag = ""
-        Me.btnLugares.Text = "  Lugares"
-        Me.btnLugares.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnLugares.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnLugares.UseVisualStyleBackColor = False
+        Me.btnFilmes.BackColor = System.Drawing.Color.Firebrick
+        Me.btnFilmes.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnFilmes.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
+        Me.btnFilmes.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
+        Me.btnFilmes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFilmes.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFilmes.ForeColor = System.Drawing.Color.White
+        Me.btnFilmes.Image = CType(resources.GetObject("btnFilmes.Image"), System.Drawing.Image)
+        Me.btnFilmes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnFilmes.Location = New System.Drawing.Point(3, 54)
+        Me.btnFilmes.Name = "btnFilmes"
+        Me.btnFilmes.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.btnFilmes.Size = New System.Drawing.Size(260, 45)
+        Me.btnFilmes.TabIndex = 9
+        Me.btnFilmes.Tag = ""
+        Me.btnFilmes.Text = "  Filmes"
+        Me.btnFilmes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnFilmes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnFilmes.UseVisualStyleBackColor = False
         '
         'btnClientes
         '
@@ -355,7 +355,7 @@ Partial Class CTRL_MenuCine
     Friend WithEvents btnProdutos As System.Windows.Forms.Button
     Friend WithEvents btnCalendarios As System.Windows.Forms.Button
     Friend WithEvents btnEncargos As System.Windows.Forms.Button
-    Friend WithEvents btnLugares As System.Windows.Forms.Button
+    Friend WithEvents btnFilmes As System.Windows.Forms.Button
     Friend WithEvents btnClientes As System.Windows.Forms.Button
     Friend WithEvents pnl1 As System.Windows.Forms.Panel
     Friend WithEvents btnDefinicoes As System.Windows.Forms.Button

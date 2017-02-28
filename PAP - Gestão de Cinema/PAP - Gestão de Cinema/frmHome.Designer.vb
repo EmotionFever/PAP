@@ -25,10 +25,6 @@ Partial Class frmHome
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHome))
         Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.pnlLugares = New System.Windows.Forms.Panel()
-        Me.lblLugares = New System.Windows.Forms.Label()
-        Me.lbl_Lugares = New System.Windows.Forms.Label()
-        Me.pctLugares = New System.Windows.Forms.PictureBox()
         Me.pnlClientes = New System.Windows.Forms.Panel()
         Me.lblClientes = New System.Windows.Forms.Label()
         Me.lbl_Clientes = New System.Windows.Forms.Label()
@@ -73,10 +69,12 @@ Partial Class frmHome
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.lblPergunta = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pctFilmes = New System.Windows.Forms.PictureBox()
+        Me.lbl_Filmes = New System.Windows.Forms.Label()
+        Me.lblFilmes = New System.Windows.Forms.Label()
+        Me.pnlFilmes = New System.Windows.Forms.Panel()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.flp1.SuspendLayout()
-        Me.pnlLugares.SuspendLayout()
-        CType(Me.pctLugares, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlClientes.SuspendLayout()
         CType(Me.pctClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFuncionarios.SuspendLayout()
@@ -96,11 +94,13 @@ Partial Class frmHome
         Me.pnlAndante.SuspendLayout()
         Me.pnl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctFilmes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlFilmes.SuspendLayout()
         Me.SuspendLayout()
         '
         'flp1
         '
-        Me.flp1.Controls.Add(Me.pnlLugares)
+        Me.flp1.Controls.Add(Me.pnlFilmes)
         Me.flp1.Controls.Add(Me.pnlClientes)
         Me.flp1.Controls.Add(Me.pnlFuncionarios)
         Me.flp1.Controls.Add(Me.pnlEncargos)
@@ -114,55 +114,6 @@ Partial Class frmHome
         Me.flp1.Name = "flp1"
         Me.flp1.Size = New System.Drawing.Size(556, 451)
         Me.flp1.TabIndex = 4
-        '
-        'pnlLugares
-        '
-        Me.pnlLugares.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.pnlLugares.Controls.Add(Me.lblLugares)
-        Me.pnlLugares.Controls.Add(Me.lbl_Lugares)
-        Me.pnlLugares.Controls.Add(Me.pctLugares)
-        Me.pnlLugares.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pnlLugares.Location = New System.Drawing.Point(2, 3)
-        Me.pnlLugares.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pnlLugares.Name = "pnlLugares"
-        Me.pnlLugares.Size = New System.Drawing.Size(180, 137)
-        Me.pnlLugares.TabIndex = 4
-        '
-        'lblLugares
-        '
-        Me.lblLugares.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblLugares.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLugares.Location = New System.Drawing.Point(0, 55)
-        Me.lblLugares.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lblLugares.Name = "lblLugares"
-        Me.lblLugares.Size = New System.Drawing.Size(176, 82)
-        Me.lblLugares.TabIndex = 3
-        Me.lblLugares.Text = "Pode XXXX, XXXX, XXXX e XXXX lugares"
-        Me.lblLugares.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lbl_Lugares
-        '
-        Me.lbl_Lugares.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lbl_Lugares.Font = New System.Drawing.Font("Arial Narrow", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_Lugares.Location = New System.Drawing.Point(60, 0)
-        Me.lbl_Lugares.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lbl_Lugares.Name = "lbl_Lugares"
-        Me.lbl_Lugares.Size = New System.Drawing.Size(116, 55)
-        Me.lbl_Lugares.TabIndex = 2
-        Me.lbl_Lugares.Text = "Lugares"
-        Me.lbl_Lugares.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'pctLugares
-        '
-        Me.pctLugares.BackgroundImage = CType(resources.GetObject("pctLugares.BackgroundImage"), System.Drawing.Image)
-        Me.pctLugares.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctLugares.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pctLugares.Location = New System.Drawing.Point(4, 3)
-        Me.pctLugares.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.pctLugares.Name = "pctLugares"
-        Me.pctLugares.Size = New System.Drawing.Size(55, 52)
-        Me.pctLugares.TabIndex = 1
-        Me.pctLugares.TabStop = False
         '
         'pnlClientes
         '
@@ -699,6 +650,55 @@ Partial Class frmHome
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
         '
+        'pctFilmes
+        '
+        Me.pctFilmes.BackgroundImage = CType(resources.GetObject("pctFilmes.BackgroundImage"), System.Drawing.Image)
+        Me.pctFilmes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctFilmes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pctFilmes.Location = New System.Drawing.Point(4, 3)
+        Me.pctFilmes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pctFilmes.Name = "pctFilmes"
+        Me.pctFilmes.Size = New System.Drawing.Size(55, 52)
+        Me.pctFilmes.TabIndex = 1
+        Me.pctFilmes.TabStop = False
+        '
+        'lbl_Filmes
+        '
+        Me.lbl_Filmes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lbl_Filmes.Font = New System.Drawing.Font("Arial Narrow", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_Filmes.Location = New System.Drawing.Point(60, 0)
+        Me.lbl_Filmes.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbl_Filmes.Name = "lbl_Filmes"
+        Me.lbl_Filmes.Size = New System.Drawing.Size(116, 55)
+        Me.lbl_Filmes.TabIndex = 2
+        Me.lbl_Filmes.Text = "Filmes"
+        Me.lbl_Filmes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblFilmes
+        '
+        Me.lblFilmes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblFilmes.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFilmes.Location = New System.Drawing.Point(0, 55)
+        Me.lblFilmes.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblFilmes.Name = "lblFilmes"
+        Me.lblFilmes.Size = New System.Drawing.Size(176, 82)
+        Me.lblFilmes.TabIndex = 3
+        Me.lblFilmes.Text = "Pode XXXX, XXXX, XXXX e XXXX filmes"
+        Me.lblFilmes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'pnlFilmes
+        '
+        Me.pnlFilmes.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pnlFilmes.Controls.Add(Me.lblFilmes)
+        Me.pnlFilmes.Controls.Add(Me.lbl_Filmes)
+        Me.pnlFilmes.Controls.Add(Me.pctFilmes)
+        Me.pnlFilmes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pnlFilmes.Location = New System.Drawing.Point(2, 3)
+        Me.pnlFilmes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnlFilmes.Name = "pnlFilmes"
+        Me.pnlFilmes.Size = New System.Drawing.Size(180, 137)
+        Me.pnlFilmes.TabIndex = 4
+        '
         'CtrL_MenuCine
         '
         Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
@@ -726,8 +726,6 @@ Partial Class frmHome
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menu inicial"
         Me.flp1.ResumeLayout(False)
-        Me.pnlLugares.ResumeLayout(False)
-        CType(Me.pctLugares, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlClientes.ResumeLayout(False)
         CType(Me.pctClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlFuncionarios.ResumeLayout(False)
@@ -748,6 +746,8 @@ Partial Class frmHome
         Me.pnlAndante.PerformLayout()
         Me.pnl1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctFilmes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlFilmes.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -759,10 +759,6 @@ Partial Class frmHome
     Friend WithEvents lbl_Funcionarios As System.Windows.Forms.Label
     Friend WithEvents pctFuncionarios As System.Windows.Forms.PictureBox
     Friend WithEvents lblFuncionarios As System.Windows.Forms.Label
-    Friend WithEvents pnlLugares As System.Windows.Forms.Panel
-    Friend WithEvents lblLugares As System.Windows.Forms.Label
-    Friend WithEvents lbl_Lugares As System.Windows.Forms.Label
-    Friend WithEvents pctLugares As System.Windows.Forms.PictureBox
     Friend WithEvents pnlClientes As System.Windows.Forms.Panel
     Friend WithEvents lblClientes As System.Windows.Forms.Label
     Friend WithEvents lbl_Clientes As System.Windows.Forms.Label
@@ -801,4 +797,8 @@ Partial Class frmHome
     Friend WithEvents lblDefinicoes As System.Windows.Forms.Label
     Friend WithEvents lbl_Definicoes As System.Windows.Forms.Label
     Friend WithEvents pctDefinicoes As System.Windows.Forms.PictureBox
+    Friend WithEvents pnlFilmes As System.Windows.Forms.Panel
+    Friend WithEvents lblFilmes As System.Windows.Forms.Label
+    Friend WithEvents lbl_Filmes As System.Windows.Forms.Label
+    Friend WithEvents pctFilmes As System.Windows.Forms.PictureBox
 End Class

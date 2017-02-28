@@ -91,6 +91,12 @@
     <Compile Include="CTRL_MenuCine.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="frmCalendarios.Designer.vb">
+      <DependentUpon>frmCalendarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCalendarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmClientes.Designer.vb">
       <DependentUpon>frmClientes.vb</DependentUpon>
     </Compile>
@@ -101,6 +107,24 @@
       <DependentUpon>frmDefinicoes.vb</DependentUpon>
     </Compile>
     <Compile Include="frmDefinicoes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEncargos.Designer.vb">
+      <DependentUpon>frmEncargos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEncargos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFilmes.Designer.vb">
+      <DependentUpon>frmFilmes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFilmes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFuncionarios.Designer.vb">
+      <DependentUpon>frmFuncionarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFuncionarios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.vb">
@@ -114,6 +138,18 @@
       <DependentUpon>frmHome.vb</DependentUpon>
     </Compile>
     <Compile Include="frmHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProdutos.Designer.vb">
+      <DependentUpon>frmProdutos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProdutos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSalas.Designer.vb">
+      <DependentUpon>frmSalas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSalas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVendas.Designer.vb">
@@ -150,17 +186,35 @@
     <EmbeddedResource Include="CTRL_MenuCine.resx">
       <DependentUpon>CTRL_MenuCine.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCalendarios.resx">
+      <DependentUpon>frmCalendarios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmClientes.resx">
       <DependentUpon>frmClientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDefinicoes.resx">
       <DependentUpon>frmDefinicoes.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEncargos.resx">
+      <DependentUpon>frmEncargos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFilmes.resx">
+      <DependentUpon>frmFilmes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFuncionarios.resx">
+      <DependentUpon>frmFuncionarios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProdutos.resx">
+      <DependentUpon>frmProdutos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSalas.resx">
+      <DependentUpon>frmSalas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVendas.resx">
       <DependentUpon>frmVendas.vb</DependentUpon>
