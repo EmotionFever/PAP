@@ -37,11 +37,11 @@ Public Class frmLogin
         End If
 
         Try
-            query = "select * from funcionarios where empregado=1 and username='" + txtNome.Text + "'"
+            query = "select funcionarios.nome, encargos.nome from funcionarios, encargos where funcionarios.code=encargos.code empregado=1 and ativado=1 and username='" + txtNome.Text + "'" '"select funcionarios.nome, encargos.nome from funcionarios, encargos where funcionarios.code=encargos.code and funcionarios.nome='zé'"
             comando = New MySqlCommand(query, ligacao)
             ligacao.Open()
             leitor = comando.ExecuteReader
-            If leitor.Read Then 'Utilizador existe na base de dados
+            If leitor.Read Then 'Utilizador está empregado e o seu encargo não está desativado
                 AlterarEstado(rctUtl, txtNome, pctUtl, "acertar")
                 If txtPass.Text = leitor.GetString("palavra_passe") Then
                     codF = leitor.GetInt32("codF")

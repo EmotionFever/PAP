@@ -268,6 +268,8 @@ Partial Class frmEncargos
         Me.btnAdi_Ta.BackgroundImage = CType(resources.GetObject("btnAdi_Ta.BackgroundImage"), System.Drawing.Image)
         Me.btnAdi_Ta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnAdi_Ta.FlatAppearance.BorderSize = 0
+        Me.btnAdi_Ta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
+        Me.btnAdi_Ta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(69, Byte), Integer))
         Me.btnAdi_Ta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdi_Ta.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAdi_Ta.ForeColor = System.Drawing.Color.Black
@@ -283,6 +285,8 @@ Partial Class frmEncargos
         Me.btnRet_Ta.BackgroundImage = CType(resources.GetObject("btnRet_Ta.BackgroundImage"), System.Drawing.Image)
         Me.btnRet_Ta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnRet_Ta.FlatAppearance.BorderSize = 0
+        Me.btnRet_Ta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
+        Me.btnRet_Ta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(69, Byte), Integer))
         Me.btnRet_Ta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRet_Ta.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRet_Ta.ForeColor = System.Drawing.Color.Black
@@ -298,6 +302,8 @@ Partial Class frmEncargos
         Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(69, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Black
@@ -313,6 +319,8 @@ Partial Class frmEncargos
         Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(69, Byte), Integer))
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.Black
