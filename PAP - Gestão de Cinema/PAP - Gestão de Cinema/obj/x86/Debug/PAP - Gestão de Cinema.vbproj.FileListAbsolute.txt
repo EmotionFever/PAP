@@ -75,3 +75,9 @@ C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\o
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmFilmes.resources
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmFuncionarios.resources
 C:\Users\JCMarques\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmProdutos.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmCalendarios.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmEncargos.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmFilmes.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmFuncionarios.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmProdutos.resources
+C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmSalas.resources

@@ -20,7 +20,7 @@ Public Class frmEncargos
 
     Sub ver()
         'DataGridView Ativado
-        mostrar(dgvAtivado, ligacao, "encargos", "codE", "select tabelas.nome as tabela, group_concat(' ',permissoes.nome) as permissoes from funcionarios, encargos, aux_enc, permissoes, tabelas where funcionarios.codE=encargos.codE and  encargos.codE=aux_enc.codE and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta and codF=" + frmLogin.codF.ToString + " group by tabelas.nome")
+        mostrar(dgvAtivado, ligacao, "encargos", "codAE", "select aux_enc.codAE as codAE, encargos.nome, tabelas.nome as tabela, group_concat(' ' , permissoes.nome) as permissoes from funcionarios, encargos, aux_enc, permissoes, tabelas where funcionarios.codE=encargos.codE and encargos.codE=aux_enc.codE and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta group by tabelas.nome")
 
         'Covém desativar estes botões
         btnDesativar.Enabled = False

@@ -48,11 +48,68 @@ CREATE TABLE `bilhetes` (
 /*!40000 ALTER TABLE `bilhetes` DISABLE KEYS */;
 /*!40000 ALTER TABLE `bilhetes` ENABLE KEYS */;
 
+--
+-- Definition of table `salas`
+--
+
+DROP TABLE IF EXISTS `salas`;
+CREATE TABLE `salas` (
+  `codS` int(11) NOT NULL AUTO_INCREMENT,
+  `codT` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codS`),
+  KEY `codT` (`codT`),
+  CONSTRAINT `salas_ibfk_1` FOREIGN KEY (`codT`) REFERENCES `tipos` (`codT`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `salas`
+--
+
+/*!40000 ALTER TABLE `salas` DISABLE KEYS */;
+INSERT INTO `salas` (`codS`,`codT`) VALUES 
+ (1,1),
+ (2,1),
+ (3,1),
+ (4,2);
+/*!40000 ALTER TABLE `salas` ENABLE KEYS */;
+
+--
+-- Definition of table `filmes`
+--
+
+DROP TABLE IF EXISTS `filmes`;
+CREATE TABLE `filmes` (
+  `codFl` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) DEFAULT NULL,
+  `atores` varchar(200) DEFAULT NULL,
+  `realizador` varchar(50) DEFAULT NULL,
+  `ano` year(4) NOT NULL,
+  `duracao` time DEFAULT NULL,
+  `codCs` int(11) DEFAULT NULL,
+  `preco` double DEFAULT NULL,
+  `ativado` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`codFl`),
+  KEY `codCs` (`codCs`),
+  CONSTRAINT `filmes_ibfk_2` FOREIGN KEY (`codCs`) REFERENCES `classificacoes` (`codCs`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `filmes`
+--
+
+/*!40000 ALTER TABLE `filmes` DISABLE KEYS */;
+INSERT INTO `filmes` (`codFl`,`nome`,`atores`,`realizador`,`ano`,`duracao`,`codCs`,`preco`,`ativado`) VALUES 
+ (2,'Assassin’s Creed','Michael Fassbender, Marion Cotillard, Jeremy Irons, Brendan Gleeson, Khalid Abdalla, Michael K. Williams','Justin Kurzel',2016,'01:55:00',3,5.56,NULL),
+ (3,'O Pátio das Cantigas','Rui Unas, Miguel Guilherme, Anabela Moreira, César Mourão','Leonel Vieira',2015,'01:51:00',4,4.87,NULL),
+ (4,'A Mãe é que Sabe','Maria João Abreu, Dalila Carmo, Manuel Cavaco, Bruno Cabrerizo, Margarida Carpinteiro','Nuno Rocha',2016,'01:28:00',3,4.56,NULL),
+ (6,'Zeus','Sinde Filipe, Ivo Canelas, Catarina Luís, Paulo Pires','Paulo Filipe Monteiro',2016,'01:57:00',3,5.08,NULL),
+ (7,'Cartas de Guerra','Miguel Nunes, Margarida Vila-Nova, Ricardo Pereira, João Pedro Vaz, Simão Cayatte','Ivo M. Ferreira',2016,'01:45:00',3,4.83,NULL),
+ (8,'À Procura de Dory','Ellen DeGeneres, Albert Brooks, Ed O\'Neill','Andrew Stanton, Angus MacLane',2016,'01:37:00',1,4.42,NULL);
+/*!40000 ALTER TABLE `filmes` ENABLE KEYS */;
 
 --
 -- Definition of table `calendarios`
 --
-
 DROP TABLE IF EXISTS `calendarios`;
 CREATE TABLE `calendarios` (
   `codCa` int(11) NOT NULL AUTO_INCREMENT,
@@ -62,19 +119,20 @@ CREATE TABLE `calendarios` (
   `codS` int(11) DEFAULT NULL,
   `codFl` int(11) DEFAULT NULL,
   `ativado` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`codCa`) USING BTREE,
+  PRIMARY KEY (`codCa`),
   KEY `codS` (`codS`),
-  KEY `codFl` (`codFl`)
+  KEY `codFl` (`codFl`),
+  CONSTRAINT `cal_ibfk_1` FOREIGN KEY (`codS`) REFERENCES `salas` (`codS`),
+  CONSTRAINT `cal_ibfk_2` FOREIGN KEY (`codFl`) REFERENCES `filmes` (`codFl`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
 --
 -- Dumping data for table `calendarios`
 --
 
 /*!40000 ALTER TABLE `calendarios` DISABLE KEYS */;
 INSERT INTO `calendarios` (`codCa`,`hora`,`datai`,`dataf`,`codS`,`codFl`,`ativado`) VALUES 
- (2,'13:00:00','2017-01-17','2017-03-30',2,2,NULL),
- (3,'15:00:00','2017-01-17','2017-03-30',2,2,NULL);
+ (2,'13:00:00','2017-01-17','2017-03-30',2,2,1),
+ (3,'15:00:00','2017-01-17','2017-03-30',2,2,1);
 /*!40000 ALTER TABLE `calendarios` ENABLE KEYS */;
 
 
@@ -86,7 +144,7 @@ DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE `categorias` (
   `codCat` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`codCat`) USING BTREE
+  PRIMARY KEY (`codCat`) 
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
@@ -179,7 +237,7 @@ CREATE TABLE `encargos` (
   `codE` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
   `ativado` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`codE`) USING BTREE
+  PRIMARY KEY (`codE`) 
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
@@ -190,42 +248,6 @@ CREATE TABLE `encargos` (
 INSERT INTO `encargos` (`codE`,`nome`,`ativado`) VALUES 
  (1,'Rececionista',1);
 /*!40000 ALTER TABLE `encargos` ENABLE KEYS */;
-
-
---
--- Definition of table `filmes`
---
-
-DROP TABLE IF EXISTS `filmes`;
-CREATE TABLE `filmes` (
-  `codFl` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) DEFAULT NULL,
-  `atores` varchar(200) DEFAULT NULL,
-  `realizador` varchar(50) DEFAULT NULL,
-  `ano` year(4) NOT NULL,
-  `duracao` time DEFAULT NULL,
-  `codCs` int(11) DEFAULT NULL,
-  `preco` double DEFAULT NULL,
-  `ativado` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`codFl`),
-  KEY `codCs` (`codCs`),
-  CONSTRAINT `filmes_ibfk_2` FOREIGN KEY (`codCs`) REFERENCES `classificacoes` (`codCs`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `filmes`
---
-
-/*!40000 ALTER TABLE `filmes` DISABLE KEYS */;
-INSERT INTO `filmes` (`codFl`,`nome`,`atores`,`realizador`,`ano`,`duracao`,`codCs`,`preco`,`ativado`) VALUES 
- (2,'Assassin’s Creed','Michael Fassbender, Marion Cotillard, Jeremy Irons, Brendan Gleeson, Khalid Abdalla, Michael K. Williams','Justin Kurzel',2016,'01:55:00',3,5.56,NULL),
- (3,'O Pátio das Cantigas','Rui Unas, Miguel Guilherme, Anabela Moreira, César Mourão','Leonel Vieira',2015,'01:51:00',4,4.87,NULL),
- (4,'A Mãe é que Sabe','Maria João Abreu, Dalila Carmo, Manuel Cavaco, Bruno Cabrerizo, Margarida Carpinteiro','Nuno Rocha',2016,'01:28:00',3,4.56,NULL),
- (6,'Zeus','Sinde Filipe, Ivo Canelas, Catarina Luís, Paulo Pires','Paulo Filipe Monteiro',2016,'01:57:00',3,5.08,NULL),
- (7,'Cartas de Guerra','Miguel Nunes, Margarida Vila-Nova, Ricardo Pereira, João Pedro Vaz, Simão Cayatte','Ivo M. Ferreira',2016,'01:45:00',3,4.83,NULL),
- (8,'À Procura de Dory','Ellen DeGeneres, Albert Brooks, Ed O\'Neill','Andrew Stanton, Angus MacLane',2016,'01:37:00',1,4.42,NULL);
-/*!40000 ALTER TABLE `filmes` ENABLE KEYS */;
-
 
 --
 -- Definition of table `funcionarios`
@@ -245,7 +267,7 @@ CREATE TABLE `funcionarios` (
   `username` varchar(50) DEFAULT NULL,
   `empregado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`codF`),
-  KEY `codEnc` (`codE`) USING BTREE,
+  KEY `codEnc` (`codE`),
   KEY `codLo` (`codLo`),
   CONSTRAINT `funcionarios_ibfk_1` FOREIGN KEY (`codE`) REFERENCES `encargos` (`codE`),
   CONSTRAINT `funcionarios_ibfk_2` FOREIGN KEY (`codLo`) REFERENCES `localidades` (`codLo`)
@@ -428,33 +450,6 @@ INSERT INTO `produtos` (`codP`,`nome`,`codG`,`stock`,`preco`,`ativado`) VALUES
  (7,'Sumol Tropical',2,23,0.75,NULL),
  (8,'Sumol Frutos Vermelhos',2,10,0.8,NULL);
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
-
-
---
--- Definition of table `salas`
---
-
-DROP TABLE IF EXISTS `salas`;
-CREATE TABLE `salas` (
-  `codS` int(11) NOT NULL AUTO_INCREMENT,
-  `codT` int(11) DEFAULT NULL,
-  PRIMARY KEY (`codS`),
-  KEY `codT` (`codT`),
-  CONSTRAINT `salas_ibfk_1` FOREIGN KEY (`codT`) REFERENCES `tipos` (`codT`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `salas`
---
-
-/*!40000 ALTER TABLE `salas` DISABLE KEYS */;
-INSERT INTO `salas` (`codS`,`codT`) VALUES 
- (1,1),
- (2,1),
- (3,1),
- (4,2);
-/*!40000 ALTER TABLE `salas` ENABLE KEYS */;
-
 
 --
 -- Definition of table `tabelas`
