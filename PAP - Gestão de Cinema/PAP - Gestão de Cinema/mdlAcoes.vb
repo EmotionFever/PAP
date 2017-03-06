@@ -77,8 +77,6 @@ Module mdlAcoes
                 AlterarEstado(rct, "acertar")
                 Return ""
             End If
-
-
         Else
             Return "Erro"
         End If

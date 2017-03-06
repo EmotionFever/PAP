@@ -1,9 +1,12 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class frmEncargos
     Dim ligacao As New MySqlConnection("Server=localhost;DataBase=ppap;Uid=root;Pwd=;Connect Timeout=30;")
+    Dim adapter As New MySqlDataAdapter
+    Dim comando As MySqlCommand
+    Dim query As String
+    Dim leitor As MySqlDataReader
     Dim dtTa_Enc As DataTable = New DataTable("Ta_Enc")
-    Dim dsTa As DataSet = New DataSet("Ta_E")
-    Private Property dgvEnc_Ativ As Object
+    Dim dsTa As DataSet = New DataSet
 
     Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
         If tbc1.SelectedIndex = 0 Then
@@ -30,7 +33,7 @@ Public Class frmEncargos
     End Sub
 
     Sub ver()
-        'DataGridView Ativado
+        'Mostrar Ativado
         RemoveHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Ativ
         encher(lstEnc_Ativ, ligacao, "encargos", "nome", "codE", "select codE, nome from encargos where ativado=1")
         lstEnc_Ativ.ClearSelected()
@@ -40,9 +43,9 @@ Public Class frmEncargos
         'Covém desativar estes botões
         btnDesativar.Enabled = False
         btnAlterar.Enabled = False
+        btnAtivar.Enabled = False
 
-
-        'DataGridView DESAtivado
+        'Mostrar DESAtivado
         RemoveHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Desa
         encher(lstEnc_Desa, ligacao, "encargos", "nome", "codE", "select codE, nome from encargos where ativado=0")
         lstEnc_Desa.ClearSelected()
@@ -50,7 +53,7 @@ Public Class frmEncargos
         pnlInformacao.Show()
 
         'Covém desativar estes botões
-        btnAtivar.Enabled = False
+
     End Sub
 
     Private Sub frmEncargos_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -103,6 +106,19 @@ Public Class frmEncargos
         pnlInformacao.Hide()
         mostrar(dgvEnc_Ta_Ativ, ligacao, "aux_enc", "codAE", "select aux_enc.codAE as codAE, tabelas.nome as tabela, group_concat(' ' , permissoes.nome) as permissoes " &
                 "from aux_enc, permissoes, tabelas where aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString + " and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta group by tabelas.codta")
+
+        txtnome.Text = lstEnc_Ativ.GetItemText(lstEnc_Ativ.SelectedItem)
+        dtTa_Enc.Clear()
+
+        query = "select distinct tabelas.nome as nome, aux_enc.codTa as codTa " &
+                "from aux_enc, tabelas where tabelas.codTa=aux_enc.codta and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
+        comando = New MySqlCommand(query, ligacao)
+        ligacao.Open()
+        leitor = comando.ExecuteReader
+        While leitor.Read
+            dtTa_Enc.Rows.Add(leitor.GetString("codTa"), leitor.GetString("nome"))
+        End While
+        ligacao.Dispose()
     End Sub
 
     Private Sub SelecaoAlterada_Desa()
@@ -113,17 +129,19 @@ Public Class frmEncargos
     End Sub
 
     Private Sub btnAdi_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnAdi_Ta.Click
-        Dim lst1Selected As String = lstTabelas.SelectedItem
-        Dim flag As Integer = 0
-        For Each istr As String In lstTa_Enc.Items
-            If istr = lst1Selected Then
-                flag = 1
+        Dim TabelaSelecionada As String = CType(lstTabelas.SelectedItem, DataRowView)("nome").ToString
+        Dim encontrou As Boolean = True
+        For Each item As Object In lstTa_Enc.Items 'Um loop que só finda quando chegar ao último item da listbox
+            Dim istr As String = CType(item, DataRowView)("nome").ToString
+            If istr = TabelaSelecionada Then
+                encontrou = False
                 Exit For
             End If
         Next
-
-        If flag = 0 Then
+        If encontrou Then
             dtTa_Enc.Rows.Add(lstTabelas.ValueMember, lstTabelas.GetItemText(lstTabelas.SelectedItem))
+        Else
+            MessageBox.Show("Não pode adicionar a tabela '" + lstTabelas.GetItemText(lstTabelas.SelectedItem) + "' novamente", "Repetição de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 End Class
