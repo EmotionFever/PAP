@@ -103,7 +103,7 @@ Module mdlAcoes
             dgv.DataMember = nome_tabela
             dgv.Columns.Item(chave_primaria).Visible = False
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Erro a Ver", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Erro a Mostrar", MessageBoxButtons.OK, MessageBoxIcon.Error)
             ligacao.Close()
         End Try
     End Sub
@@ -127,7 +127,7 @@ Module mdlAcoes
             cmb.ValueMember = chave_primaria
         Else
             ligacao.Close()
-            MessageBox.Show("Parametro de entrada do procedimento Encher inválido")
+            MessageBox.Show("Parametro de entrada do procedimento Encher inválido", "Erro de programação", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
