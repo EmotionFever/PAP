@@ -6,7 +6,9 @@ Public Class frmEncargos
     Dim query As String
     Dim leitor As MySqlDataReader
     Dim dtTa_Enc As DataTable = New DataTable("Ta_Enc")
-    Dim dsTa As DataSet = New DataSet
+    Dim dsTa_Enc As DataSet = New DataSet
+    Dim dtTa_Per As DataTable = New DataTable("Ta_Per")
+    Dim dsTa_Per As DataSet = New DataSet
 
     Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
         If tbc1.SelectedIndex = 0 Then
@@ -34,10 +36,10 @@ Public Class frmEncargos
 
     Sub ver()
         'Mostrar Ativado
-        RemoveHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Ativ
+        RemoveHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
         encher(lstEnc_Ativ, ligacao, "encargos", "nome", "codE", "select codE, nome from encargos where ativado=1")
         lstEnc_Ativ.ClearSelected()
-        AddHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Ativ
+        AddHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
         pnlInformacao.Show()
 
         'Covém desativar estes botões
@@ -46,10 +48,10 @@ Public Class frmEncargos
         btnAtivar.Enabled = False
 
         'Mostrar DESAtivado
-        RemoveHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Desa
+        RemoveHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Desa
         encher(lstEnc_Desa, ligacao, "encargos", "nome", "codE", "select codE, nome from encargos where ativado=0")
         lstEnc_Desa.ClearSelected()
-        AddHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Desa
+        AddHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Desa
         pnlInformacao.Show()
 
         'Covém desativar estes botões
@@ -61,11 +63,22 @@ Public Class frmEncargos
         dtTa_Enc.Columns.Add("codTa")
         dtTa_Enc.Columns.Add("nome")
         'Associo o DataSet à tabela do Datetable.
-        dsTa.Tables.Add(dtTa_Enc)
+        dsTa_Enc.Tables.Add(dtTa_Enc)
         'Associo a ListBox ao DataSet.
-        lstTa_Enc.DataSource = dsTa.Tables("Ta_Enc")
+        lstTa_Enc.DataSource = dsTa_Enc.Tables("Ta_Enc")
         lstTa_Enc.DisplayMember = "nome"
         lstTa_Enc.ValueMember = "codTa"
+        AddHandler lstTa_Enc.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ta
+
+        'Insiro colunas ao DateTable
+        dtTa_Per.Columns.Add("codPe")
+        dtTa_Per.Columns.Add("nome")
+        'Associo o DataSet à tabela do Datetable.
+        dsTa_Per.Tables.Add(dtTa_Per)
+        'Associo a ListBox ao DataSet.
+        lstTa_Per.DataSource = dsTa_Per.Tables("Ta_Per")
+        lstTa_Per.DisplayMember = "nome"
+        lstTa_Per.ValueMember = "codPe"
 
         btnDesativar.Enabled = False
         btnAlterar.Enabled = False
@@ -101,7 +114,7 @@ Public Class frmEncargos
     End Sub
 
 
-    Private Sub SelecaoAlterada_Ativ()
+    Private Sub SelecaoAlterada_Enc_Ativ()
         btnInserir.Enabled = False
         pnlInformacao.Hide()
         mostrar(dgvEnc_Ta_Ativ, ligacao, "aux_enc", "codAE", "select aux_enc.codAE as codAE, tabelas.nome as tabela, group_concat(' ' , permissoes.nome) as permissoes " &
@@ -121,11 +134,25 @@ Public Class frmEncargos
         ligacao.Dispose()
     End Sub
 
-    Private Sub SelecaoAlterada_Desa()
+    Private Sub SelecaoAlterada_Enc_Desa()
         btnInserir.Enabled = False
         pnlInformacao.Hide()
         mostrar(dgvEnc_Ta_Desa, ligacao, "aux_enc", "codAE", "select aux_enc.codAE as codAE, tabelas.nome as tabela, group_concat(' ' , permissoes.nome) as permissoes " &
                 "from aux_enc, permissoes, tabelas where aux_enc.codE=" + lstEnc_Desa.SelectedValue.ToString + " and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta group by tabelas.codta")
+    End Sub
+
+    Private Sub SelecaoAlterada_Enc_Ta()
+        dtTa_Per.Clear()
+
+        query = "select distinct permissoes.nome as nome, aux_enc.codPe as codPe " &
+                "from aux_enc, permissoes where permissoes.codPe=aux_enc.codPe and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
+        comando = New MySqlCommand(query, ligacao)
+        ligacao.Open()
+        leitor = comando.ExecuteReader
+        While leitor.Read
+            dtTa_Per.Rows.Add(leitor.GetString("codPe"), leitor.GetString("nome"))
+        End While
+        ligacao.Dispose()
     End Sub
 
     Private Sub btnAdi_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnAdi_Ta.Click
@@ -142,6 +169,14 @@ Public Class frmEncargos
             dtTa_Enc.Rows.Add(lstTabelas.ValueMember, lstTabelas.GetItemText(lstTabelas.SelectedItem))
         Else
             MessageBox.Show("Não pode adicionar a tabela '" + lstTabelas.GetItemText(lstTabelas.SelectedItem) + "' novamente", "Repetição de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub btnRet_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnRet_Ta.Click
+        If lstTa_Enc.SelectedItem IsNot Nothing Then
+            dtTa_Enc.Rows(lstTa_Enc.SelectedIndex).Delete()
+        Else
+            MessageBox.Show("Não pode remover uma tabela sem que haja primeiro uma na lista adicionada por si", "Sem tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 End Class

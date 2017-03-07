@@ -23,21 +23,23 @@ Partial Class frmEncargos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEncargos))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.pctTitulo = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.tbc1 = New System.Windows.Forms.TabControl()
         Me.tbpAtivado = New System.Windows.Forms.TabPage()
+        Me.lstEnc_Ativ = New System.Windows.Forms.ListBox()
+        Me.dgvEnc_Ta_Ativ = New System.Windows.Forms.DataGridView()
+        Me.tbpDesativado = New System.Windows.Forms.TabPage()
+        Me.lstEnc_Desa = New System.Windows.Forms.ListBox()
+        Me.dgvEnc_Ta_Desa = New System.Windows.Forms.DataGridView()
         Me.pnlInformacao = New System.Windows.Forms.Panel()
         Me.pct3 = New System.Windows.Forms.PictureBox()
         Me.pct2 = New System.Windows.Forms.PictureBox()
         Me.lblT = New System.Windows.Forms.Label()
         Me.lblSeta = New System.Windows.Forms.Label()
-        Me.lstEnc_Ativ = New System.Windows.Forms.ListBox()
-        Me.dgvEnc_Ta_Ativ = New System.Windows.Forms.DataGridView()
-        Me.tbpDesativado = New System.Windows.Forms.TabPage()
         Me.lbl2 = New System.Windows.Forms.Label()
         Me.rctNome = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
@@ -50,7 +52,7 @@ Partial Class frmEncargos
         Me.btnAdi_Pe = New System.Windows.Forms.Button()
         Me.btnRet_Pe = New System.Windows.Forms.Button()
         Me.lstPermissoes = New System.Windows.Forms.ListBox()
-        Me.lstPer_Ta = New System.Windows.Forms.ListBox()
+        Me.lstTa_Per = New System.Windows.Forms.ListBox()
         Me.btnInserir = New System.Windows.Forms.Button()
         Me.btnAlterar = New System.Windows.Forms.Button()
         Me.btnDesativar = New System.Windows.Forms.Button()
@@ -58,18 +60,16 @@ Partial Class frmEncargos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnAtivar = New System.Windows.Forms.Button()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
-        Me.lstEnc_Desa = New System.Windows.Forms.ListBox()
-        Me.dgvEnc_Ta_Desa = New System.Windows.Forms.DataGridView()
         Me.pnl1.SuspendLayout()
         CType(Me.pctTitulo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbc1.SuspendLayout()
         Me.tbpAtivado.SuspendLayout()
-        Me.pnlInformacao.SuspendLayout()
-        CType(Me.pct3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pct2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvEnc_Ta_Ativ, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpDesativado.SuspendLayout()
         CType(Me.dgvEnc_Ta_Desa, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlInformacao.SuspendLayout()
+        CType(Me.pct3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pct2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
@@ -129,6 +129,88 @@ Partial Class frmEncargos
         Me.tbpAtivado.TabIndex = 1
         Me.tbpAtivado.Text = "Encargos ativados"
         '
+        'lstEnc_Ativ
+        '
+        Me.lstEnc_Ativ.BackColor = System.Drawing.Color.White
+        Me.lstEnc_Ativ.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lstEnc_Ativ.Dock = System.Windows.Forms.DockStyle.Left
+        Me.lstEnc_Ativ.FormattingEnabled = True
+        Me.lstEnc_Ativ.ItemHeight = 14
+        Me.lstEnc_Ativ.Location = New System.Drawing.Point(0, 0)
+        Me.lstEnc_Ativ.Name = "lstEnc_Ativ"
+        Me.lstEnc_Ativ.Size = New System.Drawing.Size(158, 119)
+        Me.lstEnc_Ativ.TabIndex = 69
+        '
+        'dgvEnc_Ta_Ativ
+        '
+        Me.dgvEnc_Ta_Ativ.AllowUserToAddRows = False
+        Me.dgvEnc_Ta_Ativ.AllowUserToDeleteRows = False
+        Me.dgvEnc_Ta_Ativ.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvEnc_Ta_Ativ.BackgroundColor = System.Drawing.Color.DimGray
+        Me.dgvEnc_Ta_Ativ.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEnc_Ta_Ativ.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvEnc_Ta_Ativ.Dock = System.Windows.Forms.DockStyle.Right
+        Me.dgvEnc_Ta_Ativ.Location = New System.Drawing.Point(159, 0)
+        Me.dgvEnc_Ta_Ativ.Name = "dgvEnc_Ta_Ativ"
+        Me.dgvEnc_Ta_Ativ.ReadOnly = True
+        Me.dgvEnc_Ta_Ativ.RowHeadersVisible = False
+        Me.dgvEnc_Ta_Ativ.Size = New System.Drawing.Size(465, 119)
+        Me.dgvEnc_Ta_Ativ.TabIndex = 16
+        '
+        'tbpDesativado
+        '
+        Me.tbpDesativado.BackColor = System.Drawing.Color.Silver
+        Me.tbpDesativado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.tbpDesativado.Controls.Add(Me.lstEnc_Desa)
+        Me.tbpDesativado.Controls.Add(Me.dgvEnc_Ta_Desa)
+        Me.tbpDesativado.Location = New System.Drawing.Point(4, 23)
+        Me.tbpDesativado.Name = "tbpDesativado"
+        Me.tbpDesativado.Size = New System.Drawing.Size(626, 121)
+        Me.tbpDesativado.TabIndex = 2
+        Me.tbpDesativado.Text = "Encargos desativados"
+        '
+        'lstEnc_Desa
+        '
+        Me.lstEnc_Desa.BackColor = System.Drawing.Color.White
+        Me.lstEnc_Desa.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lstEnc_Desa.Dock = System.Windows.Forms.DockStyle.Left
+        Me.lstEnc_Desa.FormattingEnabled = True
+        Me.lstEnc_Desa.ItemHeight = 14
+        Me.lstEnc_Desa.Location = New System.Drawing.Point(0, 0)
+        Me.lstEnc_Desa.Name = "lstEnc_Desa"
+        Me.lstEnc_Desa.Size = New System.Drawing.Size(158, 119)
+        Me.lstEnc_Desa.TabIndex = 72
+        '
+        'dgvEnc_Ta_Desa
+        '
+        Me.dgvEnc_Ta_Desa.AllowUserToAddRows = False
+        Me.dgvEnc_Ta_Desa.AllowUserToDeleteRows = False
+        Me.dgvEnc_Ta_Desa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvEnc_Ta_Desa.BackgroundColor = System.Drawing.Color.DimGray
+        Me.dgvEnc_Ta_Desa.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEnc_Ta_Desa.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.dgvEnc_Ta_Desa.Dock = System.Windows.Forms.DockStyle.Right
+        Me.dgvEnc_Ta_Desa.Location = New System.Drawing.Point(159, 0)
+        Me.dgvEnc_Ta_Desa.Name = "dgvEnc_Ta_Desa"
+        Me.dgvEnc_Ta_Desa.ReadOnly = True
+        Me.dgvEnc_Ta_Desa.RowHeadersVisible = False
+        Me.dgvEnc_Ta_Desa.Size = New System.Drawing.Size(465, 119)
+        Me.dgvEnc_Ta_Desa.TabIndex = 71
+        '
         'pnlInformacao
         '
         Me.pnlInformacao.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -183,53 +265,6 @@ Partial Class frmEncargos
         Me.lblSeta.Size = New System.Drawing.Size(140, 107)
         Me.lblSeta.TabIndex = 1
         Me.lblSeta.Text = "◄"
-        '
-        'lstEnc_Ativ
-        '
-        Me.lstEnc_Ativ.BackColor = System.Drawing.Color.White
-        Me.lstEnc_Ativ.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.lstEnc_Ativ.Dock = System.Windows.Forms.DockStyle.Left
-        Me.lstEnc_Ativ.FormattingEnabled = True
-        Me.lstEnc_Ativ.ItemHeight = 14
-        Me.lstEnc_Ativ.Location = New System.Drawing.Point(0, 0)
-        Me.lstEnc_Ativ.Name = "lstEnc_Ativ"
-        Me.lstEnc_Ativ.Size = New System.Drawing.Size(158, 119)
-        Me.lstEnc_Ativ.TabIndex = 69
-        '
-        'dgvEnc_Ta_Ativ
-        '
-        Me.dgvEnc_Ta_Ativ.AllowUserToAddRows = False
-        Me.dgvEnc_Ta_Ativ.AllowUserToDeleteRows = False
-        Me.dgvEnc_Ta_Ativ.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dgvEnc_Ta_Ativ.BackgroundColor = System.Drawing.Color.DimGray
-        Me.dgvEnc_Ta_Ativ.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEnc_Ta_Ativ.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvEnc_Ta_Ativ.Dock = System.Windows.Forms.DockStyle.Right
-        Me.dgvEnc_Ta_Ativ.Location = New System.Drawing.Point(159, 0)
-        Me.dgvEnc_Ta_Ativ.Name = "dgvEnc_Ta_Ativ"
-        Me.dgvEnc_Ta_Ativ.ReadOnly = True
-        Me.dgvEnc_Ta_Ativ.RowHeadersVisible = False
-        Me.dgvEnc_Ta_Ativ.Size = New System.Drawing.Size(465, 119)
-        Me.dgvEnc_Ta_Ativ.TabIndex = 16
-        '
-        'tbpDesativado
-        '
-        Me.tbpDesativado.BackColor = System.Drawing.Color.Silver
-        Me.tbpDesativado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.tbpDesativado.Controls.Add(Me.lstEnc_Desa)
-        Me.tbpDesativado.Controls.Add(Me.dgvEnc_Ta_Desa)
-        Me.tbpDesativado.Location = New System.Drawing.Point(4, 23)
-        Me.tbpDesativado.Name = "tbpDesativado"
-        Me.tbpDesativado.Size = New System.Drawing.Size(626, 121)
-        Me.tbpDesativado.TabIndex = 2
-        Me.tbpDesativado.Text = "Encargos desativados"
         '
         'lbl2
         '
@@ -386,15 +421,15 @@ Partial Class frmEncargos
         Me.lstPermissoes.Size = New System.Drawing.Size(120, 145)
         Me.lstPermissoes.TabIndex = 60
         '
-        'lstPer_Ta
+        'lstTa_Per
         '
-        Me.lstPer_Ta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.lstPer_Ta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lstPer_Ta.FormattingEnabled = True
-        Me.lstPer_Ta.Location = New System.Drawing.Point(420, 369)
-        Me.lstPer_Ta.Name = "lstPer_Ta"
-        Me.lstPer_Ta.Size = New System.Drawing.Size(120, 145)
-        Me.lstPer_Ta.TabIndex = 59
+        Me.lstTa_Per.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.lstTa_Per.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lstTa_Per.FormattingEnabled = True
+        Me.lstTa_Per.Location = New System.Drawing.Point(420, 369)
+        Me.lstTa_Per.Name = "lstTa_Per"
+        Me.lstTa_Per.Size = New System.Drawing.Size(120, 145)
+        Me.lstTa_Per.TabIndex = 59
         '
         'btnInserir
         '
@@ -482,41 +517,6 @@ Partial Class frmEncargos
         Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
         Me.CtrL_MenuCine.TabIndex = 0
         '
-        'lstEnc_Desa
-        '
-        Me.lstEnc_Desa.BackColor = System.Drawing.Color.White
-        Me.lstEnc_Desa.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.lstEnc_Desa.Dock = System.Windows.Forms.DockStyle.Left
-        Me.lstEnc_Desa.FormattingEnabled = True
-        Me.lstEnc_Desa.ItemHeight = 14
-        Me.lstEnc_Desa.Location = New System.Drawing.Point(0, 0)
-        Me.lstEnc_Desa.Name = "lstEnc_Desa"
-        Me.lstEnc_Desa.Size = New System.Drawing.Size(158, 119)
-        Me.lstEnc_Desa.TabIndex = 72
-        '
-        'dgvEnc_Ta_Desa
-        '
-        Me.dgvEnc_Ta_Desa.AllowUserToAddRows = False
-        Me.dgvEnc_Ta_Desa.AllowUserToDeleteRows = False
-        Me.dgvEnc_Ta_Desa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dgvEnc_Ta_Desa.BackgroundColor = System.Drawing.Color.DimGray
-        Me.dgvEnc_Ta_Desa.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEnc_Ta_Desa.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvEnc_Ta_Desa.Dock = System.Windows.Forms.DockStyle.Right
-        Me.dgvEnc_Ta_Desa.Location = New System.Drawing.Point(159, 0)
-        Me.dgvEnc_Ta_Desa.Name = "dgvEnc_Ta_Desa"
-        Me.dgvEnc_Ta_Desa.ReadOnly = True
-        Me.dgvEnc_Ta_Desa.RowHeadersVisible = False
-        Me.dgvEnc_Ta_Desa.Size = New System.Drawing.Size(465, 119)
-        Me.dgvEnc_Ta_Desa.TabIndex = 71
-        '
         'frmEncargos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -533,7 +533,7 @@ Partial Class frmEncargos
         Me.Controls.Add(Me.btnAdi_Pe)
         Me.Controls.Add(Me.btnRet_Pe)
         Me.Controls.Add(Me.lstPermissoes)
-        Me.Controls.Add(Me.lstPer_Ta)
+        Me.Controls.Add(Me.lstTa_Per)
         Me.Controls.Add(Me.btnRet_Ta)
         Me.Controls.Add(Me.btnAdi_Ta)
         Me.Controls.Add(Me.lstTa_Enc)
@@ -554,13 +554,13 @@ Partial Class frmEncargos
         CType(Me.pctTitulo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbc1.ResumeLayout(False)
         Me.tbpAtivado.ResumeLayout(False)
+        CType(Me.dgvEnc_Ta_Ativ, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tbpDesativado.ResumeLayout(False)
+        CType(Me.dgvEnc_Ta_Desa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlInformacao.ResumeLayout(False)
         Me.pnlInformacao.PerformLayout()
         CType(Me.pct3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pct2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvEnc_Ta_Ativ, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tbpDesativado.ResumeLayout(False)
-        CType(Me.dgvEnc_Ta_Desa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -584,7 +584,7 @@ Partial Class frmEncargos
     Friend WithEvents btnAdi_Pe As System.Windows.Forms.Button
     Friend WithEvents btnRet_Pe As System.Windows.Forms.Button
     Friend WithEvents lstPermissoes As System.Windows.Forms.ListBox
-    Friend WithEvents lstPer_Ta As System.Windows.Forms.ListBox
+    Friend WithEvents lstTa_Per As System.Windows.Forms.ListBox
     Friend WithEvents btnInserir As System.Windows.Forms.Button
     Friend WithEvents btnAlterar As System.Windows.Forms.Button
     Friend WithEvents btnDesativar As System.Windows.Forms.Button
