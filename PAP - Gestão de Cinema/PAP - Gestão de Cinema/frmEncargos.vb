@@ -95,24 +95,6 @@ Public Class frmEncargos
         CtrL_MenuCine.SelecionarBotao(8)
     End Sub
 
-    Private Sub dgvEnc_Ta_Ativ_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvEnc_Ta_Ativ.CellClick
-        ' Quando o utilizador clica numa célula do DGV este código seleciona a linha toda
-        Try
-            Dim i As Integer = dgvEnc_Ta_Ativ.CurrentCell.RowIndex
-            dgvEnc_Ta_Ativ.Rows(i).Selected = True
-
-            'Como foi selecionada uma linha posso (re)ativar os botões apagar e alterar
-            btnDesativar.Enabled = True
-            btnAlterar.Enabled = True
-
-        Catch ex As Exception
-            btnDesativar.Enabled = False
-            btnAlterar.Enabled = False
-        End Try
-
-        'Tiro o rasurado caso esteja a mostrar os clientes ativados senão  e coloco os valores da linha selecionada nas labels
-    End Sub
-
 
     Private Sub SelecaoAlterada_Enc_Ativ()
         btnInserir.Enabled = False
@@ -142,17 +124,19 @@ Public Class frmEncargos
     End Sub
 
     Private Sub SelecaoAlterada_Enc_Ta()
-        dtTa_Per.Clear()
+        If Not btnInserir.Enabled Then
+            dtTa_Per.Clear()
 
-        query = "select distinct permissoes.nome as nome, aux_enc.codPe as codPe " &
-                "from aux_enc, permissoes where permissoes.codPe=aux_enc.codPe and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
-        comando = New MySqlCommand(query, ligacao)
-        ligacao.Open()
-        leitor = comando.ExecuteReader
-        While leitor.Read
-            dtTa_Per.Rows.Add(leitor.GetString("codPe"), leitor.GetString("nome"))
-        End While
-        ligacao.Dispose()
+            query = "select distinct permissoes.nome as nome, aux_enc.codPe as codPe " &
+                    "from aux_enc, permissoes where permissoes.codPe=aux_enc.codPe and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
+            comando = New MySqlCommand(query, ligacao)
+            ligacao.Open()
+            leitor = comando.ExecuteReader
+            While leitor.Read
+                dtTa_Per.Rows.Add(leitor.GetString("codPe"), leitor.GetString("nome"))
+            End While
+            ligacao.Dispose()
+        End If
     End Sub
 
     Private Sub btnAdi_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnAdi_Ta.Click
@@ -178,5 +162,21 @@ Public Class frmEncargos
         Else
             MessageBox.Show("Não pode remover uma tabela sem que haja primeiro uma na lista adicionada por si", "Sem tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
+    End Sub
+
+    Private Sub btnNovo_Click(sender As System.Object, e As System.EventArgs) Handles btnNovo.Click
+        If lstEnc_Ativ.SelectedItem Is Nothing Then
+            If lstTa_Enc.SelectedItem IsNot Nothing And Not MessageBox.Show("Perderá todos as informações do último encargo que criou", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) Then
+                Exit Sub
+            End If
+        Else
+            RemoveHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
+            lstEnc_Ativ.ClearSelected() '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------  ERRRRRRRO  -------%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            AddHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
+        End If
+        txtnome.Text = ""
+        dtTa_Enc.Clear()
+        dtTa_Per.Clear()
+        btnInserir.Enabled = True
     End Sub
 End Class
