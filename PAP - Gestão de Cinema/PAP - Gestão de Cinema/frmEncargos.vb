@@ -62,7 +62,7 @@ Public Class frmEncargos
         'Insiro colunas ao DateTable
         dtTa_Enc.Columns.Add("codTa")
         dtTa_Enc.Columns.Add("nome")
-        'Associo o DataSet à tabela do Datetable.
+        'Associo o DataSet à tabela do Datatable.
         dsTa_Enc.Tables.Add(dtTa_Enc)
         'Associo a ListBox ao DataSet.
         lstTa_Enc.DataSource = dsTa_Enc.Tables("Ta_Enc")
@@ -73,7 +73,7 @@ Public Class frmEncargos
         'Insiro colunas ao DateTable
         dtTa_Per.Columns.Add("codPe")
         dtTa_Per.Columns.Add("nome")
-        'Associo o DataSet à tabela do Datetable.
+        'Associo o DataSet à tabela do Datatable.
         dsTa_Per.Tables.Add(dtTa_Per)
         'Associo a ListBox ao DataSet.
         lstTa_Per.DataSource = dsTa_Per.Tables("Ta_Per")
@@ -97,23 +97,25 @@ Public Class frmEncargos
 
 
     Private Sub SelecaoAlterada_Enc_Ativ()
-        btnInserir.Enabled = False
-        pnlInformacao.Hide()
-        mostrar(dgvEnc_Ta_Ativ, ligacao, "aux_enc", "codAE", "select aux_enc.codAE as codAE, tabelas.nome as tabela, group_concat(' ' , permissoes.nome) as permissoes " &
-                "from aux_enc, permissoes, tabelas where aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString + " and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta group by tabelas.codta")
+        If lstEnc_Ativ.SelectedItem IsNot Nothing Then
+            btnInserir.Enabled = False
+            pnlInformacao.Hide()
+            mostrar(dgvEnc_Ta_Ativ, ligacao, "aux_enc", "codAE", "select aux_enc.codAE as codAE, tabelas.nome as tabela, group_concat(' ' , permissoes.nome) as permissoes " &
+                    "from aux_enc, permissoes, tabelas where aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString + " and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta group by tabelas.codta")
 
-        txtnome.Text = lstEnc_Ativ.GetItemText(lstEnc_Ativ.SelectedItem)
-        dtTa_Enc.Clear()
+            txtnome.Text = lstEnc_Ativ.GetItemText(lstEnc_Ativ.SelectedItem)
+            dtTa_Enc.Clear()
 
-        query = "select distinct tabelas.nome as nome, aux_enc.codTa as codTa " &
-                "from aux_enc, tabelas where tabelas.codTa=aux_enc.codta and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
-        comando = New MySqlCommand(query, ligacao)
-        ligacao.Open()
-        leitor = comando.ExecuteReader
-        While leitor.Read
-            dtTa_Enc.Rows.Add(leitor.GetString("codTa"), leitor.GetString("nome"))
-        End While
-        ligacao.Dispose()
+            query = "select distinct tabelas.nome as nome, aux_enc.codTa as codTa " &
+                    "from aux_enc, tabelas where tabelas.codTa=aux_enc.codta and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
+            comando = New MySqlCommand(query, ligacao)
+            ligacao.Open()
+            leitor = comando.ExecuteReader
+            While leitor.Read
+                dtTa_Enc.Rows.Add(leitor.GetString("codTa"), leitor.GetString("nome"))
+            End While
+            ligacao.Dispose()
+        End If
     End Sub
 
     Private Sub SelecaoAlterada_Enc_Desa()
@@ -124,7 +126,7 @@ Public Class frmEncargos
     End Sub
 
     Private Sub SelecaoAlterada_Enc_Ta()
-        If Not btnInserir.Enabled Then
+        If Not btnInserir.Enabled And lstTa_Enc.SelectedItem IsNot Nothing Then
             dtTa_Per.Clear()
 
             query = "select distinct permissoes.nome as nome, aux_enc.codPe as codPe " &
@@ -166,13 +168,15 @@ Public Class frmEncargos
 
     Private Sub btnNovo_Click(sender As System.Object, e As System.EventArgs) Handles btnNovo.Click
         If lstEnc_Ativ.SelectedItem Is Nothing Then
-            If lstTa_Enc.SelectedItem IsNot Nothing And Not MessageBox.Show("Perderá todos as informações do último encargo que criou", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) Then
-                Exit Sub
+            If lstTa_Enc.SelectedItem IsNot Nothing Then
+                If MessageBox.Show("Quer perder todos as informações do último encargo que criou?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.No Then
+                    Exit Sub
+                End If
             End If
         Else
-            RemoveHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
-            lstEnc_Ativ.ClearSelected() '%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------  ERRRRRRRO  -------%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            AddHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
+            dgvEnc_Ta_Ativ.Dispose()
+            lstEnc_Ativ.ClearSelected()
+            pnlInformacao.Show()
         End If
         txtnome.Text = ""
         dtTa_Enc.Clear()

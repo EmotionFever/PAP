@@ -523,8 +523,8 @@ Partial Class frmEncargos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(735, 666)
-        Me.Controls.Add(Me.pnlInformacao)
         Me.Controls.Add(Me.CtrL_MenuCine)
+        Me.Controls.Add(Me.pnlInformacao)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnDesativar)
