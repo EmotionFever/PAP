@@ -53,9 +53,6 @@ Public Class frmEncargos
         lstEnc_Desa.ClearSelected()
         AddHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Desa
         pnlInformacao.Show()
-
-        'Covém desativar estes botões
-
     End Sub
 
     Private Sub frmEncargos_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -99,11 +96,13 @@ Public Class frmEncargos
     Private Sub SelecaoAlterada_Enc_Ativ()
         If lstEnc_Ativ.SelectedItem IsNot Nothing Then
             btnInserir.Enabled = False
+            btnDesativar.Enabled = True
             pnlInformacao.Hide()
             mostrar(dgvEnc_Ta_Ativ, ligacao, "aux_enc", "codAE", "select aux_enc.codAE as codAE, tabelas.nome as tabela, group_concat(' ' , permissoes.nome) as permissoes " &
                     "from aux_enc, permissoes, tabelas where aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString + " and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta group by tabelas.codta")
 
             txtnome.Text = lstEnc_Ativ.GetItemText(lstEnc_Ativ.SelectedItem)
+
             dtTa_Enc.Clear()
 
             query = "select distinct tabelas.nome as nome, aux_enc.codTa as codTa " &
@@ -116,6 +115,8 @@ Public Class frmEncargos
             End While
             ligacao.Dispose()
         End If
+
+        SelecaoAlterada_Enc_Ta()
     End Sub
 
     Private Sub SelecaoAlterada_Enc_Desa()
@@ -127,31 +128,35 @@ Public Class frmEncargos
 
     Private Sub SelecaoAlterada_Enc_Ta()
         If Not btnInserir.Enabled And lstTa_Enc.SelectedItem IsNot Nothing Then
-            dtTa_Per.Clear()
+            If lstTa_Enc IsNot Nothing Then
+                dtTa_Per.Clear()
 
-            query = "select distinct permissoes.nome as nome, aux_enc.codPe as codPe " &
-                    "from aux_enc, permissoes where permissoes.codPe=aux_enc.codPe and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
-            comando = New MySqlCommand(query, ligacao)
-            ligacao.Open()
-            leitor = comando.ExecuteReader
-            While leitor.Read
-                dtTa_Per.Rows.Add(leitor.GetString("codPe"), leitor.GetString("nome"))
-            End While
-            ligacao.Dispose()
+                query = "select distinct permissoes.nome as nome, aux_enc.codPe as codPe " &
+                        "from aux_enc, permissoes where permissoes.codPe=aux_enc.codPe and aux_enc.codTa=" + lstTa_Enc.SelectedValue.ToString + " and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
+                comando = New MySqlCommand(query, ligacao)
+                ligacao.Open()
+                leitor = comando.ExecuteReader
+                While leitor.Read
+                    dtTa_Per.Rows.Add(leitor.GetString("codPe"), leitor.GetString("nome"))
+                End While
+                ligacao.Dispose()
+            Else
+                dtTa_Per.Clear()
+            End If
         End If
     End Sub
 
     Private Sub btnAdi_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnAdi_Ta.Click
         Dim TabelaSelecionada As String = CType(lstTabelas.SelectedItem, DataRowView)("nome").ToString
-        Dim encontrou As Boolean = True
+        Dim encontrou As Boolean = False
         For Each item As Object In lstTa_Enc.Items 'Um loop que só finda quando chegar ao último item da listbox
             Dim istr As String = CType(item, DataRowView)("nome").ToString
             If istr = TabelaSelecionada Then
-                encontrou = False
+                encontrou = True
                 Exit For
             End If
         Next
-        If encontrou Then
+        If Not encontrou Then
             dtTa_Enc.Rows.Add(lstTabelas.ValueMember, lstTabelas.GetItemText(lstTabelas.SelectedItem))
         Else
             MessageBox.Show("Não pode adicionar a tabela '" + lstTabelas.GetItemText(lstTabelas.SelectedItem) + "' novamente", "Repetição de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -160,7 +165,9 @@ Public Class frmEncargos
 
     Private Sub btnRet_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnRet_Ta.Click
         If lstTa_Enc.SelectedItem IsNot Nothing Then
-            dtTa_Enc.Rows(lstTa_Enc.SelectedIndex).Delete()
+            If MessageBox.Show("Quer perder todos as permissões da tabela '" + lstTa_Enc.GetItemText(lstTa_Enc.SelectedItem) + "'?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
+                dtTa_Enc.Rows(lstTa_Enc.SelectedIndex).Delete()
+            End If
         Else
             MessageBox.Show("Não pode remover uma tabela sem que haja primeiro uma na lista adicionada por si", "Sem tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
@@ -182,5 +189,26 @@ Public Class frmEncargos
         dtTa_Enc.Clear()
         dtTa_Per.Clear()
         btnInserir.Enabled = True
+    End Sub
+
+    Private Sub btnAdi_Pe_Click(sender As System.Object, e As System.EventArgs) Handles btnAdi_Pe.Click
+        If lstTa_Enc.SelectedItem IsNot Nothing Then
+            Dim PermissaoSelecionada As String = CType(lstPermissoes.SelectedItem, DataRowView)("nome").ToString
+            Dim encontrou As Boolean = False
+            For Each item As Object In lstTa_Per.Items 'Um loop que só finda quando chegar ao último item da listbox
+                Dim istr As String = CType(item, DataRowView)("nome").ToString
+                If istr = PermissaoSelecionada Then
+                    encontrou = True
+                    Exit For
+                End If
+            Next
+            If Not encontrou Then
+                dtTa_Per.Rows.Add(lstPermissoes.ValueMember, lstPermissoes.GetItemText(lstPermissoes.SelectedItem))
+            Else
+                MessageBox.Show("Não pode adicionar a permissão para '" + lstPermissoes.GetItemText(lstPermissoes.SelectedItem) + "' novamente", "Repetição de permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End If
+        Else
+            MessageBox.Show("Não pode adicionar uma permissão sem lhe associar uma tabela", "Falta de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
     End Sub
 End Class
