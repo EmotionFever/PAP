@@ -83,6 +83,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acesso.vb" />
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Artigo.vb" />
     <Compile Include="CTRL_MenuCine.Designer.vb">

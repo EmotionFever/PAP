@@ -59,6 +59,7 @@ Public Class frmClientes
 
     Private Sub CtrL_MenuCine1_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
         CtrL_MenuCine.Sincronizar_acessos()
+        CtrL_MenuCine.Sincronizar_permissoes({btnAlterar, btnInserir, btnDesativar}, 2)
         CtrL_MenuCine.SelecionarBotao(2)
     End Sub
 

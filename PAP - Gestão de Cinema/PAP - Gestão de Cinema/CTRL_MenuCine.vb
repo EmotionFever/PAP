@@ -1,8 +1,8 @@
 ﻿Public Class CTRL_MenuCine
     Dim contador As Integer = 0
-    Public Const DIMLBL As Integer = 10
-    Public botao(DIMLBL) As System.Windows.Forms.Button
-    Dim frm(DIMLBL) As Form
+    Public Const DIMTA As Integer = 10
+    Public botao(DIMTA) As System.Windows.Forms.Button
+    Dim frm(DIMTA) As Form
     Dim frmAtual As Form
 
     Private Sub CTRL_MenuCine_Load(sender As Object, e As System.EventArgs) Handles Me.Load
@@ -30,9 +30,22 @@
         frm(9) = frmDefinicoes
     End Sub
 
-    Public Sub Sincronizar_acessos() 'Faz desaparecer os botõess que o funcionário não tem acesso
-        For a As Integer = 0 To DIMLBL - 1
-            botao(a).Visible = frmLogin.acesso(a)
+    Public Sub Sincronizar_acessos() 'Faz desaparecer os botões que o funcionário não tem acesso
+        For a As Integer = 0 To DIMTA - 1
+            botao(a).Visible = frmLogin.ass(a).acesso()
+        Next
+    End Sub
+
+    Public Sub Sincronizar_permissoes(ByRef btn() As Button, ByVal codTa As Integer)
+        Dim PosAss As Integer
+        For PosAss = 0 To DIMTA - 1
+            If frmLogin.ass(PosAss).tabela = codTa Then
+                Exit For
+            End If
+        Next
+        For b As Integer = 0 To Acesso.DIMPER - 2 'O consultar não conta como botão
+            MessageBox.Show(b + 1)
+            btn(b).Visible = frmLogin.ass(PosAss).permissao(b + 1) 'Ex: btn(0).enabled (que é o de Alterar) = permissao(0+1) (que é Inserir, o que sem o '0' seria consultar)
         Next
     End Sub
 
@@ -74,7 +87,7 @@
     End Sub
 
     Public Sub SelecionarBotao(ByVal numero As Integer)
-        If numero >= 0 And numero < DIMLBL Then
+        If numero >= 0 And numero < DIMTA Then
             botao(numero).Enabled = False
             botao(numero).BackColor = Color.FromArgb(37, 46, 49)
             frmAtual = frm(numero)

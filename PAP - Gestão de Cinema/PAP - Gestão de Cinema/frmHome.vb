@@ -106,58 +106,49 @@ Public Class frmHome
         ligacao.Open()
 
         leitor = comando.ExecuteReader
-        frmLogin.acesso(0) = True 'Ao Menu principal, todos têm acesso
         While leitor.Read
             If leitor.GetString("tabela").Contains("Filmes") Then
                 pnlFilmes.Show()
                 lblFilmes.Text = "Pode" + leitor.GetString("permissoes") + " filmes"
-                frmLogin.acesso(1) = True
             End If
 
             If leitor.GetString("tabela").Contains("Clientes") Then
                 pnlClientes.Show()
                 lblClientes.Text = "Pode" + leitor.GetString("permissoes") + " clientes"
-                frmLogin.acesso(2) = True
             End If
 
             If leitor.GetString("tabela").Contains("Funcionarios") Then
                 pnlFuncionarios.Show()
                 lblFuncionarios.Text = "Pode" + leitor.GetString("permissoes") + " funcionários"
-                frmLogin.acesso(3) = True
             End If
 
             If leitor.GetString("tabela").Contains("Encargos") Then
                 pnlEncargos.Show()
                 lblEncargos.Text = "Pode" + leitor.GetString("permissoes") + " encargos"
-                frmLogin.acesso(4) = True
             End If
 
             If leitor.GetString("tabela").Contains("Calendarios") Then
                 pnlCalendarios.Show()
                 lblCalendarios.Text = "Pode" + leitor.GetString("permissoes") + " calendários de salas"
-                frmLogin.acesso(5) = True
             End If
 
             If leitor.GetString("tabela").Contains("Produtos") Then
                 pnlProdutos.Show()
                 lblProdutos.Text = "Pode" + leitor.GetString("permissoes") + " produtos"
-                frmLogin.acesso(6) = True
             End If
 
             If leitor.GetString("tabela").Contains("Salas") Then
                 pnlSalas.Show()
                 lblSalas.Text = "Pode" + leitor.GetString("permissoes") + " salas"
-                frmLogin.acesso(7) = True
             End If
 
             If leitor.GetString("tabela").Contains("Vendas") Then
                 pnlVendas.Show()
                 lblVendas.Text = "Pode" + leitor.GetString("permissoes") + " vendas"
-                frmLogin.acesso(8) = True
             End If
-            frmLogin.acesso(9) = True 'Às definições da sua conta, todos têm acesso
         End While
         ligacao.Dispose()
+
         CtrL_MenuCine.Sincronizar_acessos()
     End Sub
 
