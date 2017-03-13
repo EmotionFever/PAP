@@ -128,7 +128,7 @@ Public Class frmEncargos
 
     Private Sub SelecaoAlterada_Enc_Ta()
         If Not btnInserir.Enabled And lstTa_Enc.SelectedItem IsNot Nothing Then
-            If lstTa_Enc IsNot Nothing Then
+            If lstTa_Enc.SelectedValue IsNot Nothing Then
                 dtTa_Per.Clear()
 
                 query = "select distinct permissoes.nome as nome, aux_enc.codPe as codPe " &
@@ -157,7 +157,7 @@ Public Class frmEncargos
             End If
         Next
         If Not encontrou Then
-            dtTa_Enc.Rows.Add(lstTabelas.ValueMember, lstTabelas.GetItemText(lstTabelas.SelectedItem))
+            dtTa_Enc.Rows.Add(lstTabelas.SelectedValue, lstTabelas.GetItemText(lstTabelas.SelectedItem))
         Else
             MessageBox.Show("Não pode adicionar a tabela '" + lstTabelas.GetItemText(lstTabelas.SelectedItem) + "' novamente", "Repetição de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
@@ -165,7 +165,10 @@ Public Class frmEncargos
 
     Private Sub btnRet_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnRet_Ta.Click
         If lstTa_Enc.SelectedItem IsNot Nothing Then
-            If MessageBox.Show("Quer perder todos as permissões da tabela '" + lstTa_Enc.GetItemText(lstTa_Enc.SelectedItem) + "'?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
+            If MessageBox.Show("Quer perder todas as permissões da tabela '" + lstTa_Enc.GetItemText(lstTa_Enc.SelectedItem) + "'?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
+                If lstTa_Enc.SelectedValue IsNot Nothing Then
+                    acao("apagar", ligacao, "delete from aux_enc where codTa=" + lstTa_Enc.SelectedValue, True)
+                End If
                 dtTa_Enc.Rows(lstTa_Enc.SelectedIndex).Delete()
             End If
         Else
@@ -203,12 +206,24 @@ Public Class frmEncargos
                 End If
             Next
             If Not encontrou Then
-                dtTa_Per.Rows.Add(lstPermissoes.ValueMember, lstPermissoes.GetItemText(lstPermissoes.SelectedItem))
+                dtTa_Per.Rows.Add(lstPermissoes.SelectedValue, lstPermissoes.GetItemText(lstPermissoes.SelectedItem))
+                lstTa_Enc.Tag = True
             Else
                 MessageBox.Show("Não pode adicionar a permissão para '" + lstPermissoes.GetItemText(lstPermissoes.SelectedItem) + "' novamente", "Repetição de permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         Else
             MessageBox.Show("Não pode adicionar uma permissão sem lhe associar uma tabela", "Falta de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub btnRet_Pe_Click(sender As System.Object, e As System.EventArgs) Handles btnRet_Pe.Click
+        If lstTa_Per.SelectedItem IsNot Nothing Then
+            If lstTa_Per.SelectedValue IsNot Nothing Then
+                acao("apagar", ligacao, "delete from aux_enc where codTa=" + lstTa_Enc.SelectedValue + " and codPe=" + lstTa_Per.SelectedValue, True)
+            End If
+            dtTa_Enc.Rows(lstTa_Per.SelectedIndex).Delete()
+        Else
+            MessageBox.Show("Não pode remover uma permissão sem que haja primeiro uma na lista adicionada por si", "Sem permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 End Class

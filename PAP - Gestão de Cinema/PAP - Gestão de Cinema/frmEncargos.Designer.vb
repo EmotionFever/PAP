@@ -430,6 +430,7 @@ Partial Class frmEncargos
         Me.lstTa_Per.Name = "lstTa_Per"
         Me.lstTa_Per.Size = New System.Drawing.Size(120, 145)
         Me.lstTa_Per.TabIndex = 59
+        Me.lstTa_Per.Tag = "0"
         '
         'btnInserir
         '
@@ -440,7 +441,7 @@ Partial Class frmEncargos
         Me.btnInserir.ForeColor = System.Drawing.Color.Black
         Me.btnInserir.Location = New System.Drawing.Point(74, 538)
         Me.btnInserir.Name = "btnInserir"
-        Me.btnInserir.Size = New System.Drawing.Size(202, 26)
+        Me.btnInserir.Size = New System.Drawing.Size(134, 26)
         Me.btnInserir.TabIndex = 63
         Me.btnInserir.Text = "Inserir"
         Me.btnInserir.UseVisualStyleBackColor = False
@@ -452,9 +453,9 @@ Partial Class frmEncargos
         Me.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAlterar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAlterar.ForeColor = System.Drawing.Color.Black
-        Me.btnAlterar.Location = New System.Drawing.Point(290, 538)
+        Me.btnAlterar.Location = New System.Drawing.Point(214, 538)
         Me.btnAlterar.Name = "btnAlterar"
-        Me.btnAlterar.Size = New System.Drawing.Size(202, 26)
+        Me.btnAlterar.Size = New System.Drawing.Size(148, 26)
         Me.btnAlterar.TabIndex = 64
         Me.btnAlterar.Text = "Alterar"
         Me.btnAlterar.UseVisualStyleBackColor = False
@@ -466,9 +467,9 @@ Partial Class frmEncargos
         Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDesativar.ForeColor = System.Drawing.Color.Black
-        Me.btnDesativar.Location = New System.Drawing.Point(506, 538)
+        Me.btnDesativar.Location = New System.Drawing.Point(420, 538)
         Me.btnDesativar.Name = "btnDesativar"
-        Me.btnDesativar.Size = New System.Drawing.Size(202, 26)
+        Me.btnDesativar.Size = New System.Drawing.Size(288, 26)
         Me.btnDesativar.TabIndex = 65
         Me.btnDesativar.Text = "Desativar"
         Me.btnDesativar.UseVisualStyleBackColor = False
