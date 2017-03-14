@@ -69,8 +69,8 @@ Public Class frmDefinicoes
     End Sub
 
     Private Sub frmConfiguracoes_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-            Atualizar_dados()
-            EncherComboBox()
+        Atualizar_dados()
+        EncherComboBox()
     End Sub
 
     Private Sub btnNome_Click(sender As System.Object, e As System.EventArgs) Handles btnNome.Click
@@ -179,8 +179,7 @@ Public Class frmDefinicoes
     End Sub
 
     Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
-        CtrL_MenuCine.SelecionarBotao(9)
-        CtrL_MenuCine.Sincronizar_acessos()
+        CtrL_MenuCine.Sincronizar_acessos(Me, 9)
     End Sub
 
     Private Sub tmrPiscar_Tick(sender As System.Object, e As System.EventArgs) Handles tmrPiscar.Tick

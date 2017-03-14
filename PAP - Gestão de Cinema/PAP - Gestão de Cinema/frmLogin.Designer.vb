@@ -37,9 +37,13 @@ Partial Class frmLogin
         Me.pctPass = New System.Windows.Forms.PictureBox()
         Me.pctUtl = New System.Windows.Forms.PictureBox()
         Me.btnEntrar = New System.Windows.Forms.Button()
+        Me.pctImagem = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pnl1.SuspendLayout()
         CType(Me.pctPass, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pctUtl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctImagem, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
@@ -69,7 +73,7 @@ Partial Class frmLogin
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctPass, Me.rctUtl})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(295, 378)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(665, 378)
         Me.ShapeContainer1.TabIndex = 2
         Me.ShapeContainer1.TabStop = False
         '
@@ -193,12 +197,34 @@ Partial Class frmLogin
         Me.btnEntrar.Text = "Entrar"
         Me.btnEntrar.UseVisualStyleBackColor = False
         '
+        'pctImagem
+        '
+        Me.pctImagem.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.rolo_imagem
+        Me.pctImagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctImagem.Location = New System.Drawing.Point(298, 25)
+        Me.pctImagem.Name = "pctImagem"
+        Me.pctImagem.Size = New System.Drawing.Size(335, 281)
+        Me.pctImagem.TabIndex = 15
+        Me.pctImagem.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.Logo
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(298, 301)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(335, 71)
+        Me.PictureBox1.TabIndex = 16
+        Me.PictureBox1.TabStop = False
+        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(295, 378)
+        Me.ClientSize = New System.Drawing.Size(665, 378)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pctImagem)
         Me.Controls.Add(Me.btnEntrar)
         Me.Controls.Add(Me.lblErroPass)
         Me.Controls.Add(Me.lblErroUtl)
@@ -218,6 +244,8 @@ Partial Class frmLogin
         Me.pnl1.ResumeLayout(False)
         CType(Me.pctPass, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pctUtl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctImagem, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -236,5 +264,7 @@ Partial Class frmLogin
     Friend WithEvents lblErroUtl As System.Windows.Forms.Label
     Friend WithEvents lblErroPass As System.Windows.Forms.Label
     Friend WithEvents btnEntrar As System.Windows.Forms.Button
+    Friend WithEvents pctImagem As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 
 End Class

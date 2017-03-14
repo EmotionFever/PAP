@@ -51,16 +51,14 @@ Public Class frmLogin
                     comando = New MySqlCommand(query, ligacao)
                     ligacao.Open()
                     leitor = comando.ExecuteReader
-                    Dim cont_per As Integer = 0
+                    ass(0).tabela = 0
+                    ass(0).permissao(0) = True
                     While leitor.Read
-                        If ass(cont_per).tabela = leitor.GetInt32("tabela") Then
-                            ass(cont_per).permissao(leitor.GetInt32("permissao") - 1) = True
-                        Else
-                            cont_per += 1
-                            ass(cont_per).permissao(leitor.GetInt32("permissao") - 1) = True
-                        End If
+                        ass(leitor.GetInt32("tabela")).permissao(leitor.GetInt32("permissao") - 1) = True
                     End While
                     ligacao.Dispose()
+                    ass(9).tabela = 9
+                    ass(9).permissao(0) = True
 
                     frmHome.Show()
                     Me.Hide()
@@ -72,6 +70,7 @@ Public Class frmLogin
             Else
                 lblErroUtl.Text = "Utilizador inexistente"
                 AlterarEstado(rctUtl, txtNome, pctUtl, "acertar")
+                ligacao.Dispose()
             End If
 
         Catch ex As Exception

@@ -17,23 +17,17 @@
         botao(7) = btnSalas
         botao(8) = btnVendas
         botao(9) = btnDefinicoes
-
-        frm(0) = frmHome
-        'frm(1) =frmLugares
-        frm(2) = frmClientes
-        'frm(3) =frmFuncionarios
-        'frm(4) =frmEncargos
-        'frm(5) =frmCalendarios
-        'frm(6) =frmProdutos
-        'frm(7) =frmSalas
-        frm(8) = frmVendas
-        frm(9) = frmDefinicoes
     End Sub
 
-    Public Sub Sincronizar_acessos() 'Faz desaparecer os botões que o funcionário não tem acesso
+    Public Sub Sincronizar_acessos(ByRef frmEu As Form, ByVal numero As Integer) 'Faz desaparecer os botões que o funcionário não tem acesso
+        If numero >= 0 And numero < DIMTA Then
+            botao(numero).Enabled = False
+            botao(numero).BackColor = Color.FromArgb(37, 46, 49)
+        End If
         For a As Integer = 0 To DIMTA - 1
             botao(a).Visible = frmLogin.ass(a).acesso()
         Next
+        frmAtual = frmEu
     End Sub
 
     Public Sub Sincronizar_permissoes(ByRef btn() As Button, ByVal codTa As Integer)
@@ -44,7 +38,6 @@
             End If
         Next
         For b As Integer = 0 To Acesso.DIMPER - 2 'O consultar não conta como botão
-            MessageBox.Show(b + 1)
             btn(b).Visible = frmLogin.ass(PosAss).permissao(b + 1) 'Ex: btn(0).enabled (que é o de Alterar) = permissao(0+1) (que é Inserir, o que sem o '0' seria consultar)
         Next
     End Sub
@@ -86,15 +79,9 @@
         contador += 1
     End Sub
 
-    Public Sub SelecionarBotao(ByVal numero As Integer)
-        If numero >= 0 And numero < DIMTA Then
-            botao(numero).Enabled = False
-            botao(numero).BackColor = Color.FromArgb(37, 46, 49)
-            frmAtual = frm(numero)
-        End If
-    End Sub
 
-    Private Sub btnFilmes_Click(sender As System.Object, e As System.EventArgs) Handles btnFilmes.Click
+
+    Public Sub IrParaFilmes() Handles btnFilmes.Click
         frmFilmes.Show()
         frmAtual.Close()
     End Sub

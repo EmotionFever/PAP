@@ -25,8 +25,8 @@ Partial Class frmProdutos
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProdutos))
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnl1 = New System.Windows.Forms.Panel()
-        Me.lbl1 = New System.Windows.Forms.Label()
         Me.pct1 = New System.Windows.Forms.PictureBox()
+        Me.lbl1 = New System.Windows.Forms.Label()
         Me.pnl1.SuspendLayout()
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -50,6 +50,16 @@ Partial Class frmProdutos
         Me.pnl1.Size = New System.Drawing.Size(682, 93)
         Me.pnl1.TabIndex = 5
         '
+        'pct1
+        '
+        Me.pct1.BackgroundImage = CType(resources.GetObject("pct1.BackgroundImage"), System.Drawing.Image)
+        Me.pct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct1.Location = New System.Drawing.Point(5, 5)
+        Me.pct1.Name = "pct1"
+        Me.pct1.Size = New System.Drawing.Size(88, 88)
+        Me.pct1.TabIndex = 43
+        Me.pct1.TabStop = False
+        '
         'lbl1
         '
         Me.lbl1.BackColor = System.Drawing.Color.Transparent
@@ -62,16 +72,6 @@ Partial Class frmProdutos
         Me.lbl1.TabIndex = 4
         Me.lbl1.Text = "Produtos"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'pct1
-        '
-        Me.pct1.BackgroundImage = CType(resources.GetObject("pct1.BackgroundImage"), System.Drawing.Image)
-        Me.pct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct1.Location = New System.Drawing.Point(5, 5)
-        Me.pct1.Name = "pct1"
-        Me.pct1.Size = New System.Drawing.Size(88, 88)
-        Me.pct1.TabIndex = 43
-        Me.pct1.TabStop = False
         '
         'frmProdutos
         '

@@ -25,8 +25,8 @@ Partial Class frmCalendarios
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCalendarios))
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnl1 = New System.Windows.Forms.Panel()
-        Me.lbl1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lbl1 = New System.Windows.Forms.Label()
         Me.pnl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -50,6 +50,16 @@ Partial Class frmCalendarios
         Me.pnl1.Size = New System.Drawing.Size(682, 93)
         Me.pnl1.TabIndex = 6
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 4)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(88, 85)
+        Me.PictureBox1.TabIndex = 50
+        Me.PictureBox1.TabStop = False
+        '
         'lbl1
         '
         Me.lbl1.BackColor = System.Drawing.Color.Transparent
@@ -62,16 +72,6 @@ Partial Class frmCalendarios
         Me.lbl1.TabIndex = 4
         Me.lbl1.Text = "Calendários"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 4)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(88, 85)
-        Me.PictureBox1.TabIndex = 50
-        Me.PictureBox1.TabStop = False
         '
         'frmCalendarios
         '

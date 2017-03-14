@@ -12,7 +12,7 @@ Public Class frmHome
 
     'Código tipo para todos os formulários
     Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
-        CtrL_MenuCine.SelecionarBotao(0)
+        CtrL_MenuCine.Sincronizar_acessos(Me, 0)
     End Sub
 
     Private Sub frmHome_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -148,8 +148,6 @@ Public Class frmHome
             End If
         End While
         ligacao.Dispose()
-
-        CtrL_MenuCine.Sincronizar_acessos()
     End Sub
 
     Private Sub tmr_Tick(sender As System.Object, e As System.EventArgs) Handles tmr.Tick
@@ -173,6 +171,34 @@ Public Class frmHome
         CtrL_MenuCine.IrParaClientes()
     End Sub
 
+    Private Sub lbl_Definicoes_Click(sender As System.Object, e As System.EventArgs) Handles lbl_Definicoes.Click, lblDefinicoes.Click, pctDefinicoes.Click, pnlDefinicoes.Click
+        CtrL_MenuCine.IrParaDefinicoes()
+    End Sub
+
+    Private Sub pctFilmes_Click(sender As System.Object, e As System.EventArgs) Handles pctFilmes.Click, lbl_Filmes.Click, lblFilmes.Click, pnlFilmes.Click
+        CtrL_MenuCine.IrParaFilmes()
+    End Sub
+
+    Private Sub pctProdutos_Click(sender As System.Object, e As System.EventArgs) Handles pctProdutos.Click, lbl_Produtos.Click, lblProdutos.Click, pnlProdutos.Click
+        CtrL_MenuCine.IrParaProdutos()
+    End Sub
+
+    Private Sub pctSalas_Click(sender As System.Object, e As System.EventArgs) Handles pctSalas.Click, lbl_Salas.Click, lblSalas.Click, pnlSalas.Click
+        CtrL_MenuCine.IrParaSalas()
+    End Sub
+
+    Private Sub pctCalendarios_Click(sender As System.Object, e As System.EventArgs) Handles pctCalendarios.Click, lbl_Calendarios.Click, lblCalendarios.Click, pnlCalendarios.Click
+        CtrL_MenuCine.IrParaCalendarios()
+    End Sub
+
+    Private Sub pctEncargos_Click(sender As System.Object, e As System.EventArgs) Handles pctEncargos.Click, lbl_Encargos.Click, lblEncargos.Click, pnlEncargos.Click
+        CtrL_MenuCine.IrParaEncargos()
+    End Sub
+
+    Private Sub pctFuncionarios_Click(sender As System.Object, e As System.EventArgs) Handles pctFuncionarios.Click, lbl_Funcionarios.Click, lblFuncionarios.Click, pnlFuncionarios.Click
+        CtrL_MenuCine.IrParaFuncionarios()
+    End Sub
+
     Private Sub Parar_Texto(sender As System.Object, e As System.EventArgs) Handles lblx1.MouseHover, lblx1.MouseHover, lblx2.MouseHover, lblx7.MouseHover, lblx5.MouseHover, lblx6.MouseHover, lblx3.MouseHover, lblx4.MouseHover
         tmr.Stop()
     End Sub
@@ -181,8 +207,6 @@ Public Class frmHome
         tmr.Start()
     End Sub
 
-    Private Sub lbl_Definicoes_Click(sender As System.Object, e As System.EventArgs) Handles lbl_Definicoes.Click, lblDefinicoes.Click, pctDefinicoes.Click, pnlDefinicoes.Click
-        CtrL_MenuCine.IrParaDefinicoes()
-    End Sub
+
 
 End Class
