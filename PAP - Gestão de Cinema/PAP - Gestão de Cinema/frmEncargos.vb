@@ -89,12 +89,9 @@ Public Class frmEncargos
 
     Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
         CtrL_MenuCine.Sincronizar_acessos(Me, 4)
-        CtrL_MenuCine.Sincronizar_permissoes({btnAlterar, btnInserir, btnDesativar}, 4)
-        If Not btnAlterar.Visible Then
-            btnAdi_Pe.Visible = False
-            btnAdi_Ta.Visible = False
-            btnRet_Pe.Visible = False
-            btnRet_Ta.Visible = False
+        CtrL_MenuCine.Sincronizar_permissoes({pnlMostrar}, {btnAlterar, btnAdi_Pe, btnAdi_Ta, btnRet_Pe, btnRet_Ta, btnAtivar, btnDesativar, tbc1}, {btnInserir})
+        If btnAlterar.Visible + btnInserir.Visible = 0 Then
+            pnlControlos.Hide()
         End If
     End Sub
 

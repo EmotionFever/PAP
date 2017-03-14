@@ -14,7 +14,7 @@ Public Class frmDefinicoes
         Try
             query = "select username, Funcionarios.nome as nome, IFNULL(telemovel,'-') as telemovel, ifnull(localidades.nome,'-') as localidade, " &
       "ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, " &
-      "ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo, palavra_passe " &
+      "ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo, ifnull(palavra_passe,'') as palavra_passe " &
       "from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + frmLogin.codF.ToString
 
 
@@ -45,8 +45,12 @@ Public Class frmDefinicoes
             Else
                 txtrua.Text = leitor.GetString("rua")
             End If
+            If leitor.GetString("telemovel") = "-" Then
+                mtbTlm.Text = ""
+            Else
+                mtbTlm.Text = leitor.GetString("telemovel")
+            End If
 
-            mtbTlm.Text = leitor.GetString("telemovel")
             txtPass.Text = leitor.GetString("palavra_passe")
 
             codLo = leitor.GetInt32("codlo")

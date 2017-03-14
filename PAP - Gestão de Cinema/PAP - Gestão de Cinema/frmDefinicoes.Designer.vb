@@ -505,11 +505,11 @@ Partial Class frmDefinicoes
         Me.lblNome.AutoEllipsis = True
         Me.lblNome.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNome.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblNome.Location = New System.Drawing.Point(206, 155)
+        Me.lblNome.Location = New System.Drawing.Point(206, 153)
         Me.lblNome.Name = "lblNome"
         Me.lblNome.Size = New System.Drawing.Size(205, 40)
         Me.lblNome.TabIndex = 42
-        Me.lblNome.Text = "Nome de Utilizador"
+        Me.lblNome.Text = "Nome do funcionário"
         Me.lblNome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblIdade
@@ -517,7 +517,7 @@ Partial Class frmDefinicoes
         Me.lblIdade.AutoSize = True
         Me.lblIdade.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblIdade.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblIdade.Location = New System.Drawing.Point(206, 209)
+        Me.lblIdade.Location = New System.Drawing.Point(206, 207)
         Me.lblIdade.Name = "lblIdade"
         Me.lblIdade.Size = New System.Drawing.Size(39, 16)
         Me.lblIdade.TabIndex = 43
@@ -528,7 +528,7 @@ Partial Class frmDefinicoes
         Me.lblRua.AutoSize = True
         Me.lblRua.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRua.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblRua.Location = New System.Drawing.Point(206, 228)
+        Me.lblRua.Location = New System.Drawing.Point(206, 226)
         Me.lblRua.Name = "lblRua"
         Me.lblRua.Size = New System.Drawing.Size(31, 16)
         Me.lblRua.TabIndex = 44
@@ -539,7 +539,7 @@ Partial Class frmDefinicoes
         Me.lblLocalidade.AutoSize = True
         Me.lblLocalidade.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLocalidade.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblLocalidade.Location = New System.Drawing.Point(206, 247)
+        Me.lblLocalidade.Location = New System.Drawing.Point(206, 245)
         Me.lblLocalidade.Name = "lblLocalidade"
         Me.lblLocalidade.Size = New System.Drawing.Size(70, 16)
         Me.lblLocalidade.TabIndex = 45
@@ -550,7 +550,7 @@ Partial Class frmDefinicoes
         Me.lblTlm.AutoSize = True
         Me.lblTlm.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTlm.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblTlm.Location = New System.Drawing.Point(206, 266)
+        Me.lblTlm.Location = New System.Drawing.Point(206, 264)
         Me.lblTlm.Name = "lblTlm"
         Me.lblTlm.Size = New System.Drawing.Size(80, 16)
         Me.lblTlm.TabIndex = 46
@@ -576,7 +576,7 @@ Partial Class frmDefinicoes
         Me.lblUsername.AutoSize = True
         Me.lblUsername.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lblUsername.Location = New System.Drawing.Point(206, 190)
+        Me.lblUsername.Location = New System.Drawing.Point(206, 188)
         Me.lblUsername.Name = "lblUsername"
         Me.lblUsername.Size = New System.Drawing.Size(116, 16)
         Me.lblUsername.TabIndex = 48

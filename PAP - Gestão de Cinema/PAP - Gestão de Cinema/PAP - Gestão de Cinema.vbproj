@@ -334,6 +334,7 @@
     <None Include="Resources\salas_converted.png" />
     <None Include="Resources\lugares_converted.png" />
     <None Include="Resources\lugares.png" />
+    <None Include="Resources\Logo - lado.png" />
     <Content Include="rolo_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

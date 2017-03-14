@@ -4,6 +4,7 @@
     Public botao(DIMTA) As System.Windows.Forms.Button
     Dim frm(DIMTA) As Form
     Dim frmAtual As Form
+    Dim codta As Integer
 
     Private Sub CTRL_MenuCine_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         '"Apontar" os apontadores de botões para os botões do CTRL / Códigos do procedimento SelecionarBotao(«código»)
@@ -28,17 +29,20 @@
             botao(a).Visible = frmLogin.ass(a).acesso()
         Next
         frmAtual = frmEu
+        codTa = numero
     End Sub
 
-    Public Sub Sincronizar_permissoes(ByRef btn() As Button, ByVal codTa As Integer)
-        Dim PosAss As Integer
-        For PosAss = 0 To DIMTA - 1
-            If frmLogin.ass(PosAss).tabela = codTa Then
-                Exit For
-            End If
+    Public Sub Sincronizar_permissoes(ByRef objConsultar() As Object, objAlterar() As Object, objInserir As Object)
+        For Each objeto As Object In objConsultar
+            objeto.visible = frmLogin.ass(codTa).permissao(0)
         Next
-        For b As Integer = 0 To Acesso.DIMPER - 2 'O consultar não conta como botão
-            btn(b).Visible = frmLogin.ass(PosAss).permissao(b + 1) 'Ex: btn(0).enabled (que é o de Alterar) = permissao(0+1) (que é Inserir, o que sem o '0' seria consultar)
+
+        For Each objeto As Object In objAlterar
+            objeto.visible = frmLogin.ass(codTa).permissao(1)
+        Next
+
+        For Each objeto As Object In objInserir
+            objeto.visible = frmLogin.ass(codTa).permissao(2)
         Next
     End Sub
 

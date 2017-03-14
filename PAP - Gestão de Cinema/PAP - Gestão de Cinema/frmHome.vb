@@ -38,7 +38,7 @@ Public Class frmHome
         pnlVendas.Hide()
 
         Dim nome, nome_completo As String
-        query = "select Funcionarios.nome as nome, Encargos.nome as encargo, IFNULL(telemovel,'') as telemovel, ifnull(localidades.nome,'') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),0) as idade, IFNULL(rua,'') as rua, IFNULL(ordenado,'') as ordenado from encargos, funcionarios left join localidades on localidades.codlo=funcionarios.codlo where encargos.code=funcionarios.code and codF=" + frmLogin.codF.ToString
+        query = "select Funcionarios.nome as nome, Encargos.nome as encargo, IFNULL(telemovel,'') as telemovel, ifnull(localidades.nome,'') as localidade, ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),0) as idade, IFNULL(rua,'') as rua, IFNULL(ordenado,0) as ordenado from encargos, funcionarios left join localidades on localidades.codlo=funcionarios.codlo where encargos.code=funcionarios.code and codF=" + frmLogin.codF.ToString
 
         comando = New MySqlCommand(query, ligacao)
         ligacao.Open()

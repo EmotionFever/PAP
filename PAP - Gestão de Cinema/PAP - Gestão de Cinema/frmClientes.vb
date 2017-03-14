@@ -58,8 +58,8 @@ Public Class frmClientes
     End Sub
 
     Private Sub CtrL_MenuCine1_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
-        CtrL_MenuCine.Sincronizar_permissoes({btnAlterar, btnInserir, btnDesativar}, 2)
         CtrL_MenuCine.Sincronizar_acessos(Me, 2)
+        CtrL_MenuCine.Sincronizar_permissoes({tbc1, btnProcurar}, {btnAlterar, pnlAtivar, tbc1}, {btnInserir}) 'O tbc1 'tá em 2 casos já que para alterar preciso de selecionar um registo primeiro. 
     End Sub
 
     Private Sub dgvAtivado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvAtivado.CellClick

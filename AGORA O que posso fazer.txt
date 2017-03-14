@@ -2,8 +2,9 @@
 - Criar as novas tabelas e modificar as já existentes
 - Pôr dados nas tabelas
 - Resolver o problema com o butão X do form
-- Descobrir se posso fazer um caminho pra uma imagem assim "../All images/Geral/u.jpg" [{CRÍTICO}]
+- Usar o email do professor para inserir, ler e garvar imagens na BD [{CRÍTICO}]
 - Acabar o desativar do form Clientes
 - Redimensionar colunas da DataGridView por código DO form Clientes
-- Fazer com que quando insiro outra vez o memso artigo, no FormVendas, somar às unidades que lá estão
+- Fazer com que quando insiro outra vez o mesmo artigo, no FormVendas, somar às unidades que lá estão
 - Refazer o Procurar do FormClientes com as novas funções de estado
+- Eliminar a permissão dasativar da respetiva tabela e fazer o backup da BD

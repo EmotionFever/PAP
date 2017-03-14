@@ -1,11 +1,14 @@
 ﻿Public Class Acesso
-    Public Const DIMPER As Integer = 4
-    Public tabela As Integer
+    Public Const DIMPER As Integer = 3
     Public permissao(DIMPER) As Boolean
-    '0 -> consultar; 1 -> alterar; 2 -> inserir; 3 -> desativar/apagar
+    '0 -> consultar; 1 -> alterar; 2 -> inserir
 
     Public Function acesso() As Boolean
-        If permissao(0) + permissao(1) + permissao(2) + permissao(3) = 0 Then
+        Dim soma As Integer = 0
+        For y As Integer = 0 To DIMPER - 1
+            soma += permissao(y)
+        Next
+        If soma = 0 Then
             Return False
         Else
             Return True
