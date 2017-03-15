@@ -71,7 +71,7 @@ Partial Class frmLogin
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctPass, Me.rctUtl})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(457, 372)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(439, 372)
         Me.ShapeContainer1.TabIndex = 2
         Me.ShapeContainer1.TabStop = False
         '
@@ -212,7 +212,7 @@ Partial Class frmLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(457, 372)
+        Me.ClientSize = New System.Drawing.Size(439, 372)
         Me.Controls.Add(Me.pctImagem)
         Me.Controls.Add(Me.btnEntrar)
         Me.Controls.Add(Me.lblErroPass)

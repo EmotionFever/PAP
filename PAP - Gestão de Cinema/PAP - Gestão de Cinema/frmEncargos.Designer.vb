@@ -58,11 +58,11 @@ Partial Class frmEncargos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnAtivar = New System.Windows.Forms.Button()
-        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnlMostrar = New System.Windows.Forms.Panel()
         Me.pnlControlos = New System.Windows.Forms.Panel()
         Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnl1.SuspendLayout()
         CType(Me.pctTitulo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbc1.SuspendLayout()
@@ -117,7 +117,7 @@ Partial Class frmEncargos
         Me.tbc1.Controls.Add(Me.tbpAtivado)
         Me.tbc1.Controls.Add(Me.tbpDesativado)
         Me.tbc1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbc1.Location = New System.Drawing.Point(3, 3)
+        Me.tbc1.Location = New System.Drawing.Point(1, 0)
         Me.tbc1.Name = "tbc1"
         Me.tbc1.SelectedIndex = 0
         Me.tbc1.Size = New System.Drawing.Size(634, 148)
@@ -506,18 +506,11 @@ Partial Class frmEncargos
         Me.btnAtivar.Text = "Ativar"
         Me.btnAtivar.UseVisualStyleBackColor = False
         '
-        'CtrL_MenuCine
-        '
-        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
-        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
-        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
-        Me.CtrL_MenuCine.TabIndex = 0
-        '
         'pnlMostrar
         '
         Me.pnlMostrar.Controls.Add(Me.pnlInformacao)
-        Me.pnlMostrar.Location = New System.Drawing.Point(645, 3)
+        Me.pnlMostrar.Controls.Add(Me.tbc1)
+        Me.pnlMostrar.Location = New System.Drawing.Point(3, 3)
         Me.pnlMostrar.Name = "pnlMostrar"
         Me.pnlMostrar.Size = New System.Drawing.Size(634, 153)
         Me.pnlMostrar.TabIndex = 71
@@ -542,9 +535,9 @@ Partial Class frmEncargos
         Me.pnlControlos.Controls.Add(Me.btnRet_Pe)
         Me.pnlControlos.Controls.Add(Me.lstPermissoes)
         Me.pnlControlos.Controls.Add(Me.ShapeContainer2)
-        Me.pnlControlos.Location = New System.Drawing.Point(3, 157)
+        Me.pnlControlos.Location = New System.Drawing.Point(3, 162)
         Me.pnlControlos.Name = "pnlControlos"
-        Me.pnlControlos.Size = New System.Drawing.Size(636, 290)
+        Me.pnlControlos.Size = New System.Drawing.Size(635, 290)
         Me.pnlControlos.TabIndex = 72
         '
         'ShapeContainer2
@@ -553,20 +546,27 @@ Partial Class frmEncargos
         Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer2.Name = "ShapeContainer2"
         Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctNome})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(636, 290)
+        Me.ShapeContainer2.Size = New System.Drawing.Size(635, 290)
         Me.ShapeContainer2.TabIndex = 0
         Me.ShapeContainer2.TabStop = False
         '
         'flp1
         '
-        Me.flp1.Controls.Add(Me.tbc1)
-        Me.flp1.Controls.Add(Me.pnlControlos)
         Me.flp1.Controls.Add(Me.pnlMostrar)
+        Me.flp1.Controls.Add(Me.pnlControlos)
         Me.flp1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flp1.Location = New System.Drawing.Point(72, 118)
         Me.flp1.Name = "flp1"
-        Me.flp1.Size = New System.Drawing.Size(636, 450)
+        Me.flp1.Size = New System.Drawing.Size(651, 500)
         Me.flp1.TabIndex = 73
+        '
+        'CtrL_MenuCine
+        '
+        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
+        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
+        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
+        Me.CtrL_MenuCine.TabIndex = 0
         '
         'frmEncargos
         '

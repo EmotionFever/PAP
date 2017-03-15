@@ -89,7 +89,7 @@ Public Class frmEncargos
 
     Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
         CtrL_MenuCine.Sincronizar_acessos(Me, 4)
-        CtrL_MenuCine.Sincronizar_permissoes({pnlMostrar}, {btnAlterar, btnAdi_Pe, btnAdi_Ta, btnRet_Pe, btnRet_Ta, btnAtivar, btnDesativar, tbc1}, {btnInserir})
+        CtrL_MenuCine.Sincronizar_permissoes({pnlMostrar}, {btnAlterar, btnAtivar, btnDesativar, tbc1}, {btnInserir})
         If btnAlterar.Visible + btnInserir.Visible = 0 Then
             pnlControlos.Hide()
         End If
@@ -97,7 +97,7 @@ Public Class frmEncargos
 
 
     Private Sub SelecaoAlterada_Enc_Ativ()
-        If lstEnc_Ativ.SelectedItem IsNot Nothing Then
+        If lstEnc_Ativ.SelectedItems.Count > 0 Then
             btnInserir.Enabled = False
             btnDesativar.Enabled = True
             pnlInformacao.Hide()
@@ -118,19 +118,20 @@ Public Class frmEncargos
             End While
             ligacao.Dispose()
         End If
-
         SelecaoAlterada_Enc_Ta()
     End Sub
 
     Private Sub SelecaoAlterada_Enc_Desa()
-        btnInserir.Enabled = False
-        pnlInformacao.Hide()
-        mostrar(dgvEnc_Ta_Desa, ligacao, "aux_enc", "codAE", "select aux_enc.codAE as codAE, tabelas.nome as tabela, group_concat(' ' , permissoes.nome) as permissoes " &
-                "from aux_enc, permissoes, tabelas where aux_enc.codE=" + lstEnc_Desa.SelectedValue.ToString + " and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta group by tabelas.codta")
+        If lstEnc_Desa.SelectedItems.Count > 0 Then
+            btnInserir.Enabled = False
+            pnlInformacao.Hide()
+            mostrar(dgvEnc_Ta_Desa, ligacao, "aux_enc", "codAE", "select aux_enc.codAE as codAE, tabelas.nome as tabela, group_concat(' ' , permissoes.nome) as permissoes " &
+                    "from aux_enc, permissoes, tabelas where aux_enc.codE=" + lstEnc_Desa.SelectedValue.ToString + " and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta group by tabelas.codta")
+        End If
     End Sub
 
     Private Sub SelecaoAlterada_Enc_Ta()
-        If Not btnInserir.Enabled And lstTa_Enc.SelectedItem IsNot Nothing Then
+        If Not btnInserir.Enabled And lstTa_Enc.SelectedItems.Count > 0 And lstEnc_Ativ.SelectedItems.Count > 0 Then
             If lstTa_Enc.SelectedValue IsNot Nothing Then
                 dtTa_Per.Clear()
 
@@ -167,7 +168,7 @@ Public Class frmEncargos
     End Sub
 
     Private Sub btnRet_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnRet_Ta.Click
-        If lstTa_Enc.SelectedItem IsNot Nothing Then
+        If lstTa_Enc.SelectedItems.Count > 0 Then
             If MessageBox.Show("Quer perder todas as permissões da tabela '" + lstTa_Enc.GetItemText(lstTa_Enc.SelectedItem) + "'?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.Yes Then
                 If lstTa_Enc.SelectedValue IsNot Nothing Then
                     acao("apagar", ligacao, "delete from aux_enc where codTa=" + lstTa_Enc.SelectedValue, True)
@@ -181,13 +182,12 @@ Public Class frmEncargos
 
     Private Sub btnNovo_Click(sender As System.Object, e As System.EventArgs) Handles btnNovo.Click
         If lstEnc_Ativ.SelectedItem Is Nothing Then
-            If lstTa_Enc.SelectedItem IsNot Nothing Then
-                If MessageBox.Show("Quer perder todos as informações do último encargo que criou?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.No Then
+            If lstTa_Enc.SelectedItems.Count > 0 Then
+                If MessageBox.Show("Quer perder todas as informações do último encargo que criou?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = Windows.Forms.DialogResult.No Then
                     Exit Sub
                 End If
             End If
         Else
-            dgvEnc_Ta_Ativ.Dispose()
             lstEnc_Ativ.ClearSelected()
             pnlInformacao.Show()
         End If
@@ -198,7 +198,7 @@ Public Class frmEncargos
     End Sub
 
     Private Sub btnAdi_Pe_Click(sender As System.Object, e As System.EventArgs) Handles btnAdi_Pe.Click
-        If lstTa_Enc.SelectedItem IsNot Nothing Then
+        If lstTa_Enc.SelectedItems.Count > 0 Then
             Dim PermissaoSelecionada As String = CType(lstPermissoes.SelectedItem, DataRowView)("nome").ToString
             Dim encontrou As Boolean = False
             For Each item As Object In lstTa_Per.Items 'Um loop que só finda quando chegar ao último item da listbox
@@ -220,7 +220,7 @@ Public Class frmEncargos
     End Sub
 
     Private Sub btnRet_Pe_Click(sender As System.Object, e As System.EventArgs) Handles btnRet_Pe.Click
-        If lstTa_Per.SelectedItem IsNot Nothing Then
+        If lstTa_Per.SelectedItems.Count > 0 Then
             If lstTa_Per.SelectedValue IsNot Nothing Then
                 acao("apagar", ligacao, "delete from aux_enc where codTa=" + lstTa_Enc.SelectedValue + " and codPe=" + lstTa_Per.SelectedValue, True)
             End If
