@@ -40,7 +40,7 @@ Public Class frmLogin
                     codF = leitor.GetInt32("codF")
                     ligacao.Dispose()
 
-
+                    'Os cods das tabelas estão por ordem e de 1 em 1 começando no 1, sempre!
                     query = "select aux_enc.codta as tabela, aux_enc.codPe as permissao from funcionarios, encargos, aux_enc where funcionarios.codE=encargos.codE and  encargos.codE=aux_enc.codE and codF=" + codF.ToString
                     comando = New MySqlCommand(query, ligacao)
                     ligacao.Open()
@@ -55,13 +55,13 @@ Public Class frmLogin
                     If txtPass.Text = "" Then
                         If MessageBox.Show("A sua conta encontra-se desprotegida. Deseja aceder às definiçõe da sua conta para colocar uma palavra-passe?", "Sem palavra-passe", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                             frmDefinicoes.Show()
-                            Me.Hide()
+                            Me.Close()
                             Exit Sub
                         End If
                     End If
 
                     frmHome.Show()
-                    Me.Hide()
+                    Me.Close()
                 Else
                     lblErroPass.Text = "Palavra-passe incorreta"
                     AlterarEstado(rctPass, txtPass, pctPass, "errar")

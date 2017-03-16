@@ -7,7 +7,8 @@ Public Class frmEncargos
     Dim leitor As MySqlDataReader
     Dim dtTa_Enc As DataTable = New DataTable("Ta_Enc")
     Dim dsTa_Enc As DataSet = New DataSet
-    Dim dtTa_Per As DataTable = New DataTable("Ta_Per")
+    Dim dtTa_Per(CtrL_MenuCine.DIMTA - 2) As DataTable 'Todas as tabelas exceto a "tabela" FrmHome e FrmDefinicoes
+    '= New DataTable("Ta_Per")
     Dim dsTa_Per As DataSet = New DataSet
 
     Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
@@ -67,15 +68,13 @@ Public Class frmEncargos
         lstTa_Enc.ValueMember = "codTa"
         AddHandler lstTa_Enc.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ta
 
-        'Insiro colunas ao DateTable
-        dtTa_Per.Columns.Add("codPe")
-        dtTa_Per.Columns.Add("nome")
-        'Associo o DataSet à tabela do Datatable.
-        dsTa_Per.Tables.Add(dtTa_Per)
-        'Associo a ListBox ao DataSet.
-        lstTa_Per.DataSource = dsTa_Per.Tables("Ta_Per")
-        lstTa_Per.DisplayMember = "nome"
-        lstTa_Per.ValueMember = "codPe"
+        For x As Integer = 0 To (CtrL_MenuCine.DIMTA - 2) - 1
+            dtTa_Per(x) = New DataTable("Ta_Per")
+
+            'Insiro colunas ao DateTable 
+            dtTa_Per(x).Columns.Add("codPe")
+            dtTa_Per(x).Columns.Add("nome")
+        Next
 
         btnDesativar.Enabled = False
         btnAlterar.Enabled = False
@@ -98,6 +97,7 @@ Public Class frmEncargos
 
     Private Sub SelecaoAlterada_Enc_Ativ()
         If lstEnc_Ativ.SelectedItems.Count > 0 Then
+            Dim codta, codpe As Integer
             btnInserir.Enabled = False
             btnDesativar.Enabled = True
             pnlInformacao.Hide()
@@ -108,13 +108,16 @@ Public Class frmEncargos
 
             dtTa_Enc.Clear()
 
-            query = "select distinct tabelas.nome as nome, aux_enc.codTa as codTa " &
-                    "from aux_enc, tabelas where tabelas.codTa=aux_enc.codta and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
+            query = "select aux_enc.codTa as codTa, tabelas.nome as tabela, aux_enc.codPe, permissoes.nome as permissao " &
+                    "from aux_enc, tabelas where tabelas.codTa=aux_enc.codta and permissoes.codPe=aux_enc.codta and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
             comando = New MySqlCommand(query, ligacao)
             ligacao.Open()
             leitor = comando.ExecuteReader
             While leitor.Read
-                dtTa_Enc.Rows.Add(leitor.GetString("codTa"), leitor.GetString("nome"))
+                If leitor.GetInt32("codTa") <> codta Then
+                    dtTa_Enc.Rows.Add(leitor.GetInt32("codTa"), leitor.GetString("tabela"))
+                End If
+                dtTa_Per(leitor.GetInt32("codTa") - 1).Rows.Add(leitor.GetInt32("codPe"), leitor.GetString("permissao"))
             End While
             ligacao.Dispose()
         End If
@@ -133,19 +136,15 @@ Public Class frmEncargos
     Private Sub SelecaoAlterada_Enc_Ta()
         If Not btnInserir.Enabled And lstTa_Enc.SelectedItems.Count > 0 And lstEnc_Ativ.SelectedItems.Count > 0 Then
             If lstTa_Enc.SelectedValue IsNot Nothing Then
-                dtTa_Per.Clear()
-
-                query = "select distinct permissoes.nome as nome, aux_enc.codPe as codPe " &
-                        "from aux_enc, permissoes where permissoes.codPe=aux_enc.codPe and aux_enc.codTa=" + lstTa_Enc.SelectedValue.ToString + " and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
-                comando = New MySqlCommand(query, ligacao)
-                ligacao.Open()
-                leitor = comando.ExecuteReader
-                While leitor.Read
-                    dtTa_Per.Rows.Add(leitor.GetString("codPe"), leitor.GetString("nome"))
-                End While
-                ligacao.Dispose()
+                dtTa_Per(lstTa_Enc.SelectedValue - 1).Clear()
+                'Associo o DataSet à tabela do Datatable.
+                dsTa_Per.Tables.Add(dtTa_Per(lstTa_Enc.SelectedValue - 1))
+                'Associo a ListBox ao DataSet.
+                lstTa_Per.DataSource = dsTa_Per.Tables("Ta_Per")
+                lstTa_Per.DisplayMember = "nome"
+                lstTa_Per.ValueMember = "codPe"
             Else
-                dtTa_Per.Clear()
+                dtTa_Per(lstTa_Enc.SelectedValue - 1).Clear()
             End If
         End If
     End Sub
@@ -193,7 +192,9 @@ Public Class frmEncargos
         End If
         txtnome.Text = ""
         dtTa_Enc.Clear()
-        dtTa_Per.Clear()
+        For x As Integer = 0 To (CtrL_MenuCine.DIMTA - 2) - 1
+            dtTa_Per(x).Clear()
+        Next
         btnInserir.Enabled = True
     End Sub
 
@@ -209,7 +210,7 @@ Public Class frmEncargos
                 End If
             Next
             If Not encontrou Then
-                dtTa_Per.Rows.Add(lstPermissoes.SelectedValue, lstPermissoes.GetItemText(lstPermissoes.SelectedItem))
+                dtTa_Per(lstTa_Enc.SelectedValue - 1).Rows.Add(lstPermissoes.SelectedValue, lstPermissoes.GetItemText(lstPermissoes.SelectedItem))
                 lstTa_Enc.Tag = True
             Else
                 MessageBox.Show("Não pode adicionar a permissão para '" + lstPermissoes.GetItemText(lstPermissoes.SelectedItem) + "' novamente", "Repetição de permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -224,9 +225,17 @@ Public Class frmEncargos
             If lstTa_Per.SelectedValue IsNot Nothing Then
                 acao("apagar", ligacao, "delete from aux_enc where codTa=" + lstTa_Enc.SelectedValue + " and codPe=" + lstTa_Per.SelectedValue, True)
             End If
-            dtTa_Enc.Rows(lstTa_Per.SelectedIndex).Delete()
+            dtTa_Per(lstTa_Enc.SelectedValue - 1).Rows(lstTa_Per.SelectedIndex).Delete()
         Else
             MessageBox.Show("Não pode remover uma permissão sem que haja primeiro uma na lista adicionada por si", "Sem permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
+        If lstTa_Enc.Items.Count > 0 Then
+            For x As Integer = 0 To lstTa_Enc.Items.Count - 1
+                'tenho de verificar se as dtPe's(lstTa_Enc.selectedvalue-1) têm alguns itens pois senão dou um erro 
+            Next
         End If
     End Sub
 End Class
