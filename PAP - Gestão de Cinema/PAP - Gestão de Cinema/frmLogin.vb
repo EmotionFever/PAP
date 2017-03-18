@@ -55,13 +55,13 @@ Public Class frmLogin
                     If txtPass.Text = "" Then
                         If MessageBox.Show("A sua conta encontra-se desprotegida. Deseja aceder às definiçõe da sua conta para colocar uma palavra-passe?", "Sem palavra-passe", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                             frmDefinicoes.Show()
-                            Me.Close()
+                            Me.Hide()
                             Exit Sub
                         End If
                     End If
 
                     frmHome.Show()
-                    Me.Close()
+                    Me.Hide()
                 Else
                     lblErroPass.Text = "Palavra-passe incorreta"
                     AlterarEstado(rctPass, txtPass, pctPass, "errar")

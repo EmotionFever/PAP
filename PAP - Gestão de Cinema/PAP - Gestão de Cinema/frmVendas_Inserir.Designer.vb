@@ -22,6 +22,7 @@ Partial Class frmVendas_Inserir
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVendas_Inserir))
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.flpitens = New System.Windows.Forms.FlowLayoutPanel()
@@ -30,9 +31,9 @@ Partial Class frmVendas_Inserir
         Me.btnVoltar = New System.Windows.Forms.Button()
         Me.lblprod = New System.Windows.Forms.Label()
         Me.grp1 = New System.Windows.Forms.GroupBox()
-        Me.nmrQuant = New System.Windows.Forms.NumericUpDown()
-        Me.btnConfirmar = New System.Windows.Forms.Button()
         Me.lblquant = New System.Windows.Forms.Label()
+        Me.btnConfirmar = New System.Windows.Forms.Button()
+        Me.nmrQuant = New System.Windows.Forms.NumericUpDown()
         Me.pnl1.SuspendLayout()
         Me.flpcategorias.SuspendLayout()
         Me.grp1.SuspendLayout()
@@ -133,14 +134,16 @@ Partial Class frmVendas_Inserir
         Me.grp1.TabStop = False
         Me.grp1.Text = "Quantos produtos deseja?"
         '
-        'nmrQuant
+        'lblquant
         '
-        Me.nmrQuant.Location = New System.Drawing.Point(9, 39)
-        Me.nmrQuant.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.nmrQuant.Name = "nmrQuant"
-        Me.nmrQuant.Size = New System.Drawing.Size(114, 20)
-        Me.nmrQuant.TabIndex = 23
-        Me.nmrQuant.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.lblquant.AutoSize = True
+        Me.lblquant.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblquant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lblquant.Location = New System.Drawing.Point(141, 41)
+        Me.lblquant.Name = "lblquant"
+        Me.lblquant.Size = New System.Drawing.Size(132, 14)
+        Me.lblquant.TabIndex = 25
+        Me.lblquant.Text = "Só existem x unidades"
         '
         'btnConfirmar
         '
@@ -156,16 +159,14 @@ Partial Class frmVendas_Inserir
         Me.btnConfirmar.Text = "Confirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = False
         '
-        'lblquant
+        'nmrQuant
         '
-        Me.lblquant.AutoSize = True
-        Me.lblquant.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblquant.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lblquant.Location = New System.Drawing.Point(141, 41)
-        Me.lblquant.Name = "lblquant"
-        Me.lblquant.Size = New System.Drawing.Size(132, 14)
-        Me.lblquant.TabIndex = 25
-        Me.lblquant.Text = "Só existem x unidades"
+        Me.nmrQuant.Location = New System.Drawing.Point(9, 39)
+        Me.nmrQuant.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.nmrQuant.Name = "nmrQuant"
+        Me.nmrQuant.Size = New System.Drawing.Size(114, 20)
+        Me.nmrQuant.TabIndex = 23
+        Me.nmrQuant.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'frmVendas_Inserir
         '
@@ -179,6 +180,7 @@ Partial Class frmVendas_Inserir
         Me.Controls.Add(Me.pnl1)
         Me.Controls.Add(Me.flpitens)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmVendas_Inserir"
         Me.Text = "Escolher produto"
         Me.TopMost = True

@@ -59,7 +59,7 @@ Public Class frmClientes
 
     Private Sub CtrL_MenuCine1_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
         CtrL_MenuCine.Sincronizar_acessos(Me, 2)
-        CtrL_MenuCine.Sincronizar_permissoes({tbc1, btnProcurar}, {btnAlterar, pnlAtivar, tbc1}, {btnInserir}) 'O tbc1 'tá em 2 casos já que para alterar preciso de selecionar um registo primeiro. 
+        CtrL_MenuCine.Sincronizar_permissoes({tbc1, btnProcurar}, {btnAlterar, pnlAtivar}, {btnInserir}) 'O tbc1 'tá em 2 casos já que para alterar preciso de selecionar um registo primeiro. 
     End Sub
 
     Private Sub dgvAtivado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvAtivado.CellClick
@@ -119,16 +119,16 @@ Public Class frmClientes
         If str_erro = "" Then
             'Limpo os objetos input do formulário
             txtnome.Text = ""
-            AlterarEstado(rctNome, txtnome, "restaurar")
+            'AlterarEstado(rctNome, txtnome, "restaurar")
 
             mtbNIF.Text = ""
-            AlterarEstado(rctNIF, mtbNIF, "restaurar")
+            'AlterarEstado(rctNIF, mtbNIF, "restaurar")
 
             txtRua.Text = ""
-            AlterarEstado(rctRua, txtRua, "restaurar")
+            'AlterarEstado(rctRua, txtRua, "restaurar")
 
             mtbTlm.Text = ""
-            AlterarEstado(rctTlm, mtbTlm, "restaurar")
+            'AlterarEstado(rctTlm, mtbTlm, "restaurar")
             If cmblocalidade.SelectedValue IsNot Nothing Then
                 'Insiro os dados na base de dados
                 acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
@@ -243,6 +243,7 @@ Public Class frmClientes
     End Sub
 
     Private Sub btnAlterar_Click(sender As System.Object, e As System.EventArgs) Handles btnAlterar.Click
+        Dim codLo As Integer
         Dim str_erro As String = ""
         Dim pquery As String = ""
         Dim averiguar As String = ""
@@ -289,8 +290,33 @@ Public Class frmClientes
                         If pquery <> "" Then
                             pquery += ","
                         End If
-                        pquery += " clientes.codlo=" + cmblocalidade.SelectedValue.ToString
-                        lbl(3).Font = New Font(lbl(3).Font, lbl(3).Font.Style Or FontStyle.Strikeout)
+                        If cmblocalidade.SelectedValue IsNot Nothing Then
+                            pquery += " clientes.codlo=" + cmblocalidade.SelectedValue.ToString
+                            lbl(3).Font = New Font(lbl(3).Font, lbl(3).Font.Style Or FontStyle.Strikeout)
+                        Else
+                            Try
+                                'Inserir a nova localidade
+                                acao("inserir", ligacao, "insert into localidades (nome) values ('" + cmblocalidade.Text + "')", 0)
+
+                                'Descobrir o codLo dessa localidade
+                                comando = New MySqlCommand("select codlo from localidades where nome='" + cmblocalidade.Text + "'", ligacao)
+                                ligacao.Open()
+                                leitor = comando.ExecuteReader
+                                leitor.Read()
+                                codLo = leitor.GetInt32("codlo")
+                                ligacao.Close()
+
+                                'Associá-la ao registo do funcionário
+                                pquery += " clientes.codlo=" + codLo.ToString
+                                encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
+                                cmblocalidade.Text = ""
+                                MessageBox.Show("A localidade " + cmblocalidade.Text + "foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Catch ex As Exception
+                                ligacao.Close()
+                                MessageBox.Show("A localidade " + cmblocalidade.Text + " não foi inserida: " + ex.Message, "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                lbl(3).Font = New Font(lbl(3).Font, lbl(3).Font.Style Or FontStyle.Strikeout)
+                            End Try
+                        End If
                     Else
                         str_erro += averiguar
                     End If
