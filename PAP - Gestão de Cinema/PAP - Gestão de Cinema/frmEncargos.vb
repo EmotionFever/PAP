@@ -118,18 +118,20 @@ Public Class frmEncargos
             Next
 
             query = "select aux_enc.codTa as codTa, tabelas.nome as tabela, aux_enc.codPe as codPe, permissoes.nome as permissao " &
-            "from aux_enc, tabelas, permissoes where permissoes.codPe=aux_enc.codPe and tabelas.codTa=aux_enc.codTa and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString
+            "from aux_enc, tabelas, permissoes where permissoes.codPe=aux_enc.codPe and tabelas.codTa=aux_enc.codTa and aux_enc.codE=" + lstEnc_Ativ.SelectedValue.ToString + " order by aux_enc.codTa"
             comando = New MySqlCommand(query, ligacao)
             ligacao.Open()
             leitor = comando.ExecuteReader
             While leitor.Read
                 If leitor.GetInt32("codTa") <> codta Then
                     codta = leitor.GetInt32("codTa")
+                    MessageBox.Show(codta.ToString + vbTab + leitor.GetString("tabela"))
                     dtTa_Enc.Rows.Add(codta, leitor.GetString("tabela"))
                 End If
                 dtTa_Per(codta - 1).Rows.Add(leitor.GetInt32("codPe"), leitor.GetString("permissao"))
             End While
-            ligacao.Dispose()
+            leitor.Close()
+            ligacao.Close()
         End If
         SelecaoAlterada_Enc_Ta()
     End Sub
@@ -143,6 +145,7 @@ Public Class frmEncargos
     End Sub
 
     Private Sub SelecaoAlterada_Enc_Ta()
+
         If lstTa_Enc.SelectedItems.Count > 0 Then
             'Limpo o DataSet
             dsTa_Per.Tables.Clear()
@@ -176,15 +179,19 @@ Public Class frmEncargos
 
     Private Sub btnRet_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnRet_Ta.Click
         If lstEnc_Ativ.Items.Count > 0 Then
-            If MessageBox.Show("Quer perder todas as permissões da tabela '" + lstTa_Enc.GetItemText(lstTa_Enc.SelectedItem) + "'?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
-                Exit Sub
+            If lstTa_Per.Tag Then
+                If MessageBox.Show("Quer perder todas as permissões da tabela '" + lstTa_Enc.GetItemText(lstTa_Enc.SelectedItem) + "'?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
+                    Exit Sub
+                End If
             End If
-            lstTa_Enc.Enabled = True
+            If lstTa_Enc.Items.Count > 0 Then
+                lstTa_Enc.Enabled = True
+                dtTa_Per(lstTa_Enc.SelectedValue - 1).Clear()
+                dtTa_Enc.Rows(lstTa_Enc.SelectedIndex).Delete()
+            End If
         Else
             MessageBox.Show("Não pode remover uma tabela sem que tenha inserido uma", "Falta de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
-        dtTa_Enc.Rows(lstTa_Enc.SelectedIndex).Delete()
-        dtTa_Per(lstTa_Enc.SelectedValue - 1).Dispose()
     End Sub
 
     Private Sub btnNovo_Click(sender As System.Object, e As System.EventArgs) Handles btnNovo.Click
