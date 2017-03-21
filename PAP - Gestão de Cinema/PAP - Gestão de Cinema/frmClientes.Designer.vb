@@ -294,6 +294,7 @@ Partial Class frmClientes
         Me.dgvAtivado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvAtivado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvAtivado.Location = New System.Drawing.Point(0, 0)
+        Me.dgvAtivado.MultiSelect = False
         Me.dgvAtivado.Name = "dgvAtivado"
         Me.dgvAtivado.ReadOnly = True
         Me.dgvAtivado.RowHeadersVisible = False
@@ -577,6 +578,7 @@ Partial Class frmClientes
         Me.dgvDesativado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvDesativado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvDesativado.Location = New System.Drawing.Point(0, 0)
+        Me.dgvDesativado.MultiSelect = False
         Me.dgvDesativado.Name = "dgvDesativado"
         Me.dgvDesativado.ReadOnly = True
         Me.dgvDesativado.RowHeadersVisible = False
@@ -591,7 +593,7 @@ Partial Class frmClientes
         Me.btnAtivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAtivar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAtivar.ForeColor = System.Drawing.Color.Black
-        Me.btnAtivar.Location = New System.Drawing.Point(5, 112)
+        Me.btnAtivar.Location = New System.Drawing.Point(4, 112)
         Me.btnAtivar.Name = "btnAtivar"
         Me.btnAtivar.Size = New System.Drawing.Size(237, 22)
         Me.btnAtivar.TabIndex = 48
@@ -627,6 +629,7 @@ Partial Class frmClientes
         '
         'pnlAtivar
         '
+        Me.pnlAtivar.Controls.Add(Me.btnDesativar)
         Me.pnlAtivar.Controls.Add(Me.lbl92)
         Me.pnlAtivar.Controls.Add(Me.btnAtivar)
         Me.pnlAtivar.Controls.Add(Me.lbl9)
@@ -634,7 +637,6 @@ Partial Class frmClientes
         Me.pnlAtivar.Controls.Add(Me.lblnome)
         Me.pnlAtivar.Controls.Add(Me.lbl94)
         Me.pnlAtivar.Controls.Add(Me.lbl10)
-        Me.pnlAtivar.Controls.Add(Me.btnDesativar)
         Me.pnlAtivar.Controls.Add(Me.lblNIF)
         Me.pnlAtivar.Controls.Add(Me.lblTlm)
         Me.pnlAtivar.Controls.Add(Me.lbl12)

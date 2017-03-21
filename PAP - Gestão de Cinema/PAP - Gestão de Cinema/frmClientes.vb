@@ -12,12 +12,14 @@ Public Class frmClientes
             If dgvAtivado.SelectedRows.Count > 0 Then
                 btnAlterar.Enabled = True
                 btnDesativar.Enabled = True
+                btnDesativar.Show()
             End If
             btnDesativar.Show()
         End If
         If tbc1.SelectedIndex = 1 Then
             btnInserir.Enabled = False
             btnAlterar.Enabled = False
+            btnAtivar.Enabled = True
             btnDesativar.Hide()
         End If
     End Sub
@@ -59,7 +61,10 @@ Public Class frmClientes
 
     Private Sub CtrL_MenuCine1_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
         CtrL_MenuCine.Sincronizar_acessos(Me, 2)
-        CtrL_MenuCine.Sincronizar_permissoes({tbc1, btnProcurar}, {btnAlterar, pnlAtivar}, {btnInserir}) 'O tbc1 'tá em 2 casos já que para alterar preciso de selecionar um registo primeiro. 
+        CtrL_MenuCine.Sincronizar_permissoes({btnProcurar}, {btnAlterar, pnlAtivar}, {btnInserir})
+        If Not (btnProcurar.Visible Or btnAlterar.Visible) Then
+            tbc1.Hide()
+        End If
     End Sub
 
     Private Sub dgvAtivado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvAtivado.CellClick
@@ -119,13 +124,13 @@ Public Class frmClientes
         If str_erro = "" Then
             'Limpo os objetos input do formulário
             txtnome.Text = ""
-            'AlterarEstado(rctNome, txtnome, "restaurar")
+            AlterarEstado(rctNome, txtnome, "restaurar")
 
             mtbNIF.Text = ""
-            'AlterarEstado(rctNIF, mtbNIF, "restaurar")
+            AlterarEstado(rctNIF, mtbNIF, "restaurar")
 
             txtRua.Text = ""
-            'AlterarEstado(rctRua, txtRua, "restaurar")
+            AlterarEstado(rctRua, txtRua, "restaurar")
 
             mtbTlm.Text = ""
             'AlterarEstado(rctTlm, mtbTlm, "restaurar")

@@ -26,10 +26,11 @@ Public Class frmEncargos
                 pnlInformacao.Show()
             Else
                 pnlInformacao.Hide()
-                btnAlterar.Enabled = False
                 btnAtivar.Enabled = True
             End If
             btnDesativar.Hide()
+            btnInserir.Enabled = False
+            btnAlterar.Enabled = False
         End If
     End Sub
 
@@ -125,7 +126,6 @@ Public Class frmEncargos
             While leitor.Read
                 If leitor.GetInt32("codTa") <> codta Then
                     codta = leitor.GetInt32("codTa")
-                    MessageBox.Show(codta.ToString + vbTab + leitor.GetString("tabela"))
                     dtTa_Enc.Rows.Add(codta, leitor.GetString("tabela"))
                 End If
                 dtTa_Per(codta - 1).Rows.Add(leitor.GetInt32("codPe"), leitor.GetString("permissao"))
@@ -179,8 +179,8 @@ Public Class frmEncargos
 
     Private Sub btnRet_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnRet_Ta.Click
         If lstEnc_Ativ.Items.Count > 0 Then
-            If lstTa_Per.Tag Then
-                If MessageBox.Show("Quer perder todas as permissões da tabela '" + lstTa_Enc.GetItemText(lstTa_Enc.SelectedItem) + "'?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
+            If lstTa_Per.Tag Or lstTa_Per.Items.Count > 0 Then
+                If MessageBox.Show("Quer perder todas as permissões da tabela '" + lstTa_Enc.GetItemText(lstTa_Enc.SelectedItem) + "'?", "Limpeza da tabela", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
                     Exit Sub
                 End If
             End If
@@ -319,7 +319,7 @@ Public Class frmEncargos
                                 lstTa_Enc.SelectedItem = item
                                 MessageBox.Show("Não pode alterar um encargo para ficar com tabelas sem qualquer permissão. " &
                                 "Se a lista avermelhada à esquerda tiver alguma tabela indesejada remova-a", "Tabelas sem permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                                Exit For
+                                Exit Sub
                             End If
                         Next
                         Try
@@ -351,6 +351,7 @@ Public Class frmEncargos
                 MessageBox.Show("Não pode deixar o campo nome vazio", "Sem nome", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 AlterarEstado(rctNome, txtnome, "errar")
             End If
+        Else
             MessageBox.Show("Não fez nenhuma alteração, portanto não necesita de alterar", "Salvação desnecessária", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
@@ -362,6 +363,16 @@ Public Class frmEncargos
             End If
         End If
         acao("desativar", ligacao, "update encargos set ativado=0 where codE=" + lstEnc_Ativ.SelectedValue.ToString, True)
+        ver()
+    End Sub
+
+    Private Sub btnAtivar_Click(sender As System.Object, e As System.EventArgs) Handles btnAtivar.Click
+        If lstTa_Enc.Tag Or lstTa_Per.Tag Or txtnome.Tag Then
+            If MessageBox.Show("Deseja perder as últimas alterações que fez ao encargo?", "Limpeza das últimas informações", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
+                Exit Sub
+            End If
+        End If
+        acao("ativar", ligacao, "update encargos set ativado=1 where codE=" + lstEnc_Desa.SelectedValue.ToString, True)
         ver()
     End Sub
 End Class

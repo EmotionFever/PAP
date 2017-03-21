@@ -23,8 +23,8 @@ Partial Class frmEncargos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEncargos))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.pctTitulo = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
@@ -157,14 +157,14 @@ Partial Class frmEncargos
         Me.dgvEnc_Ta_Ativ.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvEnc_Ta_Ativ.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvEnc_Ta_Ativ.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEnc_Ta_Ativ.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEnc_Ta_Ativ.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvEnc_Ta_Ativ.Dock = System.Windows.Forms.DockStyle.Right
         Me.dgvEnc_Ta_Ativ.Location = New System.Drawing.Point(159, 0)
         Me.dgvEnc_Ta_Ativ.MultiSelect = False
@@ -205,14 +205,14 @@ Partial Class frmEncargos
         Me.dgvEnc_Ta_Desa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvEnc_Ta_Desa.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvEnc_Ta_Desa.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEnc_Ta_Desa.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEnc_Ta_Desa.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvEnc_Ta_Desa.Dock = System.Windows.Forms.DockStyle.Right
         Me.dgvEnc_Ta_Desa.Location = New System.Drawing.Point(159, 0)
         Me.dgvEnc_Ta_Desa.Name = "dgvEnc_Ta_Desa"
@@ -468,7 +468,7 @@ Partial Class frmEncargos
         Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDesativar.ForeColor = System.Drawing.Color.Black
-        Me.btnDesativar.Location = New System.Drawing.Point(346, 262)
+        Me.btnDesativar.Location = New System.Drawing.Point(345, 262)
         Me.btnDesativar.Name = "btnDesativar"
         Me.btnDesativar.Size = New System.Drawing.Size(288, 26)
         Me.btnDesativar.TabIndex = 65
@@ -504,9 +504,9 @@ Partial Class frmEncargos
         Me.btnAtivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAtivar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAtivar.ForeColor = System.Drawing.Color.Black
-        Me.btnAtivar.Location = New System.Drawing.Point(346, 262)
+        Me.btnAtivar.Location = New System.Drawing.Point(345, 262)
         Me.btnAtivar.Name = "btnAtivar"
-        Me.btnAtivar.Size = New System.Drawing.Size(287, 26)
+        Me.btnAtivar.Size = New System.Drawing.Size(288, 26)
         Me.btnAtivar.TabIndex = 68
         Me.btnAtivar.Text = "Ativar"
         Me.btnAtivar.UseVisualStyleBackColor = False
@@ -522,13 +522,14 @@ Partial Class frmEncargos
         '
         'pnlControlos
         '
+        Me.pnlControlos.Controls.Add(Me.btnDesativar)
+        Me.pnlControlos.Controls.Add(Me.btnAtivar)
         Me.pnlControlos.Controls.Add(Me.lbl2)
         Me.pnlControlos.Controls.Add(Me.txtnome)
         Me.pnlControlos.Controls.Add(Me.Label2)
         Me.pnlControlos.Controls.Add(Me.btnNovo)
         Me.pnlControlos.Controls.Add(Me.Label1)
         Me.pnlControlos.Controls.Add(Me.lstTabelas)
-        Me.pnlControlos.Controls.Add(Me.btnDesativar)
         Me.pnlControlos.Controls.Add(Me.lstTa_Enc)
         Me.pnlControlos.Controls.Add(Me.btnAlterar)
         Me.pnlControlos.Controls.Add(Me.btnAdi_Ta)
@@ -539,7 +540,6 @@ Partial Class frmEncargos
         Me.pnlControlos.Controls.Add(Me.btnRet_Pe)
         Me.pnlControlos.Controls.Add(Me.lstPermissoes)
         Me.pnlControlos.Controls.Add(Me.ShapeContainer2)
-        Me.pnlControlos.Controls.Add(Me.btnAtivar)
         Me.pnlControlos.Location = New System.Drawing.Point(3, 162)
         Me.pnlControlos.Name = "pnlControlos"
         Me.pnlControlos.Size = New System.Drawing.Size(635, 290)

@@ -12,12 +12,14 @@
 
     Public Sub ApagarProduto(sender As System.Object, e As System.EventArgs)
         Dim btnx As Button = DirectCast(sender, Button)
-
-
     End Sub
 
     Private Sub btnOutro_Click(sender As System.Object, e As System.EventArgs) Handles btnOutro.Click
-        frmClientes.Show()
-        Me.Close()
+        If frmLogin.ass(2).permissao(2) Then
+            frmClientes.Show()
+            Me.Close()
+        Else
+            MessageBox.Show("Não tem permissão para inserir novos clientes", "Insersão impossível", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
     End Sub
 End Class

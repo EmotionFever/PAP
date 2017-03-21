@@ -118,7 +118,7 @@ Partial Class frmVendas
         Me.lbl3.Name = "lbl3"
         Me.lbl3.Size = New System.Drawing.Size(314, 23)
         Me.lbl3.TabIndex = 19
-        Me.lbl3.Text = "Produtos selecionados"
+        Me.lbl3.Text = "Artigos selecionados"
         Me.lbl3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbl2
@@ -191,7 +191,7 @@ Partial Class frmVendas
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(76, 15)
         Me.Label3.TabIndex = 28
-        Me.Label3.Text = "Funcionario:"
+        Me.Label3.Text = "Funcionário:"
         '
         'rctIII
         '
