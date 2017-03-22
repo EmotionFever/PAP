@@ -9,6 +9,7 @@ Public Class frmEncargos
     Dim dsTa_Enc As DataSet = New DataSet
     Dim dtTa_Per(CtrL_MenuCine.DIMTA - 2) As DataTable 'Todas as tabelas exceto a "tabela" FrmHome e FrmDefinicoes
     Dim dsTa_Per As DataSet = New DataSet
+    Dim handler(3) As Boolean
 
     Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
         If tbc1.SelectedIndex = 0 Then
@@ -36,9 +37,11 @@ Public Class frmEncargos
 
     Sub ver()
         'Mostrar Ativado
-        RemoveHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
+        'RemoveHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
+        handler(0) = False
         encher(lstEnc_Ativ, ligacao, "encargos", "nome", "codE", "select codE, nome from encargos where ativado=1")
         lstEnc_Ativ.ClearSelected()
+        handler(0) = True
         AddHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
 
         'Covém desativar estes botões
@@ -58,9 +61,11 @@ Public Class frmEncargos
         End If
 
         'Mostrar DESAtivado
-        RemoveHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Desa
+        'RemoveHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Desa
+        handler(1) = False
         encher(lstEnc_Desa, ligacao, "encargos", "nome", "codE", "select codE, nome from encargos where ativado=0")
         lstEnc_Desa.ClearSelected()
+        handler(1) = True
         AddHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Desa
         pnlInformacao.Show()
     End Sub
@@ -75,7 +80,7 @@ Public Class frmEncargos
         lstTa_Enc.DataSource = dsTa_Enc.Tables("Ta_Enc")
         lstTa_Enc.DisplayMember = "nome"
         lstTa_Enc.ValueMember = "codTa"
-        AddHandler lstTa_Enc.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ta
+        handler(2) = True
 
         For x As Integer = 0 To (CtrL_MenuCine.DIMTA - 2) - 1
             dtTa_Per(x) = New DataTable("Ta_Per")
@@ -85,6 +90,7 @@ Public Class frmEncargos
         Next
 
         ver()
+        AddHandler lstTa_Enc.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ta
 
         'Aqui, encho a combobox com dados para o utilizador escolher
         encher(lstTabelas, ligacao, "tabelas", "nome", "codta", "select codta, nome from tabelas")
@@ -101,7 +107,7 @@ Public Class frmEncargos
 
 
     Private Sub SelecaoAlterada_Enc_Ativ()
-        If lstEnc_Ativ.SelectedItems.Count > 0 Then
+        If lstEnc_Ativ.SelectedItems.Count > 0 And handler(0) Then
             Dim codta As Integer = 0
             btnInserir.Enabled = False
             btnDesativar.Enabled = True
@@ -127,6 +133,7 @@ Public Class frmEncargos
                 If leitor.GetInt32("codTa") <> codta Then
                     codta = leitor.GetInt32("codTa")
                     dtTa_Enc.Rows.Add(codta, leitor.GetString("tabela"))
+                    MessageBox.Show(codta.ToString + " " + leitor.GetString("tabela"))
                 End If
                 dtTa_Per(codta - 1).Rows.Add(leitor.GetInt32("codPe"), leitor.GetString("permissao"))
             End While
@@ -137,7 +144,8 @@ Public Class frmEncargos
     End Sub
 
     Private Sub SelecaoAlterada_Enc_Desa()
-        If lstEnc_Desa.SelectedItems.Count > 0 Then
+        If lstEnc_Desa.SelectedItems.Count > 0 And handler(1) Then
+            btnAtivar.Enabled = True
             pnlInformacao.Hide()
             mostrar(dgvEnc_Ta_Desa, ligacao, "aux_enc", "codAE", "select aux_enc.codAE as codAE, tabelas.nome as tabela, group_concat(' ' , permissoes.nome) as permissoes " &
             "from aux_enc, permissoes, tabelas where aux_enc.codE=" + lstEnc_Desa.SelectedValue.ToString + " and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta group by tabelas.codta")
@@ -145,8 +153,7 @@ Public Class frmEncargos
     End Sub
 
     Private Sub SelecaoAlterada_Enc_Ta()
-
-        If lstTa_Enc.SelectedItems.Count > 0 Then
+        If lstTa_Enc.SelectedItems.Count > 0 And handler(2) Then
             'Limpo o DataSet
             dsTa_Per.Tables.Clear()
             'Associo o DataSet à tabela do Datatable.
