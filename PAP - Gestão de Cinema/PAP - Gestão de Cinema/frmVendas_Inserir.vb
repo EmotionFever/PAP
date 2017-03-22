@@ -88,7 +88,7 @@ Public Class frmVendas_Inserir
                 prod(cont_prod).lbl(2) = New Label
                 prod(cont_prod).lbl(2).Location = New System.Drawing.Point(55, 38)
                 prod(cont_prod).lbl(2).Font = New Font("Arial", 8, FontStyle.Regular)
-                prod(cont_prod).lbl(2).Text = "Preço: " + Math.Round(leitor.GetDouble("preco"), 2).ToString + " €"
+                prod(cont_prod).lbl(2).Text = "Preço: " + String.Format("{0:F2}", leitor.GetDouble("preco")) + " €"
                 prod(cont_prod).lbl(2).AutoSize = False
                 prod(cont_prod).lbl(2).Size = New System.Drawing.Size(250, 20)
                 prod(cont_prod).pnl.Controls.Add(prod(cont_prod).lbl(2))
@@ -220,7 +220,7 @@ Public Class frmVendas_Inserir
                     lbl(cont_bilhete + 3) = New Label
                     lbl(cont_bilhete + 3).Location = New System.Drawing.Point(55, 58)
                     lbl(cont_bilhete + 3).Font = New Font("Arial", 8, FontStyle.Regular)
-                    lbl(cont_bilhete + 3).Text = "Preço: " + leitor.GetString("preco") + " €"
+                    lbl(cont_bilhete + 3).Text = "Preço: " + String.Format("{0:F2}", leitor.GetDouble("preco")) + " €"
                     lbl(cont_bilhete + 3).AutoSize = False
                     lbl(cont_bilhete + 3).Size = New System.Drawing.Size(250, 20)
                     pnl(cont_bilhete).Controls.Add(lbl(cont_bilhete + 3))
@@ -262,6 +262,7 @@ Public Class frmVendas_Inserir
         flpcategorias.Show()
         flpitens.Hide()
         flpitens.Controls.Clear() 'Os objetos dentro do FlowLayoutPanel desaparecem
+        Me.Size = New System.Drawing.Size(366, 445)
     End Sub
 
     Private Sub ProdutoClicado(ByVal sender As Object, ByVal e As EventArgs)
@@ -339,7 +340,7 @@ Public Class frmVendas_Inserir
                 frmVendas.art(frmVendas.cont_art).lbl(1).Location = New System.Drawing.Point(72, 27)
                 frmVendas.art(frmVendas.cont_art).lbl(1).Font = New Font("Arial", 8, FontStyle.Regular)
                 frmVendas.art(frmVendas.cont_art).lbl(1).ForeColor = Color.White
-                frmVendas.art(frmVendas.cont_art).lbl(1).Text = form_quant.ToString + " x " + Math.Round(leitor.GetDouble("preco"), 2).ToString
+                frmVendas.art(frmVendas.cont_art).lbl(1).Text = form_quant.ToString + " unidades x " + String.Format("{0:F2}", leitor.GetDouble("preco")) + " €"
                 frmVendas.art(frmVendas.cont_art).lbl(1).AutoSize = False
                 frmVendas.art(frmVendas.cont_art).lbl(1).Size = New System.Drawing.Size(210, 20)
                 frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).lbl(1))
@@ -348,7 +349,7 @@ Public Class frmVendas_Inserir
                 frmVendas.art(frmVendas.cont_art).lbl(2).Location = New System.Drawing.Point(72, 49)
                 frmVendas.art(frmVendas.cont_art).lbl(2).Font = New Font("Arial", 8, FontStyle.Regular)
                 frmVendas.art(frmVendas.cont_art).lbl(2).ForeColor = Color.White
-                frmVendas.art(frmVendas.cont_art).lbl(2).Text = "Preço Total: " + Math.Round(leitor.GetDouble("preco") * form_quant, 2).ToString + " €"
+                frmVendas.art(frmVendas.cont_art).lbl(2).Text = "Preço Total: " + String.Format("{0:F2}", leitor.GetDouble("preco")) + " €"
                 frmVendas.art(frmVendas.cont_art).lbl(2).AutoSize = False
                 frmVendas.art(frmVendas.cont_art).lbl(2).Size = New System.Drawing.Size(210, 20)
                 frmVendas.art(frmVendas.cont_art).pnl.Controls.Add(frmVendas.art(frmVendas.cont_art).lbl(2))
