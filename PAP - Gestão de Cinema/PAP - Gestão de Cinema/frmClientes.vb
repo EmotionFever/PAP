@@ -111,15 +111,13 @@ Public Class frmClientes
         Dim str_erro As String = ""
         str_erro += verificacao(rctNome, txtnome)
         str_erro += verificacao(rctNIF, mtbNIF)
-        If txtRua.Text <> "" Then
-
+        If txtRua.Text <> "" Then 'Este campo não é obrigatório
             str_erro += verificacao(rctRua, txtRua)
         End If
         str_erro += verificacao(rctLocalidade, cmblocalidade)
         If mtbTlm.Text <> "" Then
             str_erro += verificacao(rctTlm, mtbTlm)
         End If
-
 
         If str_erro = "" Then
             'Limpo os objetos input do formulário
