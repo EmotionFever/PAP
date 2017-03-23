@@ -13,6 +13,7 @@ Public Class frmEncargos
 
     Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
         If tbc1.SelectedIndex = 0 Then
+            pnlProibicao.Hide()
             If lstEnc_Ativ.SelectedItem Is Nothing Then
                 pnlInformacao.Show()
             Else
@@ -23,6 +24,7 @@ Public Class frmEncargos
             btnDesativar.Show()
         End If
         If tbc1.SelectedIndex = 1 Then
+            pnlProibicao.Show()
             If lstEnc_Desa.SelectedItem Is Nothing Then
                 pnlInformacao.Show()
             Else
@@ -71,6 +73,7 @@ Public Class frmEncargos
     End Sub
 
     Private Sub frmEncargos_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        pnlProibicao.Location = New Point(0, 0)
         'Insiro colunas ao DateTable
         dtTa_Enc.Columns.Add("codTa")
         dtTa_Enc.Columns.Add("nome")

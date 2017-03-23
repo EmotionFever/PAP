@@ -8,6 +8,7 @@ Public Class frmClientes
 
     Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
         If tbc1.SelectedIndex = 0 Then
+            pnlProibicao.Hide()
             btnInserir.Enabled = True
             If dgvAtivado.SelectedRows.Count > 0 Then
                 btnAlterar.Enabled = True
@@ -17,6 +18,7 @@ Public Class frmClientes
             btnDesativar.Show()
         End If
         If tbc1.SelectedIndex = 1 Then
+            pnlProibicao.Show()
             btnInserir.Enabled = False
             btnAlterar.Enabled = False
             btnAtivar.Enabled = True
@@ -43,6 +45,7 @@ Public Class frmClientes
     End Sub
 
     Private Sub frmClientes_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+        pnlProibicao.Location = New Point(0, 3)
         btnDesativar.Enabled = False
         btnAlterar.Enabled = False
 
