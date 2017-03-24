@@ -134,7 +134,7 @@ Public Class frmClientes
             AlterarEstado(rctRua, txtRua, "restaurar")
 
             mtbTlm.Text = ""
-            'AlterarEstado(rctTlm, mtbTlm, "restaurar")
+            AlterarEstado(rctTlm, mtbTlm, "restaurar")
             If cmblocalidade.SelectedValue IsNot Nothing Then
                 'Insiro os dados na base de dados
                 acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
@@ -157,7 +157,7 @@ Public Class frmClientes
 
                     'Associá-la ao registo do funcionário
                     acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
-               "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + codLo + ",'" + mtbTlm.Text + "',1)", 1)
+                    "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + codLo + ",'" + mtbTlm.Text + "',1)", 1)
 
                     encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
                     cmblocalidade.Text = ""

@@ -115,14 +115,21 @@ Public Class frmFuncionarios
         Dim str_erro As String = ""
         str_erro += verificacao(rctNome, txtnome)
         str_erro += verificacao(rctLocalidade, cmblocalidade)
+        If DateTime.Compare(dtpDatanasc.Value, DateTime.Today) < 16 Then
+            AlterarEstado(rctDatanasc, "errar")
+            str_erro += "O funcionário tem de ter mais de 16 anos para trabalhar. "
+        End If
+        If txtrua.Text <> "" Then
+            str_erro += verificacao(rctRua, txtrua)
+        End If
+        If CInt(chkOrdenado.Text) < 557 Then
+            str_erro += "O ordenado tem de ser igual ou superior a 557 €. "
+        End If
+        str_erro += verificacao(rctOrdenado, mtbTlm)
+        If txtPass.Text <> "" Then
+            str_erro += verificacao(rctPass, txtPass)
+        End If
 
-        If txtRua.Text <> "" Then
-            str_erro += verificacao(rctDatanasc, txtRua)
-        End If
-        str_erro += verificacao(rctRua, cmblocalidade)
-        If mtbTlm.Text <> "" Then
-            str_erro += verificacao(rctOrdenado, mtbTlm)
-        End If
 
 
         If str_erro = "" Then
@@ -133,15 +140,15 @@ Public Class frmFuncionarios
             mtbNIF.Text = ""
             AlterarEstado(rctNIF, mtbNIF, "restaurar")
 
-            txtRua.Text = ""
-            AlterarEstado(rctDatanasc, txtRua, "restaurar")
+            txtrua.Text = ""
+            AlterarEstado(rctDatanasc, txtrua, "restaurar")
 
             mtbTlm.Text = ""
             'AlterarEstado(rctTlm, mtbTlm, "restaurar")
             If cmblocalidade.SelectedValue IsNot Nothing Then
                 'Insiro os dados na base de dados
                 acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
-                "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + cmblocalidade.SelectedValue.ToString + ",'" + mtbTlm.Text + "',1)", 1)
+                "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtrua.Text + "', " + cmblocalidade.SelectedValue.ToString + ",'" + mtbTlm.Text + "',1)", 1)
 
                 'Volto a mostrar a tabela, desta vez, atualizada.
                 ver()
@@ -160,7 +167,7 @@ Public Class frmFuncionarios
 
                     'Associá-la ao registo do funcionário
                     acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
-               "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + codLo + ",'" + mtbTlm.Text + "',1)", 1)
+               "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtrua.Text + "', " + codLo + ",'" + mtbTlm.Text + "',1)", 1)
 
                     encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
                     cmblocalidade.Text = ""
