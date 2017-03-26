@@ -9,8 +9,7 @@ Public Class frmVendas_Inserir
     Dim cont_prod As Integer = 0
     Dim cont_genero As Integer = 0
     Dim cont_bilhete As Integer = 0
-    Public Const MAX_PRODUTOS As Integer = 50 ' A base de dados não deve ter mais que «MAX_PRODUTOS» produtos!!!!
-    Public prod(MAX_PRODUTOS) As Produto
+    Public prod(frmVendas.prod_total) As Produto
     Dim form_quant As Integer = 0
     Dim pos_corrente As Integer
     Private Sub frmVendas_Inserir_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -19,82 +18,19 @@ Public Class frmVendas_Inserir
         'Guardo todos mas TODOS os produtos no array prod(MAX_PRODUTOS)
 
         ''''''''Try
-        query = "select count(codP) as registos from produtos"
-        comando = New MySqlCommand(query, ligacao)
-        ligacao.Open()
-        leitor = comando.ExecuteReader
-        leitor.Read()
-        registos = leitor.GetInt32("registos")
-        ligacao.Dispose()
 
         If registos > 0 Then
 
             '2ª Ligação
-            query = "select * from produtos"
+            query = "select codP, nome, stock, preco, ativado, imagem, generos.codG as codG, generos.nome as genero from produtos, generos where generos.codG=produtos.codG and ativado=1"
             comando = New MySqlCommand(query, ligacao)
 
             ligacao.Open()
             leitor = comando.ExecuteReader
             While (leitor.Read)
-
                 prod(cont_prod) = New Produto
-                prod(cont_prod).codP = leitor.GetInt32("codP") ' Guardo o CodP na respetiva posição do array do produto
-                prod(cont_prod).codG = leitor.GetInt32("codG") ' Guardo o CodG na respetiva posição do array do produto
-
-                prod(cont_prod).pnl = New Panel
-                prod(cont_prod).pnl.Size = New System.Drawing.Size(310, 58) 'atribuir tamanho
-                prod(cont_prod).pnl.BackColor = Color.Silver
-                prod(cont_prod).pnl.BorderStyle = BorderStyle.Fixed3D
-
-                prod(cont_prod).btn = New Button
-                prod(cont_prod).btn.Location = New System.Drawing.Point(268, 17)
-                prod(cont_prod).btn.AutoSize = False
-                prod(cont_prod).btn.Size = New System.Drawing.Size(25, 25)
-                prod(cont_prod).btn.BackgroundImage = My.Resources.add
-                prod(cont_prod).btn.Tag = cont_prod
-                prod(cont_prod).btn.BackgroundImageLayout = ImageLayout.Zoom
-                prod(cont_prod).btn.FlatStyle = FlatStyle.Flat
-                prod(cont_prod).btn.FlatAppearance.BorderSize = 0
-
-                prod(cont_prod).pnl.Controls.Add(prod(cont_prod).btn)
-                prod(cont_prod).btn.BringToFront()
-                AddHandler prod(cont_prod).btn.Click, AddressOf ProdutoClicado
-
-                prod(cont_prod).pct = New PictureBox
-                prod(cont_prod).pct.Size = New System.Drawing.Size(54, 54)
-                prod(cont_prod).pct.Location = New System.Drawing.Point(0, 0)
-                'prod(contador).pct.BackgroundImage = «« Imagem »» -------> <---------
-                prod(cont_prod).pct.BackgroundImageLayout = ImageLayout.Zoom
-                prod(cont_prod).pnl.Controls.Add(prod(cont_prod).pct)
-
-                prod(cont_prod).lbl(0) = New Label
-                prod(cont_prod).lbl(0).Location = New System.Drawing.Point(55, 0)
-                prod(cont_prod).lbl(0).Font = New Font("Arial", 8, FontStyle.Bold)
-                prod(cont_prod).lbl(0).Text = "Nome: " + leitor.GetString("nome")
-                prod(cont_prod).lbl(0).AutoEllipsis = True 'Coloca "..." se o texto exceder o tamanho da label
-                prod(cont_prod).lbl(0).AutoSize = False
-                prod(cont_prod).lbl(0).Size = New System.Drawing.Size(250, 20)
-                prod(cont_prod).pnl.Controls.Add(prod(cont_prod).lbl(0))
-
-                prod(cont_prod).lbl(1) = New Label
-                prod(cont_prod).lbl(1).Location = New System.Drawing.Point(55, 19)
-                prod(cont_prod).lbl(1).Font = New Font("Arial", 8, FontStyle.Regular)
-                prod(cont_prod).lbl(1).Text = "Stock: " + leitor.GetUInt32("stock").ToString
-                prod(cont_prod).quant = leitor.GetUInt32("stock")
-                prod(cont_prod).lbl(1).AutoSize = False
-                prod(cont_prod).lbl(1).Size = New System.Drawing.Size(250, 20)
-                prod(cont_prod).pnl.Controls.Add(prod(cont_prod).lbl(1))
-
-                prod(cont_prod).lbl(2) = New Label
-                prod(cont_prod).lbl(2).Location = New System.Drawing.Point(55, 38)
-                prod(cont_prod).lbl(2).Font = New Font("Arial", 8, FontStyle.Regular)
-                prod(cont_prod).lbl(2).Text = "Preço: " + String.Format("{0:F2}", leitor.GetDouble("preco")) + " €"
-                prod(cont_prod).lbl(2).AutoSize = False
-                prod(cont_prod).lbl(2).Size = New System.Drawing.Size(250, 20)
-                prod(cont_prod).pnl.Controls.Add(prod(cont_prod).lbl(2))
-
-
-
+                prod(cont_prod).criar_prod(leitor.GetInt32("codP"), leitor.GetString("nome"), , leitor.GetDouble("preco"), leitor.GetInt32("codG"), leitor.GetInt32("genero"), leitor.GetInt32("stock"), cont_prod, flpitens) 'Só falta a imagem
+                AddHandler prod(cont_prod).btnImagem.Click, AddressOf ProdutoClicado
                 cont_prod += 1
             End While
 

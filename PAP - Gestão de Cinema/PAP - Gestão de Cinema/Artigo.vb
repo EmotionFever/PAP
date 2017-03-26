@@ -7,4 +7,6 @@
     Public Cod As Integer 'Cod de um produto ou de um bilhete
     Public query As String ' Se a string for ≠ de vazio significa que terá guardada um query para INSERIR um novo bilhete (registo) na tabela BILHETES - ou seja, o artigo é um bilhete
     Public quant As Integer 'Guarda a quantidade de artigos da venda
+    Public art_ant As Artigo
+    Public art_seg As Artigo
 End Class

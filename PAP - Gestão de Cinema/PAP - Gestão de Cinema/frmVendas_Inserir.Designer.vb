@@ -42,7 +42,7 @@ Partial Class frmVendas_Inserir
         '
         'pnl1
         '
-        Me.pnl1.BackColor = System.Drawing.Color.DarkOrange
+        Me.pnl1.BackColor = System.Drawing.Color.Thistle
         Me.pnl1.Controls.Add(Me.lbl1)
         Me.pnl1.Location = New System.Drawing.Point(11, 12)
         Me.pnl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -86,6 +86,7 @@ Partial Class frmVendas_Inserir
         Me.btnBilhetes.BackColor = System.Drawing.Color.CornflowerBlue
         Me.btnBilhetes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBilhetes.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnBilhetes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBilhetes.Location = New System.Drawing.Point(3, 3)
         Me.btnBilhetes.Name = "btnBilhetes"
         Me.btnBilhetes.Size = New System.Drawing.Size(154, 61)
@@ -147,7 +148,7 @@ Partial Class frmVendas_Inserir
         '
         'btnConfirmar
         '
-        Me.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnConfirmar.BackColor = System.Drawing.Color.Thistle
         Me.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnConfirmar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnConfirmar.ForeColor = System.Drawing.Color.Black

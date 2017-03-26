@@ -125,11 +125,11 @@ Module mdlAcoes
             cmb.ValueMember = chave_primaria
         Else
             ligacao.Close()
-            MessageBox.Show("Parametro de entrada do procedimento Encher inválido", "Erro de programação", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Parametro de entrada do procedimento Encher são inválidos", "Erro de programação", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
-    Public Sub acao(ByVal objetivo As String, ByRef ligacao As MySqlConnection, ByVal ordem As String, MessagemAutomatica As Boolean) 'Comandos
+    Public Sub acao(ByVal objetivo As String, ByRef ligacao As MySqlConnection, ByVal ordem As String, ByVal MessagemAutomatica As Boolean) 'Comandos
         Dim comando As MySqlCommand = New MySqlCommand
 
         comando.Connection = ligacao
@@ -141,4 +141,17 @@ Module mdlAcoes
             MessageBox.Show("O ato de " + objetivo + " foi realizado com sucesso", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
+
+    Public Function ter(ByRef ligacao As MySqlConnection, ByVal campo As String, ByVal query As String) As Integer
+        Dim comando As MySqlCommand = New MySqlCommand(query, ligacao)
+        Dim leitor As MySqlDataReader
+        Dim valor As Integer = 0
+        ligacao.Open()
+        leitor = comando.ExecuteReader
+        If leitor.Read Then
+            valor = leitor.GetInt32(campo)
+        End If
+        ligacao.Close()
+        Return valor
+    End Function
 End Module

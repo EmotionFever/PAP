@@ -98,4 +98,15 @@ Public Class frmLogin
             ass(a) = New Acesso
         Next
     End Sub
+
+    Protected Overrides Function ProcessCmdKey(ByRef msg As System.Windows.Forms.Message, _
+                                           ByVal keyData As System.Windows.Forms.Keys) _
+                                           As Boolean
+
+        If msg.WParam.ToInt32() = CInt(Keys.Enter) Then
+            verificacao()
+            Return True
+        End If
+        Return MyBase.ProcessCmdKey(msg, keyData)
+    End Function
 End Class

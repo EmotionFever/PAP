@@ -136,7 +136,6 @@ Public Class frmEncargos
                 If leitor.GetInt32("codTa") <> codta Then
                     codta = leitor.GetInt32("codTa")
                     dtTa_Enc.Rows.Add(codta, leitor.GetString("tabela"))
-                    MessageBox.Show(codta.ToString + " " + leitor.GetString("tabela"))
                 End If
                 dtTa_Per(codta - 1).Rows.Add(leitor.GetInt32("codPe"), leitor.GetString("permissao"))
             End While

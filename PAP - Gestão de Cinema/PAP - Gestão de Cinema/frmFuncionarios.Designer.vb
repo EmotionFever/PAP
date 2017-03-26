@@ -23,9 +23,8 @@ Partial Class frmFuncionarios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFuncionarios))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
@@ -36,6 +35,11 @@ Partial Class frmFuncionarios
         Me.tbpDesativado = New System.Windows.Forms.TabPage()
         Me.dgvDesativado = New System.Windows.Forms.DataGridView()
         Me.pnlControlos = New System.Windows.Forms.Panel()
+        Me.pnlProibicao = New System.Windows.Forms.Panel()
+        Me.pct3 = New System.Windows.Forms.PictureBox()
+        Me.lblT = New System.Windows.Forms.Label()
+        Me.lblHammer = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlAtivar = New System.Windows.Forms.Panel()
         Me.lblTlm = New System.Windows.Forms.Label()
         Me.lbl87 = New System.Windows.Forms.Label()
@@ -84,11 +88,7 @@ Partial Class frmFuncionarios
         Me.rctDatanasc = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctLocalidade = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctNome = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.pnlProibicao = New System.Windows.Forms.Panel()
-        Me.pct3 = New System.Windows.Forms.PictureBox()
-        Me.lblT = New System.Windows.Forms.Label()
-        Me.lblHammer = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.flp1.SuspendLayout()
@@ -98,18 +98,10 @@ Partial Class frmFuncionarios
         Me.tbpDesativado.SuspendLayout()
         CType(Me.dgvDesativado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlControlos.SuspendLayout()
-        Me.pnlAtivar.SuspendLayout()
         Me.pnlProibicao.SuspendLayout()
         CType(Me.pct3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlAtivar.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'CtrL_MenuCine
-        '
-        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
-        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
-        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 683)
-        Me.CtrL_MenuCine.TabIndex = 0
         '
         'pnl1
         '
@@ -174,7 +166,7 @@ Partial Class frmFuncionarios
         Me.tbpAtivado.Name = "tbpAtivado"
         Me.tbpAtivado.Size = New System.Drawing.Size(431, 512)
         Me.tbpAtivado.TabIndex = 1
-        Me.tbpAtivado.Text = "Funcionários ativados"
+        Me.tbpAtivado.Text = "Funcionários empregados"
         '
         'dgvAtivado
         '
@@ -182,14 +174,14 @@ Partial Class frmFuncionarios
         Me.dgvAtivado.AllowUserToDeleteRows = False
         Me.dgvAtivado.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvAtivado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvAtivado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvAtivado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvAtivado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvAtivado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvAtivado.Location = New System.Drawing.Point(0, 0)
@@ -210,7 +202,7 @@ Partial Class frmFuncionarios
         Me.tbpDesativado.Name = "tbpDesativado"
         Me.tbpDesativado.Size = New System.Drawing.Size(431, 512)
         Me.tbpDesativado.TabIndex = 2
-        Me.tbpDesativado.Text = "Funcionários desativados"
+        Me.tbpDesativado.Text = "Funcionários desempregados"
         '
         'dgvDesativado
         '
@@ -218,14 +210,14 @@ Partial Class frmFuncionarios
         Me.dgvDesativado.AllowUserToDeleteRows = False
         Me.dgvDesativado.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvDesativado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvDesativado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvDesativado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvDesativado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvDesativado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvDesativado.Location = New System.Drawing.Point(0, 0)
@@ -270,6 +262,64 @@ Partial Class frmFuncionarios
         Me.pnlControlos.Name = "pnlControlos"
         Me.pnlControlos.Size = New System.Drawing.Size(253, 542)
         Me.pnlControlos.TabIndex = 43
+        '
+        'pnlProibicao
+        '
+        Me.pnlProibicao.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.pnlProibicao.Controls.Add(Me.pct3)
+        Me.pnlProibicao.Controls.Add(Me.lblT)
+        Me.pnlProibicao.Controls.Add(Me.lblHammer)
+        Me.pnlProibicao.Controls.Add(Me.Label1)
+        Me.pnlProibicao.Location = New System.Drawing.Point(270, 3)
+        Me.pnlProibicao.Name = "pnlProibicao"
+        Me.pnlProibicao.Size = New System.Drawing.Size(241, 403)
+        Me.pnlProibicao.TabIndex = 52
+        Me.pnlProibicao.Visible = False
+        '
+        'pct3
+        '
+        Me.pct3.BackColor = System.Drawing.Color.Transparent
+        Me.pct3.BackgroundImage = CType(resources.GetObject("pct3.BackgroundImage"), System.Drawing.Image)
+        Me.pct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct3.Location = New System.Drawing.Point(0, 375)
+        Me.pct3.Name = "pct3"
+        Me.pct3.Size = New System.Drawing.Size(30, 28)
+        Me.pct3.TabIndex = 54
+        Me.pct3.TabStop = False
+        '
+        'lblT
+        '
+        Me.lblT.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblT.Location = New System.Drawing.Point(10, 108)
+        Me.lblT.Name = "lblT"
+        Me.lblT.Size = New System.Drawing.Size(219, 180)
+        Me.lblT.TabIndex = 51
+        Me.lblT.Text = "Só pode realizar ações enquanto estiver na aba dos registos ativados"
+        Me.lblT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblHammer
+        '
+        Me.lblHammer.AutoSize = True
+        Me.lblHammer.BackColor = System.Drawing.Color.Transparent
+        Me.lblHammer.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHammer.ForeColor = System.Drawing.Color.Fuchsia
+        Me.lblHammer.Location = New System.Drawing.Point(70, 29)
+        Me.lblHammer.Name = "lblHammer"
+        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
+        Me.lblHammer.TabIndex = 0
+        Me.lblHammer.Text = "🛠"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 150.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(67, 223)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(263, 226)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "🛠"
         '
         'pnlAtivar
         '
@@ -348,7 +398,7 @@ Partial Class frmFuncionarios
         Me.btnDesativar.Name = "btnDesativar"
         Me.btnDesativar.Size = New System.Drawing.Size(236, 22)
         Me.btnDesativar.TabIndex = 43
-        Me.btnDesativar.Text = "Desativar Cliente"
+        Me.btnDesativar.Text = "Despedir funcionário"
         Me.btnDesativar.UseVisualStyleBackColor = False
         '
         'lbl92
@@ -373,7 +423,7 @@ Partial Class frmFuncionarios
         Me.btnAtivar.Name = "btnAtivar"
         Me.btnAtivar.Size = New System.Drawing.Size(237, 22)
         Me.btnAtivar.TabIndex = 48
-        Me.btnAtivar.Text = "Ativar Cliente"
+        Me.btnAtivar.Text = "Empregar Funcionário"
         Me.btnAtivar.UseVisualStyleBackColor = False
         '
         'lbl9
@@ -806,63 +856,13 @@ Partial Class frmFuncionarios
         Me.rctNome.Name = "rctNome"
         Me.rctNome.Size = New System.Drawing.Size(210, 25)
         '
-        'pnlProibicao
+        'CtrL_MenuCine
         '
-        Me.pnlProibicao.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.pnlProibicao.Controls.Add(Me.pct3)
-        Me.pnlProibicao.Controls.Add(Me.lblT)
-        Me.pnlProibicao.Controls.Add(Me.lblHammer)
-        Me.pnlProibicao.Controls.Add(Me.Label1)
-        Me.pnlProibicao.Location = New System.Drawing.Point(270, 3)
-        Me.pnlProibicao.Name = "pnlProibicao"
-        Me.pnlProibicao.Size = New System.Drawing.Size(241, 403)
-        Me.pnlProibicao.TabIndex = 52
-        Me.pnlProibicao.Visible = False
-        '
-        'pct3
-        '
-        Me.pct3.BackColor = System.Drawing.Color.Transparent
-        Me.pct3.BackgroundImage = CType(resources.GetObject("pct3.BackgroundImage"), System.Drawing.Image)
-        Me.pct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct3.Location = New System.Drawing.Point(0, 375)
-        Me.pct3.Name = "pct3"
-        Me.pct3.Size = New System.Drawing.Size(30, 28)
-        Me.pct3.TabIndex = 54
-        Me.pct3.TabStop = False
-        '
-        'lblT
-        '
-        Me.lblT.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblT.Location = New System.Drawing.Point(10, 108)
-        Me.lblT.Name = "lblT"
-        Me.lblT.Size = New System.Drawing.Size(219, 180)
-        Me.lblT.TabIndex = 51
-        Me.lblT.Text = "Só pode realizar ações enquanto estiver na aba dos registos ativados"
-        Me.lblT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblHammer
-        '
-        Me.lblHammer.AutoSize = True
-        Me.lblHammer.BackColor = System.Drawing.Color.Transparent
-        Me.lblHammer.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHammer.ForeColor = System.Drawing.Color.Fuchsia
-        Me.lblHammer.Location = New System.Drawing.Point(70, 29)
-        Me.lblHammer.Name = "lblHammer"
-        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
-        Me.lblHammer.TabIndex = 0
-        Me.lblHammer.Text = "🛠"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 150.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(67, 223)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(263, 226)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "🛠"
+        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
+        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
+        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 683)
+        Me.CtrL_MenuCine.TabIndex = 0
         '
         'frmFuncionarios
         '
@@ -888,11 +888,11 @@ Partial Class frmFuncionarios
         CType(Me.dgvDesativado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlControlos.ResumeLayout(False)
         Me.pnlControlos.PerformLayout()
-        Me.pnlAtivar.ResumeLayout(False)
-        Me.pnlAtivar.PerformLayout()
         Me.pnlProibicao.ResumeLayout(False)
         Me.pnlProibicao.PerformLayout()
         CType(Me.pct3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlAtivar.ResumeLayout(False)
+        Me.pnlAtivar.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

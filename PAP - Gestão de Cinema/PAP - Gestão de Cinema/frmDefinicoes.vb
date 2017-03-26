@@ -78,8 +78,8 @@ Public Class frmDefinicoes
     End Sub
 
     Private Sub btnNome_Click(sender As System.Object, e As System.EventArgs) Handles btnNome.Click
-        If txtnome.Text(0) <> " " Then
-            If txtnome.Text <> "" Then
+        If txtnome.Text <> "" Then
+            If txtnome.Text(0) <> " " Then
                 acao("alterar", ligacao, "update funcionarios set nome='" + txtnome.Text + "' where codF=" + frmLogin.codF.ToString, 0)
 
                 MessageBox.Show("O seu antigo nome, '" + lblNome.Text + "', foi alterado para '" + txtnome.Text + "'.", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -88,10 +88,10 @@ Public Class frmDefinicoes
                 npisca = 0
                 tmrPiscar.Start()
             Else
-                MessageBox.Show("Para guardar um nome não pode começar com um espaço ' '.", "Campo Nome inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("Deixou um espaço no início do nome", "Campo Nome inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         Else
-            MessageBox.Show("Para guardar um nome tem de ter escrito um", "Campo Nome vazio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Para guardar um nome não pode começar com um espaço ' '.", "Campo Nome inválido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 

@@ -13,12 +13,13 @@ Public Class frmClientes
             If dgvAtivado.SelectedRows.Count > 0 Then
                 btnAlterar.Enabled = True
                 btnDesativar.Enabled = True
-                btnDesativar.Show()
             End If
+            btnProcurar.Enabled = True
             btnDesativar.Show()
         End If
         If tbc1.SelectedIndex = 1 Then
             pnlProibicao.Show()
+            btnProcurar.Enabled = False
             btnInserir.Enabled = False
             btnAlterar.Enabled = False
             btnAtivar.Enabled = True
@@ -157,10 +158,9 @@ Public Class frmClientes
 
                     'Associá-la ao registo do funcionário
                     acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
-                    "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + codLo + ",'" + mtbTlm.Text + "',1)", 1)
+                    "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + codLo.ToString + ",'" + mtbTlm.Text + "',1)", 1)
 
                     encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
-                    cmblocalidade.Text = ""
                     MessageBox.Show("A localidade " + cmblocalidade.Text + "foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Catch ex As Exception
                     ligacao.Close()
@@ -227,19 +227,12 @@ Public Class frmClientes
         'Caso o pquery esteja vazio significa que o utilizador não escolheu nenhum campo, ou seja "ERRRRRRRO"!!!!
         If str_erro = "" Then
             If pquery <> "" Then
-                If tbc1.SelectedIndex = 0 Then
-                    mostrar(dgvAtivado, ligacao, "clientes", "codC", "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel " &
+                mostrar(dgvAtivado, ligacao, "clientes", "codC", "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel " &
                                         "from clientes, localidades where ativado=1 and localidades.codlo=clientes.codlo" + pquery)
 
-                    'Como fiquei sem nenhum linha selecionada tenho de desativar os botões
-                    btnDesativar.Enabled = False
-                    btnAlterar.Enabled = False
-                End If
-                If tbc1.SelectedIndex = 1 Then
-                    mostrar(dgvDesativado, ligacao, "clientes", "codC", "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel " &
-                                        "from clientes, localidades where ativado=0 and localidades.codlo=clientes.codlo" + pquery)
-                    btnAtivar.Enabled = False
-                End If
+                'Como fiquei sem nenhum linha selecionada tenho de desativar os botões
+                btnDesativar.Enabled = False
+                btnAlterar.Enabled = False
             Else
                 MessageBox.Show("Não selecionou nenhum campo para a pesquisa", "Sem campo para pesquisa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If

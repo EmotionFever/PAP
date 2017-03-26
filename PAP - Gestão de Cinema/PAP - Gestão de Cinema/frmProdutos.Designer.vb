@@ -23,21 +23,68 @@ Partial Class frmProdutos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProdutos))
-        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.pct1 = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
+        Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.tbc1 = New System.Windows.Forms.TabControl()
+        Me.tbpAtivado = New System.Windows.Forms.TabPage()
+        Me.flpProdAtiv = New System.Windows.Forms.FlowLayoutPanel()
+        Me.tbpDesativado = New System.Windows.Forms.TabPage()
+        Me.flpProdDesa = New System.Windows.Forms.FlowLayoutPanel()
+        Me.pnlControlos = New System.Windows.Forms.Panel()
+        Me.chkGenero = New System.Windows.Forms.CheckBox()
+        Me.chkStock = New System.Windows.Forms.CheckBox()
+        Me.chkPreco = New System.Windows.Forms.CheckBox()
+        Me.pnlProduto = New System.Windows.Forms.Panel()
+        Me.txtGenero = New System.Windows.Forms.TextBox()
+        Me.nmrStock = New System.Windows.Forms.NumericUpDown()
+        Me.nmrPreco = New System.Windows.Forms.NumericUpDown()
+        Me.txtNome = New System.Windows.Forms.TextBox()
+        Me.lblProd_nome = New System.Windows.Forms.Label()
+        Me.lbl90 = New System.Windows.Forms.Label()
+        Me.lbl57 = New System.Windows.Forms.Label()
+        Me.lbl75 = New System.Windows.Forms.Label()
+        Me.btnImagem = New System.Windows.Forms.Button()
+        Me.grb1 = New System.Windows.Forms.GroupBox()
+        Me.lblFichNome = New System.Windows.Forms.Label()
+        Me.btnEscolher = New System.Windows.Forms.Button()
+        Me.lblFichTmho = New System.Windows.Forms.Label()
+        Me.lblFichLocal = New System.Windows.Forms.Label()
+        Me.lblFichFor = New System.Windows.Forms.Label()
+        Me.btnDesativar = New System.Windows.Forms.Button()
+        Me.btnAtivar = New System.Windows.Forms.Button()
+        Me.pnlProibicao = New System.Windows.Forms.Panel()
+        Me.pct3 = New System.Windows.Forms.PictureBox()
+        Me.lblT = New System.Windows.Forms.Label()
+        Me.lblHammer = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.chkNome = New System.Windows.Forms.CheckBox()
+        Me.btnProcurar = New System.Windows.Forms.Button()
+        Me.btnAlterar = New System.Windows.Forms.Button()
+        Me.btnInserir = New System.Windows.Forms.Button()
+        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.pnl1.SuspendLayout()
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.flp1.SuspendLayout()
+        Me.tbc1.SuspendLayout()
+        Me.tbpAtivado.SuspendLayout()
+        Me.tbpDesativado.SuspendLayout()
+        Me.pnlControlos.SuspendLayout()
+        Me.pnlProduto.SuspendLayout()
+        CType(Me.nmrStock, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nmrPreco, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grb1.SuspendLayout()
+        Me.pnlProibicao.SuspendLayout()
+        CType(Me.pct3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'CtrL_MenuCine
-        '
-        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
-        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
-        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
-        Me.CtrL_MenuCine.TabIndex = 0
         '
         'pnl1
         '
@@ -73,12 +120,534 @@ Partial Class frmProdutos
         Me.lbl1.Text = "Produtos"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'flp1
+        '
+        Me.flp1.Controls.Add(Me.tbc1)
+        Me.flp1.Controls.Add(Me.pnlControlos)
+        Me.flp1.Location = New System.Drawing.Point(74, 123)
+        Me.flp1.Name = "flp1"
+        Me.flp1.Size = New System.Drawing.Size(708, 525)
+        Me.flp1.TabIndex = 51
+        '
+        'tbc1
+        '
+        Me.tbc1.Controls.Add(Me.tbpAtivado)
+        Me.tbc1.Controls.Add(Me.tbpDesativado)
+        Me.tbc1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbc1.Location = New System.Drawing.Point(3, 3)
+        Me.tbc1.Name = "tbc1"
+        Me.tbc1.SelectedIndex = 0
+        Me.tbc1.Size = New System.Drawing.Size(391, 522)
+        Me.tbc1.TabIndex = 52
+        '
+        'tbpAtivado
+        '
+        Me.tbpAtivado.BackColor = System.Drawing.Color.Silver
+        Me.tbpAtivado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.tbpAtivado.Controls.Add(Me.flpProdAtiv)
+        Me.tbpAtivado.Location = New System.Drawing.Point(4, 23)
+        Me.tbpAtivado.Name = "tbpAtivado"
+        Me.tbpAtivado.Size = New System.Drawing.Size(383, 495)
+        Me.tbpAtivado.TabIndex = 1
+        Me.tbpAtivado.Text = "produtos ativados"
+        '
+        'flpProdAtiv
+        '
+        Me.flpProdAtiv.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flpProdAtiv.Location = New System.Drawing.Point(0, 0)
+        Me.flpProdAtiv.Name = "flpProdAtiv"
+        Me.flpProdAtiv.Size = New System.Drawing.Size(381, 493)
+        Me.flpProdAtiv.TabIndex = 8
+        '
+        'tbpDesativado
+        '
+        Me.tbpDesativado.BackColor = System.Drawing.Color.Silver
+        Me.tbpDesativado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.tbpDesativado.Controls.Add(Me.flpProdDesa)
+        Me.tbpDesativado.Location = New System.Drawing.Point(4, 23)
+        Me.tbpDesativado.Name = "tbpDesativado"
+        Me.tbpDesativado.Size = New System.Drawing.Size(383, 495)
+        Me.tbpDesativado.TabIndex = 2
+        Me.tbpDesativado.Text = "Produtos desativados"
+        '
+        'flpProdDesa
+        '
+        Me.flpProdDesa.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.flpProdDesa.Location = New System.Drawing.Point(0, 0)
+        Me.flpProdDesa.Name = "flpProdDesa"
+        Me.flpProdDesa.Size = New System.Drawing.Size(381, 493)
+        Me.flpProdDesa.TabIndex = 7
+        '
+        'pnlControlos
+        '
+        Me.pnlControlos.Controls.Add(Me.chkGenero)
+        Me.pnlControlos.Controls.Add(Me.chkStock)
+        Me.pnlControlos.Controls.Add(Me.chkPreco)
+        Me.pnlControlos.Controls.Add(Me.pnlProduto)
+        Me.pnlControlos.Controls.Add(Me.grb1)
+        Me.pnlControlos.Controls.Add(Me.btnDesativar)
+        Me.pnlControlos.Controls.Add(Me.btnAtivar)
+        Me.pnlControlos.Controls.Add(Me.pnlProibicao)
+        Me.pnlControlos.Controls.Add(Me.chkNome)
+        Me.pnlControlos.Controls.Add(Me.btnProcurar)
+        Me.pnlControlos.Controls.Add(Me.btnAlterar)
+        Me.pnlControlos.Controls.Add(Me.btnInserir)
+        Me.pnlControlos.Location = New System.Drawing.Point(400, 3)
+        Me.pnlControlos.Name = "pnlControlos"
+        Me.pnlControlos.Size = New System.Drawing.Size(284, 580)
+        Me.pnlControlos.TabIndex = 43
+        '
+        'chkGenero
+        '
+        Me.chkGenero.AutoSize = True
+        Me.chkGenero.Location = New System.Drawing.Point(39, 345)
+        Me.chkGenero.Name = "chkGenero"
+        Me.chkGenero.Size = New System.Drawing.Size(15, 14)
+        Me.chkGenero.TabIndex = 64
+        Me.chkGenero.UseVisualStyleBackColor = True
+        '
+        'chkStock
+        '
+        Me.chkStock.AutoSize = True
+        Me.chkStock.Location = New System.Drawing.Point(253, 316)
+        Me.chkStock.Name = "chkStock"
+        Me.chkStock.Size = New System.Drawing.Size(15, 14)
+        Me.chkStock.TabIndex = 63
+        Me.chkStock.UseVisualStyleBackColor = True
+        '
+        'chkPreco
+        '
+        Me.chkPreco.AutoSize = True
+        Me.chkPreco.Location = New System.Drawing.Point(253, 177)
+        Me.chkPreco.Name = "chkPreco"
+        Me.chkPreco.Size = New System.Drawing.Size(15, 14)
+        Me.chkPreco.TabIndex = 62
+        Me.chkPreco.UseVisualStyleBackColor = True
+        '
+        'pnlProduto
+        '
+        Me.pnlProduto.BackColor = System.Drawing.Color.Black
+        Me.pnlProduto.Controls.Add(Me.txtGenero)
+        Me.pnlProduto.Controls.Add(Me.nmrStock)
+        Me.pnlProduto.Controls.Add(Me.nmrPreco)
+        Me.pnlProduto.Controls.Add(Me.txtNome)
+        Me.pnlProduto.Controls.Add(Me.lblProd_nome)
+        Me.pnlProduto.Controls.Add(Me.lbl90)
+        Me.pnlProduto.Controls.Add(Me.lbl57)
+        Me.pnlProduto.Controls.Add(Me.lbl75)
+        Me.pnlProduto.Controls.Add(Me.btnImagem)
+        Me.pnlProduto.Location = New System.Drawing.Point(35, 117)
+        Me.pnlProduto.Name = "pnlProduto"
+        Me.pnlProduto.Size = New System.Drawing.Size(210, 220)
+        Me.pnlProduto.TabIndex = 59
+        '
+        'txtGenero
+        '
+        Me.txtGenero.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.txtGenero.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtGenero.Location = New System.Drawing.Point(2, 123)
+        Me.txtGenero.MaxLength = 7
+        Me.txtGenero.Name = "txtGenero"
+        Me.txtGenero.Size = New System.Drawing.Size(126, 30)
+        Me.txtGenero.TabIndex = 66
+        Me.txtGenero.Visible = False
+        '
+        'nmrStock
+        '
+        Me.nmrStock.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.nmrStock.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nmrStock.Increment = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.nmrStock.Location = New System.Drawing.Point(125, 188)
+        Me.nmrStock.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
+        Me.nmrStock.Name = "nmrStock"
+        Me.nmrStock.Size = New System.Drawing.Size(83, 30)
+        Me.nmrStock.TabIndex = 65
+        Me.nmrStock.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        Me.nmrStock.Visible = False
+        '
+        'nmrPreco
+        '
+        Me.nmrPreco.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.nmrPreco.DecimalPlaces = 2
+        Me.nmrPreco.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nmrPreco.Increment = New Decimal(New Integer() {10, 0, 0, 131072})
+        Me.nmrPreco.Location = New System.Drawing.Point(125, 57)
+        Me.nmrPreco.Maximum = New Decimal(New Integer() {9999, 0, 0, 131072})
+        Me.nmrPreco.Minimum = New Decimal(New Integer() {1, 0, 0, 131072})
+        Me.nmrPreco.Name = "nmrPreco"
+        Me.nmrPreco.Size = New System.Drawing.Size(83, 30)
+        Me.nmrPreco.TabIndex = 62
+        Me.nmrPreco.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        Me.nmrPreco.Value = New Decimal(New Integer() {1, 0, 0, 131072})
+        Me.nmrPreco.Visible = False
+        '
+        'txtNome
+        '
+        Me.txtNome.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.txtNome.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNome.Location = New System.Drawing.Point(4, 12)
+        Me.txtNome.MaxLength = 25
+        Me.txtNome.Name = "txtNome"
+        Me.txtNome.Size = New System.Drawing.Size(202, 30)
+        Me.txtNome.TabIndex = 61
+        Me.txtNome.Visible = False
+        '
+        'lblProd_nome
+        '
+        Me.lblProd_nome.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lblProd_nome.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProd_nome.ForeColor = System.Drawing.Color.Black
+        Me.lblProd_nome.Location = New System.Drawing.Point(0, 0)
+        Me.lblProd_nome.Name = "lblProd_nome"
+        Me.lblProd_nome.Size = New System.Drawing.Size(210, 52)
+        Me.lblProd_nome.TabIndex = 59
+        Me.lblProd_nome.Text = "Nome do Produto"
+        Me.lblProd_nome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lbl90
+        '
+        Me.lbl90.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(123, Byte), Integer), CType(CType(123, Byte), Integer))
+        Me.lbl90.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl90.Location = New System.Drawing.Point(2, 57)
+        Me.lbl90.Name = "lbl90"
+        Me.lbl90.Size = New System.Drawing.Size(23, 161)
+        Me.lbl90.TabIndex = 52
+        Me.lbl90.Text = "Géneros"
+        '
+        'lbl57
+        '
+        Me.lbl57.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lbl57.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl57.ForeColor = System.Drawing.Color.Black
+        Me.lbl57.Location = New System.Drawing.Point(125, 57)
+        Me.lbl57.Name = "lbl57"
+        Me.lbl57.Size = New System.Drawing.Size(83, 25)
+        Me.lbl57.TabIndex = 54
+        Me.lbl57.Text = "Preço"
+        '
+        'lbl75
+        '
+        Me.lbl75.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lbl75.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl75.ForeColor = System.Drawing.Color.Black
+        Me.lbl75.Location = New System.Drawing.Point(144, 191)
+        Me.lbl75.Name = "lbl75"
+        Me.lbl75.Size = New System.Drawing.Size(64, 27)
+        Me.lbl75.TabIndex = 53
+        Me.lbl75.Text = "Stock"
+        '
+        'btnImagem
+        '
+        Me.btnImagem.BackColor = System.Drawing.Color.White
+        Me.btnImagem.BackgroundImage = CType(resources.GetObject("btnImagem.BackgroundImage"), System.Drawing.Image)
+        Me.btnImagem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnImagem.FlatAppearance.BorderSize = 0
+        Me.btnImagem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow
+        Me.btnImagem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnImagem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnImagem.Location = New System.Drawing.Point(0, 55)
+        Me.btnImagem.Name = "btnImagem"
+        Me.btnImagem.Size = New System.Drawing.Size(210, 165)
+        Me.btnImagem.TabIndex = 58
+        Me.btnImagem.UseVisualStyleBackColor = False
+        '
+        'grb1
+        '
+        Me.grb1.Controls.Add(Me.lblFichNome)
+        Me.grb1.Controls.Add(Me.btnEscolher)
+        Me.grb1.Controls.Add(Me.lblFichTmho)
+        Me.grb1.Controls.Add(Me.lblFichLocal)
+        Me.grb1.Controls.Add(Me.lblFichFor)
+        Me.grb1.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.grb1.ForeColor = System.Drawing.Color.White
+        Me.grb1.Location = New System.Drawing.Point(0, 0)
+        Me.grb1.Name = "grb1"
+        Me.grb1.Size = New System.Drawing.Size(283, 113)
+        Me.grb1.TabIndex = 61
+        Me.grb1.TabStop = False
+        Me.grb1.Text = "Escolher imagem"
+        '
+        'lblFichNome
+        '
+        Me.lblFichNome.AutoEllipsis = True
+        Me.lblFichNome.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFichNome.ForeColor = System.Drawing.Color.White
+        Me.lblFichNome.Location = New System.Drawing.Point(16, 16)
+        Me.lblFichNome.Name = "lblFichNome"
+        Me.lblFichNome.Size = New System.Drawing.Size(144, 16)
+        Me.lblFichNome.TabIndex = 50
+        Me.lblFichNome.Text = "Nome do ficheiro"
+        '
+        'btnEscolher
+        '
+        Me.btnEscolher.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnEscolher.FlatAppearance.BorderSize = 0
+        Me.btnEscolher.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEscolher.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEscolher.ForeColor = System.Drawing.Color.Black
+        Me.btnEscolher.Location = New System.Drawing.Point(6, 83)
+        Me.btnEscolher.Name = "btnEscolher"
+        Me.btnEscolher.Size = New System.Drawing.Size(265, 23)
+        Me.btnEscolher.TabIndex = 51
+        Me.btnEscolher.Text = "Escolher imagem"
+        Me.btnEscolher.UseVisualStyleBackColor = False
+        '
+        'lblFichTmho
+        '
+        Me.lblFichTmho.AutoEllipsis = True
+        Me.lblFichTmho.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFichTmho.ForeColor = System.Drawing.Color.White
+        Me.lblFichTmho.Location = New System.Drawing.Point(16, 48)
+        Me.lblFichTmho.Name = "lblFichTmho"
+        Me.lblFichTmho.Size = New System.Drawing.Size(144, 16)
+        Me.lblFichTmho.TabIndex = 55
+        Me.lblFichTmho.Text = "Tamanho"
+        '
+        'lblFichLocal
+        '
+        Me.lblFichLocal.AutoEllipsis = True
+        Me.lblFichLocal.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFichLocal.ForeColor = System.Drawing.Color.White
+        Me.lblFichLocal.Location = New System.Drawing.Point(16, 32)
+        Me.lblFichLocal.Name = "lblFichLocal"
+        Me.lblFichLocal.Size = New System.Drawing.Size(144, 16)
+        Me.lblFichLocal.TabIndex = 56
+        Me.lblFichLocal.Text = "Localização"
+        '
+        'lblFichFor
+        '
+        Me.lblFichFor.AutoEllipsis = True
+        Me.lblFichFor.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFichFor.ForeColor = System.Drawing.Color.White
+        Me.lblFichFor.Location = New System.Drawing.Point(16, 64)
+        Me.lblFichFor.Name = "lblFichFor"
+        Me.lblFichFor.Size = New System.Drawing.Size(144, 16)
+        Me.lblFichFor.TabIndex = 57
+        Me.lblFichFor.Text = "Formato"
+        '
+        'btnDesativar
+        '
+        Me.btnDesativar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnDesativar.FlatAppearance.BorderSize = 0
+        Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDesativar.ForeColor = System.Drawing.Color.Black
+        Me.btnDesativar.Location = New System.Drawing.Point(8, 396)
+        Me.btnDesativar.Name = "btnDesativar"
+        Me.btnDesativar.Size = New System.Drawing.Size(260, 22)
+        Me.btnDesativar.TabIndex = 43
+        Me.btnDesativar.Text = "Desativar Cliente"
+        Me.btnDesativar.UseVisualStyleBackColor = False
+        '
+        'btnAtivar
+        '
+        Me.btnAtivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAtivar.FlatAppearance.BorderSize = 0
+        Me.btnAtivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAtivar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAtivar.ForeColor = System.Drawing.Color.Black
+        Me.btnAtivar.Location = New System.Drawing.Point(8, 396)
+        Me.btnAtivar.Name = "btnAtivar"
+        Me.btnAtivar.Size = New System.Drawing.Size(260, 22)
+        Me.btnAtivar.TabIndex = 48
+        Me.btnAtivar.Text = "Ativar Cliente"
+        Me.btnAtivar.UseVisualStyleBackColor = False
+        '
+        'pnlProibicao
+        '
+        Me.pnlProibicao.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.pnlProibicao.Controls.Add(Me.pct3)
+        Me.pnlProibicao.Controls.Add(Me.lblT)
+        Me.pnlProibicao.Controls.Add(Me.lblHammer)
+        Me.pnlProibicao.Controls.Add(Me.Label1)
+        Me.pnlProibicao.Location = New System.Drawing.Point(291, 3)
+        Me.pnlProibicao.Name = "pnlProibicao"
+        Me.pnlProibicao.Size = New System.Drawing.Size(241, 365)
+        Me.pnlProibicao.TabIndex = 48
+        Me.pnlProibicao.Visible = False
+        '
+        'pct3
+        '
+        Me.pct3.BackColor = System.Drawing.Color.Transparent
+        Me.pct3.BackgroundImage = CType(resources.GetObject("pct3.BackgroundImage"), System.Drawing.Image)
+        Me.pct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct3.Location = New System.Drawing.Point(0, 340)
+        Me.pct3.Name = "pct3"
+        Me.pct3.Size = New System.Drawing.Size(30, 28)
+        Me.pct3.TabIndex = 54
+        Me.pct3.TabStop = False
+        '
+        'lblT
+        '
+        Me.lblT.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblT.Location = New System.Drawing.Point(10, 108)
+        Me.lblT.Name = "lblT"
+        Me.lblT.Size = New System.Drawing.Size(219, 140)
+        Me.lblT.TabIndex = 51
+        Me.lblT.Text = "Só pode realizar ações enquanto estiver na aba dos registos ativados"
+        Me.lblT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblHammer
+        '
+        Me.lblHammer.AutoSize = True
+        Me.lblHammer.BackColor = System.Drawing.Color.Transparent
+        Me.lblHammer.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHammer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblHammer.Location = New System.Drawing.Point(70, 29)
+        Me.lblHammer.Name = "lblHammer"
+        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
+        Me.lblHammer.TabIndex = 0
+        Me.lblHammer.Text = "🛠"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 150.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(67, 187)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(263, 226)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "🛠"
+        '
+        'chkNome
+        '
+        Me.chkNome.AutoSize = True
+        Me.chkNome.Location = New System.Drawing.Point(253, 135)
+        Me.chkNome.Name = "chkNome"
+        Me.chkNome.Size = New System.Drawing.Size(15, 14)
+        Me.chkNome.TabIndex = 22
+        Me.chkNome.UseVisualStyleBackColor = True
+        '
+        'btnProcurar
+        '
+        Me.btnProcurar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnProcurar.FlatAppearance.BorderSize = 0
+        Me.btnProcurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProcurar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProcurar.ForeColor = System.Drawing.Color.Black
+        Me.btnProcurar.Location = New System.Drawing.Point(99, 368)
+        Me.btnProcurar.Name = "btnProcurar"
+        Me.btnProcurar.Size = New System.Drawing.Size(79, 22)
+        Me.btnProcurar.TabIndex = 40
+        Me.btnProcurar.Text = "Procurar"
+        Me.btnProcurar.UseVisualStyleBackColor = False
+        '
+        'btnAlterar
+        '
+        Me.btnAlterar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAlterar.FlatAppearance.BorderSize = 0
+        Me.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAlterar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAlterar.ForeColor = System.Drawing.Color.Black
+        Me.btnAlterar.Location = New System.Drawing.Point(184, 368)
+        Me.btnAlterar.Name = "btnAlterar"
+        Me.btnAlterar.Size = New System.Drawing.Size(84, 22)
+        Me.btnAlterar.TabIndex = 41
+        Me.btnAlterar.Text = "Alterar"
+        Me.btnAlterar.UseVisualStyleBackColor = False
+        '
+        'btnInserir
+        '
+        Me.btnInserir.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnInserir.FlatAppearance.BorderSize = 0
+        Me.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnInserir.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnInserir.ForeColor = System.Drawing.Color.Black
+        Me.btnInserir.Location = New System.Drawing.Point(9, 368)
+        Me.btnInserir.Name = "btnInserir"
+        Me.btnInserir.Size = New System.Drawing.Size(84, 22)
+        Me.btnInserir.TabIndex = 39
+        Me.btnInserir.Text = "Inserir"
+        Me.btnInserir.UseVisualStyleBackColor = False
+        '
+        'CtrL_MenuCine
+        '
+        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
+        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
+        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
+        Me.CtrL_MenuCine.TabIndex = 0
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.Label7)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Location = New System.Drawing.Point(55, 174)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(132, 134)
+        Me.Panel1.TabIndex = 60
+        '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Black
+        Me.Label2.Location = New System.Drawing.Point(0, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(132, 33)
+        Me.Label2.TabIndex = 59
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label5
+        '
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label5.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Black
+        Me.Label5.Location = New System.Drawing.Point(79, 35)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(52, 16)
+        Me.Label5.TabIndex = 54
+        Me.Label5.Text = "Preço"
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(123, Byte), Integer), CType(CType(123, Byte), Integer))
+        Me.Label6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(1, 35)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(13, 98)
+        Me.Label6.TabIndex = 52
+        Me.Label6.Text = "Géneros"
+        '
+        'Label7
+        '
+        Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label7.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Black
+        Me.Label7.Location = New System.Drawing.Point(91, 116)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(40, 17)
+        Me.Label7.TabIndex = 53
+        Me.Label7.Text = "stock"
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(0, 34)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(132, 100)
+        Me.Button1.TabIndex = 58
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'frmProdutos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(780, 666)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.flp1)
         Me.Controls.Add(Me.pnl1)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -88,6 +657,21 @@ Partial Class frmProdutos
         Me.Text = "Produtos"
         Me.pnl1.ResumeLayout(False)
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.flp1.ResumeLayout(False)
+        Me.tbc1.ResumeLayout(False)
+        Me.tbpAtivado.ResumeLayout(False)
+        Me.tbpDesativado.ResumeLayout(False)
+        Me.pnlControlos.ResumeLayout(False)
+        Me.pnlControlos.PerformLayout()
+        Me.pnlProduto.ResumeLayout(False)
+        Me.pnlProduto.PerformLayout()
+        CType(Me.nmrStock, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nmrPreco, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grb1.ResumeLayout(False)
+        Me.pnlProibicao.ResumeLayout(False)
+        Me.pnlProibicao.PerformLayout()
+        CType(Me.pct3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -95,4 +679,47 @@ Partial Class frmProdutos
     Friend WithEvents pnl1 As System.Windows.Forms.Panel
     Friend WithEvents lbl1 As System.Windows.Forms.Label
     Friend WithEvents pct1 As System.Windows.Forms.PictureBox
+    Friend WithEvents flp1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents pnlControlos As System.Windows.Forms.Panel
+    Friend WithEvents pnlProibicao As System.Windows.Forms.Panel
+    Friend WithEvents pct3 As System.Windows.Forms.PictureBox
+    Friend WithEvents lblT As System.Windows.Forms.Label
+    Friend WithEvents lblHammer As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents btnDesativar As System.Windows.Forms.Button
+    Friend WithEvents btnAtivar As System.Windows.Forms.Button
+    Friend WithEvents btnProcurar As System.Windows.Forms.Button
+    Friend WithEvents btnAlterar As System.Windows.Forms.Button
+    Friend WithEvents btnInserir As System.Windows.Forms.Button
+    Friend WithEvents chkNome As System.Windows.Forms.CheckBox
+    Friend WithEvents btnEscolher As System.Windows.Forms.Button
+    Friend WithEvents lblFichNome As System.Windows.Forms.Label
+    Friend WithEvents lbl90 As System.Windows.Forms.Label
+    Friend WithEvents lbl57 As System.Windows.Forms.Label
+    Friend WithEvents lbl75 As System.Windows.Forms.Label
+    Friend WithEvents lblFichFor As System.Windows.Forms.Label
+    Friend WithEvents lblFichLocal As System.Windows.Forms.Label
+    Friend WithEvents lblFichTmho As System.Windows.Forms.Label
+    Friend WithEvents btnImagem As System.Windows.Forms.Button
+    Friend WithEvents tbc1 As System.Windows.Forms.TabControl
+    Friend WithEvents tbpAtivado As System.Windows.Forms.TabPage
+    Friend WithEvents flpProdAtiv As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents tbpDesativado As System.Windows.Forms.TabPage
+    Friend WithEvents flpProdDesa As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents pnlProduto As System.Windows.Forms.Panel
+    Friend WithEvents lblProd_nome As System.Windows.Forms.Label
+    Friend WithEvents grb1 As System.Windows.Forms.GroupBox
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents chkGenero As System.Windows.Forms.CheckBox
+    Friend WithEvents chkStock As System.Windows.Forms.CheckBox
+    Friend WithEvents chkPreco As System.Windows.Forms.CheckBox
+    Friend WithEvents nmrPreco As System.Windows.Forms.NumericUpDown
+    Friend WithEvents txtNome As System.Windows.Forms.TextBox
+    Friend WithEvents txtGenero As System.Windows.Forms.TextBox
+    Friend WithEvents nmrStock As System.Windows.Forms.NumericUpDown
 End Class
