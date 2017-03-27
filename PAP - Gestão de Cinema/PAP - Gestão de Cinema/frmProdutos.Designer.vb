@@ -41,10 +41,10 @@ Partial Class frmProdutos
         Me.nmrStock = New System.Windows.Forms.NumericUpDown()
         Me.nmrPreco = New System.Windows.Forms.NumericUpDown()
         Me.txtNome = New System.Windows.Forms.TextBox()
-        Me.lblProd_nome = New System.Windows.Forms.Label()
-        Me.lbl90 = New System.Windows.Forms.Label()
-        Me.lbl57 = New System.Windows.Forms.Label()
-        Me.lbl75 = New System.Windows.Forms.Label()
+        Me.lblNome = New System.Windows.Forms.Label()
+        Me.lblGenero = New System.Windows.Forms.Label()
+        Me.lblPreco = New System.Windows.Forms.Label()
+        Me.lblStock = New System.Windows.Forms.Label()
         Me.btnImagem = New System.Windows.Forms.Button()
         Me.grb1 = New System.Windows.Forms.GroupBox()
         Me.lblFichNome = New System.Windows.Forms.Label()
@@ -63,13 +63,13 @@ Partial Class frmProdutos
         Me.btnProcurar = New System.Windows.Forms.Button()
         Me.btnAlterar = New System.Windows.Forms.Button()
         Me.btnInserir = New System.Windows.Forms.Button()
-        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnl1.SuspendLayout()
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.flp1.SuspendLayout()
@@ -231,10 +231,10 @@ Partial Class frmProdutos
         Me.pnlProduto.Controls.Add(Me.nmrStock)
         Me.pnlProduto.Controls.Add(Me.nmrPreco)
         Me.pnlProduto.Controls.Add(Me.txtNome)
-        Me.pnlProduto.Controls.Add(Me.lblProd_nome)
-        Me.pnlProduto.Controls.Add(Me.lbl90)
-        Me.pnlProduto.Controls.Add(Me.lbl57)
-        Me.pnlProduto.Controls.Add(Me.lbl75)
+        Me.pnlProduto.Controls.Add(Me.lblNome)
+        Me.pnlProduto.Controls.Add(Me.lblGenero)
+        Me.pnlProduto.Controls.Add(Me.lblPreco)
+        Me.pnlProduto.Controls.Add(Me.lblStock)
         Me.pnlProduto.Controls.Add(Me.btnImagem)
         Me.pnlProduto.Location = New System.Drawing.Point(35, 117)
         Me.pnlProduto.Name = "pnlProduto"
@@ -273,12 +273,10 @@ Partial Class frmProdutos
         Me.nmrPreco.Increment = New Decimal(New Integer() {10, 0, 0, 131072})
         Me.nmrPreco.Location = New System.Drawing.Point(125, 57)
         Me.nmrPreco.Maximum = New Decimal(New Integer() {9999, 0, 0, 131072})
-        Me.nmrPreco.Minimum = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.nmrPreco.Name = "nmrPreco"
         Me.nmrPreco.Size = New System.Drawing.Size(83, 30)
         Me.nmrPreco.TabIndex = 62
         Me.nmrPreco.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
-        Me.nmrPreco.Value = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.nmrPreco.Visible = False
         '
         'txtNome
@@ -292,49 +290,49 @@ Partial Class frmProdutos
         Me.txtNome.TabIndex = 61
         Me.txtNome.Visible = False
         '
-        'lblProd_nome
+        'lblNome
         '
-        Me.lblProd_nome.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lblProd_nome.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProd_nome.ForeColor = System.Drawing.Color.Black
-        Me.lblProd_nome.Location = New System.Drawing.Point(0, 0)
-        Me.lblProd_nome.Name = "lblProd_nome"
-        Me.lblProd_nome.Size = New System.Drawing.Size(210, 52)
-        Me.lblProd_nome.TabIndex = 59
-        Me.lblProd_nome.Text = "Nome do Produto"
-        Me.lblProd_nome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblNome.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lblNome.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNome.ForeColor = System.Drawing.Color.Black
+        Me.lblNome.Location = New System.Drawing.Point(0, 0)
+        Me.lblNome.Name = "lblNome"
+        Me.lblNome.Size = New System.Drawing.Size(210, 52)
+        Me.lblNome.TabIndex = 59
+        Me.lblNome.Text = "Nome do Produto"
+        Me.lblNome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lbl90
+        'lblGenero
         '
-        Me.lbl90.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(123, Byte), Integer), CType(CType(123, Byte), Integer))
-        Me.lbl90.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl90.Location = New System.Drawing.Point(2, 57)
-        Me.lbl90.Name = "lbl90"
-        Me.lbl90.Size = New System.Drawing.Size(23, 161)
-        Me.lbl90.TabIndex = 52
-        Me.lbl90.Text = "Géneros"
+        Me.lblGenero.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(123, Byte), Integer), CType(CType(123, Byte), Integer))
+        Me.lblGenero.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGenero.Location = New System.Drawing.Point(2, 57)
+        Me.lblGenero.Name = "lblGenero"
+        Me.lblGenero.Size = New System.Drawing.Size(23, 161)
+        Me.lblGenero.TabIndex = 52
+        Me.lblGenero.Text = "Géneros"
         '
-        'lbl57
+        'lblPreco
         '
-        Me.lbl57.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lbl57.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl57.ForeColor = System.Drawing.Color.Black
-        Me.lbl57.Location = New System.Drawing.Point(125, 57)
-        Me.lbl57.Name = "lbl57"
-        Me.lbl57.Size = New System.Drawing.Size(83, 25)
-        Me.lbl57.TabIndex = 54
-        Me.lbl57.Text = "Preço"
+        Me.lblPreco.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lblPreco.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPreco.ForeColor = System.Drawing.Color.Black
+        Me.lblPreco.Location = New System.Drawing.Point(125, 57)
+        Me.lblPreco.Name = "lblPreco"
+        Me.lblPreco.Size = New System.Drawing.Size(83, 25)
+        Me.lblPreco.TabIndex = 54
+        Me.lblPreco.Text = "Preço"
         '
-        'lbl75
+        'lblStock
         '
-        Me.lbl75.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lbl75.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl75.ForeColor = System.Drawing.Color.Black
-        Me.lbl75.Location = New System.Drawing.Point(144, 191)
-        Me.lbl75.Name = "lbl75"
-        Me.lbl75.Size = New System.Drawing.Size(64, 27)
-        Me.lbl75.TabIndex = 53
-        Me.lbl75.Text = "Stock"
+        Me.lblStock.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lblStock.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStock.ForeColor = System.Drawing.Color.Black
+        Me.lblStock.Location = New System.Drawing.Point(144, 191)
+        Me.lblStock.Name = "lblStock"
+        Me.lblStock.Size = New System.Drawing.Size(64, 27)
+        Me.lblStock.TabIndex = 53
+        Me.lblStock.Text = "Stock"
         '
         'btnImagem
         '
@@ -495,7 +493,7 @@ Partial Class frmProdutos
         Me.lblHammer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblHammer.Location = New System.Drawing.Point(70, 29)
         Me.lblHammer.Name = "lblHammer"
-        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
+        Me.lblHammer.Size = New System.Drawing.Size(62, 91)
         Me.lblHammer.TabIndex = 0
         Me.lblHammer.Text = "🛠"
         '
@@ -507,7 +505,7 @@ Partial Class frmProdutos
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(67, 187)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(263, 226)
+        Me.Label1.Size = New System.Drawing.Size(154, 226)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "🛠"
         '
@@ -562,14 +560,6 @@ Partial Class frmProdutos
         Me.btnInserir.Text = "Inserir"
         Me.btnInserir.UseVisualStyleBackColor = False
         '
-        'CtrL_MenuCine
-        '
-        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
-        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
-        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
-        Me.CtrL_MenuCine.TabIndex = 0
-        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.Label2)
@@ -577,7 +567,7 @@ Partial Class frmProdutos
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Location = New System.Drawing.Point(55, 174)
+        Me.Panel1.Location = New System.Drawing.Point(648, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(132, 134)
         Me.Panel1.TabIndex = 60
@@ -640,6 +630,14 @@ Partial Class frmProdutos
         Me.Button1.TabIndex = 58
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'CtrL_MenuCine
+        '
+        Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
+        Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
+        Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
+        Me.CtrL_MenuCine.TabIndex = 0
+        '
         'frmProdutos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -694,9 +692,9 @@ Partial Class frmProdutos
     Friend WithEvents chkNome As System.Windows.Forms.CheckBox
     Friend WithEvents btnEscolher As System.Windows.Forms.Button
     Friend WithEvents lblFichNome As System.Windows.Forms.Label
-    Friend WithEvents lbl90 As System.Windows.Forms.Label
-    Friend WithEvents lbl57 As System.Windows.Forms.Label
-    Friend WithEvents lbl75 As System.Windows.Forms.Label
+    Friend WithEvents lblGenero As System.Windows.Forms.Label
+    Friend WithEvents lblPreco As System.Windows.Forms.Label
+    Friend WithEvents lblStock As System.Windows.Forms.Label
     Friend WithEvents lblFichFor As System.Windows.Forms.Label
     Friend WithEvents lblFichLocal As System.Windows.Forms.Label
     Friend WithEvents lblFichTmho As System.Windows.Forms.Label
@@ -707,7 +705,7 @@ Partial Class frmProdutos
     Friend WithEvents tbpDesativado As System.Windows.Forms.TabPage
     Friend WithEvents flpProdDesa As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents pnlProduto As System.Windows.Forms.Panel
-    Friend WithEvents lblProd_nome As System.Windows.Forms.Label
+    Friend WithEvents lblNome As System.Windows.Forms.Label
     Friend WithEvents grb1 As System.Windows.Forms.GroupBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label2 As System.Windows.Forms.Label

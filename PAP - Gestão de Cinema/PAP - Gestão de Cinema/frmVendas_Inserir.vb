@@ -17,32 +17,35 @@ Public Class frmVendas_Inserir
 
         'Guardo todos mas TODOS os produtos no array prod(MAX_PRODUTOS)
 
-        ''''''''Try
+        Try
 
-        If registos > 0 Then
 
             '2ª Ligação
-            query = "select codP, nome, stock, preco, ativado, imagem, generos.codG as codG, generos.nome as genero from produtos, generos where generos.codG=produtos.codG and ativado=1"
+            query = "select produtos.codP, produtos.nome, stock, preco, ativado, imagem, generos.codG as codG, generos.nome as genero from produtos, generos where generos.codG=produtos.codG and ativado=1"
             comando = New MySqlCommand(query, ligacao)
 
             ligacao.Open()
             leitor = comando.ExecuteReader
             While (leitor.Read)
+                Dim pictureData As Byte() = DirectCast(leitor.GetValue("imagem"), Byte())
+                Dim picture As Image = Nothing
+                'Create a stream in memory containing the bytes that comprise the image.' 
+                Using stream As New IO.MemoryStream(pictureData)
+                    'Read the stream and create an Image object from the data.' 
+                    picture = Image.FromStream(stream)
+                End Using
+
                 prod(cont_prod) = New Produto
-                prod(cont_prod).criar_prod(leitor.GetInt32("codP"), leitor.GetString("nome"), , leitor.GetDouble("preco"), leitor.GetInt32("codG"), leitor.GetInt32("genero"), leitor.GetInt32("stock"), cont_prod, flpitens) 'Só falta a imagem
+                prod(cont_prod).criar_prod(leitor.GetInt32("codP"), leitor.GetString("nome"), picture, leitor.GetDouble("preco"), leitor.GetInt32("codG"), leitor.GetInt32("genero"), leitor.GetInt32("stock"), cont_prod, flpitens) 'Só falta a imagem
                 AddHandler prod(cont_prod).btnImagem.Click, AddressOf ProdutoClicado
                 cont_prod += 1
             End While
 
-        Else
-            MessageBox.Show("Não existem produtos registados", "Não foram encontados registos", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.Close() ' PODE DAR ERRO $&%&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        End If
-        '' Catch ex As Exception
-        ''''  MessageBox.Show(ex.Message)
-        'Finally
-        ligacao.Close()
-        ' End Try
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            ligacao.Close()
+        End Try
 
 
         '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -204,11 +207,11 @@ Public Class frmVendas_Inserir
     Private Sub ProdutoClicado(ByVal sender As Object, ByVal e As EventArgs)
 
         Dim btnx As Button = DirectCast(sender, Button)
-        If prod(btnx.Tag).quant > 0 Then
-            lblprod.Text = "Digite quantas unidades deseja de " + Replace(prod(btnx.Tag).lbl(0).Text, "Nome: ", "")
+        If CInt(prod(btnx.Tag).lblStock.Text) > 0 Then
+            lblprod.Text = "Digite quantas unidades deseja de " + prod(btnx.Tag).lblNome.Text
             nmrQuant.Value = 1
-            nmrQuant.Maximum = prod(btnx.Tag).quant
-            lblquant.Text = "Só existem " + prod(btnx.Tag).quant.ToString + " unidades"
+            nmrQuant.Maximum = CInt(prod(btnx.Tag).lblStock.Text)
+            lblquant.Text = "Só existem " + prod(btnx.Tag).lblStock.Text + " unidades"
             pos_corrente = btnx.Tag
 
             Me.Size = New System.Drawing.Size(366, 571)
@@ -229,9 +232,7 @@ Public Class frmVendas_Inserir
                 ligacao.Open()
                 leitor = comando.ExecuteReader
                 leitor.Read()
-
-                prod(pos_corrente).quant -= form_quant
-                prod(pos_corrente).lbl(1).Text = "Stock: " + prod(pos_corrente).quant.ToString
+                prod(pos_corrente).lblStock.Text = CInt(prod(pos_corrente).lblStock.Text) - form_quant
                 Me.Size = New System.Drawing.Size(366, 445)
 
                 frmVendas.art(frmVendas.cont_art) = New Artigo
