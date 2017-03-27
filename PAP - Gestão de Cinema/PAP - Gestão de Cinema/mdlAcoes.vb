@@ -50,6 +50,24 @@ Module mdlAcoes
         End If
     End Sub
 
+    Function verificacao(ByRef obj As Object) As String
+        If TypeOf obj Is TextBox Then
+            If obj.Text = "" Or IsNumeric(obj.Text) Then
+                Return "Não escreveu um " + obj.tag.ToString + " válido. "
+            Else
+                Return ""
+            End If
+        ElseIf TypeOf obj Is NumericUpDown Then
+            If obj.value = 0 Then
+                Return "Não escreveu um " + obj.tag.ToString + " válido. "
+            Else
+                Return ""
+            End If
+        Else
+            Return "Erro"
+        End If
+    End Function
+
     Function verificacao(ByRef rct As PowerPacks.RectangleShape, ByRef obj As Object) As String
         If TypeOf obj Is TextBox Then
             If obj.Text = "" Or IsNumeric(obj.Text) Then

@@ -305,7 +305,7 @@ Partial Class frmFuncionarios
         Me.lblHammer.ForeColor = System.Drawing.Color.Fuchsia
         Me.lblHammer.Location = New System.Drawing.Point(70, 29)
         Me.lblHammer.Name = "lblHammer"
-        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
+        Me.lblHammer.Size = New System.Drawing.Size(62, 91)
         Me.lblHammer.TabIndex = 0
         Me.lblHammer.Text = "🛠"
         '
@@ -317,7 +317,7 @@ Partial Class frmFuncionarios
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(67, 223)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(263, 226)
+        Me.Label1.Size = New System.Drawing.Size(154, 226)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "🛠"
         '
@@ -524,7 +524,7 @@ Partial Class frmFuncionarios
         Me.txtPass.Name = "txtPass"
         Me.txtPass.Size = New System.Drawing.Size(193, 14)
         Me.txtPass.TabIndex = 59
-        Me.txtPass.Tag = "nome"
+        Me.txtPass.Tag = "palavra-passe"
         '
         'txtordenado
         '
@@ -536,7 +536,7 @@ Partial Class frmFuncionarios
         Me.txtordenado.Name = "txtordenado"
         Me.txtordenado.Size = New System.Drawing.Size(193, 14)
         Me.txtordenado.TabIndex = 58
-        Me.txtordenado.Tag = "nome"
+        Me.txtordenado.Tag = "ordenado"
         '
         'chkPass
         '
@@ -588,7 +588,7 @@ Partial Class frmFuncionarios
         Me.txtrua.Name = "txtrua"
         Me.txtrua.Size = New System.Drawing.Size(193, 14)
         Me.txtrua.TabIndex = 53
-        Me.txtrua.Tag = "nome"
+        Me.txtrua.Tag = "rua"
         '
         'dtpDatanasc
         '
@@ -600,6 +600,7 @@ Partial Class frmFuncionarios
         Me.dtpDatanasc.Name = "dtpDatanasc"
         Me.dtpDatanasc.Size = New System.Drawing.Size(193, 20)
         Me.dtpDatanasc.TabIndex = 52
+        Me.dtpDatanasc.Tag = "data de nascimento"
         '
         'btnProcurar
         '
