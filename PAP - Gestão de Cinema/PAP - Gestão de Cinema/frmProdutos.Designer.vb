@@ -37,6 +37,7 @@ Partial Class frmProdutos
         Me.chkStock = New System.Windows.Forms.CheckBox()
         Me.chkPreco = New System.Windows.Forms.CheckBox()
         Me.pnlProduto = New System.Windows.Forms.Panel()
+        Me.cmbGeneros = New System.Windows.Forms.ComboBox()
         Me.nmrStock = New System.Windows.Forms.NumericUpDown()
         Me.nmrPreco = New System.Windows.Forms.NumericUpDown()
         Me.txtNome = New System.Windows.Forms.TextBox()
@@ -69,7 +70,7 @@ Partial Class frmProdutos
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
-        Me.cmbGeneros = New System.Windows.Forms.ComboBox()
+        Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
         Me.pnl1.SuspendLayout()
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.flp1.SuspendLayout()
@@ -240,6 +241,18 @@ Partial Class frmProdutos
         Me.pnlProduto.Name = "pnlProduto"
         Me.pnlProduto.Size = New System.Drawing.Size(210, 220)
         Me.pnlProduto.TabIndex = 59
+        '
+        'cmbGeneros
+        '
+        Me.cmbGeneros.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.cmbGeneros.Font = New System.Drawing.Font("Arial Narrow", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbGeneros.FormattingEnabled = True
+        Me.cmbGeneros.Location = New System.Drawing.Point(0, 119)
+        Me.cmbGeneros.Name = "cmbGeneros"
+        Me.cmbGeneros.Size = New System.Drawing.Size(143, 32)
+        Me.cmbGeneros.TabIndex = 61
+        Me.cmbGeneros.Tag = "localidade"
+        Me.cmbGeneros.Visible = False
         '
         'nmrStock
         '
@@ -627,16 +640,9 @@ Partial Class frmProdutos
         Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
         Me.CtrL_MenuCine.TabIndex = 0
         '
-        'cmbGeneros
+        'ofdImagem
         '
-        Me.cmbGeneros.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.cmbGeneros.Font = New System.Drawing.Font("Arial Narrow", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbGeneros.FormattingEnabled = True
-        Me.cmbGeneros.Location = New System.Drawing.Point(0, 119)
-        Me.cmbGeneros.Name = "cmbGeneros"
-        Me.cmbGeneros.Size = New System.Drawing.Size(143, 32)
-        Me.cmbGeneros.TabIndex = 61
-        Me.cmbGeneros.Tag = "localidade"
+        Me.ofdImagem.FileName = "OpenFileDialog1"
         '
         'frmProdutos
         '
@@ -720,4 +726,5 @@ Partial Class frmProdutos
     Friend WithEvents txtNome As System.Windows.Forms.TextBox
     Friend WithEvents nmrStock As System.Windows.Forms.NumericUpDown
     Friend WithEvents cmbGeneros As System.Windows.Forms.ComboBox
+    Friend WithEvents ofdImagem As System.Windows.Forms.OpenFileDialog
 End Class
