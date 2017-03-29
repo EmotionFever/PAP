@@ -63,6 +63,18 @@ Module mdlAcoes
             Else
                 Return ""
             End If
+        ElseIf TypeOf obj Is ComboBox Then
+            If obj.Text = "" Then
+                Return "Não escolheu uma " + obj.tag.ToString + ". "
+            Else
+                Return ""
+            End If
+        ElseIf TypeOf obj Is OpenFileDialog Then
+            If obj.FileName = "" Then
+                Return "Não escolheu uma " + obj.tag.ToString + ". "
+            Else
+                Return ""
+            End If
         Else
             Return "Erro"
         End If
@@ -96,7 +108,7 @@ Module mdlAcoes
                 Return ""
             End If
         Else
-            Return "Erro"
+            Return "Objeto como parâmetro da Verificacao inválido"
         End If
     End Function
 
@@ -126,21 +138,26 @@ Module mdlAcoes
 
     Public Sub encher(ByRef cmb As Object, ligacao As MySqlConnection, ByVal nome_tabela As String, ByVal campo As String, ByVal chave_primaria As String, ByVal query As String) 'ComboBoxes
         If TypeOf cmb Is ComboBox Or TypeOf cmb Is ListBox Then
-            'Aqui, encho a combobox com dados para o utilizador escolher
-            Dim adapter As New MySqlDataAdapter
-            Dim ds As DataSet = New DataSet
+            Try
+                'Aqui, encho a combobox com dados para o utilizador escolher
+                Dim adapter As New MySqlDataAdapter
+                Dim ds As DataSet = New DataSet
 
-            adapter.SelectCommand = New MySqlCommand
-            adapter.SelectCommand.Connection = ligacao
-            adapter.SelectCommand.CommandText = query
+                adapter.SelectCommand = New MySqlCommand
+                adapter.SelectCommand.Connection = ligacao
+                adapter.SelectCommand.CommandText = query
 
-            ligacao.Open()
-            adapter.Fill(ds, nome_tabela)
-            ligacao.Close()
+                ligacao.Open()
+                adapter.Fill(ds, nome_tabela)
+                ligacao.Close()
 
-            cmb.DataSource = ds.Tables(nome_tabela)
-            cmb.DisplayMember = campo
-            cmb.ValueMember = chave_primaria
+                cmb.DataSource = ds.Tables(nome_tabela)
+                cmb.DisplayMember = campo
+                cmb.ValueMember = chave_primaria
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Erro a Encher", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ligacao.Close()
+            End Try
         Else
             ligacao.Close()
             MessageBox.Show("Parametro de entrada do procedimento Encher são inválidos", "Erro de programação", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -148,16 +165,21 @@ Module mdlAcoes
     End Sub
 
     Public Sub acao(ByVal objetivo As String, ByRef ligacao As MySqlConnection, ByVal ordem As String, ByVal MessagemAutomatica As Boolean) 'Comandos
-        Dim comando As MySqlCommand = New MySqlCommand
+        Try
+            Dim comando As MySqlCommand = New MySqlCommand
 
-        comando.Connection = ligacao
-        comando.CommandText = ordem
-        ligacao.Open()
-        comando.ExecuteNonQuery()
-        ligacao.Close()
-        If MessagemAutomatica = True Then
-            MessageBox.Show("O ato de " + objetivo + " foi realizado com sucesso", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
+            comando.Connection = ligacao
+            comando.CommandText = ordem
+            ligacao.Open()
+            comando.ExecuteNonQuery()
+            ligacao.Close()
+            If MessagemAutomatica = True Then
+                MessageBox.Show("O ato de " + objetivo + " foi realizado com sucesso", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Erro a " + objetivo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ligacao.Close()
+        End Try
     End Sub
 
     Public Function ter(ByRef ligacao As MySqlConnection, ByVal campo As String, ByVal query As String) As Integer

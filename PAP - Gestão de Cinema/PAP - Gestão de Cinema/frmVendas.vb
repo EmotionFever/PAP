@@ -6,7 +6,7 @@ Public Class frmVendas
     Public cont_art As Integer = 0
     Public prod_total As Integer
     Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
-        'CtrL_MenuCine.Sincronizar_acessos(Me, 8)
+        CtrL_MenuCine.Sincronizar_acessos(Me, 8)
     End Sub
 
     Private Sub lblProduto_Click(sender As System.Object, e As System.EventArgs) Handles btnProduto.Click

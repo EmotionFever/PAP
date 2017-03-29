@@ -79,8 +79,8 @@ Partial Class frmSalas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(781, 676)
-        Me.Controls.Add(Me.pnl1)
         Me.Controls.Add(Me.CtrL_MenuCine)
+        Me.Controls.Add(Me.pnl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmSalas"

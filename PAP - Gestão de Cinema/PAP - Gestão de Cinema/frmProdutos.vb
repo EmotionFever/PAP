@@ -3,9 +3,8 @@ Public Class frmProdutos
     Dim ligacao As New MySqlConnection("Server=localhost;DataBase=ppap;Uid=root;Pwd=;Connect Timeout=30;")
     Dim comando As MySqlCommand
     Dim leitor As MySqlDataReader
-    Dim Imagem As System.IO.StreamReader
     Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
-        'CtrL_MenuCine.Sincronizar_acessos(Me, 6)
+        CtrL_MenuCine.Sincronizar_acessos(Me, 6)
     End Sub
 
     Private Sub ver()
@@ -19,6 +18,7 @@ Public Class frmProdutos
         str_erro += verificacao(cmbGeneros)
         str_erro += verificacao(nmrPreco)
         str_erro += verificacao(nmrStock)
+        str_erro += verificacao(ofdImagem)
 
         If str_erro = "" Then
             'Limpo os objetos input do formulário
@@ -31,9 +31,13 @@ Public Class frmProdutos
             nmrStock.Value = 0
             If cmbGeneros.SelectedValue IsNot Nothing Then
                 'Insiro os dados na base de dados
-                acao("inserir", ligacao, "insert into produtos (nome,stock,preco,codG,ativado) " &
-                "values ('" + txtNome.Text + "', '" + nmrStock.Text + "', '" + nmrPreco.Text + "', " + cmbGeneros.SelectedValue + "',1)", 1)
-
+                Using picture As Image = Image.FromFile(ofdImagem.FileName)
+                    'Create an empty stream in memory.'
+                    Using stream As New IO.MemoryStream
+                        'acao("inserir", ligacao, "insert into produtos (nome,stock,preco,codG,imagem,ativado) " &
+                        '"values ('" + txtNome.Text + "', '" + nmrStock.Text + "', '" + nmrPreco.Text + "', " + cmbGeneros.SelectedValue.ToString + "," + stream.GetBuffer().ToString + ",1)", 1)
+                    End Using
+                End Using
                 'Volto a mostrar a tabela, desta vez, atualizada.
                 ver()
             Else
@@ -42,70 +46,32 @@ Public Class frmProdutos
                     acao("inserir", ligacao, "insert into genero (nome) values ('" + cmbGeneros.Text + "')", 0)
 
                     'Descobrir o codLo dessa localidade
-                    comando = New MySqlCommand("select codlo from localidades where nome='" + cmbGeneros.Text + "'", ligacao)
+                    comando = New MySqlCommand("select codG from generos where nome='" + cmbGeneros.Text + "'", ligacao)
                     ligacao.Open()
                     leitor = comando.ExecuteReader
                     leitor.Read()
-                    codLo = leitor.GetInt32("codlo")
+                    codLo = leitor.GetInt32("codG")
                     ligacao.Close()
 
-                    'Associá-la ao registo do funcionário
-                    'acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
-                    '"values ('" + txtNome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + codLo.ToString + ",'" + mtbTlm.Text + "',1)", 1)
+                    Using picture As Image = Image.FromFile(ofdImagem.FileName)
+                        'Create an empty stream in memory.'
+                        Using stream As New IO.MemoryStream
+                            acao("inserir", ligacao, "insert into produtos (nome,stock,preco,codG,imagem,ativado) " &
+                            "values ('" + txtNome.Text + "', '" + nmrStock.Text + "', '" + nmrPreco.Text + "', " + codLo.ToString + "," + stream.GetBuffer().ToString + "',1)", 1)
+                        End Using
+                    End Using
 
-                    encher(cmbGeneros, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
-                    MessageBox.Show("A localidade " + cmbGeneros.Text + "foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    encher(cmbGeneros, ligacao, "generos", "nome", "codG", "select codG, nome from generos")
+                    MessageBox.Show("O género " + cmbGeneros.Text + "foi inserido sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Catch ex As Exception
                     ligacao.Close()
-                    MessageBox.Show("A localidade " + cmbGeneros.Text + " não foi inserida: " + ex.Message, "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("O género " + cmbGeneros.Text + " não foi inserido: " + ex.Message, "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             End If
             cmbGeneros.Text = ""
         Else
             MessageBox.Show(str_erro, "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        Dim query As String = "UPDATE MyTable SET Picture = @Picture WHERE ID = 1"
-        comando = New MySqlCommand(query, ligacao)
-        'Create an Image object.' 
-        Using picture As Image = Image.FromFile("file path here")
-            'Create an empty stream in memory.' 
-            Using stream As New IO.MemoryStream
-                'Fill the stream with the binary data from the Image.' 
-                picture.Save(stream, Imaging.ImageFormat.Jpeg)
-                'Get an array of Bytes from the stream and assign to the parameter.' 
-                comando.Parameters.Add("@Picture", MySqlDbType.VarBinary).Value = stream.GetBuffer()
-            End Using
-        End Using
-        ligacao.Open()
-        comando.ExecuteNonQuery()
-        ligacao.Close()
     End Sub
 
     Private Sub lblNome_MouseEnter(sender As Object, e As System.EventArgs) Handles lblNome.MouseEnter
@@ -141,13 +107,15 @@ Public Class frmProdutos
         End If
     End Sub
 
-    Private Sub lblstock_MouseEnter(sender As Object, e As System.EventArgs) Handles lblStock.MouseEnter, nmrStock.ValueChanged
+    Private Sub lblStock_MouseEnter(sender As Object, e As System.EventArgs) Handles lblStock.MouseEnter, nmrStock.ValueChanged
         nmrStock.Show()
         nmrStock.Select()
     End Sub
     Private Sub nmrStock_LostFocus(sender As Object, e As System.EventArgs) Handles nmrStock.LostFocus
         nmrStock.Hide()
-        lblStock.Text = nmrStock.Value
+        If nmrStock.Value <> 0 Then
+            lblStock.Text = nmrStock.Value
+        End If
     End Sub
 
     Private Sub frmProdutos_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -157,10 +125,9 @@ Public Class frmProdutos
     End Sub
 
     Private Sub btnEscolher_Click(sender As System.Object, e As System.EventArgs) Handles btnEscolher.Click
-        If ofdImagem.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-            Imagem = New System.IO.StreamReader(ofdImagem.FileName)
-            MessageBox.Show(Imagem.ReadToEnd)
-            Imagem.Close()
+        If ofdImagem.ShowDialog() = System.Windows.Forms.DialogResult.OK AndAlso ofdImagem.FileName <> "" Then
+            lblImgNome.Text = ofdImagem.SafeFileName
+            MessageBox.Show(ofdImagem.FileName)
         End If
     End Sub
 End Class

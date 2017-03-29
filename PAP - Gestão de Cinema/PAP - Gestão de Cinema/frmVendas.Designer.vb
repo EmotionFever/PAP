@@ -255,6 +255,7 @@ Partial Class frmVendas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(855, 618)
+        Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.btnOutro)
         Me.Controls.Add(Me.cmblocalidade)
         Me.Controls.Add(Me.Label4)
@@ -262,7 +263,6 @@ Partial Class frmVendas
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnProduto)
-        Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.lbl2)
         Me.Controls.Add(Me.lbl3)
         Me.Controls.Add(Me.flpartigos)
