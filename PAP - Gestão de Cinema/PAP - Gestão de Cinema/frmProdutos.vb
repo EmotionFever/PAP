@@ -127,7 +127,8 @@ Public Class frmProdutos
     Private Sub btnEscolher_Click(sender As System.Object, e As System.EventArgs) Handles btnEscolher.Click
         If ofdImagem.ShowDialog() = System.Windows.Forms.DialogResult.OK AndAlso ofdImagem.FileName <> "" Then
             lblImgNome.Text = ofdImagem.SafeFileName
-            MessageBox.Show(ofdImagem.FileName)
+            pctImgLoc.BackgroundImage = Image.FromFile(ofdImagem.FileName)
+            btnImagem.BackgroundImage = Image.FromFile(ofdImagem.FileName)
         End If
     End Sub
 End Class
