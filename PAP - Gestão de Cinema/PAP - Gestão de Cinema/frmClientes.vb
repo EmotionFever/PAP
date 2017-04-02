@@ -178,49 +178,15 @@ Public Class frmClientes
         'Basicamente, isto pesquisa na base de dados
         Dim str_erro As String = ""
         Dim pquery As String = ""
-        Dim averiguar As String
 
-        'Apenas as checkboxes de um campo com um certo são pesquisados. Ou seja, se eu selecionar o campo ordenado apenas procuro os registos com aquele ordenado mesmo que os outros campos tenham coisas escritas
-        If chknome.Checked Then
-            averiguar = verificacao(rctNome, txtnome)
-            If averiguar = "" Then
-                pquery += " and clientes.nome like '%" + txtnome.Text + "%'"
-            Else
-                str_erro += averiguar
-            End If
-        End If
-        If chkNIF.Checked Then
-            averiguar = verificacao(rctNIF, mtbNIF)
-            If averiguar = "" Then 'Pode-se procurar sequencias de números
-                pquery += " and NIF like '%" + mtbNIF.Text + "%'"
-            Else
-                str_erro += averiguar
-            End If
-        End If
-        If chkRua.Checked Then
-            averiguar = verificacao(rctRua, txtRua)
-            If averiguar = "" Then
-                pquery += " and rua like '%" + txtRua.Text + "%'"
-            Else
-                str_erro += averiguar
-            End If
-        End If
-        If chkLocalidade.Checked Then
-            averiguar = verificacao(rctLocalidade, cmblocalidade)
-            If averiguar = "" Then
-                pquery += " and clientes.codlo=" + cmblocalidade.SelectedValue.ToString
-            Else
-                str_erro += "Não escolheu uma localidade. "
-            End If
-        End If
-        If chkTlm.Checked Then
-            averiguar = verificacao(rctTlm, mtbTlm)
-            If averiguar = "" Then
-                pquery += " and telemovel = '" + mtbTlm.Text + "'"
-            Else
-                str_erro += averiguar
-            End If
-        End If
+        'Apenas as checkboxes de um campo com um certo são pesquisados. 
+        'Ou seja, se eu selecionar o campo ordenado apenas procuro os registos com aquele ordenado mesmo que os outros campos tenham coisas escritas
+
+        pquery += Campo_Selecionado("nome", "clientes", chknome, txtnome, rctNome, str_erro)
+        pquery += Campo_Selecionado("NIF", "clientes", chkNIF, mtbNIF, rctNIF, str_erro)
+        pquery += Campo_Selecionado("rua", "clientes", chkRua, txtRua, rctRua, str_erro)
+        pquery += Campo_Selecionado("codlo", "clientes", chkLocalidade, cmblocalidade, rctLocalidade, str_erro)
+        pquery += Campo_Selecionado("telemovel", "clientes", chkTlm, mtbTlm, rctTlm, str_erro)
 
         'No final deste if tenho 'parte' de um query
 
@@ -237,7 +203,7 @@ Public Class frmClientes
                 MessageBox.Show("Não selecionou nenhum campo para a pesquisa", "Sem campo para pesquisa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         Else
-            MessageBox.Show("Atenção", str_erro, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show(str_erro, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 

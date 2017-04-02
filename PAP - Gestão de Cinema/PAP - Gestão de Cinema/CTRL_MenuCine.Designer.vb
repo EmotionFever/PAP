@@ -85,7 +85,7 @@ Partial Class CTRL_MenuCine
         Me.btnInicio.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
         Me.btnInicio.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
         Me.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInicio.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnInicio.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnInicio.ForeColor = System.Drawing.Color.White
         Me.btnInicio.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.home_converted
         Me.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -107,7 +107,7 @@ Partial Class CTRL_MenuCine
         Me.btnFilmes.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
         Me.btnFilmes.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
         Me.btnFilmes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFilmes.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFilmes.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFilmes.ForeColor = System.Drawing.Color.White
         Me.btnFilmes.Image = CType(resources.GetObject("btnFilmes.Image"), System.Drawing.Image)
         Me.btnFilmes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -129,7 +129,7 @@ Partial Class CTRL_MenuCine
         Me.btnClientes.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
         Me.btnClientes.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
         Me.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClientes.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClientes.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClientes.ForeColor = System.Drawing.Color.White
         Me.btnClientes.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.cliente_converted
         Me.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -151,7 +151,7 @@ Partial Class CTRL_MenuCine
         Me.btnFuncionarios.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
         Me.btnFuncionarios.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
         Me.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFuncionarios.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFuncionarios.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFuncionarios.ForeColor = System.Drawing.Color.White
         Me.btnFuncionarios.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.utilizadores_converted
         Me.btnFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -172,7 +172,7 @@ Partial Class CTRL_MenuCine
         Me.btnEncargos.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
         Me.btnEncargos.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
         Me.btnEncargos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEncargos.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEncargos.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEncargos.ForeColor = System.Drawing.Color.White
         Me.btnEncargos.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.graus_converted
         Me.btnEncargos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -194,7 +194,7 @@ Partial Class CTRL_MenuCine
         Me.btnCalendarios.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
         Me.btnCalendarios.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
         Me.btnCalendarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCalendarios.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCalendarios.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCalendarios.ForeColor = System.Drawing.Color.White
         Me.btnCalendarios.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.horarios_converted
         Me.btnCalendarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -216,7 +216,7 @@ Partial Class CTRL_MenuCine
         Me.btnProdutos.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
         Me.btnProdutos.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
         Me.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnProdutos.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProdutos.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnProdutos.ForeColor = System.Drawing.Color.White
         Me.btnProdutos.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.produtos_converted
         Me.btnProdutos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -238,7 +238,7 @@ Partial Class CTRL_MenuCine
         Me.btnSalas.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
         Me.btnSalas.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
         Me.btnSalas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSalas.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalas.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalas.ForeColor = System.Drawing.Color.White
         Me.btnSalas.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.salas_converted
         Me.btnSalas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -260,7 +260,7 @@ Partial Class CTRL_MenuCine
         Me.btnVendas.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
         Me.btnVendas.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
         Me.btnVendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVendas.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVendas.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVendas.ForeColor = System.Drawing.Color.White
         Me.btnVendas.Image = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.vendas_converted
         Me.btnVendas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -282,7 +282,7 @@ Partial Class CTRL_MenuCine
         Me.btnDefinicoes.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
         Me.btnDefinicoes.FlatAppearance.CheckedBackColor = System.Drawing.Color.DodgerBlue
         Me.btnDefinicoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDefinicoes.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDefinicoes.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDefinicoes.ForeColor = System.Drawing.Color.White
         Me.btnDefinicoes.Image = CType(resources.GetObject("btnDefinicoes.Image"), System.Drawing.Image)
         Me.btnDefinicoes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -292,7 +292,7 @@ Partial Class CTRL_MenuCine
         Me.btnDefinicoes.Size = New System.Drawing.Size(260, 45)
         Me.btnDefinicoes.TabIndex = 7
         Me.btnDefinicoes.Tag = ""
-        Me.btnDefinicoes.Text = "  Configurações"
+        Me.btnDefinicoes.Text = "  Definições"
         Me.btnDefinicoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnDefinicoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnDefinicoes.UseVisualStyleBackColor = False

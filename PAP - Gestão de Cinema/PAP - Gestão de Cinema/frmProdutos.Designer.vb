@@ -70,6 +70,7 @@ Partial Class frmProdutos
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
+        Me.btnXImg = New System.Windows.Forms.Button()
         Me.pnl1.SuspendLayout()
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.flp1.SuspendLayout()
@@ -180,6 +181,7 @@ Partial Class frmProdutos
         '
         'pnlControlos
         '
+        Me.pnlControlos.Controls.Add(Me.btnXImg)
         Me.pnlControlos.Controls.Add(Me.chkImagem)
         Me.pnlControlos.Controls.Add(Me.pctImgLoc)
         Me.pnlControlos.Controls.Add(Me.lblImgNome)
@@ -484,7 +486,7 @@ Partial Class frmProdutos
         Me.lblHammer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblHammer.Location = New System.Drawing.Point(70, 29)
         Me.lblHammer.Name = "lblHammer"
-        Me.lblHammer.Size = New System.Drawing.Size(62, 91)
+        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
         Me.lblHammer.TabIndex = 0
         Me.lblHammer.Text = "🛠"
         '
@@ -496,7 +498,7 @@ Partial Class frmProdutos
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(67, 187)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(154, 226)
+        Me.Label1.Size = New System.Drawing.Size(263, 226)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "🛠"
         '
@@ -635,6 +637,23 @@ Partial Class frmProdutos
         Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
         Me.CtrL_MenuCine.TabIndex = 0
         '
+        'btnXImg
+        '
+        Me.btnXImg.BackColor = System.Drawing.Color.Red
+        Me.btnXImg.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.lixo
+        Me.btnXImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnXImg.FlatAppearance.BorderSize = 0
+        Me.btnXImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnXImg.Font = New System.Drawing.Font("Arial", 5.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnXImg.ForeColor = System.Drawing.Color.White
+        Me.btnXImg.Location = New System.Drawing.Point(9, 46)
+        Me.btnXImg.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnXImg.Name = "btnXImg"
+        Me.btnXImg.Size = New System.Drawing.Size(18, 18)
+        Me.btnXImg.TabIndex = 68
+        Me.btnXImg.UseVisualStyleBackColor = False
+        Me.btnXImg.Visible = False
+        '
         'frmProdutos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -717,4 +736,5 @@ Partial Class frmProdutos
     Friend WithEvents chkImagem As System.Windows.Forms.CheckBox
     Friend WithEvents pctImgLoc As System.Windows.Forms.PictureBox
     Friend WithEvents lblImgNome As System.Windows.Forms.Label
+    Friend WithEvents btnXImg As System.Windows.Forms.Button
 End Class

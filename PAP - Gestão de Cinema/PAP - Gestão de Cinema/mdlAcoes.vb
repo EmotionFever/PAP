@@ -59,7 +59,7 @@ Module mdlAcoes
             End If
         ElseIf TypeOf obj Is NumericUpDown Then
             If obj.value = 0 Then
-                Return "Não escreveu um " + obj.tag.ToString + " válido. "
+                Return "Não digitou um " + obj.tag.ToString + " válido. "
             Else
                 Return ""
             End If
@@ -182,7 +182,38 @@ Module mdlAcoes
         End Try
     End Sub
 
-    Public Function ter(ByRef ligacao As MySqlConnection, ByVal campo As String, ByVal query As String) As Integer
+    Public Sub acao_c_Imagem(ByVal objetivo As String, ByRef ligacao As MySqlConnection, ByVal ordem As String, ByVal imagem As Image, ByVal MessagemAutomatica As Boolean) 'Comandos
+        If ordem.Contains("@Imagem") Then
+            Try
+                Dim comando As New MySqlCommand(ordem, ligacao)
+
+                'Código que o Prof. Nelson nos deu
+                Using picture As Image = imagem
+                    'Create an empty stream in memory.'     
+                    Using stream As New IO.MemoryStream
+                        'Fill the stream with the binary data from the 'imagem'.   
+                        picture.Save(stream, Imaging.ImageFormat.Jpeg)
+
+                        'Get an array of Bytes from the stream and assign to the parameter.'         
+                        comando.Parameters.Add("@Picture", MySqlDbType.VarBinary).Value = stream.GetBuffer()
+                    End Using
+                End Using
+                ligacao.Open()
+                comando.ExecuteNonQuery()
+                ligacao.Close()
+                If MessagemAutomatica = True Then
+                    MessageBox.Show("O ato de " + objetivo + " foi realizado com sucesso", "Operação executada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Erro a " + objetivo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ligacao.Close()
+            End Try
+        Else
+            MessageBox.Show("A Query do acao_c_imagem tem de ter '[campo da imagem] = @Imagem'", "Query sem '@Imagem'", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+    Public Function ter(ByRef ligacao As MySqlConnection, ByVal campo As String, ByVal query As String) As Integer  'Apenas returna um resultado numérico da query 
         Dim comando As MySqlCommand = New MySqlCommand(query, ligacao)
         Dim leitor As MySqlDataReader
         Dim valor As Integer = 0
@@ -193,5 +224,26 @@ Module mdlAcoes
         End If
         ligacao.Close()
         Return valor
+    End Function
+    Public Function Campo_Selecionado(ByVal campo As String, ByVal tabela As String, ByVal chk As CheckBox, ByRef obj As Object, ByRef rct As PowerPacks.RectangleShape, ByRef str_erro As String) As String
+        Dim averiguar As String
+        If chk.Checked Then
+            averiguar = verificacao(rct, obj)
+            If averiguar = "" Then
+                If TypeOf obj Is TextBox Or TypeOf obj Is MaskedTextBox Then
+                    Return " and " + tabela + "." + campo + " like '%" + obj.Text + "%'"
+                ElseIf TypeOf obj Is NumericUpDown Then
+                    Return " and " + tabela + "." + campo + " = " + obj.Value.ToString
+                ElseIf TypeOf obj Is ComboBox Then
+                    Return " and " + tabela + "." + campo + " = " + obj.SelectedValue.ToString
+                Else
+                    MessageBox.Show("A função Campo_Selecionado recebeu um objeto desconhecido", "Campo_Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("", "Campo_Secionado")
+                End If
+            Else
+                str_erro += averiguar
+            End If
+        End If
+            Return ""
     End Function
 End Module

@@ -129,6 +129,14 @@ Public Class frmProdutos
             lblImgNome.Text = ofdImagem.SafeFileName
             pctImgLoc.BackgroundImage = Image.FromFile(ofdImagem.FileName)
             btnImagem.BackgroundImage = Image.FromFile(ofdImagem.FileName)
+            btnXImg.Show()
         End If
+    End Sub
+
+    Private Sub btnXImg_Click(sender As System.Object, e As System.EventArgs) Handles btnXImg.Click
+        lblImgNome.Text = "---"
+        pctImgLoc.BackgroundImage = Nothing
+        btnImagem.BackgroundImage = Nothing
+        btnXImg.Hide()
     End Sub
 End Class
