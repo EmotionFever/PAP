@@ -23,8 +23,8 @@ Partial Class frmClientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClientes))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.pct1 = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
@@ -290,14 +290,14 @@ Partial Class frmClientes
         Me.dgvAtivado.AllowUserToDeleteRows = False
         Me.dgvAtivado.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvAtivado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvAtivado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvAtivado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvAtivado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvAtivado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvAtivado.Location = New System.Drawing.Point(0, 0)
@@ -506,10 +506,11 @@ Partial Class frmClientes
         'cmblocalidade
         '
         Me.cmblocalidade.BackColor = System.Drawing.Color.White
+        Me.cmblocalidade.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmblocalidade.FormattingEnabled = True
         Me.cmblocalidade.Location = New System.Drawing.Point(11, 214)
         Me.cmblocalidade.Name = "cmblocalidade"
-        Me.cmblocalidade.Size = New System.Drawing.Size(193, 21)
+        Me.cmblocalidade.Size = New System.Drawing.Size(193, 22)
         Me.cmblocalidade.TabIndex = 44
         Me.cmblocalidade.Tag = "localidade"
         '
@@ -574,14 +575,14 @@ Partial Class frmClientes
         Me.dgvDesativado.AllowUserToDeleteRows = False
         Me.dgvDesativado.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvDesativado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvDesativado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvDesativado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvDesativado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvDesativado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvDesativado.Location = New System.Drawing.Point(0, 0)
@@ -677,7 +678,7 @@ Partial Class frmClientes
         Me.lblHammer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblHammer.Location = New System.Drawing.Point(70, 29)
         Me.lblHammer.Name = "lblHammer"
-        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
+        Me.lblHammer.Size = New System.Drawing.Size(62, 91)
         Me.lblHammer.TabIndex = 0
         Me.lblHammer.Text = "🛠"
         '
@@ -689,7 +690,7 @@ Partial Class frmClientes
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(67, 187)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(263, 226)
+        Me.Label1.Size = New System.Drawing.Size(154, 226)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "🛠"
         '

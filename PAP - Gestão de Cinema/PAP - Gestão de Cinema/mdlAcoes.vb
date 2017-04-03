@@ -164,6 +164,38 @@ Module mdlAcoes
         End If
     End Sub
 
+    Public Sub encher(ByRef cmb1 As Object, cmb2 As Object, ligacao As MySqlConnection, ByVal nome_tabela As String, ByVal campo As String, ByVal chave_primaria As String, ByVal query As String) 'ComboBoxes
+        If TypeOf cmb1 Is ComboBox Or TypeOf cmb1 Is ListBox And TypeOf cmb2 Is ComboBox Or TypeOf cmb2 Is ListBox Then
+            Try
+                'Aqui, encho as combobox com dados para o utilizador escolher
+                Dim adapter As New MySqlDataAdapter
+                Dim ds As DataSet = New DataSet
+
+                adapter.SelectCommand = New MySqlCommand
+                adapter.SelectCommand.Connection = ligacao
+                adapter.SelectCommand.CommandText = query
+
+                ligacao.Open()
+                adapter.Fill(ds, nome_tabela)
+                ligacao.Close()
+
+                cmb1.DataSource = ds.Tables(nome_tabela)
+                cmb1.DisplayMember = campo
+                cmb1.ValueMember = chave_primaria
+
+                cmb2.DataSource = ds.Tables(nome_tabela)
+                cmb2.DisplayMember = campo
+                cmb2.ValueMember = chave_primaria
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Erro a Encher", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ligacao.Close()
+            End Try
+        Else
+            ligacao.Close()
+            MessageBox.Show("Parametro de entrada do procedimento Encher são inválidos", "Erro de programação", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
     Public Sub acao(ByVal objetivo As String, ByRef ligacao As MySqlConnection, ByVal ordem As String, ByVal MessagemAutomatica As Boolean) 'Comandos
         Try
             Dim comando As MySqlCommand = New MySqlCommand

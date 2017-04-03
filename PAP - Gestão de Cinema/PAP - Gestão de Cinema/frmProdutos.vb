@@ -14,22 +14,22 @@ Public Class frmProdutos
     Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
         Dim codLo As Integer
         Dim str_erro As String = ""
-        str_erro += verificacao(txtNome)
-        str_erro += verificacao(cmbGeneros)
-        str_erro += verificacao(nmrPreco)
-        str_erro += verificacao(nmrStock)
+        str_erro += verificacao(txtNome1)
+        str_erro += verificacao(cmbGeneros1)
+        str_erro += verificacao(nmrPreco1)
+        str_erro += verificacao(nmrStock1)
         str_erro += verificacao(ofdImagem)
 
         If str_erro = "" Then
             'Limpo os objetos input do formulário
-            txtNome.Text = ""
+            txtNome1.Text = ""
 
-            cmbGeneros.Text = ""
+            cmbGeneros1.Text = ""
 
-            nmrPreco.Value = 0
+            nmrPreco1.Value = 0
 
-            nmrStock.Value = 0
-            If cmbGeneros.SelectedValue IsNot Nothing Then
+            nmrStock1.Value = 0
+            If cmbGeneros1.SelectedValue IsNot Nothing Then
                 'Insiro os dados na base de dados
                 Using picture As Image = Image.FromFile(ofdImagem.FileName)
                     'Create an empty stream in memory.'
@@ -43,10 +43,10 @@ Public Class frmProdutos
             Else
                 Try
                     'Inserir o novo genero
-                    acao("inserir", ligacao, "insert into genero (nome) values ('" + cmbGeneros.Text + "')", 0)
+                    acao("inserir", ligacao, "insert into genero (nome) values ('" + cmbGeneros1.Text + "')", 0)
 
                     'Descobrir o codLo dessa localidade
-                    comando = New MySqlCommand("select codG from generos where nome='" + cmbGeneros.Text + "'", ligacao)
+                    comando = New MySqlCommand("select codG from generos where nome='" + cmbGeneros1.Text + "'", ligacao)
                     ligacao.Open()
                     leitor = comando.ExecuteReader
                     leitor.Read()
@@ -57,70 +57,70 @@ Public Class frmProdutos
                         'Create an empty stream in memory.'
                         Using stream As New IO.MemoryStream
                             acao("inserir", ligacao, "insert into produtos (nome,stock,preco,codG,imagem,ativado) " &
-                            "values ('" + txtNome.Text + "', '" + nmrStock.Text + "', '" + nmrPreco.Text + "', " + codLo.ToString + "," + stream.GetBuffer().ToString + "',1)", 1)
+                            "values ('" + txtNome1.Text + "', '" + nmrStock1.Text + "', '" + nmrPreco1.Text + "', " + codLo.ToString + "," + stream.GetBuffer().ToString + "',1)", 1)
                         End Using
                     End Using
 
-                    encher(cmbGeneros, ligacao, "generos", "nome", "codG", "select codG, nome from generos")
-                    MessageBox.Show("O género " + cmbGeneros.Text + "foi inserido sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    encher(cmbGeneros1, ligacao, "generos", "nome", "codG", "select codG, nome from generos")
+                    MessageBox.Show("O género " + cmbGeneros1.Text + "foi inserido sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Catch ex As Exception
                     ligacao.Close()
-                    MessageBox.Show("O género " + cmbGeneros.Text + " não foi inserido: " + ex.Message, "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("O género " + cmbGeneros1.Text + " não foi inserido: " + ex.Message, "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             End If
-            cmbGeneros.Text = ""
+            cmbGeneros1.Text = ""
         Else
             MessageBox.Show(str_erro, "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
     Private Sub lblNome_MouseEnter(sender As Object, e As System.EventArgs) Handles lblNome.MouseEnter
-        txtNome.Show()
-        txtNome.Select()
+        txtNome1.Show()
+        txtNome1.Select()
     End Sub
-    Private Sub txtNome_LostFocus(sender As Object, e As System.EventArgs) Handles txtNome.LostFocus
-        txtNome.Hide()
-        If txtNome.Text <> "" Then
-            lblNome.Text = txtNome.Text
+    Private Sub txtNome_LostFocus(sender As Object, e As System.EventArgs) Handles txtNome1.LostFocus
+        txtNome1.Hide()
+        If txtNome1.Text <> "" Then
+            lblNome.Text = txtNome1.Text
         End If
     End Sub
 
-    Private Sub lblGenero_MouseEnter(sender As Object, e As System.EventArgs) Handles lblGenero.MouseEnter, cmbGeneros.SelectedValueChanged
-        cmbGeneros.Show()
-        cmbGeneros.Select()
+    Private Sub lblGenero_MouseEnter(sender As Object, e As System.EventArgs) Handles lblGenero.MouseEnter, cmbGeneros1.SelectedValueChanged
+        cmbGeneros1.Show()
+        cmbGeneros1.Select()
     End Sub
-    Private Sub txtGenero_LostFocus() Handles cmbGeneros.LostFocus
-        cmbGeneros.Hide()
-        If cmbGeneros.Text <> "" Then
-            lblGenero.Text = cmbGeneros.Text
+    Private Sub txtGenero_LostFocus() Handles cmbGeneros1.LostFocus
+        cmbGeneros1.Hide()
+        If cmbGeneros1.Text <> "" Then
+            lblGenero.Text = cmbGeneros1.Text
         End If
     End Sub
 
-    Private Sub lblPreco_MouseEnter(sender As Object, e As System.EventArgs) Handles lblPreco.MouseEnter, nmrPreco.ValueChanged
-        nmrPreco.Show()
-        nmrPreco.Select()
+    Private Sub lblPreco_MouseEnter(sender As Object, e As System.EventArgs) Handles lblPreco.MouseEnter, nmrPreco1.ValueChanged
+        nmrPreco1.Show()
+        nmrPreco1.Select()
     End Sub
-    Private Sub nmrPreco_lostfocus(sender As Object, e As System.EventArgs) Handles nmrPreco.LostFocus
-        nmrPreco.Hide()
-        If nmrPreco.Value <> 0 Then
-            lblPreco.Text = String.Format("{0:F2}", nmrPreco.Value)
+    Private Sub nmrPreco_lostfocus(sender As Object, e As System.EventArgs) Handles nmrPreco1.LostFocus
+        nmrPreco1.Hide()
+        If nmrPreco1.Value <> 0 Then
+            lblPreco.Text = String.Format("{0:F2}", nmrPreco1.Value)
         End If
     End Sub
 
-    Private Sub lblStock_MouseEnter(sender As Object, e As System.EventArgs) Handles lblStock.MouseEnter, nmrStock.ValueChanged
-        nmrStock.Show()
-        nmrStock.Select()
+    Private Sub lblStock_MouseEnter(sender As Object, e As System.EventArgs) Handles lblStock.MouseEnter, nmrStock1.ValueChanged
+        nmrStock1.Show()
+        nmrStock1.Select()
     End Sub
-    Private Sub nmrStock_LostFocus(sender As Object, e As System.EventArgs) Handles nmrStock.LostFocus
-        nmrStock.Hide()
-        If nmrStock.Value <> 0 Then
-            lblStock.Text = nmrStock.Value
+    Private Sub nmrStock_LostFocus(sender As Object, e As System.EventArgs) Handles nmrStock1.LostFocus
+        nmrStock1.Hide()
+        If nmrStock1.Value <> 0 Then
+            lblStock.Text = nmrStock1.Value
         End If
     End Sub
 
     Private Sub frmProdutos_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        encher(cmbGeneros, ligacao, "generos", "nome", "codG", "select codG, nome from generos")
-        cmbGeneros.Text = ""
+        encher(cmbGeneros0, cmbGeneros1, ligacao, "generos", "nome", "codG", "select codG, nome from generos")
+        cmbGeneros1.Text = ""
         txtGenero_LostFocus()
     End Sub
 
@@ -138,5 +138,13 @@ Public Class frmProdutos
         pctImgLoc.BackgroundImage = Nothing
         btnImagem.BackgroundImage = Nothing
         btnXImg.Hide()
+    End Sub
+
+    Private Sub txtGenero_LostFocus(sender As System.Object, e As System.EventArgs) Handles cmbGeneros1.LostFocus
+
+    End Sub
+
+    Private Sub tbc3_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles tbcFormulario.SelectedIndexChanged
+
     End Sub
 End Class
