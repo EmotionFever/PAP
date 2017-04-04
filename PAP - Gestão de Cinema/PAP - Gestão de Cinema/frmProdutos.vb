@@ -11,9 +11,8 @@ Public Class frmProdutos
 
     End Sub
 
-    Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
-        Dim codLo As Integer
-        Dim str_erro As String = ""
+    Private Function erro() As String
+        Dim str As String
         If lblNome.Text <> "Nome do Produto" Then
             txtNome0.Text = txtNome1.Text
         End If
@@ -27,11 +26,17 @@ Public Class frmProdutos
             nmrStock0.Value = nmrStock1.Value
         End If
         tbcFormulario.SelectedIndex = 0
-        str_erro += verificacao(rctNome0, txtNome0)
-        str_erro += verificacao(rctGenero0, cmbGeneros0)
-        str_erro += verificacao(rctPreco0, nmrPreco0)
-        str_erro += verificacao(rctStock0, nmrStock0)
-        str_erro += verificacao(ofdImagem)
+        str += verificacao(rctNome0, txtNome0)
+        str += verificacao(rctGenero0, cmbGeneros0)
+        str += verificacao(rctPreco0, nmrPreco0)
+        str += verificacao(rctStock0, nmrStock0)
+        str += verificacao(ofdImagem)
+        Return str
+    End Function
+
+    Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
+        Dim codLo As Integer
+        Dim str_erro As String = erro()
 
         If str_erro = "" Then
             'Limpo os objetos input do formulário
@@ -139,10 +144,14 @@ Public Class frmProdutos
 
     Private Sub btnEscolher_Click(sender As System.Object, e As System.EventArgs) Handles btnEscolher.Click
         If ofdImagem.ShowDialog() = System.Windows.Forms.DialogResult.OK AndAlso ofdImagem.FileName <> "" Then
-            lblImgNome.Text = ofdImagem.SafeFileName
-            pctImgLoc.BackgroundImage = Image.FromFile(ofdImagem.FileName)
-            btnImagem.BackgroundImage = Image.FromFile(ofdImagem.FileName)
-            btnXImg.Show()
+            Try
+                pctImgLoc.BackgroundImage = Image.FromFile(ofdImagem.FileName)
+                btnImagem.BackgroundImage = Image.FromFile(ofdImagem.FileName)
+                lblImgNome.Text = ofdImagem.SafeFileName
+                btnXImg.Show()
+            Catch ex As Exception
+                MessageBox.Show("A imagem que escolheu não é uma imagem válida", "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
         End If
     End Sub
 

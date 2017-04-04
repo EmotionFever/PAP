@@ -318,7 +318,7 @@ Partial Class frmProdutos
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(9, 128)
+        Me.Label3.Location = New System.Drawing.Point(9, 127)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(44, 15)
         Me.Label3.TabIndex = 65
@@ -779,7 +779,7 @@ Partial Class frmProdutos
         Me.lblHammer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblHammer.Location = New System.Drawing.Point(70, 29)
         Me.lblHammer.Name = "lblHammer"
-        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
+        Me.lblHammer.Size = New System.Drawing.Size(62, 91)
         Me.lblHammer.TabIndex = 0
         Me.lblHammer.Text = "🛠"
         '
@@ -791,7 +791,7 @@ Partial Class frmProdutos
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(67, 187)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(263, 226)
+        Me.Label1.Size = New System.Drawing.Size(154, 226)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "🛠"
         '

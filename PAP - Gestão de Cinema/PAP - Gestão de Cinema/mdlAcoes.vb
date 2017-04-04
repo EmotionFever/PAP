@@ -227,7 +227,7 @@ Module mdlAcoes
                         picture.Save(stream, Imaging.ImageFormat.Jpeg)
 
                         'Get an array of Bytes from the stream and assign to the parameter.'         
-                        comando.Parameters.Add("@Picture", MySqlDbType.VarBinary).Value = stream.GetBuffer()
+                        comando.Parameters.Add("@Imagem", MySqlDbType.VarBinary).Value = stream.GetBuffer()
                     End Using
                 End Using
                 ligacao.Open()
@@ -241,7 +241,7 @@ Module mdlAcoes
                 ligacao.Close()
             End Try
         Else
-            MessageBox.Show("A Query do acao_c_imagem tem de ter '[campo da imagem] = @Imagem'", "Query sem '@Imagem'", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("A Query do acao_c_imagem tem de ter '[campo da imagem] = @Imagem'", "Erro de programção: Query sem '@Imagem'", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
