@@ -33,15 +33,26 @@ Partial Class frmProdutos
         Me.tbpDesativado = New System.Windows.Forms.TabPage()
         Me.flpProdDesa = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlControlos = New System.Windows.Forms.Panel()
-        Me.btnXImg = New System.Windows.Forms.Button()
-        Me.chkImagem = New System.Windows.Forms.CheckBox()
-        Me.pctImgLoc = New System.Windows.Forms.PictureBox()
-        Me.lblImgNome = New System.Windows.Forms.Label()
-        Me.lbl90 = New System.Windows.Forms.Label()
-        Me.chkGenero1 = New System.Windows.Forms.CheckBox()
-        Me.btnEscolher = New System.Windows.Forms.Button()
-        Me.chkStock1 = New System.Windows.Forms.CheckBox()
-        Me.chkPreco1 = New System.Windows.Forms.CheckBox()
+        Me.tbcFormulario = New System.Windows.Forms.TabControl()
+        Me.tbp3 = New System.Windows.Forms.TabPage()
+        Me.chkStock = New System.Windows.Forms.CheckBox()
+        Me.nmrStock0 = New System.Windows.Forms.NumericUpDown()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.chkPreco0 = New System.Windows.Forms.CheckBox()
+        Me.cmbGeneros0 = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.chkGenero0 = New System.Windows.Forms.CheckBox()
+        Me.nmrPreco0 = New System.Windows.Forms.NumericUpDown()
+        Me.lbl8 = New System.Windows.Forms.Label()
+        Me.txtNome0 = New System.Windows.Forms.TextBox()
+        Me.chkNome0 = New System.Windows.Forms.CheckBox()
+        Me.lbl2 = New System.Windows.Forms.Label()
+        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.rctStock0 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctPreco0 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctGenero0 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctNome0 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.tbp2 = New System.Windows.Forms.TabPage()
         Me.pnlProduto = New System.Windows.Forms.Panel()
         Me.cmbGeneros1 = New System.Windows.Forms.ComboBox()
         Me.nmrStock1 = New System.Windows.Forms.NumericUpDown()
@@ -52,15 +63,24 @@ Partial Class frmProdutos
         Me.lblPreco = New System.Windows.Forms.Label()
         Me.lblStock = New System.Windows.Forms.Label()
         Me.btnImagem = New System.Windows.Forms.Button()
-        Me.btnDesativar = New System.Windows.Forms.Button()
+        Me.chkNome1 = New System.Windows.Forms.CheckBox()
+        Me.chkGenero1 = New System.Windows.Forms.CheckBox()
+        Me.chkPreco1 = New System.Windows.Forms.CheckBox()
+        Me.chkStock1 = New System.Windows.Forms.CheckBox()
+        Me.btnXImg = New System.Windows.Forms.Button()
+        Me.btnProcurar = New System.Windows.Forms.Button()
+        Me.chkImagem = New System.Windows.Forms.CheckBox()
         Me.btnAtivar = New System.Windows.Forms.Button()
+        Me.btnDesativar = New System.Windows.Forms.Button()
+        Me.pctImgLoc = New System.Windows.Forms.PictureBox()
+        Me.lblImgNome = New System.Windows.Forms.Label()
+        Me.lbl90 = New System.Windows.Forms.Label()
+        Me.btnEscolher = New System.Windows.Forms.Button()
         Me.pnlProibicao = New System.Windows.Forms.Panel()
         Me.pct3 = New System.Windows.Forms.PictureBox()
         Me.lblT = New System.Windows.Forms.Label()
         Me.lblHammer = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.chkNome1 = New System.Windows.Forms.CheckBox()
-        Me.btnProcurar = New System.Windows.Forms.Button()
         Me.btnAlterar = New System.Windows.Forms.Button()
         Me.btnInserir = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -71,26 +91,6 @@ Partial Class frmProdutos
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
-        Me.tbcFormulario = New System.Windows.Forms.TabControl()
-        Me.tbp2 = New System.Windows.Forms.TabPage()
-        Me.tbp3 = New System.Windows.Forms.TabPage()
-        Me.rctNome0 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.lbl2 = New System.Windows.Forms.Label()
-        Me.chkNome0 = New System.Windows.Forms.CheckBox()
-        Me.txtNome0 = New System.Windows.Forms.TextBox()
-        Me.rctGenero0 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.lbl8 = New System.Windows.Forms.Label()
-        Me.nmrPreco0 = New System.Windows.Forms.NumericUpDown()
-        Me.chkGenero0 = New System.Windows.Forms.CheckBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.cmbGeneros0 = New System.Windows.Forms.ComboBox()
-        Me.chkPreco0 = New System.Windows.Forms.CheckBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.rctStock0 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.nmrStock0 = New System.Windows.Forms.NumericUpDown()
-        Me.chkStock = New System.Windows.Forms.CheckBox()
         Me.pnl1.SuspendLayout()
         CType(Me.pct1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.flp1.SuspendLayout()
@@ -98,18 +98,18 @@ Partial Class frmProdutos
         Me.tbpAtivado.SuspendLayout()
         Me.tbpDesativado.SuspendLayout()
         Me.pnlControlos.SuspendLayout()
-        CType(Me.pctImgLoc, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tbcFormulario.SuspendLayout()
+        Me.tbp3.SuspendLayout()
+        CType(Me.nmrStock0, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nmrPreco0, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tbp2.SuspendLayout()
         Me.pnlProduto.SuspendLayout()
         CType(Me.nmrStock1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nmrPreco1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctImgLoc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlProibicao.SuspendLayout()
         CType(Me.pct3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        Me.tbcFormulario.SuspendLayout()
-        Me.tbp2.SuspendLayout()
-        Me.tbp3.SuspendLayout()
-        CType(Me.nmrPreco0, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nmrStock0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
@@ -192,7 +192,7 @@ Partial Class frmProdutos
         Me.tbpDesativado.Controls.Add(Me.flpProdDesa)
         Me.tbpDesativado.Location = New System.Drawing.Point(4, 23)
         Me.tbpDesativado.Name = "tbpDesativado"
-        Me.tbpDesativado.Size = New System.Drawing.Size(383, 495)
+        Me.tbpDesativado.Size = New System.Drawing.Size(383, 448)
         Me.tbpDesativado.TabIndex = 2
         Me.tbpDesativado.Text = "Produtos desativados"
         '
@@ -201,7 +201,7 @@ Partial Class frmProdutos
         Me.flpProdDesa.Dock = System.Windows.Forms.DockStyle.Fill
         Me.flpProdDesa.Location = New System.Drawing.Point(0, 0)
         Me.flpProdDesa.Name = "flpProdDesa"
-        Me.flpProdDesa.Size = New System.Drawing.Size(381, 493)
+        Me.flpProdDesa.Size = New System.Drawing.Size(381, 446)
         Me.flpProdDesa.TabIndex = 7
         '
         'pnlControlos
@@ -224,106 +224,237 @@ Partial Class frmProdutos
         Me.pnlControlos.Size = New System.Drawing.Size(284, 493)
         Me.pnlControlos.TabIndex = 43
         '
-        'btnXImg
+        'tbcFormulario
         '
-        Me.btnXImg.BackColor = System.Drawing.Color.Red
-        Me.btnXImg.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.lixo
-        Me.btnXImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnXImg.FlatAppearance.BorderSize = 0
-        Me.btnXImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnXImg.Font = New System.Drawing.Font("Arial", 5.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnXImg.ForeColor = System.Drawing.Color.White
-        Me.btnXImg.Location = New System.Drawing.Point(9, 46)
-        Me.btnXImg.Margin = New System.Windows.Forms.Padding(0)
-        Me.btnXImg.Name = "btnXImg"
-        Me.btnXImg.Size = New System.Drawing.Size(18, 18)
-        Me.btnXImg.TabIndex = 68
-        Me.btnXImg.UseVisualStyleBackColor = False
-        Me.btnXImg.Visible = False
+        Me.tbcFormulario.Controls.Add(Me.tbp3)
+        Me.tbcFormulario.Controls.Add(Me.tbp2)
+        Me.tbcFormulario.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbcFormulario.Location = New System.Drawing.Point(8, 94)
+        Me.tbcFormulario.Name = "tbcFormulario"
+        Me.tbcFormulario.SelectedIndex = 0
+        Me.tbcFormulario.Size = New System.Drawing.Size(273, 287)
+        Me.tbcFormulario.TabIndex = 69
         '
-        'chkImagem
+        'tbp3
         '
-        Me.chkImagem.AutoSize = True
-        Me.chkImagem.Location = New System.Drawing.Point(249, 24)
-        Me.chkImagem.Name = "chkImagem"
-        Me.chkImagem.Size = New System.Drawing.Size(15, 14)
-        Me.chkImagem.TabIndex = 67
-        Me.chkImagem.UseVisualStyleBackColor = True
+        Me.tbp3.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.tbp3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.tbp3.Controls.Add(Me.chkStock)
+        Me.tbp3.Controls.Add(Me.nmrStock0)
+        Me.tbp3.Controls.Add(Me.Label4)
+        Me.tbp3.Controls.Add(Me.chkPreco0)
+        Me.tbp3.Controls.Add(Me.cmbGeneros0)
+        Me.tbp3.Controls.Add(Me.Label3)
+        Me.tbp3.Controls.Add(Me.chkGenero0)
+        Me.tbp3.Controls.Add(Me.nmrPreco0)
+        Me.tbp3.Controls.Add(Me.lbl8)
+        Me.tbp3.Controls.Add(Me.txtNome0)
+        Me.tbp3.Controls.Add(Me.chkNome0)
+        Me.tbp3.Controls.Add(Me.lbl2)
+        Me.tbp3.Controls.Add(Me.ShapeContainer1)
+        Me.tbp3.Location = New System.Drawing.Point(4, 23)
+        Me.tbp3.Name = "tbp3"
+        Me.tbp3.Size = New System.Drawing.Size(265, 260)
+        Me.tbp3.TabIndex = 1
+        Me.tbp3.Text = "Formulário normal"
         '
-        'pctImgLoc
+        'chkStock
         '
-        Me.pctImgLoc.BackgroundImage = CType(resources.GetObject("pctImgLoc.BackgroundImage"), System.Drawing.Image)
-        Me.pctImgLoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctImgLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pctImgLoc.Image = CType(resources.GetObject("pctImgLoc.Image"), System.Drawing.Image)
-        Me.pctImgLoc.Location = New System.Drawing.Point(8, 9)
-        Me.pctImgLoc.Name = "pctImgLoc"
-        Me.pctImgLoc.Size = New System.Drawing.Size(74, 56)
-        Me.pctImgLoc.TabIndex = 66
-        Me.pctImgLoc.TabStop = False
+        Me.chkStock.AutoSize = True
+        Me.chkStock.Location = New System.Drawing.Point(236, 214)
+        Me.chkStock.Name = "chkStock"
+        Me.chkStock.Size = New System.Drawing.Size(15, 14)
+        Me.chkStock.TabIndex = 70
+        Me.chkStock.UseVisualStyleBackColor = True
         '
-        'lblImgNome
+        'nmrStock0
         '
-        Me.lblImgNome.AutoEllipsis = True
-        Me.lblImgNome.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblImgNome.ForeColor = System.Drawing.Color.White
-        Me.lblImgNome.Location = New System.Drawing.Point(88, 24)
-        Me.lblImgNome.Name = "lblImgNome"
-        Me.lblImgNome.Size = New System.Drawing.Size(153, 15)
-        Me.lblImgNome.TabIndex = 65
-        Me.lblImgNome.Text = "---"
+        Me.nmrStock0.BackColor = System.Drawing.Color.White
+        Me.nmrStock0.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nmrStock0.Increment = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.nmrStock0.Location = New System.Drawing.Point(20, 210)
+        Me.nmrStock0.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
+        Me.nmrStock0.Name = "nmrStock0"
+        Me.nmrStock0.Size = New System.Drawing.Size(193, 21)
+        Me.nmrStock0.TabIndex = 69
+        Me.nmrStock0.Tag = "stock"
+        Me.nmrStock0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        Me.nmrStock0.Visible = False
         '
-        'lbl90
+        'Label4
         '
-        Me.lbl90.AutoSize = True
-        Me.lbl90.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.lbl90.ForeColor = System.Drawing.Color.White
-        Me.lbl90.Location = New System.Drawing.Point(88, 9)
-        Me.lbl90.Name = "lbl90"
-        Me.lbl90.Size = New System.Drawing.Size(106, 15)
-        Me.lbl90.TabIndex = 61
-        Me.lbl90.Text = "Nome do ficheiro:"
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(9, 192)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(111, 15)
+        Me.Label4.TabIndex = 68
+        Me.Label4.Text = "Stock/Quantidade:"
         '
-        'chkGenero1
+        'chkPreco0
         '
-        Me.chkGenero1.AutoSize = True
-        Me.chkGenero1.Location = New System.Drawing.Point(24, 234)
-        Me.chkGenero1.Name = "chkGenero1"
-        Me.chkGenero1.Size = New System.Drawing.Size(15, 14)
-        Me.chkGenero1.TabIndex = 64
-        Me.chkGenero1.UseVisualStyleBackColor = True
+        Me.chkPreco0.AutoSize = True
+        Me.chkPreco0.Location = New System.Drawing.Point(236, 149)
+        Me.chkPreco0.Name = "chkPreco0"
+        Me.chkPreco0.Size = New System.Drawing.Size(15, 14)
+        Me.chkPreco0.TabIndex = 67
+        Me.chkPreco0.UseVisualStyleBackColor = True
         '
-        'btnEscolher
+        'cmbGeneros0
         '
-        Me.btnEscolher.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnEscolher.FlatAppearance.BorderSize = 0
-        Me.btnEscolher.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEscolher.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEscolher.ForeColor = System.Drawing.Color.Black
-        Me.btnEscolher.Location = New System.Drawing.Point(88, 42)
-        Me.btnEscolher.Name = "btnEscolher"
-        Me.btnEscolher.Size = New System.Drawing.Size(153, 23)
-        Me.btnEscolher.TabIndex = 51
-        Me.btnEscolher.Text = "Escolher imagem"
-        Me.btnEscolher.UseVisualStyleBackColor = False
+        Me.cmbGeneros0.BackColor = System.Drawing.Color.White
+        Me.cmbGeneros0.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbGeneros0.FormattingEnabled = True
+        Me.cmbGeneros0.Location = New System.Drawing.Point(20, 82)
+        Me.cmbGeneros0.Name = "cmbGeneros0"
+        Me.cmbGeneros0.Size = New System.Drawing.Size(193, 22)
+        Me.cmbGeneros0.TabIndex = 66
+        Me.cmbGeneros0.Tag = "género"
+        Me.cmbGeneros0.Visible = False
         '
-        'chkStock1
+        'Label3
         '
-        Me.chkStock1.AutoSize = True
-        Me.chkStock1.Location = New System.Drawing.Point(236, 204)
-        Me.chkStock1.Name = "chkStock1"
-        Me.chkStock1.Size = New System.Drawing.Size(15, 14)
-        Me.chkStock1.TabIndex = 63
-        Me.chkStock1.UseVisualStyleBackColor = True
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(9, 128)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(44, 15)
+        Me.Label3.TabIndex = 65
+        Me.Label3.Text = "Preço:"
         '
-        'chkPreco1
+        'chkGenero0
         '
-        Me.chkPreco1.AutoSize = True
-        Me.chkPreco1.Location = New System.Drawing.Point(236, 69)
-        Me.chkPreco1.Name = "chkPreco1"
-        Me.chkPreco1.Size = New System.Drawing.Size(15, 14)
-        Me.chkPreco1.TabIndex = 62
-        Me.chkPreco1.UseVisualStyleBackColor = True
+        Me.chkGenero0.AutoSize = True
+        Me.chkGenero0.Location = New System.Drawing.Point(236, 86)
+        Me.chkGenero0.Name = "chkGenero0"
+        Me.chkGenero0.Size = New System.Drawing.Size(15, 14)
+        Me.chkGenero0.TabIndex = 64
+        Me.chkGenero0.UseVisualStyleBackColor = True
+        '
+        'nmrPreco0
+        '
+        Me.nmrPreco0.BackColor = System.Drawing.Color.White
+        Me.nmrPreco0.DecimalPlaces = 2
+        Me.nmrPreco0.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nmrPreco0.Increment = New Decimal(New Integer() {10, 0, 0, 131072})
+        Me.nmrPreco0.Location = New System.Drawing.Point(20, 145)
+        Me.nmrPreco0.Maximum = New Decimal(New Integer() {9999, 0, 0, 131072})
+        Me.nmrPreco0.Name = "nmrPreco0"
+        Me.nmrPreco0.Size = New System.Drawing.Size(193, 21)
+        Me.nmrPreco0.TabIndex = 63
+        Me.nmrPreco0.Tag = "preço"
+        Me.nmrPreco0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        Me.nmrPreco0.Visible = False
+        '
+        'lbl8
+        '
+        Me.lbl8.AutoSize = True
+        Me.lbl8.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl8.ForeColor = System.Drawing.Color.White
+        Me.lbl8.Location = New System.Drawing.Point(9, 64)
+        Me.lbl8.Name = "lbl8"
+        Me.lbl8.Size = New System.Drawing.Size(51, 15)
+        Me.lbl8.TabIndex = 29
+        Me.lbl8.Text = "Género:"
+        '
+        'txtNome0
+        '
+        Me.txtNome0.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtNome0.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNome0.ForeColor = System.Drawing.Color.Black
+        Me.txtNome0.Location = New System.Drawing.Point(20, 24)
+        Me.txtNome0.MaxLength = 50
+        Me.txtNome0.Name = "txtNome0"
+        Me.txtNome0.Size = New System.Drawing.Size(193, 14)
+        Me.txtNome0.TabIndex = 28
+        Me.txtNome0.Tag = "nome"
+        '
+        'chkNome0
+        '
+        Me.chkNome0.AutoSize = True
+        Me.chkNome0.Location = New System.Drawing.Point(236, 24)
+        Me.chkNome0.Name = "chkNome0"
+        Me.chkNome0.Size = New System.Drawing.Size(15, 14)
+        Me.chkNome0.TabIndex = 23
+        Me.chkNome0.UseVisualStyleBackColor = True
+        '
+        'lbl2
+        '
+        Me.lbl2.AutoSize = True
+        Me.lbl2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl2.ForeColor = System.Drawing.Color.White
+        Me.lbl2.Location = New System.Drawing.Point(9, 3)
+        Me.lbl2.Name = "lbl2"
+        Me.lbl2.Size = New System.Drawing.Size(113, 15)
+        Me.lbl2.TabIndex = 21
+        Me.lbl2.Text = "*Nome do Produto:"
+        '
+        'ShapeContainer1
+        '
+        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer1.Name = "ShapeContainer1"
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctStock0, Me.rctPreco0, Me.rctGenero0, Me.rctNome0})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(263, 258)
+        Me.ShapeContainer1.TabIndex = 0
+        Me.ShapeContainer1.TabStop = False
+        '
+        'rctStock0
+        '
+        Me.rctStock0.BackColor = System.Drawing.Color.White
+        Me.rctStock0.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctStock0.BorderColor = System.Drawing.Color.White
+        Me.rctStock0.CornerRadius = 2
+        Me.rctStock0.Location = New System.Drawing.Point(12, 207)
+        Me.rctStock0.Name = "rctStock0"
+        Me.rctStock0.Size = New System.Drawing.Size(210, 25)
+        '
+        'rctPreco0
+        '
+        Me.rctPreco0.BackColor = System.Drawing.Color.White
+        Me.rctPreco0.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctPreco0.BorderColor = System.Drawing.Color.White
+        Me.rctPreco0.CornerRadius = 2
+        Me.rctPreco0.Location = New System.Drawing.Point(12, 142)
+        Me.rctPreco0.Name = "rctPreco0"
+        Me.rctPreco0.Size = New System.Drawing.Size(210, 25)
+        '
+        'rctGenero0
+        '
+        Me.rctGenero0.BackColor = System.Drawing.Color.White
+        Me.rctGenero0.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctGenero0.BorderColor = System.Drawing.Color.White
+        Me.rctGenero0.CornerRadius = 2
+        Me.rctGenero0.Location = New System.Drawing.Point(12, 80)
+        Me.rctGenero0.Name = "rctGenero0"
+        Me.rctGenero0.Size = New System.Drawing.Size(210, 25)
+        '
+        'rctNome0
+        '
+        Me.rctNome0.BackColor = System.Drawing.Color.White
+        Me.rctNome0.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctNome0.BorderColor = System.Drawing.Color.White
+        Me.rctNome0.CornerRadius = 2
+        Me.rctNome0.Location = New System.Drawing.Point(12, 18)
+        Me.rctNome0.Name = "rctNome0"
+        Me.rctNome0.Size = New System.Drawing.Size(210, 25)
+        '
+        'tbp2
+        '
+        Me.tbp2.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.tbp2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.tbp2.Controls.Add(Me.pnlProduto)
+        Me.tbp2.Controls.Add(Me.chkNome1)
+        Me.tbp2.Controls.Add(Me.chkGenero1)
+        Me.tbp2.Controls.Add(Me.chkPreco1)
+        Me.tbp2.Controls.Add(Me.chkStock1)
+        Me.tbp2.Location = New System.Drawing.Point(4, 23)
+        Me.tbp2.Name = "tbp2"
+        Me.tbp2.Size = New System.Drawing.Size(265, 260)
+        Me.tbp2.TabIndex = 2
+        Me.tbp2.Text = "Formulário gráfico"
         '
         'pnlProduto
         '
@@ -454,19 +585,81 @@ Partial Class frmProdutos
         Me.btnImagem.TabIndex = 58
         Me.btnImagem.UseVisualStyleBackColor = False
         '
-        'btnDesativar
+        'chkNome1
         '
-        Me.btnDesativar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnDesativar.FlatAppearance.BorderSize = 0
-        Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDesativar.ForeColor = System.Drawing.Color.Black
-        Me.btnDesativar.Location = New System.Drawing.Point(15, 438)
-        Me.btnDesativar.Name = "btnDesativar"
-        Me.btnDesativar.Size = New System.Drawing.Size(260, 22)
-        Me.btnDesativar.TabIndex = 43
-        Me.btnDesativar.Text = "Desativar Cliente"
-        Me.btnDesativar.UseVisualStyleBackColor = False
+        Me.chkNome1.AutoSize = True
+        Me.chkNome1.Location = New System.Drawing.Point(236, 25)
+        Me.chkNome1.Name = "chkNome1"
+        Me.chkNome1.Size = New System.Drawing.Size(15, 14)
+        Me.chkNome1.TabIndex = 22
+        Me.chkNome1.UseVisualStyleBackColor = True
+        '
+        'chkGenero1
+        '
+        Me.chkGenero1.AutoSize = True
+        Me.chkGenero1.Location = New System.Drawing.Point(24, 234)
+        Me.chkGenero1.Name = "chkGenero1"
+        Me.chkGenero1.Size = New System.Drawing.Size(15, 14)
+        Me.chkGenero1.TabIndex = 64
+        Me.chkGenero1.UseVisualStyleBackColor = True
+        '
+        'chkPreco1
+        '
+        Me.chkPreco1.AutoSize = True
+        Me.chkPreco1.Location = New System.Drawing.Point(236, 69)
+        Me.chkPreco1.Name = "chkPreco1"
+        Me.chkPreco1.Size = New System.Drawing.Size(15, 14)
+        Me.chkPreco1.TabIndex = 62
+        Me.chkPreco1.UseVisualStyleBackColor = True
+        '
+        'chkStock1
+        '
+        Me.chkStock1.AutoSize = True
+        Me.chkStock1.Location = New System.Drawing.Point(236, 204)
+        Me.chkStock1.Name = "chkStock1"
+        Me.chkStock1.Size = New System.Drawing.Size(15, 14)
+        Me.chkStock1.TabIndex = 63
+        Me.chkStock1.UseVisualStyleBackColor = True
+        '
+        'btnXImg
+        '
+        Me.btnXImg.BackColor = System.Drawing.Color.Red
+        Me.btnXImg.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.lixo
+        Me.btnXImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnXImg.FlatAppearance.BorderSize = 0
+        Me.btnXImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnXImg.Font = New System.Drawing.Font("Arial", 5.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnXImg.ForeColor = System.Drawing.Color.White
+        Me.btnXImg.Location = New System.Drawing.Point(9, 46)
+        Me.btnXImg.Margin = New System.Windows.Forms.Padding(0)
+        Me.btnXImg.Name = "btnXImg"
+        Me.btnXImg.Size = New System.Drawing.Size(18, 18)
+        Me.btnXImg.TabIndex = 68
+        Me.btnXImg.UseVisualStyleBackColor = False
+        Me.btnXImg.Visible = False
+        '
+        'btnProcurar
+        '
+        Me.btnProcurar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnProcurar.FlatAppearance.BorderSize = 0
+        Me.btnProcurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProcurar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProcurar.ForeColor = System.Drawing.Color.Black
+        Me.btnProcurar.Location = New System.Drawing.Point(105, 410)
+        Me.btnProcurar.Name = "btnProcurar"
+        Me.btnProcurar.Size = New System.Drawing.Size(79, 23)
+        Me.btnProcurar.TabIndex = 40
+        Me.btnProcurar.Text = "Procurar"
+        Me.btnProcurar.UseVisualStyleBackColor = False
+        '
+        'chkImagem
+        '
+        Me.chkImagem.AutoSize = True
+        Me.chkImagem.Location = New System.Drawing.Point(249, 24)
+        Me.chkImagem.Name = "chkImagem"
+        Me.chkImagem.Size = New System.Drawing.Size(15, 14)
+        Me.chkImagem.TabIndex = 67
+        Me.chkImagem.UseVisualStyleBackColor = True
         '
         'btnAtivar
         '
@@ -481,6 +674,68 @@ Partial Class frmProdutos
         Me.btnAtivar.TabIndex = 48
         Me.btnAtivar.Text = "Ativar Cliente"
         Me.btnAtivar.UseVisualStyleBackColor = False
+        '
+        'btnDesativar
+        '
+        Me.btnDesativar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnDesativar.FlatAppearance.BorderSize = 0
+        Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDesativar.ForeColor = System.Drawing.Color.Black
+        Me.btnDesativar.Location = New System.Drawing.Point(15, 438)
+        Me.btnDesativar.Name = "btnDesativar"
+        Me.btnDesativar.Size = New System.Drawing.Size(260, 22)
+        Me.btnDesativar.TabIndex = 43
+        Me.btnDesativar.Text = "Desativar Cliente"
+        Me.btnDesativar.UseVisualStyleBackColor = False
+        '
+        'pctImgLoc
+        '
+        Me.pctImgLoc.BackgroundImage = CType(resources.GetObject("pctImgLoc.BackgroundImage"), System.Drawing.Image)
+        Me.pctImgLoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctImgLoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pctImgLoc.Image = CType(resources.GetObject("pctImgLoc.Image"), System.Drawing.Image)
+        Me.pctImgLoc.Location = New System.Drawing.Point(8, 9)
+        Me.pctImgLoc.Name = "pctImgLoc"
+        Me.pctImgLoc.Size = New System.Drawing.Size(74, 56)
+        Me.pctImgLoc.TabIndex = 66
+        Me.pctImgLoc.TabStop = False
+        '
+        'lblImgNome
+        '
+        Me.lblImgNome.AutoEllipsis = True
+        Me.lblImgNome.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblImgNome.ForeColor = System.Drawing.Color.White
+        Me.lblImgNome.Location = New System.Drawing.Point(88, 24)
+        Me.lblImgNome.Name = "lblImgNome"
+        Me.lblImgNome.Size = New System.Drawing.Size(153, 15)
+        Me.lblImgNome.TabIndex = 65
+        Me.lblImgNome.Text = "---"
+        '
+        'lbl90
+        '
+        Me.lbl90.AutoSize = True
+        Me.lbl90.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lbl90.ForeColor = System.Drawing.Color.White
+        Me.lbl90.Location = New System.Drawing.Point(88, 9)
+        Me.lbl90.Name = "lbl90"
+        Me.lbl90.Size = New System.Drawing.Size(106, 15)
+        Me.lbl90.TabIndex = 61
+        Me.lbl90.Text = "Nome do ficheiro:"
+        '
+        'btnEscolher
+        '
+        Me.btnEscolher.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnEscolher.FlatAppearance.BorderSize = 0
+        Me.btnEscolher.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEscolher.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEscolher.ForeColor = System.Drawing.Color.Black
+        Me.btnEscolher.Location = New System.Drawing.Point(88, 42)
+        Me.btnEscolher.Name = "btnEscolher"
+        Me.btnEscolher.Size = New System.Drawing.Size(153, 23)
+        Me.btnEscolher.TabIndex = 51
+        Me.btnEscolher.Text = "Escolher imagem"
+        Me.btnEscolher.UseVisualStyleBackColor = False
         '
         'pnlProibicao
         '
@@ -524,7 +779,7 @@ Partial Class frmProdutos
         Me.lblHammer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblHammer.Location = New System.Drawing.Point(70, 29)
         Me.lblHammer.Name = "lblHammer"
-        Me.lblHammer.Size = New System.Drawing.Size(62, 91)
+        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
         Me.lblHammer.TabIndex = 0
         Me.lblHammer.Text = "🛠"
         '
@@ -536,32 +791,9 @@ Partial Class frmProdutos
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(67, 187)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(154, 226)
+        Me.Label1.Size = New System.Drawing.Size(263, 226)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "🛠"
-        '
-        'chkNome1
-        '
-        Me.chkNome1.AutoSize = True
-        Me.chkNome1.Location = New System.Drawing.Point(236, 25)
-        Me.chkNome1.Name = "chkNome1"
-        Me.chkNome1.Size = New System.Drawing.Size(15, 14)
-        Me.chkNome1.TabIndex = 22
-        Me.chkNome1.UseVisualStyleBackColor = True
-        '
-        'btnProcurar
-        '
-        Me.btnProcurar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnProcurar.FlatAppearance.BorderSize = 0
-        Me.btnProcurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnProcurar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnProcurar.ForeColor = System.Drawing.Color.Black
-        Me.btnProcurar.Location = New System.Drawing.Point(105, 410)
-        Me.btnProcurar.Name = "btnProcurar"
-        Me.btnProcurar.Size = New System.Drawing.Size(79, 23)
-        Me.btnProcurar.TabIndex = 40
-        Me.btnProcurar.Text = "Procurar"
-        Me.btnProcurar.UseVisualStyleBackColor = False
         '
         'btnAlterar
         '
@@ -675,238 +907,6 @@ Partial Class frmProdutos
         Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 652)
         Me.CtrL_MenuCine.TabIndex = 0
         '
-        'tbcFormulario
-        '
-        Me.tbcFormulario.Controls.Add(Me.tbp3)
-        Me.tbcFormulario.Controls.Add(Me.tbp2)
-        Me.tbcFormulario.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbcFormulario.Location = New System.Drawing.Point(8, 94)
-        Me.tbcFormulario.Name = "tbcFormulario"
-        Me.tbcFormulario.SelectedIndex = 0
-        Me.tbcFormulario.Size = New System.Drawing.Size(273, 287)
-        Me.tbcFormulario.TabIndex = 69
-        '
-        'tbp2
-        '
-        Me.tbp2.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.tbp2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.tbp2.Controls.Add(Me.pnlProduto)
-        Me.tbp2.Controls.Add(Me.chkNome1)
-        Me.tbp2.Controls.Add(Me.chkGenero1)
-        Me.tbp2.Controls.Add(Me.chkPreco1)
-        Me.tbp2.Controls.Add(Me.chkStock1)
-        Me.tbp2.Location = New System.Drawing.Point(4, 23)
-        Me.tbp2.Name = "tbp2"
-        Me.tbp2.Size = New System.Drawing.Size(265, 260)
-        Me.tbp2.TabIndex = 2
-        Me.tbp2.Text = "Formulário gráfico"
-        '
-        'tbp3
-        '
-        Me.tbp3.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.tbp3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.tbp3.Controls.Add(Me.chkStock)
-        Me.tbp3.Controls.Add(Me.nmrStock0)
-        Me.tbp3.Controls.Add(Me.Label4)
-        Me.tbp3.Controls.Add(Me.chkPreco0)
-        Me.tbp3.Controls.Add(Me.cmbGeneros0)
-        Me.tbp3.Controls.Add(Me.Label3)
-        Me.tbp3.Controls.Add(Me.chkGenero0)
-        Me.tbp3.Controls.Add(Me.nmrPreco0)
-        Me.tbp3.Controls.Add(Me.lbl8)
-        Me.tbp3.Controls.Add(Me.txtNome0)
-        Me.tbp3.Controls.Add(Me.chkNome0)
-        Me.tbp3.Controls.Add(Me.lbl2)
-        Me.tbp3.Controls.Add(Me.ShapeContainer1)
-        Me.tbp3.Location = New System.Drawing.Point(4, 23)
-        Me.tbp3.Name = "tbp3"
-        Me.tbp3.Size = New System.Drawing.Size(265, 260)
-        Me.tbp3.TabIndex = 1
-        Me.tbp3.Text = "Formulário normal"
-        '
-        'rctNome0
-        '
-        Me.rctNome0.BackColor = System.Drawing.Color.White
-        Me.rctNome0.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctNome0.BorderColor = System.Drawing.Color.White
-        Me.rctNome0.CornerRadius = 2
-        Me.rctNome0.Location = New System.Drawing.Point(12, 18)
-        Me.rctNome0.Name = "rctNome0"
-        Me.rctNome0.Size = New System.Drawing.Size(210, 25)
-        '
-        'ShapeContainer1
-        '
-        Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctStock0, Me.RectangleShape1, Me.rctGenero0, Me.rctNome0})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(263, 258)
-        Me.ShapeContainer1.TabIndex = 0
-        Me.ShapeContainer1.TabStop = False
-        '
-        'lbl2
-        '
-        Me.lbl2.AutoSize = True
-        Me.lbl2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl2.ForeColor = System.Drawing.Color.White
-        Me.lbl2.Location = New System.Drawing.Point(9, 3)
-        Me.lbl2.Name = "lbl2"
-        Me.lbl2.Size = New System.Drawing.Size(113, 15)
-        Me.lbl2.TabIndex = 21
-        Me.lbl2.Text = "*Nome do Produto:"
-        '
-        'chkNome0
-        '
-        Me.chkNome0.AutoSize = True
-        Me.chkNome0.Location = New System.Drawing.Point(236, 24)
-        Me.chkNome0.Name = "chkNome0"
-        Me.chkNome0.Size = New System.Drawing.Size(15, 14)
-        Me.chkNome0.TabIndex = 23
-        Me.chkNome0.UseVisualStyleBackColor = True
-        '
-        'txtNome0
-        '
-        Me.txtNome0.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtNome0.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNome0.ForeColor = System.Drawing.Color.Black
-        Me.txtNome0.Location = New System.Drawing.Point(20, 24)
-        Me.txtNome0.MaxLength = 50
-        Me.txtNome0.Name = "txtNome0"
-        Me.txtNome0.Size = New System.Drawing.Size(193, 14)
-        Me.txtNome0.TabIndex = 28
-        Me.txtNome0.Tag = "nome"
-        '
-        'rctGenero0
-        '
-        Me.rctGenero0.BackColor = System.Drawing.Color.White
-        Me.rctGenero0.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctGenero0.BorderColor = System.Drawing.Color.White
-        Me.rctGenero0.CornerRadius = 2
-        Me.rctGenero0.Location = New System.Drawing.Point(12, 80)
-        Me.rctGenero0.Name = "rctGenero0"
-        Me.rctGenero0.Size = New System.Drawing.Size(210, 25)
-        '
-        'lbl8
-        '
-        Me.lbl8.AutoSize = True
-        Me.lbl8.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl8.ForeColor = System.Drawing.Color.White
-        Me.lbl8.Location = New System.Drawing.Point(9, 64)
-        Me.lbl8.Name = "lbl8"
-        Me.lbl8.Size = New System.Drawing.Size(51, 15)
-        Me.lbl8.TabIndex = 29
-        Me.lbl8.Text = "Género:"
-        '
-        'nmrPreco0
-        '
-        Me.nmrPreco0.BackColor = System.Drawing.Color.White
-        Me.nmrPreco0.DecimalPlaces = 2
-        Me.nmrPreco0.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nmrPreco0.Increment = New Decimal(New Integer() {10, 0, 0, 131072})
-        Me.nmrPreco0.Location = New System.Drawing.Point(20, 145)
-        Me.nmrPreco0.Maximum = New Decimal(New Integer() {9999, 0, 0, 131072})
-        Me.nmrPreco0.Name = "nmrPreco0"
-        Me.nmrPreco0.Size = New System.Drawing.Size(193, 21)
-        Me.nmrPreco0.TabIndex = 63
-        Me.nmrPreco0.Tag = "preço"
-        Me.nmrPreco0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
-        Me.nmrPreco0.Visible = False
-        '
-        'chkGenero0
-        '
-        Me.chkGenero0.AutoSize = True
-        Me.chkGenero0.Location = New System.Drawing.Point(236, 86)
-        Me.chkGenero0.Name = "chkGenero0"
-        Me.chkGenero0.Size = New System.Drawing.Size(15, 14)
-        Me.chkGenero0.TabIndex = 64
-        Me.chkGenero0.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(9, 128)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(44, 15)
-        Me.Label3.TabIndex = 65
-        Me.Label3.Text = "Preço:"
-        '
-        'RectangleShape1
-        '
-        Me.RectangleShape1.BackColor = System.Drawing.Color.White
-        Me.RectangleShape1.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.RectangleShape1.BorderColor = System.Drawing.Color.White
-        Me.RectangleShape1.CornerRadius = 2
-        Me.RectangleShape1.Location = New System.Drawing.Point(12, 142)
-        Me.RectangleShape1.Name = "RectangleShape1"
-        Me.RectangleShape1.Size = New System.Drawing.Size(210, 25)
-        '
-        'cmbGeneros0
-        '
-        Me.cmbGeneros0.BackColor = System.Drawing.Color.White
-        Me.cmbGeneros0.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbGeneros0.FormattingEnabled = True
-        Me.cmbGeneros0.Location = New System.Drawing.Point(20, 82)
-        Me.cmbGeneros0.Name = "cmbGeneros0"
-        Me.cmbGeneros0.Size = New System.Drawing.Size(193, 22)
-        Me.cmbGeneros0.TabIndex = 66
-        Me.cmbGeneros0.Tag = "género"
-        Me.cmbGeneros0.Visible = False
-        '
-        'chkPreco0
-        '
-        Me.chkPreco0.AutoSize = True
-        Me.chkPreco0.Location = New System.Drawing.Point(236, 149)
-        Me.chkPreco0.Name = "chkPreco0"
-        Me.chkPreco0.Size = New System.Drawing.Size(15, 14)
-        Me.chkPreco0.TabIndex = 67
-        Me.chkPreco0.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(9, 192)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(111, 15)
-        Me.Label4.TabIndex = 68
-        Me.Label4.Text = "Stock/Quantidade:"
-        '
-        'rctStock0
-        '
-        Me.rctStock0.BackColor = System.Drawing.Color.White
-        Me.rctStock0.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctStock0.BorderColor = System.Drawing.Color.White
-        Me.rctStock0.CornerRadius = 2
-        Me.rctStock0.Location = New System.Drawing.Point(12, 207)
-        Me.rctStock0.Name = "rctStock0"
-        Me.rctStock0.Size = New System.Drawing.Size(210, 25)
-        '
-        'nmrStock0
-        '
-        Me.nmrStock0.BackColor = System.Drawing.Color.White
-        Me.nmrStock0.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nmrStock0.Increment = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.nmrStock0.Location = New System.Drawing.Point(20, 210)
-        Me.nmrStock0.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
-        Me.nmrStock0.Name = "nmrStock0"
-        Me.nmrStock0.Size = New System.Drawing.Size(193, 21)
-        Me.nmrStock0.TabIndex = 69
-        Me.nmrStock0.Tag = "stock"
-        Me.nmrStock0.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
-        Me.nmrStock0.Visible = False
-        '
-        'chkStock
-        '
-        Me.chkStock.AutoSize = True
-        Me.chkStock.Location = New System.Drawing.Point(236, 214)
-        Me.chkStock.Name = "chkStock"
-        Me.chkStock.Size = New System.Drawing.Size(15, 14)
-        Me.chkStock.TabIndex = 70
-        Me.chkStock.UseVisualStyleBackColor = True
-        '
         'frmProdutos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -930,22 +930,22 @@ Partial Class frmProdutos
         Me.tbpDesativado.ResumeLayout(False)
         Me.pnlControlos.ResumeLayout(False)
         Me.pnlControlos.PerformLayout()
-        CType(Me.pctImgLoc, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tbcFormulario.ResumeLayout(False)
+        Me.tbp3.ResumeLayout(False)
+        Me.tbp3.PerformLayout()
+        CType(Me.nmrStock0, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nmrPreco0, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tbp2.ResumeLayout(False)
+        Me.tbp2.PerformLayout()
         Me.pnlProduto.ResumeLayout(False)
         Me.pnlProduto.PerformLayout()
         CType(Me.nmrStock1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nmrPreco1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctImgLoc, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlProibicao.ResumeLayout(False)
         Me.pnlProibicao.PerformLayout()
         CType(Me.pct3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        Me.tbcFormulario.ResumeLayout(False)
-        Me.tbp2.ResumeLayout(False)
-        Me.tbp2.PerformLayout()
-        Me.tbp3.ResumeLayout(False)
-        Me.tbp3.PerformLayout()
-        CType(Me.nmrPreco0, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nmrStock0, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1010,7 +1010,7 @@ Partial Class frmProdutos
     Friend WithEvents chkGenero0 As System.Windows.Forms.CheckBox
     Friend WithEvents nmrPreco0 As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents RectangleShape1 As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rctPreco0 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents cmbGeneros0 As System.Windows.Forms.ComboBox
     Friend WithEvents chkPreco0 As System.Windows.Forms.CheckBox
     Friend WithEvents Label4 As System.Windows.Forms.Label

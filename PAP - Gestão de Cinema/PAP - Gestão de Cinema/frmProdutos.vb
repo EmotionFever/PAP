@@ -14,10 +14,23 @@ Public Class frmProdutos
     Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
         Dim codLo As Integer
         Dim str_erro As String = ""
-        str_erro += verificacao(txtNome1)
-        str_erro += verificacao(cmbGeneros1)
-        str_erro += verificacao(nmrPreco1)
-        str_erro += verificacao(nmrStock1)
+        If lblNome.Text <> "Nome do Produto" Then
+            txtNome0.Text = txtNome1.Text
+        End If
+        If lblGenero.Text <> "Géneros" Then
+            cmbGeneros0.Text = cmbGeneros1.Text
+        End If
+        If lblPreco.Text <> "Preço" Then
+            nmrPreco0.Value = nmrPreco1.Value
+        End If
+        If lblStock.Text <> "Stock" Then
+            nmrStock0.Value = nmrStock1.Value
+        End If
+        tbcFormulario.SelectedIndex = 0
+        str_erro += verificacao(rctNome0, txtNome0)
+        str_erro += verificacao(rctGenero0, cmbGeneros0)
+        str_erro += verificacao(rctPreco0, nmrPreco0)
+        str_erro += verificacao(rctStock0, nmrStock0)
         str_erro += verificacao(ofdImagem)
 
         If str_erro = "" Then
@@ -146,5 +159,15 @@ Public Class frmProdutos
 
     Private Sub tbc3_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles tbcFormulario.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub cmbGeneros1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbGeneros1.TextChanged
+        If cmbGeneros1.Text.Length > 7 Then
+            Dim car(7) As Char
+            For x As Integer = 0 To 6
+                car(x) = cmbGeneros1.Text(x)
+            Next
+            cmbGeneros1.Text = car
+        End If
     End Sub
 End Class
