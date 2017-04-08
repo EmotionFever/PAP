@@ -63,6 +63,10 @@ PAP-GestãodeCinema
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.produtos">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:PAP___Gestão_de_Cinema.My.Resources.Resources.produtos_converted">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

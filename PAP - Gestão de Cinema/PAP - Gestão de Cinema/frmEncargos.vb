@@ -265,7 +265,7 @@ Public Class frmEncargos
                             lstTa_Enc.SelectedItem = item
                             MessageBox.Show("Não pode inserir um encargo com tabelas sem qualquer permissão. " &
                             "Se a lista avermelhada à esquerda tiver alguma tabela indesejada remova-a", "Tabelas sem permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                            Exit For
+                            Exit Sub
                         End If
                     Next
                     Try
@@ -349,7 +349,7 @@ Public Class frmEncargos
                             MessageBox.Show("O encargo '" + txtnome.Text + "' não foi alterado: " + ex.Message, "Alteração sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End Try
                     Else
-                        MessageBox.Show("Não pode inserir um encargo sem lhe associar pelo menos uma tabela", "Falta de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        MessageBox.Show("Não pode alterar um encargo sem lhe associar pelo menos uma tabela", "Falta de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                 Else
                     ligacao.Dispose()

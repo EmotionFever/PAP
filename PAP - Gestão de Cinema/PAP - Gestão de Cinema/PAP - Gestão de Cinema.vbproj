@@ -51,6 +51,9 @@
   <PropertyGroup>
     <ApplicationIcon>rolo_icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CTRL_Menu_do_cinema">
       <HintPath>..\..\CTRL_Menu_do_cinema\CTRL_Menu_do_cinema\bin\Debug\CTRL_Menu_do_cinema.dll</HintPath>
@@ -182,6 +185,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Produto.vb" />
+    <Compile Include="Sessao.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CTRL_MenuCine.resx">
@@ -232,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -309,9 +314,6 @@
     <None Include="Resources\horarios_converted.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\produtos.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\produtos_converted.png" />
   </ItemGroup>
   <ItemGroup>
@@ -335,6 +337,7 @@
     <None Include="Resources\lugares_converted.png" />
     <None Include="Resources\lugares.png" />
     <None Include="Resources\Logo - lado.png" />
+    <None Include="Resources\produtos.png" />
     <Content Include="rolo_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

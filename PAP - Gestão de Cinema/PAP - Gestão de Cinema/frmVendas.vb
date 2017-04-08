@@ -26,8 +26,4 @@ Public Class frmVendas
             MessageBox.Show("Não tem permissão para inserir novos clientes", "Insersão impossível", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
-
-    Private Sub frmVendas_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class

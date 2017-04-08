@@ -678,7 +678,7 @@ Partial Class frmClientes
         Me.lblHammer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.lblHammer.Location = New System.Drawing.Point(70, 29)
         Me.lblHammer.Name = "lblHammer"
-        Me.lblHammer.Size = New System.Drawing.Size(62, 91)
+        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
         Me.lblHammer.TabIndex = 0
         Me.lblHammer.Text = "🛠"
         '
@@ -690,7 +690,7 @@ Partial Class frmClientes
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(67, 187)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(154, 226)
+        Me.Label1.Size = New System.Drawing.Size(263, 226)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "🛠"
         '
@@ -746,7 +746,7 @@ Partial Class frmClientes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(781, 676)
+        Me.ClientSize = New System.Drawing.Size(788, 676)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.flp1)
         Me.Controls.Add(Me.pnl1)

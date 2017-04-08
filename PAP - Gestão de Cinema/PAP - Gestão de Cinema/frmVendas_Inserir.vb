@@ -15,8 +15,6 @@ Public Class frmVendas_Inserir
     Private Sub frmVendas_Inserir_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Size = New System.Drawing.Size(366, 445)
 
-        'Guardo todos mas TODOS os produtos no array prod(MAX_PRODUTOS)
-
         Try
 
 

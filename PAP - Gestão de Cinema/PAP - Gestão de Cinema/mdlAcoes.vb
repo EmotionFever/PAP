@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+
 Module mdlAcoes
     Public Sub AlterarEstado(ByRef rct As PowerPacks.RectangleShape, ByRef obj As Object, pct As PictureBox, ByVal str As String)
         If str = "restaurar" Then
@@ -54,30 +55,25 @@ Module mdlAcoes
         If TypeOf obj Is TextBox Then
             If obj.Text = "" Or IsNumeric(obj.Text) Then
                 Return "Não escreveu um " + obj.tag.ToString + " válido. "
-            Else
-                Return ""
             End If
         ElseIf TypeOf obj Is NumericUpDown Then
             If obj.value = 0 Then
                 Return "Não digitou um " + obj.tag.ToString + " válido. "
-            Else
-                Return ""
             End If
         ElseIf TypeOf obj Is ComboBox Then
             If obj.Text = "" Then
                 Return "Não escolheu uma " + obj.tag.ToString + ". "
-            Else
-                Return ""
             End If
         ElseIf TypeOf obj Is OpenFileDialog Then
             If obj.FileName = "" Then
-                Return "Não escolheu uma " + obj.tag.ToString + ". "
-            Else
-                Return ""
+                Return "Não escolheu uma imagem. "
             End If
+        ElseIf TypeOf obj Is DateTimePicker Then
+
         Else
             Return "Erro"
         End If
+        Return ""
     End Function
 
     Function verificacao(ByRef rct As PowerPacks.RectangleShape, ByRef obj As Object) As String
@@ -89,7 +85,6 @@ Module mdlAcoes
                 AlterarEstado(rct, obj, "acertar")
                 Return ""
             End If
-
         ElseIf TypeOf obj Is MaskedTextBox Then
             If obj.Text = "" Or obj.Text.Length < 9 Then
                 AlterarEstado(rct, obj, "errar")
@@ -98,13 +93,19 @@ Module mdlAcoes
                 AlterarEstado(rct, obj, "acertar")
                 Return ""
             End If
-
         ElseIf TypeOf obj Is ComboBox Then
             If obj.Text = "" Then
                 AlterarEstado(rct, "errar")
                 Return "Não escolheu uma " + obj.tag.ToString + ". "
             Else
                 AlterarEstado(rct, "acertar")
+                Return ""
+            End If
+        ElseIf TypeOf obj Is NumericUpDown Then
+            If obj.value = 0 Then
+                AlterarEstado(rct, "errar")
+                Return "Não digitou um " + obj.tag.ToString + " válido. "
+            Else
                 Return ""
             End If
         Else
@@ -164,38 +165,6 @@ Module mdlAcoes
         End If
     End Sub
 
-    Public Sub encher(ByRef cmb1 As Object, cmb2 As Object, ligacao As MySqlConnection, ByVal nome_tabela As String, ByVal campo As String, ByVal chave_primaria As String, ByVal query As String) 'ComboBoxes
-        If TypeOf cmb1 Is ComboBox Or TypeOf cmb1 Is ListBox And TypeOf cmb2 Is ComboBox Or TypeOf cmb2 Is ListBox Then
-            Try
-                'Aqui, encho as combobox com dados para o utilizador escolher
-                Dim adapter As New MySqlDataAdapter
-                Dim ds As DataSet = New DataSet
-
-                adapter.SelectCommand = New MySqlCommand
-                adapter.SelectCommand.Connection = ligacao
-                adapter.SelectCommand.CommandText = query
-
-                ligacao.Open()
-                adapter.Fill(ds, nome_tabela)
-                ligacao.Close()
-
-                cmb1.DataSource = ds.Tables(nome_tabela)
-                cmb1.DisplayMember = campo
-                cmb1.ValueMember = chave_primaria
-
-                cmb2.DataSource = ds.Tables(nome_tabela)
-                cmb2.DisplayMember = campo
-                cmb2.ValueMember = chave_primaria
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, "Erro a Encher", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                ligacao.Close()
-            End Try
-        Else
-            ligacao.Close()
-            MessageBox.Show("Parametro de entrada do procedimento Encher são inválidos", "Erro de programação", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-    End Sub
-
     Public Sub acao(ByVal objetivo As String, ByRef ligacao As MySqlConnection, ByVal ordem As String, ByVal MessagemAutomatica As Boolean) 'Comandos
         Try
             Dim comando As MySqlCommand = New MySqlCommand
@@ -215,21 +184,14 @@ Module mdlAcoes
     End Sub
 
     Public Sub acao_c_Imagem(ByVal objetivo As String, ByRef ligacao As MySqlConnection, ByVal ordem As String, ByVal imagem As Image, ByVal MessagemAutomatica As Boolean) 'Comandos
-        If ordem.Contains("@Imagem") Then
+        If ordem.Contains("?Imagem") Then
             Try
                 Dim comando As New MySqlCommand(ordem, ligacao)
+                Dim ms As New IO.MemoryStream
 
-                'Código que o Prof. Nelson nos deu
-                Using picture As Image = imagem
-                    'Create an empty stream in memory.'     
-                    Using stream As New IO.MemoryStream
-                        'Fill the stream with the binary data from the 'imagem'.   
-                        picture.Save(stream, Imaging.ImageFormat.Jpeg)
+                imagem.Save(ms, Drawing.Imaging.ImageFormat.Jpeg)
+                comando.Parameters.Add("?Imagem", MySqlDbType.LongBlob, ms.Length).Value = ms.GetBuffer
 
-                        'Get an array of Bytes from the stream and assign to the parameter.'         
-                        comando.Parameters.Add("@Imagem", MySqlDbType.VarBinary).Value = stream.GetBuffer()
-                    End Using
-                End Using
                 ligacao.Open()
                 comando.ExecuteNonQuery()
                 ligacao.Close()
@@ -248,7 +210,7 @@ Module mdlAcoes
     Public Function ter(ByRef ligacao As MySqlConnection, ByVal campo As String, ByVal query As String) As Integer  'Apenas returna um resultado numérico da query 
         Dim comando As MySqlCommand = New MySqlCommand(query, ligacao)
         Dim leitor As MySqlDataReader
-        Dim valor As Integer = 0
+        Dim valor As Integer = Nothing
         ligacao.Open()
         leitor = comando.ExecuteReader
         If leitor.Read Then
@@ -257,25 +219,76 @@ Module mdlAcoes
         ligacao.Close()
         Return valor
     End Function
-    Public Function Campo_Selecionado(ByVal campo As String, ByVal tabela As String, ByVal chk As CheckBox, ByRef obj As Object, ByRef rct As PowerPacks.RectangleShape, ByRef str_erro As String) As String
-        Dim averiguar As String
+    Public Function Campo_Selecionado_proc(ByVal campo As String, ByVal tabela As String, ByVal chk As CheckBox, ByRef obj As Object, ByRef rct As PowerPacks.RectangleShape, ByRef pquery As String) As String
+        Dim averiguar As String = ""
         If chk.Checked Then
             averiguar = verificacao(rct, obj)
             If averiguar = "" Then
                 If TypeOf obj Is TextBox Or TypeOf obj Is MaskedTextBox Then
-                    Return " and " + tabela + "." + campo + " like '%" + obj.Text + "%'"
+                    pquery += " and " + tabela + "." + campo + " like '%" + obj.Text + "%'"
                 ElseIf TypeOf obj Is NumericUpDown Then
-                    Return " and " + tabela + "." + campo + " = " + obj.Value.ToString
+                    pquery += " and " + tabela + "." + campo + " = " + obj.Value.ToString
                 ElseIf TypeOf obj Is ComboBox Then
-                    Return " and " + tabela + "." + campo + " = " + obj.SelectedValue.ToString
+                    pquery += " and " + tabela + "." + campo + " = " + obj.SelectedValue.ToString
+                ElseIf TypeOf obj Is DateTimePicker Then
+                    pquery += " and " + tabela + "." + campo + "='" + obj.Value.Year.ToString + "-" + obj.Value.Month.ToString + "-" + obj.Value.Day.ToString + "'"
                 Else
                     MessageBox.Show("A função Campo_Selecionado recebeu um objeto desconhecido", "Campo_Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    MessageBox.Show("", "Campo_Secionado")
                 End If
+                Else
+                    MessageBox.Show("O objetivo do Campo_Selecionado tem um objetivo estranho", "Erro de programção: Objetivo desconhecido'", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            End If
+        Return averiguar
+    End Function
+    Public Function Campo_Selecionado_alte(ByVal campo As String, ByVal chk As CheckBox, ByRef lbl As Label, ByRef obj As Object, ByRef rct As PowerPacks.RectangleShape, ByRef pquery As String) As String
+        Dim averiguar As String = ""
+        If chk.Checked Then
+            averiguar = verificacao(rct, obj)
+            If averiguar = "" Then
+                If TypeOf obj Is TextBox Or TypeOf obj Is MaskedTextBox Then
+                    If pquery <> "" Then
+                        pquery += ", "
+                    End If
+                    pquery += campo + "='" + obj.Text + "'"
+                ElseIf TypeOf obj Is NumericUpDown Then
+                    If pquery <> "" Then
+                        pquery += ","
+                    End If
+                    pquery += campo + "=" + obj.Value.ToString
+                Else
+                    MessageBox.Show("A função Campo_Selecionado recebeu um objeto desconhecido", "Campo_Selecionado", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return averiguar
+                End If
+                lbl.Font = New Font(lbl.Font, lbl.Font.Style Or FontStyle.Strikeout)
             Else
-                str_erro += averiguar
+                MessageBox.Show("O objetivo do Campo_Selecionado tem um objetivo estranho", "Erro de programção: Objetivo desconhecido'", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
-            Return ""
+        Return averiguar
+    End Function
+    Public Function novo_registo(ByRef ligacao As MySqlConnection, chave_primaria As String, ByVal tabela As String, ByRef cmb As ComboBox) As Integer
+        Dim leitor As MySqlDataReader
+        Dim cod As Integer
+        Try
+            'Inserir a nova localidade
+            acao("inserir", ligacao, "insert into " + tabela + " (nome) values ('" + cmb.Text + "')", 0)
+
+            'Descobrir o codLo dessa localidade
+            Dim comando As MySqlCommand = New MySqlCommand("select " + chave_primaria + " from " + tabela + " where nome='" + cmb.Text + "'", ligacao)
+            ligacao.Open()
+            leitor = comando.ExecuteReader
+            leitor.Read()
+            cod = leitor.GetInt32(chave_primaria)
+            ligacao.Close()
+
+            'Associá-la ao registo do funcionário
+            encher(cmb, ligacao, tabela, "nome", chave_primaria, "select " + chave_primaria + ", nome from " + tabela)
+            cmb.Text = ""
+            Return cod
+        Catch ex As Exception
+            ligacao.Close()
+            Return 0
+        End Try
     End Function
 End Module
