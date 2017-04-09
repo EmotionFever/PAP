@@ -20,10 +20,13 @@ Public Class frmVendas
 
     Private Sub btnOutro_Click(sender As System.Object, e As System.EventArgs) Handles btnOutro.Click
         If frmLogin.ass(2).permissao(2) Then
-            frmClientes.Show()
-            Me.Close()
+            CtrL_MenuCine.IrParaClientes()
         Else
             MessageBox.Show("Não tem permissão para inserir novos clientes", "Insersão impossível", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
+    End Sub
+
+    Private Sub frmVendas_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

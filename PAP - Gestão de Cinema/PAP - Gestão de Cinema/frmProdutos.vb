@@ -144,14 +144,18 @@ Public Class frmProdutos
 
 
     Private Sub btnAdi_Click(sender As System.Object, e As System.EventArgs) Handles btnAdi.Click
-        If ofdImagem.ShowDialog() = System.Windows.Forms.DialogResult.OK AndAlso ofdImagem.FileName <> "" Then
-            Try
-                btnImagem.BackgroundImage = Image.FromFile(ofdImagem.FileName)
-                lblImgNome.Text = ofdImagem.SafeFileName
-                btnAdi.Show()
-            Catch ex As Exception
-                MessageBox.Show("A imagem que escolheu não é uma imagem válida", "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
+        If ofdImagem.SafeFileName.EndsWith(".jpg") Then
+            If ofdImagem.ShowDialog() = System.Windows.Forms.DialogResult.OK AndAlso ofdImagem.FileName <> "" Then
+                Try
+                    btnImagem.BackgroundImage = Image.FromFile(ofdImagem.FileName)
+                    lblImgNome.Text = ofdImagem.SafeFileName
+                    btnAdi.Show()
+                Catch ex As Exception
+                    MessageBox.Show("A imagem que escolheu não é uma imagem válida", "Imagem não reconhecida", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        Else
+            MessageBox.Show("A imagem que escolheu não é do tipo jpg, logo terá de a converter primeiro para este tipo", "Imagem inválida", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 

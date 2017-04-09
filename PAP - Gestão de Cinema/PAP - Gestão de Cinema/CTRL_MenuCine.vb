@@ -29,20 +29,20 @@
             botao(a).Visible = frmLogin.ass(a).acesso()
         Next
         frmAtual = frmEu
-        codTa = numero
+        codta = numero
     End Sub
 
     Public Sub Sincronizar_permissoes(ByRef objConsultar() As Object, objAlterar() As Object, objInserir As Object)
         For Each objeto As Object In objConsultar
-            objeto.visible = frmLogin.ass(codTa).permissao(0)
+            objeto.visible = frmLogin.ass(codta).permissao(0)
         Next
 
         For Each objeto As Object In objAlterar
-            objeto.visible = frmLogin.ass(codTa).permissao(1)
+            objeto.visible = frmLogin.ass(codta).permissao(1)
         Next
 
         For Each objeto As Object In objInserir
-            objeto.visible = frmLogin.ass(codTa).permissao(2)
+            objeto.visible = frmLogin.ass(codta).permissao(2)
         Next
     End Sub
 

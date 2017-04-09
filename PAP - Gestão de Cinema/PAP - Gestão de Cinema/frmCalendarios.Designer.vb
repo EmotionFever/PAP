@@ -27,8 +27,11 @@ Partial Class frmCalendarios
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.pnlCalendario = New System.Windows.Forms.Panel()
+        Me.cmblocalidade = New System.Windows.Forms.ComboBox()
         Me.pnlHoras = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnlCal = New System.Windows.Forms.Panel()
+        Me.pnlGrade1 = New System.Windows.Forms.Panel()
+        Me.tlpGrade = New System.Windows.Forms.TableLayoutPanel()
         Me.tlpHoras = New System.Windows.Forms.TableLayoutPanel()
         Me.lblH23 = New System.Windows.Forms.Label()
         Me.lblH22 = New System.Windows.Forms.Label()
@@ -54,17 +57,62 @@ Partial Class frmCalendarios
         Me.lblH2 = New System.Windows.Forms.Label()
         Me.lblH1 = New System.Windows.Forms.Label()
         Me.lblH0 = New System.Windows.Forms.Label()
-        Me.tlpSalas = New System.Windows.Forms.TableLayoutPanel()
         Me.lblS1 = New System.Windows.Forms.Label()
-        Me.lbl = New System.Windows.Forms.Label()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.lbl90 = New System.Windows.Forms.Label()
+        Me.pnlMostrar = New System.Windows.Forms.Panel()
+        Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.pnlControlos = New System.Windows.Forms.Panel()
+        Me.btnDesativar = New System.Windows.Forms.Button()
+        Me.btnAtivar = New System.Windows.Forms.Button()
+        Me.cmbSala = New System.Windows.Forms.ComboBox()
+        Me.btnOutro = New System.Windows.Forms.Button()
+        Me.cmbFilme = New System.Windows.Forms.ComboBox()
+        Me.nmrMinutos = New System.Windows.Forms.NumericUpDown()
+        Me.lbl0 = New System.Windows.Forms.Label()
+        Me.chkMinutos = New System.Windows.Forms.CheckBox()
+        Me.nmrHoras = New System.Windows.Forms.NumericUpDown()
+        Me.pnlProibicao = New System.Windows.Forms.Panel()
+        Me.pct3 = New System.Windows.Forms.PictureBox()
+        Me.lblT = New System.Windows.Forms.Label()
+        Me.lblHammer = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnProcurar = New System.Windows.Forms.Button()
+        Me.btnAlterar = New System.Windows.Forms.Button()
+        Me.btnInserir = New System.Windows.Forms.Button()
+        Me.lbl2 = New System.Windows.Forms.Label()
+        Me.lbl6 = New System.Windows.Forms.Label()
+        Me.lbl3 = New System.Windows.Forms.Label()
+        Me.chkFilme = New System.Windows.Forms.CheckBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.chkSala = New System.Windows.Forms.CheckBox()
+        Me.chkHoras = New System.Windows.Forms.CheckBox()
+        Me.chkLocalidade = New System.Windows.Forms.CheckBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbl91 = New System.Windows.Forms.Label()
+        Me.chkTlm = New System.Windows.Forms.CheckBox()
+        Me.mtbTlm = New System.Windows.Forms.MaskedTextBox()
+        Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.rctMinutos = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctTlm = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctLocalidade = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctHoras = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctSala = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctFilme = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.pnl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlCalendario.SuspendLayout()
         Me.pnlHoras.SuspendLayout()
+        Me.pnlGrade1.SuspendLayout()
         Me.tlpHoras.SuspendLayout()
-        Me.tlpSalas.SuspendLayout()
+        Me.pnlMostrar.SuspendLayout()
+        Me.flp1.SuspendLayout()
+        Me.pnlControlos.SuspendLayout()
+        CType(Me.nmrMinutos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nmrHoras, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlProibicao.SuspendLayout()
+        CType(Me.pct3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
@@ -75,7 +123,7 @@ Partial Class frmCalendarios
         Me.pnl1.Location = New System.Drawing.Point(74, 24)
         Me.pnl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl1.Name = "pnl1"
-        Me.pnl1.Size = New System.Drawing.Size(682, 93)
+        Me.pnl1.Size = New System.Drawing.Size(581, 93)
         Me.pnl1.TabIndex = 6
         '
         'PictureBox1
@@ -96,7 +144,7 @@ Partial Class frmCalendarios
         Me.lbl1.Location = New System.Drawing.Point(96, 21)
         Me.lbl1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(586, 55)
+        Me.lbl1.Size = New System.Drawing.Size(485, 55)
         Me.lbl1.TabIndex = 4
         Me.lbl1.Text = "Calendários"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -105,34 +153,91 @@ Partial Class frmCalendarios
         '
         Me.pnlCalendario.AutoScroll = True
         Me.pnlCalendario.BackColor = System.Drawing.Color.ForestGreen
+        Me.pnlCalendario.Controls.Add(Me.cmblocalidade)
         Me.pnlCalendario.Controls.Add(Me.pnlHoras)
-        Me.pnlCalendario.Controls.Add(Me.tlpSalas)
+        Me.pnlCalendario.Controls.Add(Me.lblS1)
         Me.pnlCalendario.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pnlCalendario.Location = New System.Drawing.Point(74, 132)
+        Me.pnlCalendario.Location = New System.Drawing.Point(0, 42)
         Me.pnlCalendario.Name = "pnlCalendario"
-        Me.pnlCalendario.Size = New System.Drawing.Size(363, 522)
+        Me.pnlCalendario.Size = New System.Drawing.Size(330, 458)
         Me.pnlCalendario.TabIndex = 51
+        '
+        'cmblocalidade
+        '
+        Me.cmblocalidade.BackColor = System.Drawing.Color.White
+        Me.cmblocalidade.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmblocalidade.FormattingEnabled = True
+        Me.cmblocalidade.Location = New System.Drawing.Point(163, 8)
+        Me.cmblocalidade.Name = "cmblocalidade"
+        Me.cmblocalidade.Size = New System.Drawing.Size(63, 22)
+        Me.cmblocalidade.TabIndex = 54
+        Me.cmblocalidade.Tag = "localidade"
         '
         'pnlHoras
         '
         Me.pnlHoras.AutoScroll = True
         Me.pnlHoras.BackColor = System.Drawing.Color.GreenYellow
-        Me.pnlHoras.Controls.Add(Me.Panel1)
-        Me.pnlHoras.Controls.Add(Me.TableLayoutPanel1)
+        Me.pnlHoras.Controls.Add(Me.pnlCal)
+        Me.pnlHoras.Controls.Add(Me.pnlGrade1)
         Me.pnlHoras.Controls.Add(Me.tlpHoras)
         Me.pnlHoras.Location = New System.Drawing.Point(0, 37)
         Me.pnlHoras.Name = "pnlHoras"
-        Me.pnlHoras.Size = New System.Drawing.Size(363, 482)
+        Me.pnlHoras.Size = New System.Drawing.Size(330, 421)
         Me.pnlHoras.TabIndex = 1
         '
-        'Panel1
+        'pnlCal
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Location = New System.Drawing.Point(51, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(124, 360)
-        Me.Panel1.TabIndex = 2
+        Me.pnlCal.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.pnlCal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlCal.Location = New System.Drawing.Point(55, 99)
+        Me.pnlCal.Name = "pnlCal"
+        Me.pnlCal.Size = New System.Drawing.Size(247, 81)
+        Me.pnlCal.TabIndex = 2
+        '
+        'pnlGrade1
+        '
+        Me.pnlGrade1.Controls.Add(Me.tlpGrade)
+        Me.pnlGrade1.Location = New System.Drawing.Point(45, 0)
+        Me.pnlGrade1.Name = "pnlGrade1"
+        Me.pnlGrade1.Size = New System.Drawing.Size(268, 1441)
+        Me.pnlGrade1.TabIndex = 52
+        '
+        'tlpGrade
+        '
+        Me.tlpGrade.AutoSize = True
+        Me.tlpGrade.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.tlpGrade.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.tlpGrade.ColumnCount = 1
+        Me.tlpGrade.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 268.0!))
+        Me.tlpGrade.Location = New System.Drawing.Point(0, 0)
+        Me.tlpGrade.Name = "tlpGrade"
+        Me.tlpGrade.RowCount = 24
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
+        Me.tlpGrade.Size = New System.Drawing.Size(270, 1441)
+        Me.tlpGrade.TabIndex = 52
         '
         'tlpHoras
         '
@@ -191,7 +296,6 @@ Partial Class frmCalendarios
         Me.tlpHoras.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
         Me.tlpHoras.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
         Me.tlpHoras.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.tlpHoras.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.tlpHoras.Size = New System.Drawing.Size(46, 1441)
         Me.tlpHoras.TabIndex = 1
         '
@@ -459,96 +563,504 @@ Partial Class frmCalendarios
         Me.lblH0.Text = "0"
         Me.lblH0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'tlpSalas
-        '
-        Me.tlpSalas.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.tlpSalas.ColumnCount = 2
-        Me.tlpSalas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.tlpSalas.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137.0!))
-        Me.tlpSalas.Controls.Add(Me.lblS1, 0, 0)
-        Me.tlpSalas.Controls.Add(Me.lbl, 0, 0)
-        Me.tlpSalas.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tlpSalas.Location = New System.Drawing.Point(0, 0)
-        Me.tlpSalas.Name = "tlpSalas"
-        Me.tlpSalas.RowCount = 1
-        Me.tlpSalas.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpSalas.Size = New System.Drawing.Size(181, 37)
-        Me.tlpSalas.TabIndex = 0
-        '
         'lblS1
         '
-        Me.lblS1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblS1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblS1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblS1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblS1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblS1.ForeColor = System.Drawing.Color.White
-        Me.lblS1.Location = New System.Drawing.Point(49, 1)
+        Me.lblS1.Location = New System.Drawing.Point(45, 0)
         Me.lblS1.Name = "lblS1"
-        Me.lblS1.Size = New System.Drawing.Size(131, 35)
-        Me.lblS1.TabIndex = 55
-        Me.lblS1.Text = "Sala 1"
+        Me.lblS1.Size = New System.Drawing.Size(268, 38)
+        Me.lblS1.TabIndex = 52
+        Me.lblS1.Text = "Sala XXXXXXX"
         Me.lblS1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lbl
-        '
-        Me.lbl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lbl.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl.ForeColor = System.Drawing.Color.White
-        Me.lbl.Location = New System.Drawing.Point(4, 1)
-        Me.lbl.Name = "lbl"
-        Me.lbl.Size = New System.Drawing.Size(38, 35)
-        Me.lbl.TabIndex = 54
-        Me.lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'CtrL_MenuCine
         '
         Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
         Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
         Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 703)
         Me.CtrL_MenuCine.TabIndex = 0
         '
-        'TableLayoutPanel1
+        'DateTimePicker1
         '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.TableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134.0!))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(45, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 24
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(136, 1441)
-        Me.TableLayoutPanel1.TabIndex = 52
+        Me.DateTimePicker1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(180, 9)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(84, 21)
+        Me.DateTimePicker1.TabIndex = 53
+        '
+        'lbl90
+        '
+        Me.lbl90.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lbl90.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl90.ForeColor = System.Drawing.Color.White
+        Me.lbl90.Location = New System.Drawing.Point(0, 0)
+        Me.lbl90.Name = "lbl90"
+        Me.lbl90.Size = New System.Drawing.Size(174, 38)
+        Me.lbl90.TabIndex = 54
+        Me.lbl90.Text = "Calendário do dia"
+        Me.lbl90.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'pnlMostrar
+        '
+        Me.pnlMostrar.Controls.Add(Me.lbl90)
+        Me.pnlMostrar.Controls.Add(Me.pnlCalendario)
+        Me.pnlMostrar.Controls.Add(Me.DateTimePicker1)
+        Me.pnlMostrar.Location = New System.Drawing.Point(3, 3)
+        Me.pnlMostrar.Name = "pnlMostrar"
+        Me.pnlMostrar.Size = New System.Drawing.Size(330, 498)
+        Me.pnlMostrar.TabIndex = 55
+        '
+        'flp1
+        '
+        Me.flp1.Controls.Add(Me.pnlMostrar)
+        Me.flp1.Controls.Add(Me.pnlControlos)
+        Me.flp1.Location = New System.Drawing.Point(74, 123)
+        Me.flp1.Name = "flp1"
+        Me.flp1.Size = New System.Drawing.Size(605, 510)
+        Me.flp1.TabIndex = 56
+        '
+        'pnlControlos
+        '
+        Me.pnlControlos.Controls.Add(Me.btnDesativar)
+        Me.pnlControlos.Controls.Add(Me.btnAtivar)
+        Me.pnlControlos.Controls.Add(Me.cmbSala)
+        Me.pnlControlos.Controls.Add(Me.btnOutro)
+        Me.pnlControlos.Controls.Add(Me.cmbFilme)
+        Me.pnlControlos.Controls.Add(Me.nmrMinutos)
+        Me.pnlControlos.Controls.Add(Me.lbl0)
+        Me.pnlControlos.Controls.Add(Me.chkMinutos)
+        Me.pnlControlos.Controls.Add(Me.nmrHoras)
+        Me.pnlControlos.Controls.Add(Me.pnlProibicao)
+        Me.pnlControlos.Controls.Add(Me.btnProcurar)
+        Me.pnlControlos.Controls.Add(Me.btnAlterar)
+        Me.pnlControlos.Controls.Add(Me.btnInserir)
+        Me.pnlControlos.Controls.Add(Me.lbl2)
+        Me.pnlControlos.Controls.Add(Me.lbl6)
+        Me.pnlControlos.Controls.Add(Me.lbl3)
+        Me.pnlControlos.Controls.Add(Me.chkFilme)
+        Me.pnlControlos.Controls.Add(Me.ComboBox1)
+        Me.pnlControlos.Controls.Add(Me.chkSala)
+        Me.pnlControlos.Controls.Add(Me.chkHoras)
+        Me.pnlControlos.Controls.Add(Me.chkLocalidade)
+        Me.pnlControlos.Controls.Add(Me.Label2)
+        Me.pnlControlos.Controls.Add(Me.lbl91)
+        Me.pnlControlos.Controls.Add(Me.chkTlm)
+        Me.pnlControlos.Controls.Add(Me.mtbTlm)
+        Me.pnlControlos.Controls.Add(Me.ShapeContainer2)
+        Me.pnlControlos.Location = New System.Drawing.Point(339, 3)
+        Me.pnlControlos.Name = "pnlControlos"
+        Me.pnlControlos.Size = New System.Drawing.Size(253, 500)
+        Me.pnlControlos.TabIndex = 57
+        '
+        'btnDesativar
+        '
+        Me.btnDesativar.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnDesativar.FlatAppearance.BorderSize = 0
+        Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDesativar.ForeColor = System.Drawing.Color.Black
+        Me.btnDesativar.Location = New System.Drawing.Point(3, 355)
+        Me.btnDesativar.Name = "btnDesativar"
+        Me.btnDesativar.Size = New System.Drawing.Size(238, 22)
+        Me.btnDesativar.TabIndex = 43
+        Me.btnDesativar.Text = "Desativar Cliente"
+        Me.btnDesativar.UseVisualStyleBackColor = False
+        '
+        'btnAtivar
+        '
+        Me.btnAtivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAtivar.FlatAppearance.BorderSize = 0
+        Me.btnAtivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAtivar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAtivar.ForeColor = System.Drawing.Color.Black
+        Me.btnAtivar.Location = New System.Drawing.Point(3, 355)
+        Me.btnAtivar.Name = "btnAtivar"
+        Me.btnAtivar.Size = New System.Drawing.Size(239, 22)
+        Me.btnAtivar.TabIndex = 48
+        Me.btnAtivar.Text = "Ativar Cliente"
+        Me.btnAtivar.UseVisualStyleBackColor = False
+        '
+        'cmbSala
+        '
+        Me.cmbSala.BackColor = System.Drawing.Color.White
+        Me.cmbSala.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSala.FormattingEnabled = True
+        Me.cmbSala.Location = New System.Drawing.Point(11, 90)
+        Me.cmbSala.Name = "cmbSala"
+        Me.cmbSala.Size = New System.Drawing.Size(193, 22)
+        Me.cmbSala.TabIndex = 61
+        Me.cmbSala.Tag = "localidade"
+        '
+        'btnOutro
+        '
+        Me.btnOutro.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnOutro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnOutro.FlatAppearance.BorderSize = 0
+        Me.btnOutro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnOutro.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnOutro.ForeColor = System.Drawing.Color.Black
+        Me.btnOutro.Location = New System.Drawing.Point(176, 26)
+        Me.btnOutro.Name = "btnOutro"
+        Me.btnOutro.Size = New System.Drawing.Size(42, 26)
+        Me.btnOutro.TabIndex = 57
+        Me.btnOutro.Text = "Outro"
+        Me.btnOutro.UseVisualStyleBackColor = False
+        '
+        'cmbFilme
+        '
+        Me.cmbFilme.BackColor = System.Drawing.Color.White
+        Me.cmbFilme.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbFilme.FormattingEnabled = True
+        Me.cmbFilme.Location = New System.Drawing.Point(11, 28)
+        Me.cmbFilme.Name = "cmbFilme"
+        Me.cmbFilme.Size = New System.Drawing.Size(152, 22)
+        Me.cmbFilme.TabIndex = 57
+        Me.cmbFilme.Tag = "localidade"
+        '
+        'nmrMinutos
+        '
+        Me.nmrMinutos.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.nmrMinutos.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nmrMinutos.Location = New System.Drawing.Point(133, 155)
+        Me.nmrMinutos.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
+        Me.nmrMinutos.Name = "nmrMinutos"
+        Me.nmrMinutos.Size = New System.Drawing.Size(71, 16)
+        Me.nmrMinutos.TabIndex = 60
+        '
+        'lbl0
+        '
+        Me.lbl0.AutoSize = True
+        Me.lbl0.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lbl0.ForeColor = System.Drawing.Color.White
+        Me.lbl0.Location = New System.Drawing.Point(124, 134)
+        Me.lbl0.Name = "lbl0"
+        Me.lbl0.Size = New System.Drawing.Size(60, 15)
+        Me.lbl0.TabIndex = 59
+        Me.lbl0.Text = "*Minutos:"
+        '
+        'chkMinutos
+        '
+        Me.chkMinutos.AutoSize = True
+        Me.chkMinutos.Location = New System.Drawing.Point(224, 155)
+        Me.chkMinutos.Name = "chkMinutos"
+        Me.chkMinutos.Size = New System.Drawing.Size(15, 14)
+        Me.chkMinutos.TabIndex = 58
+        Me.chkMinutos.UseVisualStyleBackColor = True
+        '
+        'nmrHoras
+        '
+        Me.nmrHoras.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.nmrHoras.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nmrHoras.Location = New System.Drawing.Point(10, 155)
+        Me.nmrHoras.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
+        Me.nmrHoras.Name = "nmrHoras"
+        Me.nmrHoras.Size = New System.Drawing.Size(71, 16)
+        Me.nmrHoras.TabIndex = 57
+        '
+        'pnlProibicao
+        '
+        Me.pnlProibicao.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.pnlProibicao.Controls.Add(Me.pct3)
+        Me.pnlProibicao.Controls.Add(Me.lblT)
+        Me.pnlProibicao.Controls.Add(Me.lblHammer)
+        Me.pnlProibicao.Controls.Add(Me.Label1)
+        Me.pnlProibicao.Location = New System.Drawing.Point(270, 3)
+        Me.pnlProibicao.Name = "pnlProibicao"
+        Me.pnlProibicao.Size = New System.Drawing.Size(241, 365)
+        Me.pnlProibicao.TabIndex = 48
+        Me.pnlProibicao.Visible = False
+        '
+        'pct3
+        '
+        Me.pct3.BackColor = System.Drawing.Color.Transparent
+        Me.pct3.BackgroundImage = CType(resources.GetObject("pct3.BackgroundImage"), System.Drawing.Image)
+        Me.pct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct3.Location = New System.Drawing.Point(0, 340)
+        Me.pct3.Name = "pct3"
+        Me.pct3.Size = New System.Drawing.Size(30, 28)
+        Me.pct3.TabIndex = 54
+        Me.pct3.TabStop = False
+        '
+        'lblT
+        '
+        Me.lblT.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblT.Location = New System.Drawing.Point(10, 108)
+        Me.lblT.Name = "lblT"
+        Me.lblT.Size = New System.Drawing.Size(219, 140)
+        Me.lblT.TabIndex = 51
+        Me.lblT.Text = "Só pode realizar ações enquanto estiver na aba dos registos ativados"
+        Me.lblT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblHammer
+        '
+        Me.lblHammer.AutoSize = True
+        Me.lblHammer.BackColor = System.Drawing.Color.Transparent
+        Me.lblHammer.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHammer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblHammer.Location = New System.Drawing.Point(70, 29)
+        Me.lblHammer.Name = "lblHammer"
+        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
+        Me.lblHammer.TabIndex = 0
+        Me.lblHammer.Text = "🛠"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 150.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(67, 187)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(263, 226)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "🛠"
+        '
+        'btnProcurar
+        '
+        Me.btnProcurar.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnProcurar.FlatAppearance.BorderSize = 0
+        Me.btnProcurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProcurar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProcurar.ForeColor = System.Drawing.Color.Black
+        Me.btnProcurar.Location = New System.Drawing.Point(86, 327)
+        Me.btnProcurar.Name = "btnProcurar"
+        Me.btnProcurar.Size = New System.Drawing.Size(72, 22)
+        Me.btnProcurar.TabIndex = 40
+        Me.btnProcurar.Text = "Procurar"
+        Me.btnProcurar.UseVisualStyleBackColor = False
+        '
+        'btnAlterar
+        '
+        Me.btnAlterar.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAlterar.FlatAppearance.BorderSize = 0
+        Me.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAlterar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAlterar.ForeColor = System.Drawing.Color.Black
+        Me.btnAlterar.Location = New System.Drawing.Point(164, 327)
+        Me.btnAlterar.Name = "btnAlterar"
+        Me.btnAlterar.Size = New System.Drawing.Size(77, 22)
+        Me.btnAlterar.TabIndex = 41
+        Me.btnAlterar.Text = "Alterar"
+        Me.btnAlterar.UseVisualStyleBackColor = False
+        '
+        'btnInserir
+        '
+        Me.btnInserir.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnInserir.FlatAppearance.BorderSize = 0
+        Me.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnInserir.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnInserir.ForeColor = System.Drawing.Color.Black
+        Me.btnInserir.Location = New System.Drawing.Point(3, 327)
+        Me.btnInserir.Name = "btnInserir"
+        Me.btnInserir.Size = New System.Drawing.Size(77, 22)
+        Me.btnInserir.TabIndex = 39
+        Me.btnInserir.Text = "Inserir"
+        Me.btnInserir.UseVisualStyleBackColor = False
+        '
+        'lbl2
+        '
+        Me.lbl2.AutoSize = True
+        Me.lbl2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl2.ForeColor = System.Drawing.Color.White
+        Me.lbl2.Location = New System.Drawing.Point(-1, 11)
+        Me.lbl2.Name = "lbl2"
+        Me.lbl2.Size = New System.Drawing.Size(45, 15)
+        Me.lbl2.TabIndex = 20
+        Me.lbl2.Text = "*Filme:"
+        '
+        'lbl6
+        '
+        Me.lbl6.AutoSize = True
+        Me.lbl6.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lbl6.ForeColor = System.Drawing.Color.White
+        Me.lbl6.Location = New System.Drawing.Point(-1, 134)
+        Me.lbl6.Name = "lbl6"
+        Me.lbl6.Size = New System.Drawing.Size(49, 15)
+        Me.lbl6.TabIndex = 22
+        Me.lbl6.Text = "*Horas:"
+        '
+        'lbl3
+        '
+        Me.lbl3.AutoSize = True
+        Me.lbl3.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lbl3.ForeColor = System.Drawing.Color.White
+        Me.lbl3.Location = New System.Drawing.Point(-1, 72)
+        Me.lbl3.Name = "lbl3"
+        Me.lbl3.Size = New System.Drawing.Size(40, 15)
+        Me.lbl3.TabIndex = 21
+        Me.lbl3.Text = "*Sala:"
+        '
+        'chkFilme
+        '
+        Me.chkFilme.AutoSize = True
+        Me.chkFilme.Location = New System.Drawing.Point(224, 32)
+        Me.chkFilme.Name = "chkFilme"
+        Me.chkFilme.Size = New System.Drawing.Size(15, 14)
+        Me.chkFilme.TabIndex = 22
+        Me.chkFilme.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.BackColor = System.Drawing.Color.White
+        Me.ComboBox1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(11, 214)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(193, 22)
+        Me.ComboBox1.TabIndex = 44
+        Me.ComboBox1.Tag = "localidade"
+        '
+        'chkSala
+        '
+        Me.chkSala.AutoSize = True
+        Me.chkSala.Location = New System.Drawing.Point(224, 94)
+        Me.chkSala.Name = "chkSala"
+        Me.chkSala.Size = New System.Drawing.Size(15, 14)
+        Me.chkSala.TabIndex = 23
+        Me.chkSala.UseVisualStyleBackColor = True
+        '
+        'chkHoras
+        '
+        Me.chkHoras.AutoSize = True
+        Me.chkHoras.Location = New System.Drawing.Point(100, 155)
+        Me.chkHoras.Name = "chkHoras"
+        Me.chkHoras.Size = New System.Drawing.Size(15, 14)
+        Me.chkHoras.TabIndex = 24
+        Me.chkHoras.UseVisualStyleBackColor = True
+        '
+        'chkLocalidade
+        '
+        Me.chkLocalidade.AutoSize = True
+        Me.chkLocalidade.Location = New System.Drawing.Point(224, 218)
+        Me.chkLocalidade.Name = "chkLocalidade"
+        Me.chkLocalidade.Size = New System.Drawing.Size(15, 14)
+        Me.chkLocalidade.TabIndex = 25
+        Me.chkLocalidade.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(0, 196)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(77, 15)
+        Me.Label2.TabIndex = 29
+        Me.Label2.Text = "*Data Inicial:"
+        '
+        'lbl91
+        '
+        Me.lbl91.AutoSize = True
+        Me.lbl91.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lbl91.ForeColor = System.Drawing.Color.White
+        Me.lbl91.Location = New System.Drawing.Point(-1, 261)
+        Me.lbl91.Name = "lbl91"
+        Me.lbl91.Size = New System.Drawing.Size(70, 15)
+        Me.lbl91.TabIndex = 31
+        Me.lbl91.Text = "*Data Final:"
+        '
+        'chkTlm
+        '
+        Me.chkTlm.AutoSize = True
+        Me.chkTlm.Location = New System.Drawing.Point(224, 284)
+        Me.chkTlm.Name = "chkTlm"
+        Me.chkTlm.Size = New System.Drawing.Size(15, 14)
+        Me.chkTlm.TabIndex = 32
+        Me.chkTlm.UseVisualStyleBackColor = True
+        '
+        'mtbTlm
+        '
+        Me.mtbTlm.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.mtbTlm.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.mtbTlm.Location = New System.Drawing.Point(10, 284)
+        Me.mtbTlm.Mask = "000000000"
+        Me.mtbTlm.Name = "mtbTlm"
+        Me.mtbTlm.Size = New System.Drawing.Size(195, 14)
+        Me.mtbTlm.TabIndex = 33
+        Me.mtbTlm.Tag = "telemóvel"
+        '
+        'ShapeContainer2
+        '
+        Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer2.Name = "ShapeContainer2"
+        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctMinutos, Me.rctTlm, Me.rctLocalidade, Me.rctHoras, Me.rctSala, Me.rctFilme})
+        Me.ShapeContainer2.Size = New System.Drawing.Size(253, 500)
+        Me.ShapeContainer2.TabIndex = 0
+        Me.ShapeContainer2.TabStop = False
+        '
+        'rctMinutos
+        '
+        Me.rctMinutos.BackColor = System.Drawing.Color.White
+        Me.rctMinutos.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctMinutos.BorderColor = System.Drawing.Color.White
+        Me.rctMinutos.CornerRadius = 2
+        Me.rctMinutos.Location = New System.Drawing.Point(127, 150)
+        Me.rctMinutos.Name = "rctMinutos"
+        Me.rctMinutos.Size = New System.Drawing.Size(83, 25)
+        '
+        'rctTlm
+        '
+        Me.rctTlm.BackColor = System.Drawing.Color.White
+        Me.rctTlm.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctTlm.BorderColor = System.Drawing.Color.White
+        Me.rctTlm.CornerRadius = 2
+        Me.rctTlm.Location = New System.Drawing.Point(3, 277)
+        Me.rctTlm.Name = "rctTlm"
+        Me.rctTlm.Size = New System.Drawing.Size(210, 25)
+        '
+        'rctLocalidade
+        '
+        Me.rctLocalidade.BackColor = System.Drawing.Color.White
+        Me.rctLocalidade.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctLocalidade.BorderColor = System.Drawing.Color.White
+        Me.rctLocalidade.CornerRadius = 2
+        Me.rctLocalidade.Location = New System.Drawing.Point(2, 212)
+        Me.rctLocalidade.Name = "rctLocalidade"
+        Me.rctLocalidade.Size = New System.Drawing.Size(210, 25)
+        '
+        'rctHoras
+        '
+        Me.rctHoras.BackColor = System.Drawing.Color.White
+        Me.rctHoras.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctHoras.BorderColor = System.Drawing.Color.White
+        Me.rctHoras.CornerRadius = 2
+        Me.rctHoras.Location = New System.Drawing.Point(3, 150)
+        Me.rctHoras.Name = "rctHoras"
+        Me.rctHoras.Size = New System.Drawing.Size(84, 25)
+        '
+        'rctSala
+        '
+        Me.rctSala.BackColor = System.Drawing.Color.White
+        Me.rctSala.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctSala.BorderColor = System.Drawing.Color.White
+        Me.rctSala.CornerRadius = 2
+        Me.rctSala.Location = New System.Drawing.Point(3, 88)
+        Me.rctSala.Name = "rctSala"
+        Me.rctSala.Size = New System.Drawing.Size(210, 25)
+        '
+        'rctFilme
+        '
+        Me.rctFilme.BackColor = System.Drawing.Color.White
+        Me.rctFilme.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctFilme.BorderColor = System.Drawing.Color.White
+        Me.rctFilme.CornerRadius = 2
+        Me.rctFilme.Location = New System.Drawing.Point(3, 26)
+        Me.rctFilme.Name = "rctFilme"
+        Me.rctFilme.Size = New System.Drawing.Size(167, 25)
         '
         'frmCalendarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(782, 666)
-        Me.Controls.Add(Me.pnlCalendario)
+        Me.ClientSize = New System.Drawing.Size(681, 703)
+        Me.Controls.Add(Me.flp1)
         Me.Controls.Add(Me.pnl1)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -560,8 +1072,18 @@ Partial Class frmCalendarios
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlCalendario.ResumeLayout(False)
         Me.pnlHoras.ResumeLayout(False)
+        Me.pnlGrade1.ResumeLayout(False)
+        Me.pnlGrade1.PerformLayout()
         Me.tlpHoras.ResumeLayout(False)
-        Me.tlpSalas.ResumeLayout(False)
+        Me.pnlMostrar.ResumeLayout(False)
+        Me.flp1.ResumeLayout(False)
+        Me.pnlControlos.ResumeLayout(False)
+        Me.pnlControlos.PerformLayout()
+        CType(Me.nmrMinutos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nmrHoras, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlProibicao.ResumeLayout(False)
+        Me.pnlProibicao.PerformLayout()
+        CType(Me.pct3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -570,7 +1092,6 @@ Partial Class frmCalendarios
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents lbl1 As System.Windows.Forms.Label
     Friend WithEvents pnlCalendario As System.Windows.Forms.Panel
-    Friend WithEvents tlpSalas As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents pnlHoras As System.Windows.Forms.Panel
     Friend WithEvents tlpHoras As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents lblH0 As System.Windows.Forms.Label
@@ -597,8 +1118,50 @@ Partial Class frmCalendarios
     Friend WithEvents lblH3 As System.Windows.Forms.Label
     Friend WithEvents lblH2 As System.Windows.Forms.Label
     Friend WithEvents lblH1 As System.Windows.Forms.Label
-    Friend WithEvents lbl As System.Windows.Forms.Label
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents pnlCal As System.Windows.Forms.Panel
+    Friend WithEvents tlpGrade As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents lblS1 As System.Windows.Forms.Label
-    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents pnlGrade1 As System.Windows.Forms.Panel
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents cmblocalidade As System.Windows.Forms.ComboBox
+    Friend WithEvents lbl90 As System.Windows.Forms.Label
+    Friend WithEvents pnlMostrar As System.Windows.Forms.Panel
+    Friend WithEvents flp1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents pnlControlos As System.Windows.Forms.Panel
+    Friend WithEvents pnlProibicao As System.Windows.Forms.Panel
+    Friend WithEvents pct3 As System.Windows.Forms.PictureBox
+    Friend WithEvents lblT As System.Windows.Forms.Label
+    Friend WithEvents lblHammer As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents btnDesativar As System.Windows.Forms.Button
+    Friend WithEvents btnAtivar As System.Windows.Forms.Button
+    Friend WithEvents btnProcurar As System.Windows.Forms.Button
+    Friend WithEvents btnAlterar As System.Windows.Forms.Button
+    Friend WithEvents btnInserir As System.Windows.Forms.Button
+    Friend WithEvents lbl2 As System.Windows.Forms.Label
+    Friend WithEvents lbl6 As System.Windows.Forms.Label
+    Friend WithEvents lbl3 As System.Windows.Forms.Label
+    Friend WithEvents chkFilme As System.Windows.Forms.CheckBox
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents chkSala As System.Windows.Forms.CheckBox
+    Friend WithEvents chkHoras As System.Windows.Forms.CheckBox
+    Friend WithEvents chkLocalidade As System.Windows.Forms.CheckBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lbl91 As System.Windows.Forms.Label
+    Friend WithEvents chkTlm As System.Windows.Forms.CheckBox
+    Friend WithEvents mtbTlm As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents ShapeContainer2 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents rctTlm As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rctLocalidade As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rctHoras As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rctSala As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rctFilme As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents nmrMinutos As System.Windows.Forms.NumericUpDown
+    Friend WithEvents lbl0 As System.Windows.Forms.Label
+    Friend WithEvents chkMinutos As System.Windows.Forms.CheckBox
+    Friend WithEvents nmrHoras As System.Windows.Forms.NumericUpDown
+    Friend WithEvents rctMinutos As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents cmbFilme As System.Windows.Forms.ComboBox
+    Friend WithEvents btnOutro As System.Windows.Forms.Button
+    Friend WithEvents cmbSala As System.Windows.Forms.ComboBox
 End Class
