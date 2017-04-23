@@ -505,6 +505,8 @@ Partial Class frmClientes
         '
         'cmblocalidade
         '
+        Me.cmblocalidade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmblocalidade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmblocalidade.BackColor = System.Drawing.Color.White
         Me.cmblocalidade.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmblocalidade.FormattingEnabled = True

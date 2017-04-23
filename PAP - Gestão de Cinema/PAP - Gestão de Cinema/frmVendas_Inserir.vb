@@ -14,6 +14,7 @@ Public Class frmVendas_Inserir
     Dim pos_corrente As Integer
     Private Sub frmVendas_Inserir_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Size = New System.Drawing.Size(366, 445)
+        lblCaminho.Text = "Tipos de artigos "
 
         Try
 
@@ -89,6 +90,7 @@ Public Class frmVendas_Inserir
     End Sub
 
     Private Sub btnBilhetes_Click(sender As System.Object, e As System.EventArgs) Handles btnBilhetes.Click 'EM DESENVOLVIMENTO
+        lblCaminho.Text = "Tipos de artigos ► Bilhetes"
         query = ""
 
         Try
@@ -175,6 +177,7 @@ Public Class frmVendas_Inserir
 
     Private Sub CategoriaClicada(ByVal sender As Object, ByVal e As EventArgs)
         Dim btnx As Button = DirectCast(sender, Button) 'Este botão ganha todas as características do botão clicado
+        lblCaminho.Text = "Tipos de artigos ► " + btnx.Text
 
         registos = 0
         For corrente As Integer = 0 To cont_prod - 1
@@ -196,6 +199,7 @@ Public Class frmVendas_Inserir
 
     Private Sub btnVoltar_Click(sender As System.Object, e As System.EventArgs) Handles btnVoltar.Click
         lbl1.Text = "Que tipo de artigo quer?"
+        lblCaminho.Text = "Tipos de artigos "
         flpcategorias.Show()
         flpitens.Hide()
         flpitens.Controls.Clear() 'Os objetos dentro do FlowLayoutPanel desaparecem

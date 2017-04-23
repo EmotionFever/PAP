@@ -30,27 +30,21 @@ Partial Class frmProdutos
         Me.tbc1 = New System.Windows.Forms.TabControl()
         Me.tbpAtivado = New System.Windows.Forms.TabPage()
         Me.flpProdAtiv = New System.Windows.Forms.FlowLayoutPanel()
-        Me.pnlS = New System.Windows.Forms.Panel()
-        Me.lbl89 = New System.Windows.Forms.Label()
-        Me.lbl890 = New System.Windows.Forms.Label()
-        Me.lbl67 = New System.Windows.Forms.Label()
-        Me.lbl44 = New System.Windows.Forms.Label()
-        Me.pctS = New System.Windows.Forms.PictureBox()
         Me.tbpDesativado = New System.Windows.Forms.TabPage()
         Me.flpProdDesa = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlControlos = New System.Windows.Forms.Panel()
-        Me.txtNome = New System.Windows.Forms.TextBox()
         Me.pnlAtivar = New System.Windows.Forms.Panel()
         Me.lbl92 = New System.Windows.Forms.Label()
         Me.pnlSelecionado = New System.Windows.Forms.Panel()
-        Me.lbl56 = New System.Windows.Forms.Label()
-        Me.lblSto = New System.Windows.Forms.Label()
-        Me.lblPre = New System.Windows.Forms.Label()
-        Me.lblGen = New System.Windows.Forms.Label()
-        Me.pctImg = New System.Windows.Forms.PictureBox()
+        Me.lblNomeP = New System.Windows.Forms.Label()
+        Me.lblStockP = New System.Windows.Forms.Label()
+        Me.lblPrecoP = New System.Windows.Forms.Label()
+        Me.lblGeneroP = New System.Windows.Forms.Label()
+        Me.pctImagemP = New System.Windows.Forms.PictureBox()
         Me.btnAtivar = New System.Windows.Forms.Button()
         Me.btnDesativar = New System.Windows.Forms.Button()
         Me.pnlCriar = New System.Windows.Forms.Panel()
+        Me.txtNome = New System.Windows.Forms.TextBox()
         Me.nmrStock = New System.Windows.Forms.NumericUpDown()
         Me.nmrPreco = New System.Windows.Forms.NumericUpDown()
         Me.lbl00 = New System.Windows.Forms.Label()
@@ -83,14 +77,11 @@ Partial Class frmProdutos
         Me.flp1.SuspendLayout()
         Me.tbc1.SuspendLayout()
         Me.tbpAtivado.SuspendLayout()
-        Me.flpProdAtiv.SuspendLayout()
-        Me.pnlS.SuspendLayout()
-        CType(Me.pctS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbpDesativado.SuspendLayout()
         Me.pnlControlos.SuspendLayout()
         Me.pnlAtivar.SuspendLayout()
         Me.pnlSelecionado.SuspendLayout()
-        CType(Me.pctImg, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctImagemP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlCriar.SuspendLayout()
         CType(Me.nmrStock, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nmrPreco, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -149,7 +140,7 @@ Partial Class frmProdutos
         Me.tbc1.Location = New System.Drawing.Point(3, 3)
         Me.tbc1.Name = "tbc1"
         Me.tbc1.SelectedIndex = 0
-        Me.tbc1.Size = New System.Drawing.Size(408, 491)
+        Me.tbc1.Size = New System.Drawing.Size(408, 495)
         Me.tbc1.TabIndex = 52
         '
         'tbpAtivado
@@ -159,7 +150,7 @@ Partial Class frmProdutos
         Me.tbpAtivado.Controls.Add(Me.flpProdAtiv)
         Me.tbpAtivado.Location = New System.Drawing.Point(4, 23)
         Me.tbpAtivado.Name = "tbpAtivado"
-        Me.tbpAtivado.Size = New System.Drawing.Size(400, 464)
+        Me.tbpAtivado.Size = New System.Drawing.Size(400, 468)
         Me.tbpAtivado.TabIndex = 1
         Me.tbpAtivado.Text = "Produtos ativados"
         '
@@ -167,87 +158,11 @@ Partial Class frmProdutos
         '
         Me.flpProdAtiv.AutoScroll = True
         Me.flpProdAtiv.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.flpProdAtiv.Controls.Add(Me.pnlS)
         Me.flpProdAtiv.Dock = System.Windows.Forms.DockStyle.Fill
         Me.flpProdAtiv.Location = New System.Drawing.Point(0, 0)
         Me.flpProdAtiv.Name = "flpProdAtiv"
-        Me.flpProdAtiv.Size = New System.Drawing.Size(398, 462)
+        Me.flpProdAtiv.Size = New System.Drawing.Size(398, 466)
         Me.flpProdAtiv.TabIndex = 8
-        '
-        'pnlS
-        '
-        Me.pnlS.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.pnlS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlS.Controls.Add(Me.lbl89)
-        Me.pnlS.Controls.Add(Me.lbl890)
-        Me.pnlS.Controls.Add(Me.lbl67)
-        Me.pnlS.Controls.Add(Me.lbl44)
-        Me.pnlS.Controls.Add(Me.pctS)
-        Me.pnlS.Location = New System.Drawing.Point(3, 3)
-        Me.pnlS.Name = "pnlS"
-        Me.pnlS.Size = New System.Drawing.Size(121, 148)
-        Me.pnlS.TabIndex = 62
-        '
-        'lbl89
-        '
-        Me.lbl89.BackColor = System.Drawing.Color.Transparent
-        Me.lbl89.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl89.ForeColor = System.Drawing.Color.White
-        Me.lbl89.Location = New System.Drawing.Point(0, 0)
-        Me.lbl89.Name = "lbl89"
-        Me.lbl89.Size = New System.Drawing.Size(121, 15)
-        Me.lbl89.TabIndex = 66
-        Me.lbl89.Text = "Nome do Produto"
-        Me.lbl89.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lbl890
-        '
-        Me.lbl890.AutoSize = True
-        Me.lbl890.BackColor = System.Drawing.Color.Transparent
-        Me.lbl890.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl890.ForeColor = System.Drawing.Color.White
-        Me.lbl890.Location = New System.Drawing.Point(0, 132)
-        Me.lbl890.Name = "lbl890"
-        Me.lbl890.Size = New System.Drawing.Size(37, 15)
-        Me.lbl890.TabIndex = 66
-        Me.lbl890.Text = "Stock"
-        '
-        'lbl67
-        '
-        Me.lbl67.AutoSize = True
-        Me.lbl67.BackColor = System.Drawing.Color.Transparent
-        Me.lbl67.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl67.ForeColor = System.Drawing.Color.White
-        Me.lbl67.Location = New System.Drawing.Point(0, 117)
-        Me.lbl67.Name = "lbl67"
-        Me.lbl67.Size = New System.Drawing.Size(39, 15)
-        Me.lbl67.TabIndex = 66
-        Me.lbl67.Text = "Preço"
-        '
-        'lbl44
-        '
-        Me.lbl44.AutoEllipsis = True
-        Me.lbl44.BackColor = System.Drawing.Color.Transparent
-        Me.lbl44.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl44.ForeColor = System.Drawing.Color.White
-        Me.lbl44.Location = New System.Drawing.Point(0, 102)
-        Me.lbl44.Name = "lbl44"
-        Me.lbl44.Size = New System.Drawing.Size(121, 15)
-        Me.lbl44.TabIndex = 66
-        Me.lbl44.Text = "Género"
-        Me.lbl44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pctS
-        '
-        Me.pctS.BackColor = System.Drawing.Color.Firebrick
-        Me.pctS.BackgroundImage = CType(resources.GetObject("pctS.BackgroundImage"), System.Drawing.Image)
-        Me.pctS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pctS.Location = New System.Drawing.Point(0, 14)
-        Me.pctS.Name = "pctS"
-        Me.pctS.Size = New System.Drawing.Size(121, 87)
-        Me.pctS.TabIndex = 70
-        Me.pctS.TabStop = False
         '
         'tbpDesativado
         '
@@ -256,16 +171,17 @@ Partial Class frmProdutos
         Me.tbpDesativado.Controls.Add(Me.flpProdDesa)
         Me.tbpDesativado.Location = New System.Drawing.Point(4, 23)
         Me.tbpDesativado.Name = "tbpDesativado"
-        Me.tbpDesativado.Size = New System.Drawing.Size(400, 464)
+        Me.tbpDesativado.Size = New System.Drawing.Size(400, 468)
         Me.tbpDesativado.TabIndex = 2
         Me.tbpDesativado.Text = "Produtos desativados"
         '
         'flpProdDesa
         '
+        Me.flpProdDesa.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.flpProdDesa.Dock = System.Windows.Forms.DockStyle.Fill
         Me.flpProdDesa.Location = New System.Drawing.Point(0, 0)
         Me.flpProdDesa.Name = "flpProdDesa"
-        Me.flpProdDesa.Size = New System.Drawing.Size(398, 462)
+        Me.flpProdDesa.Size = New System.Drawing.Size(398, 466)
         Me.flpProdDesa.TabIndex = 7
         '
         'pnlControlos
@@ -285,20 +201,6 @@ Partial Class frmProdutos
         Me.pnlControlos.Name = "pnlControlos"
         Me.pnlControlos.Size = New System.Drawing.Size(273, 503)
         Me.pnlControlos.TabIndex = 43
-        '
-        'txtNome
-        '
-        Me.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtNome.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNome.ForeColor = System.Drawing.Color.Black
-        Me.txtNome.Location = New System.Drawing.Point(8, 2)
-        Me.txtNome.MaxLength = 50
-        Me.txtNome.Name = "txtNome"
-        Me.txtNome.Size = New System.Drawing.Size(193, 23)
-        Me.txtNome.TabIndex = 52
-        Me.txtNome.Tag = "nome"
-        Me.txtNome.Visible = False
-        Me.txtNome.WordWrap = False
         '
         'pnlAtivar
         '
@@ -326,76 +228,76 @@ Partial Class frmProdutos
         '
         Me.pnlSelecionado.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.pnlSelecionado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlSelecionado.Controls.Add(Me.lbl56)
-        Me.pnlSelecionado.Controls.Add(Me.lblSto)
-        Me.pnlSelecionado.Controls.Add(Me.lblPre)
-        Me.pnlSelecionado.Controls.Add(Me.lblGen)
-        Me.pnlSelecionado.Controls.Add(Me.pctImg)
+        Me.pnlSelecionado.Controls.Add(Me.lblNomeP)
+        Me.pnlSelecionado.Controls.Add(Me.lblStockP)
+        Me.pnlSelecionado.Controls.Add(Me.lblPrecoP)
+        Me.pnlSelecionado.Controls.Add(Me.lblGeneroP)
+        Me.pnlSelecionado.Controls.Add(Me.pctImagemP)
         Me.pnlSelecionado.Location = New System.Drawing.Point(70, 21)
         Me.pnlSelecionado.Name = "pnlSelecionado"
         Me.pnlSelecionado.Size = New System.Drawing.Size(121, 148)
         Me.pnlSelecionado.TabIndex = 74
         '
-        'lbl56
+        'lblNomeP
         '
-        Me.lbl56.BackColor = System.Drawing.Color.Transparent
-        Me.lbl56.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl56.ForeColor = System.Drawing.Color.White
-        Me.lbl56.Location = New System.Drawing.Point(0, 0)
-        Me.lbl56.Name = "lbl56"
-        Me.lbl56.Size = New System.Drawing.Size(121, 15)
-        Me.lbl56.TabIndex = 66
-        Me.lbl56.Text = "Nome do Produto"
-        Me.lbl56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblNomeP.BackColor = System.Drawing.Color.Transparent
+        Me.lblNomeP.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNomeP.ForeColor = System.Drawing.Color.White
+        Me.lblNomeP.Location = New System.Drawing.Point(0, 0)
+        Me.lblNomeP.Name = "lblNomeP"
+        Me.lblNomeP.Size = New System.Drawing.Size(121, 15)
+        Me.lblNomeP.TabIndex = 66
+        Me.lblNomeP.Text = "Nome do Produto"
+        Me.lblNomeP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lblSto
+        'lblStockP
         '
-        Me.lblSto.AutoSize = True
-        Me.lblSto.BackColor = System.Drawing.Color.Transparent
-        Me.lblSto.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSto.ForeColor = System.Drawing.Color.White
-        Me.lblSto.Location = New System.Drawing.Point(0, 132)
-        Me.lblSto.Name = "lblSto"
-        Me.lblSto.Size = New System.Drawing.Size(37, 15)
-        Me.lblSto.TabIndex = 66
-        Me.lblSto.Text = "Stock"
+        Me.lblStockP.AutoSize = True
+        Me.lblStockP.BackColor = System.Drawing.Color.Transparent
+        Me.lblStockP.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStockP.ForeColor = System.Drawing.Color.White
+        Me.lblStockP.Location = New System.Drawing.Point(0, 132)
+        Me.lblStockP.Name = "lblStockP"
+        Me.lblStockP.Size = New System.Drawing.Size(37, 15)
+        Me.lblStockP.TabIndex = 66
+        Me.lblStockP.Text = "Stock"
         '
-        'lblPre
+        'lblPrecoP
         '
-        Me.lblPre.AutoSize = True
-        Me.lblPre.BackColor = System.Drawing.Color.Transparent
-        Me.lblPre.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPre.ForeColor = System.Drawing.Color.White
-        Me.lblPre.Location = New System.Drawing.Point(0, 117)
-        Me.lblPre.Name = "lblPre"
-        Me.lblPre.Size = New System.Drawing.Size(39, 15)
-        Me.lblPre.TabIndex = 66
-        Me.lblPre.Text = "Preço"
+        Me.lblPrecoP.AutoSize = True
+        Me.lblPrecoP.BackColor = System.Drawing.Color.Transparent
+        Me.lblPrecoP.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrecoP.ForeColor = System.Drawing.Color.White
+        Me.lblPrecoP.Location = New System.Drawing.Point(0, 117)
+        Me.lblPrecoP.Name = "lblPrecoP"
+        Me.lblPrecoP.Size = New System.Drawing.Size(39, 15)
+        Me.lblPrecoP.TabIndex = 66
+        Me.lblPrecoP.Text = "Preço"
         '
-        'lblGen
+        'lblGeneroP
         '
-        Me.lblGen.AutoEllipsis = True
-        Me.lblGen.BackColor = System.Drawing.Color.Transparent
-        Me.lblGen.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGen.ForeColor = System.Drawing.Color.White
-        Me.lblGen.Location = New System.Drawing.Point(0, 102)
-        Me.lblGen.Name = "lblGen"
-        Me.lblGen.Size = New System.Drawing.Size(121, 15)
-        Me.lblGen.TabIndex = 66
-        Me.lblGen.Text = "Género"
-        Me.lblGen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblGeneroP.AutoEllipsis = True
+        Me.lblGeneroP.BackColor = System.Drawing.Color.Transparent
+        Me.lblGeneroP.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGeneroP.ForeColor = System.Drawing.Color.White
+        Me.lblGeneroP.Location = New System.Drawing.Point(0, 102)
+        Me.lblGeneroP.Name = "lblGeneroP"
+        Me.lblGeneroP.Size = New System.Drawing.Size(121, 15)
+        Me.lblGeneroP.TabIndex = 66
+        Me.lblGeneroP.Text = "Género"
+        Me.lblGeneroP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'pctImg
+        'pctImagemP
         '
-        Me.pctImg.BackColor = System.Drawing.Color.Firebrick
-        Me.pctImg.BackgroundImage = CType(resources.GetObject("pctImg.BackgroundImage"), System.Drawing.Image)
-        Me.pctImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pctImg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pctImg.Location = New System.Drawing.Point(0, 14)
-        Me.pctImg.Name = "pctImg"
-        Me.pctImg.Size = New System.Drawing.Size(121, 87)
-        Me.pctImg.TabIndex = 70
-        Me.pctImg.TabStop = False
+        Me.pctImagemP.BackColor = System.Drawing.Color.Firebrick
+        Me.pctImagemP.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.produtos
+        Me.pctImagemP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctImagemP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pctImagemP.Location = New System.Drawing.Point(0, 14)
+        Me.pctImagemP.Name = "pctImagemP"
+        Me.pctImagemP.Size = New System.Drawing.Size(121, 87)
+        Me.pctImagemP.TabIndex = 70
+        Me.pctImagemP.TabStop = False
         '
         'btnAtivar
         '
@@ -447,12 +349,27 @@ Partial Class frmProdutos
         Me.pnlCriar.Size = New System.Drawing.Size(210, 257)
         Me.pnlCriar.TabIndex = 71
         '
+        'txtNome
+        '
+        Me.txtNome.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtNome.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNome.ForeColor = System.Drawing.Color.Black
+        Me.txtNome.Location = New System.Drawing.Point(8, 2)
+        Me.txtNome.MaxLength = 50
+        Me.txtNome.Name = "txtNome"
+        Me.txtNome.Size = New System.Drawing.Size(193, 23)
+        Me.txtNome.TabIndex = 52
+        Me.txtNome.Tag = "nome"
+        Me.txtNome.Visible = False
+        Me.txtNome.WordWrap = False
+        '
         'nmrStock
         '
         Me.nmrStock.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.nmrStock.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nmrStock.Increment = New Decimal(New Integer() {10, 0, 0, 0})
         Me.nmrStock.Location = New System.Drawing.Point(3, 227)
+        Me.nmrStock.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.nmrStock.Name = "nmrStock"
         Me.nmrStock.Size = New System.Drawing.Size(193, 26)
         Me.nmrStock.TabIndex = 73
@@ -486,6 +403,8 @@ Partial Class frmProdutos
         '
         'cmbGenero
         '
+        Me.cmbGenero.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbGenero.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbGenero.BackColor = System.Drawing.Color.White
         Me.cmbGenero.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmbGenero.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -551,6 +470,7 @@ Partial Class frmProdutos
         '
         'lblNome
         '
+        Me.lblNome.AutoEllipsis = True
         Me.lblNome.BackColor = System.Drawing.Color.Transparent
         Me.lblNome.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNome.ForeColor = System.Drawing.Color.White
@@ -593,7 +513,7 @@ Partial Class frmProdutos
         Me.lblGenero.Name = "lblGenero"
         Me.lblGenero.Size = New System.Drawing.Size(210, 26)
         Me.lblGenero.TabIndex = 66
-        Me.lblGenero.Text = "Género"
+        Me.lblGenero.Text = "*Género"
         Me.lblGenero.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnImagem
@@ -759,7 +679,7 @@ Partial Class frmProdutos
         'ofdImagem
         '
         Me.ofdImagem.Tag = "imagem"
-        Me.ofdImagem.Title = "Escolha uma imagem para um produto"
+        Me.ofdImagem.Title = "Escolha uma imagem para o produto"
         '
         'CtrL_MenuCine
         '
@@ -788,10 +708,6 @@ Partial Class frmProdutos
         Me.flp1.ResumeLayout(False)
         Me.tbc1.ResumeLayout(False)
         Me.tbpAtivado.ResumeLayout(False)
-        Me.flpProdAtiv.ResumeLayout(False)
-        Me.pnlS.ResumeLayout(False)
-        Me.pnlS.PerformLayout()
-        CType(Me.pctS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbpDesativado.ResumeLayout(False)
         Me.pnlControlos.ResumeLayout(False)
         Me.pnlControlos.PerformLayout()
@@ -799,7 +715,7 @@ Partial Class frmProdutos
         Me.pnlAtivar.PerformLayout()
         Me.pnlSelecionado.ResumeLayout(False)
         Me.pnlSelecionado.PerformLayout()
-        CType(Me.pctImg, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctImagemP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlCriar.ResumeLayout(False)
         Me.pnlCriar.PerformLayout()
         CType(Me.nmrStock, System.ComponentModel.ISupportInitialize).EndInit()
@@ -846,11 +762,11 @@ Partial Class frmProdutos
     Friend WithEvents lblGenero As System.Windows.Forms.Label
     Friend WithEvents btnRem As System.Windows.Forms.Button
     Friend WithEvents pnlSelecionado As System.Windows.Forms.Panel
-    Friend WithEvents lbl56 As System.Windows.Forms.Label
-    Friend WithEvents lblSto As System.Windows.Forms.Label
-    Friend WithEvents lblPre As System.Windows.Forms.Label
-    Friend WithEvents lblGen As System.Windows.Forms.Label
-    Friend WithEvents pctImg As System.Windows.Forms.PictureBox
+    Friend WithEvents lblNomeP As System.Windows.Forms.Label
+    Friend WithEvents lblStockP As System.Windows.Forms.Label
+    Friend WithEvents lblPrecoP As System.Windows.Forms.Label
+    Friend WithEvents lblGeneroP As System.Windows.Forms.Label
+    Friend WithEvents pctImagemP As System.Windows.Forms.PictureBox
     Friend WithEvents pnlAtivar As System.Windows.Forms.Panel
     Friend WithEvents lbl92 As System.Windows.Forms.Label
     Friend WithEvents lbl00 As System.Windows.Forms.Label
@@ -859,10 +775,4 @@ Partial Class frmProdutos
     Friend WithEvents nmrPreco As System.Windows.Forms.NumericUpDown
     Friend WithEvents nmrStock As System.Windows.Forms.NumericUpDown
     Friend WithEvents btnImagem As System.Windows.Forms.Button
-    Friend WithEvents pnlS As System.Windows.Forms.Panel
-    Friend WithEvents lbl89 As System.Windows.Forms.Label
-    Friend WithEvents lbl890 As System.Windows.Forms.Label
-    Friend WithEvents lbl67 As System.Windows.Forms.Label
-    Friend WithEvents lbl44 As System.Windows.Forms.Label
-    Friend WithEvents pctS As System.Windows.Forms.PictureBox
 End Class

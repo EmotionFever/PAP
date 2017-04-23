@@ -1,4 +1,4 @@
 https://msdn.microsoft.com/en-us/library/2x7h1hfk(v=vs.100).aspx - Documentação de VB net
 https://stackoverflow.com/ - Algumas dúvidas de outros programadores ajudaram-me
-Código do professor Nélson
+http://www.macoratti.net/15/07/vbn_lmysql2.htm
 

@@ -27,7 +27,7 @@ Partial Class frmCalendarios
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.pnlCalendario = New System.Windows.Forms.Panel()
-        Me.cmblocalidade = New System.Windows.Forms.ComboBox()
+        Me.cmbSalaS = New System.Windows.Forms.ComboBox()
         Me.pnlHoras = New System.Windows.Forms.Panel()
         Me.pnlCal = New System.Windows.Forms.Panel()
         Me.pnlGrade1 = New System.Windows.Forms.Panel()
@@ -59,7 +59,7 @@ Partial Class frmCalendarios
         Me.lblH0 = New System.Windows.Forms.Label()
         Me.lblS1 = New System.Windows.Forms.Label()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpDataS = New System.Windows.Forms.DateTimePicker()
         Me.lbl90 = New System.Windows.Forms.Label()
         Me.pnlMostrar = New System.Windows.Forms.Panel()
         Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
@@ -85,21 +85,22 @@ Partial Class frmCalendarios
         Me.lbl6 = New System.Windows.Forms.Label()
         Me.lbl3 = New System.Windows.Forms.Label()
         Me.chkFilme = New System.Windows.Forms.CheckBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.chkSala = New System.Windows.Forms.CheckBox()
         Me.chkHoras = New System.Windows.Forms.CheckBox()
-        Me.chkLocalidade = New System.Windows.Forms.CheckBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.chkDataI = New System.Windows.Forms.CheckBox()
+        Me.lbl99 = New System.Windows.Forms.Label()
         Me.lbl91 = New System.Windows.Forms.Label()
-        Me.chkTlm = New System.Windows.Forms.CheckBox()
-        Me.mtbTlm = New System.Windows.Forms.MaskedTextBox()
+        Me.chkDataF = New System.Windows.Forms.CheckBox()
         Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.rctMinutos = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.rctTlm = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.rctLocalidade = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctDataF = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctDataI = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctHoras = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctSala = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctFilme = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.dtpDataI = New System.Windows.Forms.DateTimePicker()
+        Me.dtpDataF = New System.Windows.Forms.DateTimePicker()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.pnl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlCalendario.SuspendLayout()
@@ -153,7 +154,7 @@ Partial Class frmCalendarios
         '
         Me.pnlCalendario.AutoScroll = True
         Me.pnlCalendario.BackColor = System.Drawing.Color.ForestGreen
-        Me.pnlCalendario.Controls.Add(Me.cmblocalidade)
+        Me.pnlCalendario.Controls.Add(Me.cmbSalaS)
         Me.pnlCalendario.Controls.Add(Me.pnlHoras)
         Me.pnlCalendario.Controls.Add(Me.lblS1)
         Me.pnlCalendario.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -162,16 +163,16 @@ Partial Class frmCalendarios
         Me.pnlCalendario.Size = New System.Drawing.Size(330, 458)
         Me.pnlCalendario.TabIndex = 51
         '
-        'cmblocalidade
+        'cmbSalaS
         '
-        Me.cmblocalidade.BackColor = System.Drawing.Color.White
-        Me.cmblocalidade.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmblocalidade.FormattingEnabled = True
-        Me.cmblocalidade.Location = New System.Drawing.Point(163, 8)
-        Me.cmblocalidade.Name = "cmblocalidade"
-        Me.cmblocalidade.Size = New System.Drawing.Size(63, 22)
-        Me.cmblocalidade.TabIndex = 54
-        Me.cmblocalidade.Tag = "localidade"
+        Me.cmbSalaS.BackColor = System.Drawing.Color.White
+        Me.cmbSalaS.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSalaS.FormattingEnabled = True
+        Me.cmbSalaS.Location = New System.Drawing.Point(163, 8)
+        Me.cmbSalaS.Name = "cmbSalaS"
+        Me.cmbSalaS.Size = New System.Drawing.Size(63, 22)
+        Me.cmbSalaS.TabIndex = 54
+        Me.cmbSalaS.Tag = "localidade"
         '
         'pnlHoras
         '
@@ -208,7 +209,7 @@ Partial Class frmCalendarios
         Me.tlpGrade.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.tlpGrade.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
         Me.tlpGrade.ColumnCount = 1
-        Me.tlpGrade.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 268.0!))
+        Me.tlpGrade.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 269.0!))
         Me.tlpGrade.Location = New System.Drawing.Point(0, 0)
         Me.tlpGrade.Name = "tlpGrade"
         Me.tlpGrade.RowCount = 24
@@ -236,7 +237,7 @@ Partial Class frmCalendarios
         Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
         Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
         Me.tlpGrade.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59.0!))
-        Me.tlpGrade.Size = New System.Drawing.Size(270, 1441)
+        Me.tlpGrade.Size = New System.Drawing.Size(271, 1441)
         Me.tlpGrade.TabIndex = 52
         '
         'tlpHoras
@@ -244,7 +245,7 @@ Partial Class frmCalendarios
         Me.tlpHoras.BackColor = System.Drawing.Color.DarkGreen
         Me.tlpHoras.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
         Me.tlpHoras.ColumnCount = 1
-        Me.tlpHoras.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
+        Me.tlpHoras.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
         Me.tlpHoras.Controls.Add(Me.lblH23, 0, 23)
         Me.tlpHoras.Controls.Add(Me.lblH22, 0, 22)
         Me.tlpHoras.Controls.Add(Me.lblH21, 0, 21)
@@ -305,7 +306,7 @@ Partial Class frmCalendarios
         Me.lblH23.ForeColor = System.Drawing.Color.White
         Me.lblH23.Location = New System.Drawing.Point(4, 1381)
         Me.lblH23.Name = "lblH23"
-        Me.lblH23.Size = New System.Drawing.Size(39, 59)
+        Me.lblH23.Size = New System.Drawing.Size(40, 59)
         Me.lblH23.TabIndex = 75
         Me.lblH23.Text = "23"
         Me.lblH23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -316,7 +317,7 @@ Partial Class frmCalendarios
         Me.lblH22.ForeColor = System.Drawing.Color.White
         Me.lblH22.Location = New System.Drawing.Point(4, 1321)
         Me.lblH22.Name = "lblH22"
-        Me.lblH22.Size = New System.Drawing.Size(39, 59)
+        Me.lblH22.Size = New System.Drawing.Size(40, 59)
         Me.lblH22.TabIndex = 74
         Me.lblH22.Text = "22"
         Me.lblH22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -327,7 +328,7 @@ Partial Class frmCalendarios
         Me.lblH21.ForeColor = System.Drawing.Color.White
         Me.lblH21.Location = New System.Drawing.Point(4, 1261)
         Me.lblH21.Name = "lblH21"
-        Me.lblH21.Size = New System.Drawing.Size(39, 59)
+        Me.lblH21.Size = New System.Drawing.Size(40, 59)
         Me.lblH21.TabIndex = 73
         Me.lblH21.Text = "21"
         Me.lblH21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -338,7 +339,7 @@ Partial Class frmCalendarios
         Me.lblH20.ForeColor = System.Drawing.Color.White
         Me.lblH20.Location = New System.Drawing.Point(4, 1201)
         Me.lblH20.Name = "lblH20"
-        Me.lblH20.Size = New System.Drawing.Size(39, 59)
+        Me.lblH20.Size = New System.Drawing.Size(40, 59)
         Me.lblH20.TabIndex = 72
         Me.lblH20.Text = "20"
         Me.lblH20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -349,7 +350,7 @@ Partial Class frmCalendarios
         Me.lblH19.ForeColor = System.Drawing.Color.White
         Me.lblH19.Location = New System.Drawing.Point(4, 1141)
         Me.lblH19.Name = "lblH19"
-        Me.lblH19.Size = New System.Drawing.Size(39, 59)
+        Me.lblH19.Size = New System.Drawing.Size(40, 59)
         Me.lblH19.TabIndex = 71
         Me.lblH19.Text = "19"
         Me.lblH19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -360,7 +361,7 @@ Partial Class frmCalendarios
         Me.lblH18.ForeColor = System.Drawing.Color.White
         Me.lblH18.Location = New System.Drawing.Point(4, 1081)
         Me.lblH18.Name = "lblH18"
-        Me.lblH18.Size = New System.Drawing.Size(39, 59)
+        Me.lblH18.Size = New System.Drawing.Size(40, 59)
         Me.lblH18.TabIndex = 70
         Me.lblH18.Text = "18"
         Me.lblH18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -371,7 +372,7 @@ Partial Class frmCalendarios
         Me.lblH17.ForeColor = System.Drawing.Color.White
         Me.lblH17.Location = New System.Drawing.Point(4, 1021)
         Me.lblH17.Name = "lblH17"
-        Me.lblH17.Size = New System.Drawing.Size(39, 59)
+        Me.lblH17.Size = New System.Drawing.Size(40, 59)
         Me.lblH17.TabIndex = 69
         Me.lblH17.Text = "17"
         Me.lblH17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -382,7 +383,7 @@ Partial Class frmCalendarios
         Me.lblH16.ForeColor = System.Drawing.Color.White
         Me.lblH16.Location = New System.Drawing.Point(4, 961)
         Me.lblH16.Name = "lblH16"
-        Me.lblH16.Size = New System.Drawing.Size(39, 59)
+        Me.lblH16.Size = New System.Drawing.Size(40, 59)
         Me.lblH16.TabIndex = 68
         Me.lblH16.Text = "16"
         Me.lblH16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -393,7 +394,7 @@ Partial Class frmCalendarios
         Me.lblH15.ForeColor = System.Drawing.Color.White
         Me.lblH15.Location = New System.Drawing.Point(4, 901)
         Me.lblH15.Name = "lblH15"
-        Me.lblH15.Size = New System.Drawing.Size(39, 59)
+        Me.lblH15.Size = New System.Drawing.Size(40, 59)
         Me.lblH15.TabIndex = 67
         Me.lblH15.Text = "15"
         Me.lblH15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -404,7 +405,7 @@ Partial Class frmCalendarios
         Me.lblH14.ForeColor = System.Drawing.Color.White
         Me.lblH14.Location = New System.Drawing.Point(4, 841)
         Me.lblH14.Name = "lblH14"
-        Me.lblH14.Size = New System.Drawing.Size(39, 59)
+        Me.lblH14.Size = New System.Drawing.Size(40, 59)
         Me.lblH14.TabIndex = 66
         Me.lblH14.Text = "14"
         Me.lblH14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -415,7 +416,7 @@ Partial Class frmCalendarios
         Me.lblH013.ForeColor = System.Drawing.Color.White
         Me.lblH013.Location = New System.Drawing.Point(4, 781)
         Me.lblH013.Name = "lblH013"
-        Me.lblH013.Size = New System.Drawing.Size(39, 59)
+        Me.lblH013.Size = New System.Drawing.Size(40, 59)
         Me.lblH013.TabIndex = 65
         Me.lblH013.Text = "13"
         Me.lblH013.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -426,7 +427,7 @@ Partial Class frmCalendarios
         Me.lblH012.ForeColor = System.Drawing.Color.White
         Me.lblH012.Location = New System.Drawing.Point(4, 721)
         Me.lblH012.Name = "lblH012"
-        Me.lblH012.Size = New System.Drawing.Size(39, 59)
+        Me.lblH012.Size = New System.Drawing.Size(40, 59)
         Me.lblH012.TabIndex = 64
         Me.lblH012.Text = "12"
         Me.lblH012.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -437,7 +438,7 @@ Partial Class frmCalendarios
         Me.lblH011.ForeColor = System.Drawing.Color.White
         Me.lblH011.Location = New System.Drawing.Point(4, 661)
         Me.lblH011.Name = "lblH011"
-        Me.lblH011.Size = New System.Drawing.Size(39, 59)
+        Me.lblH011.Size = New System.Drawing.Size(40, 59)
         Me.lblH011.TabIndex = 63
         Me.lblH011.Text = "11"
         Me.lblH011.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -448,7 +449,7 @@ Partial Class frmCalendarios
         Me.lblH10.ForeColor = System.Drawing.Color.White
         Me.lblH10.Location = New System.Drawing.Point(4, 601)
         Me.lblH10.Name = "lblH10"
-        Me.lblH10.Size = New System.Drawing.Size(39, 59)
+        Me.lblH10.Size = New System.Drawing.Size(40, 59)
         Me.lblH10.TabIndex = 62
         Me.lblH10.Text = "10"
         Me.lblH10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -459,7 +460,7 @@ Partial Class frmCalendarios
         Me.lblH9.ForeColor = System.Drawing.Color.White
         Me.lblH9.Location = New System.Drawing.Point(4, 541)
         Me.lblH9.Name = "lblH9"
-        Me.lblH9.Size = New System.Drawing.Size(39, 59)
+        Me.lblH9.Size = New System.Drawing.Size(40, 59)
         Me.lblH9.TabIndex = 61
         Me.lblH9.Text = "9"
         Me.lblH9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -470,7 +471,7 @@ Partial Class frmCalendarios
         Me.lblH8.ForeColor = System.Drawing.Color.White
         Me.lblH8.Location = New System.Drawing.Point(4, 481)
         Me.lblH8.Name = "lblH8"
-        Me.lblH8.Size = New System.Drawing.Size(39, 59)
+        Me.lblH8.Size = New System.Drawing.Size(40, 59)
         Me.lblH8.TabIndex = 60
         Me.lblH8.Text = "8"
         Me.lblH8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -481,7 +482,7 @@ Partial Class frmCalendarios
         Me.lblH7.ForeColor = System.Drawing.Color.White
         Me.lblH7.Location = New System.Drawing.Point(4, 421)
         Me.lblH7.Name = "lblH7"
-        Me.lblH7.Size = New System.Drawing.Size(39, 59)
+        Me.lblH7.Size = New System.Drawing.Size(40, 59)
         Me.lblH7.TabIndex = 59
         Me.lblH7.Text = "7"
         Me.lblH7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -492,7 +493,7 @@ Partial Class frmCalendarios
         Me.lblH6.ForeColor = System.Drawing.Color.White
         Me.lblH6.Location = New System.Drawing.Point(4, 361)
         Me.lblH6.Name = "lblH6"
-        Me.lblH6.Size = New System.Drawing.Size(39, 59)
+        Me.lblH6.Size = New System.Drawing.Size(40, 59)
         Me.lblH6.TabIndex = 58
         Me.lblH6.Text = "6"
         Me.lblH6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -503,7 +504,7 @@ Partial Class frmCalendarios
         Me.lblH5.ForeColor = System.Drawing.Color.White
         Me.lblH5.Location = New System.Drawing.Point(4, 301)
         Me.lblH5.Name = "lblH5"
-        Me.lblH5.Size = New System.Drawing.Size(39, 59)
+        Me.lblH5.Size = New System.Drawing.Size(40, 59)
         Me.lblH5.TabIndex = 57
         Me.lblH5.Text = "5"
         Me.lblH5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -514,7 +515,7 @@ Partial Class frmCalendarios
         Me.lblH4.ForeColor = System.Drawing.Color.White
         Me.lblH4.Location = New System.Drawing.Point(4, 241)
         Me.lblH4.Name = "lblH4"
-        Me.lblH4.Size = New System.Drawing.Size(39, 59)
+        Me.lblH4.Size = New System.Drawing.Size(40, 59)
         Me.lblH4.TabIndex = 56
         Me.lblH4.Text = "4"
         Me.lblH4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -525,7 +526,7 @@ Partial Class frmCalendarios
         Me.lblH3.ForeColor = System.Drawing.Color.White
         Me.lblH3.Location = New System.Drawing.Point(4, 181)
         Me.lblH3.Name = "lblH3"
-        Me.lblH3.Size = New System.Drawing.Size(39, 59)
+        Me.lblH3.Size = New System.Drawing.Size(40, 59)
         Me.lblH3.TabIndex = 55
         Me.lblH3.Text = "3"
         Me.lblH3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -536,7 +537,7 @@ Partial Class frmCalendarios
         Me.lblH2.ForeColor = System.Drawing.Color.White
         Me.lblH2.Location = New System.Drawing.Point(4, 121)
         Me.lblH2.Name = "lblH2"
-        Me.lblH2.Size = New System.Drawing.Size(39, 59)
+        Me.lblH2.Size = New System.Drawing.Size(40, 59)
         Me.lblH2.TabIndex = 54
         Me.lblH2.Text = "2"
         Me.lblH2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -547,7 +548,7 @@ Partial Class frmCalendarios
         Me.lblH1.ForeColor = System.Drawing.Color.White
         Me.lblH1.Location = New System.Drawing.Point(4, 61)
         Me.lblH1.Name = "lblH1"
-        Me.lblH1.Size = New System.Drawing.Size(39, 59)
+        Me.lblH1.Size = New System.Drawing.Size(40, 59)
         Me.lblH1.TabIndex = 53
         Me.lblH1.Text = "1"
         Me.lblH1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -558,7 +559,7 @@ Partial Class frmCalendarios
         Me.lblH0.ForeColor = System.Drawing.Color.White
         Me.lblH0.Location = New System.Drawing.Point(4, 1)
         Me.lblH0.Name = "lblH0"
-        Me.lblH0.Size = New System.Drawing.Size(39, 59)
+        Me.lblH0.Size = New System.Drawing.Size(40, 59)
         Me.lblH0.TabIndex = 52
         Me.lblH0.Text = "0"
         Me.lblH0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -584,14 +585,14 @@ Partial Class frmCalendarios
         Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 703)
         Me.CtrL_MenuCine.TabIndex = 0
         '
-        'DateTimePicker1
+        'dtpDataS
         '
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(180, 9)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(84, 21)
-        Me.DateTimePicker1.TabIndex = 53
+        Me.dtpDataS.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpDataS.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDataS.Location = New System.Drawing.Point(180, 9)
+        Me.dtpDataS.Name = "dtpDataS"
+        Me.dtpDataS.Size = New System.Drawing.Size(84, 21)
+        Me.dtpDataS.TabIndex = 53
         '
         'lbl90
         '
@@ -609,10 +610,10 @@ Partial Class frmCalendarios
         '
         Me.pnlMostrar.Controls.Add(Me.lbl90)
         Me.pnlMostrar.Controls.Add(Me.pnlCalendario)
-        Me.pnlMostrar.Controls.Add(Me.DateTimePicker1)
+        Me.pnlMostrar.Controls.Add(Me.dtpDataS)
         Me.pnlMostrar.Location = New System.Drawing.Point(3, 3)
         Me.pnlMostrar.Name = "pnlMostrar"
-        Me.pnlMostrar.Size = New System.Drawing.Size(330, 498)
+        Me.pnlMostrar.Size = New System.Drawing.Size(330, 500)
         Me.pnlMostrar.TabIndex = 55
         '
         'flp1
@@ -626,6 +627,9 @@ Partial Class frmCalendarios
         '
         'pnlControlos
         '
+        Me.pnlControlos.Controls.Add(Me.Panel1)
+        Me.pnlControlos.Controls.Add(Me.dtpDataF)
+        Me.pnlControlos.Controls.Add(Me.dtpDataI)
         Me.pnlControlos.Controls.Add(Me.btnDesativar)
         Me.pnlControlos.Controls.Add(Me.btnAtivar)
         Me.pnlControlos.Controls.Add(Me.cmbSala)
@@ -643,18 +647,16 @@ Partial Class frmCalendarios
         Me.pnlControlos.Controls.Add(Me.lbl6)
         Me.pnlControlos.Controls.Add(Me.lbl3)
         Me.pnlControlos.Controls.Add(Me.chkFilme)
-        Me.pnlControlos.Controls.Add(Me.ComboBox1)
         Me.pnlControlos.Controls.Add(Me.chkSala)
         Me.pnlControlos.Controls.Add(Me.chkHoras)
-        Me.pnlControlos.Controls.Add(Me.chkLocalidade)
-        Me.pnlControlos.Controls.Add(Me.Label2)
+        Me.pnlControlos.Controls.Add(Me.chkDataI)
+        Me.pnlControlos.Controls.Add(Me.lbl99)
         Me.pnlControlos.Controls.Add(Me.lbl91)
-        Me.pnlControlos.Controls.Add(Me.chkTlm)
-        Me.pnlControlos.Controls.Add(Me.mtbTlm)
+        Me.pnlControlos.Controls.Add(Me.chkDataF)
         Me.pnlControlos.Controls.Add(Me.ShapeContainer2)
         Me.pnlControlos.Location = New System.Drawing.Point(339, 3)
         Me.pnlControlos.Name = "pnlControlos"
-        Me.pnlControlos.Size = New System.Drawing.Size(253, 500)
+        Me.pnlControlos.Size = New System.Drawing.Size(253, 507)
         Me.pnlControlos.TabIndex = 57
         '
         'btnDesativar
@@ -664,7 +666,7 @@ Partial Class frmCalendarios
         Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDesativar.ForeColor = System.Drawing.Color.Black
-        Me.btnDesativar.Location = New System.Drawing.Point(3, 355)
+        Me.btnDesativar.Location = New System.Drawing.Point(4, 477)
         Me.btnDesativar.Name = "btnDesativar"
         Me.btnDesativar.Size = New System.Drawing.Size(238, 22)
         Me.btnDesativar.TabIndex = 43
@@ -678,7 +680,7 @@ Partial Class frmCalendarios
         Me.btnAtivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAtivar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAtivar.ForeColor = System.Drawing.Color.Black
-        Me.btnAtivar.Location = New System.Drawing.Point(3, 355)
+        Me.btnAtivar.Location = New System.Drawing.Point(4, 477)
         Me.btnAtivar.Name = "btnAtivar"
         Me.btnAtivar.Size = New System.Drawing.Size(239, 22)
         Me.btnAtivar.TabIndex = 48
@@ -904,17 +906,6 @@ Partial Class frmCalendarios
         Me.chkFilme.TabIndex = 22
         Me.chkFilme.UseVisualStyleBackColor = True
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.BackColor = System.Drawing.Color.White
-        Me.ComboBox1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(11, 214)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(193, 22)
-        Me.ComboBox1.TabIndex = 44
-        Me.ComboBox1.Tag = "localidade"
-        '
         'chkSala
         '
         Me.chkSala.AutoSize = True
@@ -933,25 +924,25 @@ Partial Class frmCalendarios
         Me.chkHoras.TabIndex = 24
         Me.chkHoras.UseVisualStyleBackColor = True
         '
-        'chkLocalidade
+        'chkDataI
         '
-        Me.chkLocalidade.AutoSize = True
-        Me.chkLocalidade.Location = New System.Drawing.Point(224, 218)
-        Me.chkLocalidade.Name = "chkLocalidade"
-        Me.chkLocalidade.Size = New System.Drawing.Size(15, 14)
-        Me.chkLocalidade.TabIndex = 25
-        Me.chkLocalidade.UseVisualStyleBackColor = True
+        Me.chkDataI.AutoSize = True
+        Me.chkDataI.Location = New System.Drawing.Point(224, 218)
+        Me.chkDataI.Name = "chkDataI"
+        Me.chkDataI.Size = New System.Drawing.Size(15, 14)
+        Me.chkDataI.TabIndex = 25
+        Me.chkDataI.UseVisualStyleBackColor = True
         '
-        'Label2
+        'lbl99
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(0, 196)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 15)
-        Me.Label2.TabIndex = 29
-        Me.Label2.Text = "*Data Inicial:"
+        Me.lbl99.AutoSize = True
+        Me.lbl99.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lbl99.ForeColor = System.Drawing.Color.White
+        Me.lbl99.Location = New System.Drawing.Point(0, 196)
+        Me.lbl99.Name = "lbl99"
+        Me.lbl99.Size = New System.Drawing.Size(77, 15)
+        Me.lbl99.TabIndex = 29
+        Me.lbl99.Text = "*Data Inicial:"
         '
         'lbl91
         '
@@ -964,33 +955,22 @@ Partial Class frmCalendarios
         Me.lbl91.TabIndex = 31
         Me.lbl91.Text = "*Data Final:"
         '
-        'chkTlm
+        'chkDataF
         '
-        Me.chkTlm.AutoSize = True
-        Me.chkTlm.Location = New System.Drawing.Point(224, 284)
-        Me.chkTlm.Name = "chkTlm"
-        Me.chkTlm.Size = New System.Drawing.Size(15, 14)
-        Me.chkTlm.TabIndex = 32
-        Me.chkTlm.UseVisualStyleBackColor = True
-        '
-        'mtbTlm
-        '
-        Me.mtbTlm.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.mtbTlm.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.mtbTlm.Location = New System.Drawing.Point(10, 284)
-        Me.mtbTlm.Mask = "000000000"
-        Me.mtbTlm.Name = "mtbTlm"
-        Me.mtbTlm.Size = New System.Drawing.Size(195, 14)
-        Me.mtbTlm.TabIndex = 33
-        Me.mtbTlm.Tag = "telemóvel"
+        Me.chkDataF.AutoSize = True
+        Me.chkDataF.Location = New System.Drawing.Point(224, 284)
+        Me.chkDataF.Name = "chkDataF"
+        Me.chkDataF.Size = New System.Drawing.Size(15, 14)
+        Me.chkDataF.TabIndex = 32
+        Me.chkDataF.UseVisualStyleBackColor = True
         '
         'ShapeContainer2
         '
         Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer2.Name = "ShapeContainer2"
-        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctMinutos, Me.rctTlm, Me.rctLocalidade, Me.rctHoras, Me.rctSala, Me.rctFilme})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(253, 500)
+        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctMinutos, Me.rctDataF, Me.rctDataI, Me.rctHoras, Me.rctSala, Me.rctFilme})
+        Me.ShapeContainer2.Size = New System.Drawing.Size(253, 507)
         Me.ShapeContainer2.TabIndex = 0
         Me.ShapeContainer2.TabStop = False
         '
@@ -1004,25 +984,25 @@ Partial Class frmCalendarios
         Me.rctMinutos.Name = "rctMinutos"
         Me.rctMinutos.Size = New System.Drawing.Size(83, 25)
         '
-        'rctTlm
+        'rctDataF
         '
-        Me.rctTlm.BackColor = System.Drawing.Color.White
-        Me.rctTlm.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctTlm.BorderColor = System.Drawing.Color.White
-        Me.rctTlm.CornerRadius = 2
-        Me.rctTlm.Location = New System.Drawing.Point(3, 277)
-        Me.rctTlm.Name = "rctTlm"
-        Me.rctTlm.Size = New System.Drawing.Size(210, 25)
+        Me.rctDataF.BackColor = System.Drawing.Color.White
+        Me.rctDataF.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctDataF.BorderColor = System.Drawing.Color.White
+        Me.rctDataF.CornerRadius = 2
+        Me.rctDataF.Location = New System.Drawing.Point(2, 277)
+        Me.rctDataF.Name = "rctDataF"
+        Me.rctDataF.Size = New System.Drawing.Size(210, 25)
         '
-        'rctLocalidade
+        'rctDataI
         '
-        Me.rctLocalidade.BackColor = System.Drawing.Color.White
-        Me.rctLocalidade.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctLocalidade.BorderColor = System.Drawing.Color.White
-        Me.rctLocalidade.CornerRadius = 2
-        Me.rctLocalidade.Location = New System.Drawing.Point(2, 212)
-        Me.rctLocalidade.Name = "rctLocalidade"
-        Me.rctLocalidade.Size = New System.Drawing.Size(210, 25)
+        Me.rctDataI.BackColor = System.Drawing.Color.White
+        Me.rctDataI.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctDataI.BorderColor = System.Drawing.Color.White
+        Me.rctDataI.CornerRadius = 2
+        Me.rctDataI.Location = New System.Drawing.Point(2, 212)
+        Me.rctDataI.Name = "rctDataI"
+        Me.rctDataI.Size = New System.Drawing.Size(210, 25)
         '
         'rctHoras
         '
@@ -1053,6 +1033,33 @@ Partial Class frmCalendarios
         Me.rctFilme.Location = New System.Drawing.Point(3, 26)
         Me.rctFilme.Name = "rctFilme"
         Me.rctFilme.Size = New System.Drawing.Size(167, 25)
+        '
+        'dtpDataI
+        '
+        Me.dtpDataI.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpDataI.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDataI.Location = New System.Drawing.Point(11, 214)
+        Me.dtpDataI.Name = "dtpDataI"
+        Me.dtpDataI.Size = New System.Drawing.Size(193, 21)
+        Me.dtpDataI.TabIndex = 55
+        '
+        'dtpDataF
+        '
+        Me.dtpDataF.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpDataF.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDataF.Location = New System.Drawing.Point(11, 279)
+        Me.dtpDataF.Name = "dtpDataF"
+        Me.dtpDataF.Size = New System.Drawing.Size(193, 21)
+        Me.dtpDataF.TabIndex = 62
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Location = New System.Drawing.Point(4, 383)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(239, 84)
+        Me.Panel1.TabIndex = 57
         '
         'frmCalendarios
         '
@@ -1122,8 +1129,8 @@ Partial Class frmCalendarios
     Friend WithEvents tlpGrade As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents lblS1 As System.Windows.Forms.Label
     Friend WithEvents pnlGrade1 As System.Windows.Forms.Panel
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents cmblocalidade As System.Windows.Forms.ComboBox
+    Friend WithEvents dtpDataS As System.Windows.Forms.DateTimePicker
+    Friend WithEvents cmbSalaS As System.Windows.Forms.ComboBox
     Friend WithEvents lbl90 As System.Windows.Forms.Label
     Friend WithEvents pnlMostrar As System.Windows.Forms.Panel
     Friend WithEvents flp1 As System.Windows.Forms.FlowLayoutPanel
@@ -1142,17 +1149,15 @@ Partial Class frmCalendarios
     Friend WithEvents lbl6 As System.Windows.Forms.Label
     Friend WithEvents lbl3 As System.Windows.Forms.Label
     Friend WithEvents chkFilme As System.Windows.Forms.CheckBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents chkSala As System.Windows.Forms.CheckBox
     Friend WithEvents chkHoras As System.Windows.Forms.CheckBox
-    Friend WithEvents chkLocalidade As System.Windows.Forms.CheckBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents chkDataI As System.Windows.Forms.CheckBox
+    Friend WithEvents lbl99 As System.Windows.Forms.Label
     Friend WithEvents lbl91 As System.Windows.Forms.Label
-    Friend WithEvents chkTlm As System.Windows.Forms.CheckBox
-    Friend WithEvents mtbTlm As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents chkDataF As System.Windows.Forms.CheckBox
     Friend WithEvents ShapeContainer2 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents rctTlm As Microsoft.VisualBasic.PowerPacks.RectangleShape
-    Friend WithEvents rctLocalidade As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rctDataF As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rctDataI As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents rctHoras As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents rctSala As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents rctFilme As Microsoft.VisualBasic.PowerPacks.RectangleShape
@@ -1164,4 +1169,7 @@ Partial Class frmCalendarios
     Friend WithEvents cmbFilme As System.Windows.Forms.ComboBox
     Friend WithEvents btnOutro As System.Windows.Forms.Button
     Friend WithEvents cmbSala As System.Windows.Forms.ComboBox
+    Friend WithEvents dtpDataF As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtpDataI As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 End Class

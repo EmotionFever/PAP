@@ -34,10 +34,13 @@ Partial Class frmVendas_Inserir
         Me.lblquant = New System.Windows.Forms.Label()
         Me.btnConfirmar = New System.Windows.Forms.Button()
         Me.nmrQuant = New System.Windows.Forms.NumericUpDown()
+        Me.pnlCaminho = New System.Windows.Forms.Panel()
+        Me.lblCaminho = New System.Windows.Forms.Label()
         Me.pnl1.SuspendLayout()
         Me.flpcategorias.SuspendLayout()
         Me.grp1.SuspendLayout()
         CType(Me.nmrQuant, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlCaminho.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnl1
@@ -66,9 +69,9 @@ Partial Class frmVendas_Inserir
         'flpitens
         '
         Me.flpitens.AutoScroll = True
-        Me.flpitens.Location = New System.Drawing.Point(12, 64)
+        Me.flpitens.Location = New System.Drawing.Point(12, 82)
         Me.flpitens.Name = "flpitens"
-        Me.flpitens.Size = New System.Drawing.Size(335, 305)
+        Me.flpitens.Size = New System.Drawing.Size(335, 287)
         Me.flpitens.TabIndex = 19
         Me.flpitens.Visible = False
         '
@@ -76,9 +79,9 @@ Partial Class frmVendas_Inserir
         '
         Me.flpcategorias.AutoScroll = True
         Me.flpcategorias.Controls.Add(Me.btnBilhetes)
-        Me.flpcategorias.Location = New System.Drawing.Point(11, 64)
+        Me.flpcategorias.Location = New System.Drawing.Point(11, 82)
         Me.flpcategorias.Name = "flpcategorias"
-        Me.flpcategorias.Size = New System.Drawing.Size(338, 345)
+        Me.flpcategorias.Size = New System.Drawing.Size(338, 327)
         Me.flpcategorias.TabIndex = 20
         '
         'btnBilhetes
@@ -169,12 +172,36 @@ Partial Class frmVendas_Inserir
         Me.nmrQuant.TabIndex = 23
         Me.nmrQuant.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
+        'pnlCaminho
+        '
+        Me.pnlCaminho.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.pnlCaminho.Controls.Add(Me.lblCaminho)
+        Me.pnlCaminho.Location = New System.Drawing.Point(12, 64)
+        Me.pnlCaminho.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.pnlCaminho.Name = "pnlCaminho"
+        Me.pnlCaminho.Size = New System.Drawing.Size(337, 15)
+        Me.pnlCaminho.TabIndex = 18
+        '
+        'lblCaminho
+        '
+        Me.lblCaminho.BackColor = System.Drawing.Color.Transparent
+        Me.lblCaminho.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCaminho.ForeColor = System.Drawing.Color.Black
+        Me.lblCaminho.Location = New System.Drawing.Point(-1, 0)
+        Me.lblCaminho.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblCaminho.Name = "lblCaminho"
+        Me.lblCaminho.Size = New System.Drawing.Size(331, 15)
+        Me.lblCaminho.TabIndex = 5
+        Me.lblCaminho.Text = "Categorias ► Bilhetes"
+        Me.lblCaminho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'frmVendas_Inserir
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(360, 547)
+        Me.Controls.Add(Me.pnlCaminho)
         Me.Controls.Add(Me.grp1)
         Me.Controls.Add(Me.flpcategorias)
         Me.Controls.Add(Me.btnVoltar)
@@ -190,6 +217,7 @@ Partial Class frmVendas_Inserir
         Me.grp1.ResumeLayout(False)
         Me.grp1.PerformLayout()
         CType(Me.nmrQuant, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlCaminho.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -204,4 +232,6 @@ Partial Class frmVendas_Inserir
     Friend WithEvents btnConfirmar As System.Windows.Forms.Button
     Friend WithEvents nmrQuant As System.Windows.Forms.NumericUpDown
     Friend WithEvents lblquant As System.Windows.Forms.Label
+    Friend WithEvents pnlCaminho As System.Windows.Forms.Panel
+    Friend WithEvents lblCaminho As System.Windows.Forms.Label
 End Class
