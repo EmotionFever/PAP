@@ -1,6 +1,5 @@
 ﻿Public Class CTRL_MenuCine
     Dim contador As Integer = 0
-    Public Const DIMTA As Integer = 10
     Public botao(DIMTA) As System.Windows.Forms.Button
     Dim frm(DIMTA) As Form
     Dim frmAtual As Form
@@ -26,23 +25,23 @@
             botao(numero).BackColor = Color.FromArgb(37, 46, 49)
         End If
         For a As Integer = 0 To DIMTA - 1
-            botao(a).Visible = frmLogin.ass(a).acesso()
+            botao(a).Visible = ass(a).acesso()
         Next
         frmAtual = frmEu
         codta = numero
     End Sub
 
-    Public Sub Sincronizar_permissoes(ByRef objConsultar() As Object, objAlterar() As Object, objInserir As Object)
+    Public Sub Sincronizar_permissoes(ByRef objConsultar() As Object, objAlterar() As Object, objInserir As Object) 'frmlogin. ass
         For Each objeto As Object In objConsultar
-            objeto.visible = frmLogin.ass(codta).permissao(0)
+            objeto.visible = ass(codta).permissao(0)
         Next
 
         For Each objeto As Object In objAlterar
-            objeto.visible = frmLogin.ass(codta).permissao(1)
+            objeto.visible = ass(codta).permissao(1)
         Next
 
         For Each objeto As Object In objInserir
-            objeto.visible = frmLogin.ass(codta).permissao(2)
+            objeto.visible = ass(codta).permissao(2)
         Next
     End Sub
 
@@ -52,7 +51,7 @@
 
     Private Sub tmrAnimacao_Tick(sender As System.Object, e As System.EventArgs) Handles tmrAnimacao.Tick
         Dim variavel As Integer = Math.Round((2 / 5) * contador) 'Deste modo, a variável será maior e maior
-        If pctBotao.Tag Then 'Menu expandido, então tem-se que se escolhe-lo
+        If pctBotao.Tag Then 'Menu expandido, então tem que se escolhe-lo
             If Me.Size.Width > 49 Then 'Enquanto o comprimento for maior que 49
 
                 Me.Size = New System.Drawing.Size(Me.Size.Width - variavel, Me.Size.Height)
@@ -65,7 +64,7 @@
                 tmrAnimacao.Stop()
                 contador = -1 ' Tem de ficar -1 para quando chegar ao final somar com 1 e dar ZERO
             End If
-        Else 'Menu encolhido, então tem-se que se expandi-lo
+        Else 'Menu encolhido, então tem que se expandi-lo
             If pnl1.Size.Width < 260 Then
 
                 pctLogo.Show()
@@ -84,53 +83,72 @@
     End Sub
 
 
-
     Public Sub IrParaFilmes() Handles btnFilmes.Click
         frmFilmes.Show()
+        mdlAcoes.fechar = False
         frmAtual.Close()
+        mdlAcoes.fechar = True
     End Sub
 
     Public Sub IrParaHome() Handles btnInicio.Click
         frmHome.Show()
+        mdlAcoes.fechar = False
         frmAtual.Close()
+        mdlAcoes.fechar = True
     End Sub
 
     Public Sub IrParaClientes() Handles btnClientes.Click
         frmClientes.Show()
+        mdlAcoes.fechar = False
         frmAtual.Close()
+        mdlAcoes.fechar = True
     End Sub
 
     Public Sub IrParaVendas() Handles btnVendas.Click
         frmVendas.Show()
+        mdlAcoes.fechar = False
         frmAtual.Close()
+        mdlAcoes.fechar = True
     End Sub
 
     Public Sub IrParaDefinicoes() Handles btnDefinicoes.Click
         frmDefinicoes.Show()
+        mdlAcoes.fechar = False
         frmAtual.Close()
+        mdlAcoes.fechar = True
     End Sub
     Public Sub IrParaFuncionarios() Handles btnFuncionarios.Click
         frmFuncionarios.Show()
+        mdlAcoes.fechar = False
         frmAtual.Close()
+        mdlAcoes.fechar = True
     End Sub
 
     Public Sub IrParaEncargos() Handles btnEncargos.Click
         frmEncargos.Show()
+        mdlAcoes.fechar = False
         frmAtual.Close()
+        mdlAcoes.fechar = True
     End Sub
 
     Public Sub IrParaCalendarios() Handles btnCalendarios.Click
         frmCalendarios.Show()
+        mdlAcoes.fechar = False
         frmAtual.Close()
+        mdlAcoes.fechar = True
     End Sub
 
     Public Sub IrParaProdutos() Handles btnProdutos.Click
         frmProdutos.Show()
+        mdlAcoes.fechar = False
         frmAtual.Close()
+        mdlAcoes.fechar = True
     End Sub
 
     Public Sub IrParaSalas() Handles btnSalas.Click
         frmSalas.Show()
+        mdlAcoes.fechar = False
         frmAtual.Close()
+        mdlAcoes.fechar = True
     End Sub
 End Class

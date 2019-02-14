@@ -81,3 +81,28 @@ C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\
 C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmFuncionarios.resources
 C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmProdutos.resources
 C:\Users\12F.PE\Desktop\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmSalas.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.exe.config
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.exe
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.xml
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.pdb
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.vbprojResolveAssemblyReference.cache
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.CTRL_MenuCine.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmCalendarios.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmClientes.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmDefinicoes.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmEncargos.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmFilmes.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmFuncionarios.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmLogin.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmHome.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmProdutos.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmSalas.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmVendas.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.frmVendas_Inserir.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP___Gestão_de_Cinema.Resources.resources
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\obj\x86\Debug\PAP - Gestão de Cinema.vbproj.GenerateResource.Cache
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.exe
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.pdb
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\PAP - Gestão de Cinema.xml
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\CTRL_Menu_do_cinema.pdb
+C:\Users\JCMarques\Pictures\PAP\PAP - Gestão de Cinema\PAP - Gestão de Cinema\bin\Debug\CTRL_Menu_do_cinema.xml

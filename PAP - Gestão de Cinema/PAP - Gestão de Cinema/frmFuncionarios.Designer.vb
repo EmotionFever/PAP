@@ -23,10 +23,10 @@ Partial Class frmFuncionarios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFuncionarios))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnl1 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pctLogo = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.tbc1 = New System.Windows.Forms.TabControl()
@@ -37,10 +37,14 @@ Partial Class frmFuncionarios
         Me.pnlControlos = New System.Windows.Forms.Panel()
         Me.pnlProibicao = New System.Windows.Forms.Panel()
         Me.pct3 = New System.Windows.Forms.PictureBox()
-        Me.lblT = New System.Windows.Forms.Label()
         Me.lblHammer = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblcontrl = New System.Windows.Forms.Label()
+        Me.lblT = New System.Windows.Forms.Label()
         Me.pnlAtivar = New System.Windows.Forms.Panel()
+        Me.lblUtl = New System.Windows.Forms.Label()
+        Me.lbl3224 = New System.Windows.Forms.Label()
+        Me.lblEncargo = New System.Windows.Forms.Label()
+        Me.lbl7787 = New System.Windows.Forms.Label()
         Me.lblTlm = New System.Windows.Forms.Label()
         Me.lbl87 = New System.Windows.Forms.Label()
         Me.lblidade = New System.Windows.Forms.Label()
@@ -56,9 +60,13 @@ Partial Class frmFuncionarios
         Me.lbl12 = New System.Windows.Forms.Label()
         Me.lbl13 = New System.Windows.Forms.Label()
         Me.lblRua = New System.Windows.Forms.Label()
-        Me.txtPass = New System.Windows.Forms.TextBox()
+        Me.lbl7723 = New System.Windows.Forms.Label()
+        Me.cmbEncargo = New System.Windows.Forms.ComboBox()
+        Me.chkEncargo = New System.Windows.Forms.CheckBox()
+        Me.btnOutro = New System.Windows.Forms.Button()
+        Me.txtUtl = New System.Windows.Forms.TextBox()
         Me.txtordenado = New System.Windows.Forms.TextBox()
-        Me.chkPass = New System.Windows.Forms.CheckBox()
+        Me.chkUtl = New System.Windows.Forms.CheckBox()
         Me.lbl67 = New System.Windows.Forms.Label()
         Me.chkTlm = New System.Windows.Forms.CheckBox()
         Me.lbl89 = New System.Windows.Forms.Label()
@@ -81,7 +89,8 @@ Partial Class frmFuncionarios
         Me.chkOrdenado = New System.Windows.Forms.CheckBox()
         Me.mtbTlm = New System.Windows.Forms.MaskedTextBox()
         Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.rctPass = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctEnc = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.rctUtl = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctTlm = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctOrdenado = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.rctRua = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
@@ -90,7 +99,7 @@ Partial Class frmFuncionarios
         Me.rctNome = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnl1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.flp1.SuspendLayout()
         Me.tbc1.SuspendLayout()
         Me.tbpAtivado.SuspendLayout()
@@ -106,23 +115,23 @@ Partial Class frmFuncionarios
         'pnl1
         '
         Me.pnl1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.pnl1.Controls.Add(Me.PictureBox1)
+        Me.pnl1.Controls.Add(Me.pctLogo)
         Me.pnl1.Controls.Add(Me.lbl1)
         Me.pnl1.Location = New System.Drawing.Point(74, 24)
         Me.pnl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl1.Name = "pnl1"
-        Me.pnl1.Size = New System.Drawing.Size(682, 93)
+        Me.pnl1.Size = New System.Drawing.Size(944, 93)
         Me.pnl1.TabIndex = 5
         '
-        'PictureBox1
+        'pctLogo
         '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(-3, -2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(111, 101)
-        Me.PictureBox1.TabIndex = 53
-        Me.PictureBox1.TabStop = False
+        Me.pctLogo.BackgroundImage = CType(resources.GetObject("pctLogo.BackgroundImage"), System.Drawing.Image)
+        Me.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctLogo.Location = New System.Drawing.Point(-3, -2)
+        Me.pctLogo.Name = "pctLogo"
+        Me.pctLogo.Size = New System.Drawing.Size(111, 101)
+        Me.pctLogo.TabIndex = 53
+        Me.pctLogo.TabStop = False
         '
         'lbl1
         '
@@ -132,7 +141,7 @@ Partial Class frmFuncionarios
         Me.lbl1.Location = New System.Drawing.Point(96, 21)
         Me.lbl1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(586, 55)
+        Me.lbl1.Size = New System.Drawing.Size(848, 55)
         Me.lbl1.TabIndex = 4
         Me.lbl1.Text = "Funcionários"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -143,7 +152,7 @@ Partial Class frmFuncionarios
         Me.flp1.Controls.Add(Me.pnlControlos)
         Me.flp1.Location = New System.Drawing.Point(74, 126)
         Me.flp1.Name = "flp1"
-        Me.flp1.Size = New System.Drawing.Size(708, 557)
+        Me.flp1.Size = New System.Drawing.Size(953, 490)
         Me.flp1.TabIndex = 51
         '
         'tbc1
@@ -154,7 +163,7 @@ Partial Class frmFuncionarios
         Me.tbc1.Location = New System.Drawing.Point(3, 3)
         Me.tbc1.Name = "tbc1"
         Me.tbc1.SelectedIndex = 0
-        Me.tbc1.Size = New System.Drawing.Size(439, 539)
+        Me.tbc1.Size = New System.Drawing.Size(439, 481)
         Me.tbc1.TabIndex = 47
         '
         'tbpAtivado
@@ -164,7 +173,7 @@ Partial Class frmFuncionarios
         Me.tbpAtivado.Controls.Add(Me.dgvAtivado)
         Me.tbpAtivado.Location = New System.Drawing.Point(4, 23)
         Me.tbpAtivado.Name = "tbpAtivado"
-        Me.tbpAtivado.Size = New System.Drawing.Size(431, 512)
+        Me.tbpAtivado.Size = New System.Drawing.Size(431, 454)
         Me.tbpAtivado.TabIndex = 1
         Me.tbpAtivado.Text = "Funcionários empregados"
         '
@@ -172,16 +181,17 @@ Partial Class frmFuncionarios
         '
         Me.dgvAtivado.AllowUserToAddRows = False
         Me.dgvAtivado.AllowUserToDeleteRows = False
+        Me.dgvAtivado.AllowUserToResizeRows = False
         Me.dgvAtivado.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvAtivado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvAtivado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvAtivado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvAtivado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvAtivado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvAtivado.Location = New System.Drawing.Point(0, 0)
@@ -190,7 +200,7 @@ Partial Class frmFuncionarios
         Me.dgvAtivado.ReadOnly = True
         Me.dgvAtivado.RowHeadersVisible = False
         Me.dgvAtivado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.dgvAtivado.Size = New System.Drawing.Size(429, 510)
+        Me.dgvAtivado.Size = New System.Drawing.Size(429, 452)
         Me.dgvAtivado.TabIndex = 15
         '
         'tbpDesativado
@@ -200,7 +210,7 @@ Partial Class frmFuncionarios
         Me.tbpDesativado.Controls.Add(Me.dgvDesativado)
         Me.tbpDesativado.Location = New System.Drawing.Point(4, 23)
         Me.tbpDesativado.Name = "tbpDesativado"
-        Me.tbpDesativado.Size = New System.Drawing.Size(431, 512)
+        Me.tbpDesativado.Size = New System.Drawing.Size(431, 454)
         Me.tbpDesativado.TabIndex = 2
         Me.tbpDesativado.Text = "Funcionários desempregados"
         '
@@ -208,16 +218,17 @@ Partial Class frmFuncionarios
         '
         Me.dgvDesativado.AllowUserToAddRows = False
         Me.dgvDesativado.AllowUserToDeleteRows = False
+        Me.dgvDesativado.AllowUserToResizeRows = False
         Me.dgvDesativado.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvDesativado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvDesativado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvDesativado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvDesativado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvDesativado.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvDesativado.Location = New System.Drawing.Point(0, 0)
@@ -226,16 +237,20 @@ Partial Class frmFuncionarios
         Me.dgvDesativado.ReadOnly = True
         Me.dgvDesativado.RowHeadersVisible = False
         Me.dgvDesativado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.dgvDesativado.Size = New System.Drawing.Size(429, 510)
+        Me.dgvDesativado.Size = New System.Drawing.Size(429, 452)
         Me.dgvDesativado.TabIndex = 16
         '
         'pnlControlos
         '
         Me.pnlControlos.Controls.Add(Me.pnlProibicao)
         Me.pnlControlos.Controls.Add(Me.pnlAtivar)
-        Me.pnlControlos.Controls.Add(Me.txtPass)
+        Me.pnlControlos.Controls.Add(Me.lbl7723)
+        Me.pnlControlos.Controls.Add(Me.cmbEncargo)
+        Me.pnlControlos.Controls.Add(Me.chkEncargo)
+        Me.pnlControlos.Controls.Add(Me.btnOutro)
+        Me.pnlControlos.Controls.Add(Me.txtUtl)
         Me.pnlControlos.Controls.Add(Me.txtordenado)
-        Me.pnlControlos.Controls.Add(Me.chkPass)
+        Me.pnlControlos.Controls.Add(Me.chkUtl)
         Me.pnlControlos.Controls.Add(Me.lbl67)
         Me.pnlControlos.Controls.Add(Me.chkTlm)
         Me.pnlControlos.Controls.Add(Me.lbl89)
@@ -260,19 +275,19 @@ Partial Class frmFuncionarios
         Me.pnlControlos.Controls.Add(Me.ShapeContainer2)
         Me.pnlControlos.Location = New System.Drawing.Point(448, 3)
         Me.pnlControlos.Name = "pnlControlos"
-        Me.pnlControlos.Size = New System.Drawing.Size(253, 542)
+        Me.pnlControlos.Size = New System.Drawing.Size(496, 476)
         Me.pnlControlos.TabIndex = 43
         '
         'pnlProibicao
         '
         Me.pnlProibicao.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.pnlProibicao.Controls.Add(Me.pct3)
-        Me.pnlProibicao.Controls.Add(Me.lblT)
         Me.pnlProibicao.Controls.Add(Me.lblHammer)
-        Me.pnlProibicao.Controls.Add(Me.Label1)
-        Me.pnlProibicao.Location = New System.Drawing.Point(270, 3)
+        Me.pnlProibicao.Controls.Add(Me.lblcontrl)
+        Me.pnlProibicao.Controls.Add(Me.lblT)
+        Me.pnlProibicao.Location = New System.Drawing.Point(523, 21)
         Me.pnlProibicao.Name = "pnlProibicao"
-        Me.pnlProibicao.Size = New System.Drawing.Size(241, 403)
+        Me.pnlProibicao.Size = New System.Drawing.Size(484, 243)
         Me.pnlProibicao.TabIndex = 52
         Me.pnlProibicao.Visible = False
         '
@@ -281,21 +296,11 @@ Partial Class frmFuncionarios
         Me.pct3.BackColor = System.Drawing.Color.Transparent
         Me.pct3.BackgroundImage = CType(resources.GetObject("pct3.BackgroundImage"), System.Drawing.Image)
         Me.pct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct3.Location = New System.Drawing.Point(0, 375)
+        Me.pct3.Location = New System.Drawing.Point(0, 215)
         Me.pct3.Name = "pct3"
         Me.pct3.Size = New System.Drawing.Size(30, 28)
         Me.pct3.TabIndex = 54
         Me.pct3.TabStop = False
-        '
-        'lblT
-        '
-        Me.lblT.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblT.Location = New System.Drawing.Point(10, 108)
-        Me.lblT.Name = "lblT"
-        Me.lblT.Size = New System.Drawing.Size(219, 180)
-        Me.lblT.TabIndex = 51
-        Me.lblT.Text = "Só pode realizar ações enquanto estiver na aba dos registos ativados"
-        Me.lblT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblHammer
         '
@@ -303,26 +308,40 @@ Partial Class frmFuncionarios
         Me.lblHammer.BackColor = System.Drawing.Color.Transparent
         Me.lblHammer.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblHammer.ForeColor = System.Drawing.Color.Fuchsia
-        Me.lblHammer.Location = New System.Drawing.Point(70, 29)
+        Me.lblHammer.Location = New System.Drawing.Point(192, -6)
         Me.lblHammer.Name = "lblHammer"
         Me.lblHammer.Size = New System.Drawing.Size(106, 91)
         Me.lblHammer.TabIndex = 0
         Me.lblHammer.Text = "🛠"
         '
-        'Label1
+        'lblcontrl
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 150.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(67, 223)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(263, 226)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "🛠"
+        Me.lblcontrl.AutoSize = True
+        Me.lblcontrl.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblcontrl.Font = New System.Drawing.Font("Microsoft Sans Serif", 150.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblcontrl.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblcontrl.Location = New System.Drawing.Point(304, 29)
+        Me.lblcontrl.Name = "lblcontrl"
+        Me.lblcontrl.Size = New System.Drawing.Size(263, 226)
+        Me.lblcontrl.TabIndex = 1
+        Me.lblcontrl.Text = "🛠"
+        '
+        'lblT
+        '
+        Me.lblT.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblT.Location = New System.Drawing.Point(52, 81)
+        Me.lblT.Name = "lblT"
+        Me.lblT.Size = New System.Drawing.Size(219, 180)
+        Me.lblT.TabIndex = 51
+        Me.lblT.Text = "Só pode realizar ações enquanto estiver na aba dos registos ativados"
+        Me.lblT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'pnlAtivar
         '
+        Me.pnlAtivar.Controls.Add(Me.lblUtl)
+        Me.pnlAtivar.Controls.Add(Me.lbl3224)
+        Me.pnlAtivar.Controls.Add(Me.lblEncargo)
+        Me.pnlAtivar.Controls.Add(Me.lbl7787)
         Me.pnlAtivar.Controls.Add(Me.lblTlm)
         Me.pnlAtivar.Controls.Add(Me.lbl87)
         Me.pnlAtivar.Controls.Add(Me.lblidade)
@@ -338,17 +357,61 @@ Partial Class frmFuncionarios
         Me.pnlAtivar.Controls.Add(Me.lbl12)
         Me.pnlAtivar.Controls.Add(Me.lbl13)
         Me.pnlAtivar.Controls.Add(Me.lblRua)
-        Me.pnlAtivar.Location = New System.Drawing.Point(2, 397)
+        Me.pnlAtivar.Location = New System.Drawing.Point(2, 249)
         Me.pnlAtivar.Name = "pnlAtivar"
-        Me.pnlAtivar.Size = New System.Drawing.Size(253, 150)
+        Me.pnlAtivar.Size = New System.Drawing.Size(484, 120)
         Me.pnlAtivar.TabIndex = 49
+        '
+        'lblUtl
+        '
+        Me.lblUtl.AutoEllipsis = True
+        Me.lblUtl.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUtl.ForeColor = System.Drawing.Color.White
+        Me.lblUtl.Location = New System.Drawing.Point(346, 69)
+        Me.lblUtl.Name = "lblUtl"
+        Me.lblUtl.Size = New System.Drawing.Size(131, 14)
+        Me.lblUtl.TabIndex = 56
+        Me.lblUtl.Text = "---"
+        '
+        'lbl3224
+        '
+        Me.lbl3224.AutoSize = True
+        Me.lbl3224.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl3224.ForeColor = System.Drawing.Color.White
+        Me.lbl3224.Location = New System.Drawing.Point(281, 69)
+        Me.lbl3224.Name = "lbl3224"
+        Me.lbl3224.Size = New System.Drawing.Size(59, 14)
+        Me.lbl3224.TabIndex = 55
+        Me.lbl3224.Text = "Username:"
+        '
+        'lblEncargo
+        '
+        Me.lblEncargo.AutoEllipsis = True
+        Me.lblEncargo.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEncargo.ForeColor = System.Drawing.Color.White
+        Me.lblEncargo.Location = New System.Drawing.Point(84, 41)
+        Me.lblEncargo.Name = "lblEncargo"
+        Me.lblEncargo.Size = New System.Drawing.Size(131, 14)
+        Me.lblEncargo.TabIndex = 54
+        Me.lblEncargo.Text = "---"
+        '
+        'lbl7787
+        '
+        Me.lbl7787.AutoSize = True
+        Me.lbl7787.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl7787.ForeColor = System.Drawing.Color.White
+        Me.lbl7787.Location = New System.Drawing.Point(19, 41)
+        Me.lbl7787.Name = "lbl7787"
+        Me.lbl7787.Size = New System.Drawing.Size(50, 14)
+        Me.lbl7787.TabIndex = 53
+        Me.lbl7787.Text = "Encargo:"
         '
         'lblTlm
         '
         Me.lblTlm.AutoSize = True
         Me.lblTlm.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTlm.ForeColor = System.Drawing.Color.White
-        Me.lblTlm.Location = New System.Drawing.Point(111, 100)
+        Me.lblTlm.Location = New System.Drawing.Point(84, 69)
         Me.lblTlm.Name = "lblTlm"
         Me.lblTlm.Size = New System.Drawing.Size(19, 14)
         Me.lblTlm.TabIndex = 52
@@ -359,7 +422,7 @@ Partial Class frmFuncionarios
         Me.lbl87.AutoSize = True
         Me.lbl87.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl87.ForeColor = System.Drawing.Color.White
-        Me.lbl87.Location = New System.Drawing.Point(19, 100)
+        Me.lbl87.Location = New System.Drawing.Point(19, 69)
         Me.lbl87.Name = "lbl87"
         Me.lbl87.Size = New System.Drawing.Size(57, 14)
         Me.lbl87.TabIndex = 51
@@ -370,7 +433,7 @@ Partial Class frmFuncionarios
         Me.lblidade.AutoSize = True
         Me.lblidade.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblidade.ForeColor = System.Drawing.Color.White
-        Me.lblidade.Location = New System.Drawing.Point(111, 58)
+        Me.lblidade.Location = New System.Drawing.Point(346, 27)
         Me.lblidade.Name = "lblidade"
         Me.lblidade.Size = New System.Drawing.Size(19, 14)
         Me.lblidade.TabIndex = 50
@@ -381,11 +444,11 @@ Partial Class frmFuncionarios
         Me.lbl565.AutoSize = True
         Me.lbl565.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl565.ForeColor = System.Drawing.Color.White
-        Me.lbl565.Location = New System.Drawing.Point(19, 58)
+        Me.lbl565.Location = New System.Drawing.Point(281, 27)
         Me.lbl565.Name = "lbl565"
-        Me.lbl565.Size = New System.Drawing.Size(33, 14)
+        Me.lbl565.Size = New System.Drawing.Size(36, 14)
         Me.lbl565.TabIndex = 49
-        Me.lbl565.Text = "Idade"
+        Me.lbl565.Text = "Idade:"
         '
         'btnDesativar
         '
@@ -394,9 +457,9 @@ Partial Class frmFuncionarios
         Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDesativar.ForeColor = System.Drawing.Color.Black
-        Me.btnDesativar.Location = New System.Drawing.Point(4, 120)
+        Me.btnDesativar.Location = New System.Drawing.Point(1, 93)
         Me.btnDesativar.Name = "btnDesativar"
-        Me.btnDesativar.Size = New System.Drawing.Size(236, 22)
+        Me.btnDesativar.Size = New System.Drawing.Size(477, 22)
         Me.btnDesativar.TabIndex = 43
         Me.btnDesativar.Text = "Despedir funcionário"
         Me.btnDesativar.UseVisualStyleBackColor = False
@@ -406,7 +469,7 @@ Partial Class frmFuncionarios
         Me.lbl92.AutoSize = True
         Me.lbl92.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl92.ForeColor = System.Drawing.Color.White
-        Me.lbl92.Location = New System.Drawing.Point(1, 12)
+        Me.lbl92.Location = New System.Drawing.Point(1, 9)
         Me.lbl92.Name = "lbl92"
         Me.lbl92.Size = New System.Drawing.Size(145, 15)
         Me.lbl92.TabIndex = 42
@@ -419,9 +482,9 @@ Partial Class frmFuncionarios
         Me.btnAtivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAtivar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAtivar.ForeColor = System.Drawing.Color.Black
-        Me.btnAtivar.Location = New System.Drawing.Point(4, 120)
+        Me.btnAtivar.Location = New System.Drawing.Point(1, 93)
         Me.btnAtivar.Name = "btnAtivar"
-        Me.btnAtivar.Size = New System.Drawing.Size(237, 22)
+        Me.btnAtivar.Size = New System.Drawing.Size(477, 22)
         Me.btnAtivar.TabIndex = 48
         Me.btnAtivar.Text = "Empregar Funcionário"
         Me.btnAtivar.UseVisualStyleBackColor = False
@@ -431,7 +494,7 @@ Partial Class frmFuncionarios
         Me.lbl9.AutoSize = True
         Me.lbl9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl9.ForeColor = System.Drawing.Color.White
-        Me.lbl9.Location = New System.Drawing.Point(19, 30)
+        Me.lbl9.Location = New System.Drawing.Point(19, 27)
         Me.lbl9.Name = "lbl9"
         Me.lbl9.Size = New System.Drawing.Size(66, 14)
         Me.lbl9.TabIndex = 0
@@ -439,12 +502,12 @@ Partial Class frmFuncionarios
         '
         'lblnome
         '
-        Me.lblnome.AutoSize = True
+        Me.lblnome.AutoEllipsis = True
         Me.lblnome.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblnome.ForeColor = System.Drawing.Color.White
-        Me.lblnome.Location = New System.Drawing.Point(111, 30)
+        Me.lblnome.Location = New System.Drawing.Point(84, 27)
         Me.lblnome.Name = "lblnome"
-        Me.lblnome.Size = New System.Drawing.Size(19, 14)
+        Me.lblnome.Size = New System.Drawing.Size(168, 14)
         Me.lblnome.TabIndex = 16
         Me.lblnome.Text = "---"
         '
@@ -453,7 +516,7 @@ Partial Class frmFuncionarios
         Me.lbl10.AutoSize = True
         Me.lbl10.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl10.ForeColor = System.Drawing.Color.White
-        Me.lbl10.Location = New System.Drawing.Point(19, 44)
+        Me.lbl10.Location = New System.Drawing.Point(19, 55)
         Me.lbl10.Name = "lbl10"
         Me.lbl10.Size = New System.Drawing.Size(62, 14)
         Me.lbl10.TabIndex = 5
@@ -461,12 +524,12 @@ Partial Class frmFuncionarios
         '
         'lblLocalidade
         '
-        Me.lblLocalidade.AutoSize = True
+        Me.lblLocalidade.AutoEllipsis = True
         Me.lblLocalidade.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLocalidade.ForeColor = System.Drawing.Color.White
-        Me.lblLocalidade.Location = New System.Drawing.Point(111, 44)
+        Me.lblLocalidade.Location = New System.Drawing.Point(84, 55)
         Me.lblLocalidade.Name = "lblLocalidade"
-        Me.lblLocalidade.Size = New System.Drawing.Size(19, 14)
+        Me.lblLocalidade.Size = New System.Drawing.Size(122, 14)
         Me.lblLocalidade.TabIndex = 17
         Me.lblLocalidade.Text = "---"
         '
@@ -475,7 +538,7 @@ Partial Class frmFuncionarios
         Me.lblOrdenado.AutoSize = True
         Me.lblOrdenado.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOrdenado.ForeColor = System.Drawing.Color.White
-        Me.lblOrdenado.Location = New System.Drawing.Point(111, 86)
+        Me.lblOrdenado.Location = New System.Drawing.Point(346, 55)
         Me.lblOrdenado.Name = "lblOrdenado"
         Me.lblOrdenado.Size = New System.Drawing.Size(19, 14)
         Me.lblOrdenado.TabIndex = 20
@@ -486,7 +549,7 @@ Partial Class frmFuncionarios
         Me.lbl12.AutoSize = True
         Me.lbl12.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl12.ForeColor = System.Drawing.Color.White
-        Me.lbl12.Location = New System.Drawing.Point(19, 72)
+        Me.lbl12.Location = New System.Drawing.Point(281, 41)
         Me.lbl12.Name = "lbl12"
         Me.lbl12.Size = New System.Drawing.Size(29, 14)
         Me.lbl12.TabIndex = 9
@@ -497,7 +560,7 @@ Partial Class frmFuncionarios
         Me.lbl13.AutoSize = True
         Me.lbl13.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl13.ForeColor = System.Drawing.Color.White
-        Me.lbl13.Location = New System.Drawing.Point(19, 86)
+        Me.lbl13.Location = New System.Drawing.Point(281, 55)
         Me.lbl13.Name = "lbl13"
         Me.lbl13.Size = New System.Drawing.Size(58, 14)
         Me.lbl13.TabIndex = 11
@@ -508,60 +571,105 @@ Partial Class frmFuncionarios
         Me.lblRua.AutoEllipsis = True
         Me.lblRua.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRua.ForeColor = System.Drawing.Color.White
-        Me.lblRua.Location = New System.Drawing.Point(111, 72)
+        Me.lblRua.Location = New System.Drawing.Point(346, 41)
         Me.lblRua.Name = "lblRua"
         Me.lblRua.Size = New System.Drawing.Size(131, 14)
         Me.lblRua.TabIndex = 19
         Me.lblRua.Text = "---"
         '
-        'txtPass
+        'lbl7723
         '
-        Me.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtPass.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPass.ForeColor = System.Drawing.Color.Black
-        Me.txtPass.Location = New System.Drawing.Point(12, 338)
-        Me.txtPass.MaxLength = 50
-        Me.txtPass.Name = "txtPass"
-        Me.txtPass.Size = New System.Drawing.Size(193, 14)
-        Me.txtPass.TabIndex = 59
-        Me.txtPass.Tag = "palavra-passe"
+        Me.lbl7723.AutoSize = True
+        Me.lbl7723.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lbl7723.ForeColor = System.Drawing.Color.White
+        Me.lbl7723.Location = New System.Drawing.Point(251, 162)
+        Me.lbl7723.Name = "lbl7723"
+        Me.lbl7723.Size = New System.Drawing.Size(62, 15)
+        Me.lbl7723.TabIndex = 63
+        Me.lbl7723.Text = "*Encargo:"
+        '
+        'cmbEncargo
+        '
+        Me.cmbEncargo.BackColor = System.Drawing.Color.White
+        Me.cmbEncargo.FormattingEnabled = True
+        Me.cmbEncargo.Location = New System.Drawing.Point(260, 180)
+        Me.cmbEncargo.MaxLength = 50
+        Me.cmbEncargo.Name = "cmbEncargo"
+        Me.cmbEncargo.Size = New System.Drawing.Size(162, 21)
+        Me.cmbEncargo.TabIndex = 62
+        Me.cmbEncargo.Tag = "encargo"
+        '
+        'chkEncargo
+        '
+        Me.chkEncargo.AutoSize = True
+        Me.chkEncargo.Location = New System.Drawing.Point(470, 184)
+        Me.chkEncargo.Name = "chkEncargo"
+        Me.chkEncargo.Size = New System.Drawing.Size(15, 14)
+        Me.chkEncargo.TabIndex = 61
+        Me.chkEncargo.UseVisualStyleBackColor = True
+        '
+        'btnOutro
+        '
+        Me.btnOutro.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnOutro.BackgroundImage = CType(resources.GetObject("btnOutro.BackgroundImage"), System.Drawing.Image)
+        Me.btnOutro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnOutro.FlatAppearance.BorderSize = 0
+        Me.btnOutro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnOutro.ForeColor = System.Drawing.Color.Black
+        Me.btnOutro.Location = New System.Drawing.Point(436, 177)
+        Me.btnOutro.Name = "btnOutro"
+        Me.btnOutro.Size = New System.Drawing.Size(26, 26)
+        Me.btnOutro.TabIndex = 60
+        Me.btnOutro.UseVisualStyleBackColor = False
+        '
+        'txtUtl
+        '
+        Me.txtUtl.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtUtl.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUtl.ForeColor = System.Drawing.Color.Black
+        Me.txtUtl.Location = New System.Drawing.Point(260, 133)
+        Me.txtUtl.MaxLength = 20
+        Me.txtUtl.Name = "txtUtl"
+        Me.txtUtl.Size = New System.Drawing.Size(193, 14)
+        Me.txtUtl.TabIndex = 59
+        Me.txtUtl.Tag = "nome de utilizador"
         '
         'txtordenado
         '
         Me.txtordenado.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtordenado.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtordenado.ForeColor = System.Drawing.Color.Black
-        Me.txtordenado.Location = New System.Drawing.Point(12, 237)
+        Me.txtordenado.Location = New System.Drawing.Point(260, 32)
         Me.txtordenado.MaxLength = 50
         Me.txtordenado.Name = "txtordenado"
         Me.txtordenado.Size = New System.Drawing.Size(193, 14)
         Me.txtordenado.TabIndex = 58
         Me.txtordenado.Tag = "ordenado"
         '
-        'chkPass
+        'chkUtl
         '
-        Me.chkPass.AutoSize = True
-        Me.chkPass.Location = New System.Drawing.Point(224, 339)
-        Me.chkPass.Name = "chkPass"
-        Me.chkPass.Size = New System.Drawing.Size(15, 14)
-        Me.chkPass.TabIndex = 57
-        Me.chkPass.UseVisualStyleBackColor = True
+        Me.chkUtl.AutoSize = True
+        Me.chkUtl.Location = New System.Drawing.Point(470, 134)
+        Me.chkUtl.Name = "chkUtl"
+        Me.chkUtl.Size = New System.Drawing.Size(15, 14)
+        Me.chkUtl.TabIndex = 57
+        Me.chkUtl.UseVisualStyleBackColor = True
         '
         'lbl67
         '
         Me.lbl67.AutoSize = True
         Me.lbl67.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lbl67.ForeColor = System.Drawing.Color.White
-        Me.lbl67.Location = New System.Drawing.Point(0, 316)
+        Me.lbl67.Location = New System.Drawing.Point(251, 111)
         Me.lbl67.Name = "lbl67"
-        Me.lbl67.Size = New System.Drawing.Size(92, 15)
+        Me.lbl67.Size = New System.Drawing.Size(74, 15)
         Me.lbl67.TabIndex = 56
-        Me.lbl67.Text = "Palavra-passe:"
+        Me.lbl67.Text = "*Username:"
         '
         'chkTlm
         '
         Me.chkTlm.AutoSize = True
-        Me.chkTlm.Location = New System.Drawing.Point(224, 288)
+        Me.chkTlm.Location = New System.Drawing.Point(470, 83)
         Me.chkTlm.Name = "chkTlm"
         Me.chkTlm.Size = New System.Drawing.Size(15, 14)
         Me.chkTlm.TabIndex = 55
@@ -572,7 +680,7 @@ Partial Class frmFuncionarios
         Me.lbl89.AutoSize = True
         Me.lbl89.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lbl89.ForeColor = System.Drawing.Color.White
-        Me.lbl89.Location = New System.Drawing.Point(-3, 267)
+        Me.lbl89.Location = New System.Drawing.Point(248, 62)
         Me.lbl89.Name = "lbl89"
         Me.lbl89.Size = New System.Drawing.Size(72, 15)
         Me.lbl89.TabIndex = 54
@@ -609,9 +717,9 @@ Partial Class frmFuncionarios
         Me.btnProcurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnProcurar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnProcurar.ForeColor = System.Drawing.Color.Black
-        Me.btnProcurar.Location = New System.Drawing.Point(86, 369)
+        Me.btnProcurar.Location = New System.Drawing.Point(168, 221)
         Me.btnProcurar.Name = "btnProcurar"
-        Me.btnProcurar.Size = New System.Drawing.Size(72, 22)
+        Me.btnProcurar.Size = New System.Drawing.Size(144, 22)
         Me.btnProcurar.TabIndex = 40
         Me.btnProcurar.Text = "Procurar"
         Me.btnProcurar.UseVisualStyleBackColor = False
@@ -623,9 +731,9 @@ Partial Class frmFuncionarios
         Me.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAlterar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAlterar.ForeColor = System.Drawing.Color.Black
-        Me.btnAlterar.Location = New System.Drawing.Point(164, 369)
+        Me.btnAlterar.Location = New System.Drawing.Point(318, 221)
         Me.btnAlterar.Name = "btnAlterar"
-        Me.btnAlterar.Size = New System.Drawing.Size(77, 22)
+        Me.btnAlterar.Size = New System.Drawing.Size(162, 22)
         Me.btnAlterar.TabIndex = 41
         Me.btnAlterar.Text = "Alterar"
         Me.btnAlterar.UseVisualStyleBackColor = False
@@ -637,9 +745,9 @@ Partial Class frmFuncionarios
         Me.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnInserir.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnInserir.ForeColor = System.Drawing.Color.Black
-        Me.btnInserir.Location = New System.Drawing.Point(3, 369)
+        Me.btnInserir.Location = New System.Drawing.Point(3, 221)
         Me.btnInserir.Name = "btnInserir"
-        Me.btnInserir.Size = New System.Drawing.Size(77, 22)
+        Me.btnInserir.Size = New System.Drawing.Size(159, 22)
         Me.btnInserir.TabIndex = 39
         Me.btnInserir.Text = "Inserir"
         Me.btnInserir.UseVisualStyleBackColor = False
@@ -680,7 +788,7 @@ Partial Class frmFuncionarios
         'chknome
         '
         Me.chknome.AutoSize = True
-        Me.chknome.Location = New System.Drawing.Point(224, 32)
+        Me.chknome.Location = New System.Drawing.Point(219, 32)
         Me.chknome.Name = "chknome"
         Me.chknome.Size = New System.Drawing.Size(15, 14)
         Me.chknome.TabIndex = 22
@@ -693,6 +801,7 @@ Partial Class frmFuncionarios
         Me.cmblocalidade.BackColor = System.Drawing.Color.White
         Me.cmblocalidade.FormattingEnabled = True
         Me.cmblocalidade.Location = New System.Drawing.Point(12, 79)
+        Me.cmblocalidade.MaxLength = 50
         Me.cmblocalidade.Name = "cmblocalidade"
         Me.cmblocalidade.Size = New System.Drawing.Size(193, 21)
         Me.cmblocalidade.TabIndex = 44
@@ -701,7 +810,7 @@ Partial Class frmFuncionarios
         'chklocalidade
         '
         Me.chklocalidade.AutoSize = True
-        Me.chklocalidade.Location = New System.Drawing.Point(224, 83)
+        Me.chklocalidade.Location = New System.Drawing.Point(219, 83)
         Me.chklocalidade.Name = "chklocalidade"
         Me.chklocalidade.Size = New System.Drawing.Size(15, 14)
         Me.chklocalidade.TabIndex = 23
@@ -710,7 +819,7 @@ Partial Class frmFuncionarios
         'chkdatanasc
         '
         Me.chkdatanasc.AutoSize = True
-        Me.chkdatanasc.Location = New System.Drawing.Point(224, 136)
+        Me.chkdatanasc.Location = New System.Drawing.Point(219, 136)
         Me.chkdatanasc.Name = "chkdatanasc"
         Me.chkdatanasc.Size = New System.Drawing.Size(15, 14)
         Me.chkdatanasc.TabIndex = 24
@@ -719,7 +828,7 @@ Partial Class frmFuncionarios
         'chkRua
         '
         Me.chkRua.AutoSize = True
-        Me.chkRua.Location = New System.Drawing.Point(224, 187)
+        Me.chkRua.Location = New System.Drawing.Point(219, 187)
         Me.chkRua.Name = "chkRua"
         Me.chkRua.Size = New System.Drawing.Size(15, 14)
         Me.chkRua.TabIndex = 25
@@ -753,7 +862,7 @@ Partial Class frmFuncionarios
         Me.lbl91.AutoSize = True
         Me.lbl91.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lbl91.ForeColor = System.Drawing.Color.White
-        Me.lbl91.Location = New System.Drawing.Point(-3, 216)
+        Me.lbl91.Location = New System.Drawing.Point(248, 11)
         Me.lbl91.Name = "lbl91"
         Me.lbl91.Size = New System.Drawing.Size(71, 15)
         Me.lbl91.TabIndex = 31
@@ -762,7 +871,7 @@ Partial Class frmFuncionarios
         'chkOrdenado
         '
         Me.chkOrdenado.AutoSize = True
-        Me.chkOrdenado.Location = New System.Drawing.Point(225, 237)
+        Me.chkOrdenado.Location = New System.Drawing.Point(471, 32)
         Me.chkOrdenado.Name = "chkOrdenado"
         Me.chkOrdenado.Size = New System.Drawing.Size(15, 14)
         Me.chkOrdenado.TabIndex = 32
@@ -772,7 +881,7 @@ Partial Class frmFuncionarios
         '
         Me.mtbTlm.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.mtbTlm.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.mtbTlm.Location = New System.Drawing.Point(12, 288)
+        Me.mtbTlm.Location = New System.Drawing.Point(260, 83)
         Me.mtbTlm.Mask = "000000000"
         Me.mtbTlm.Name = "mtbTlm"
         Me.mtbTlm.Size = New System.Drawing.Size(195, 14)
@@ -784,20 +893,30 @@ Partial Class frmFuncionarios
         Me.ShapeContainer2.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer2.Name = "ShapeContainer2"
-        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctPass, Me.rctTlm, Me.rctOrdenado, Me.rctRua, Me.rctDatanasc, Me.rctLocalidade, Me.rctNome})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(253, 542)
+        Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctEnc, Me.rctUtl, Me.rctTlm, Me.rctOrdenado, Me.rctRua, Me.rctDatanasc, Me.rctLocalidade, Me.rctNome})
+        Me.ShapeContainer2.Size = New System.Drawing.Size(496, 476)
         Me.ShapeContainer2.TabIndex = 0
         Me.ShapeContainer2.TabStop = False
         '
-        'rctPass
+        'rctEnc
         '
-        Me.rctPass.BackColor = System.Drawing.Color.White
-        Me.rctPass.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rctPass.BorderColor = System.Drawing.Color.White
-        Me.rctPass.CornerRadius = 2
-        Me.rctPass.Location = New System.Drawing.Point(3, 332)
-        Me.rctPass.Name = "rctPass"
-        Me.rctPass.Size = New System.Drawing.Size(210, 25)
+        Me.rctEnc.BackColor = System.Drawing.Color.White
+        Me.rctEnc.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctEnc.BorderColor = System.Drawing.Color.White
+        Me.rctEnc.CornerRadius = 2
+        Me.rctEnc.Location = New System.Drawing.Point(251, 177)
+        Me.rctEnc.Name = "rctEnc"
+        Me.rctEnc.Size = New System.Drawing.Size(179, 25)
+        '
+        'rctUtl
+        '
+        Me.rctUtl.BackColor = System.Drawing.Color.White
+        Me.rctUtl.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.rctUtl.BorderColor = System.Drawing.Color.White
+        Me.rctUtl.CornerRadius = 2
+        Me.rctUtl.Location = New System.Drawing.Point(251, 127)
+        Me.rctUtl.Name = "rctUtl"
+        Me.rctUtl.Size = New System.Drawing.Size(210, 25)
         '
         'rctTlm
         '
@@ -805,7 +924,7 @@ Partial Class frmFuncionarios
         Me.rctTlm.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
         Me.rctTlm.BorderColor = System.Drawing.Color.White
         Me.rctTlm.CornerRadius = 2
-        Me.rctTlm.Location = New System.Drawing.Point(3, 282)
+        Me.rctTlm.Location = New System.Drawing.Point(251, 77)
         Me.rctTlm.Name = "rctTlm"
         Me.rctTlm.Size = New System.Drawing.Size(210, 25)
         '
@@ -815,7 +934,7 @@ Partial Class frmFuncionarios
         Me.rctOrdenado.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
         Me.rctOrdenado.BorderColor = System.Drawing.Color.White
         Me.rctOrdenado.CornerRadius = 2
-        Me.rctOrdenado.Location = New System.Drawing.Point(3, 231)
+        Me.rctOrdenado.Location = New System.Drawing.Point(251, 26)
         Me.rctOrdenado.Name = "rctOrdenado"
         Me.rctOrdenado.Size = New System.Drawing.Size(210, 25)
         '
@@ -864,7 +983,7 @@ Partial Class frmFuncionarios
         Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
         Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
         Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 683)
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 631)
         Me.CtrL_MenuCine.TabIndex = 0
         '
         'frmFuncionarios
@@ -872,7 +991,7 @@ Partial Class frmFuncionarios
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(781, 683)
+        Me.ClientSize = New System.Drawing.Size(1046, 631)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.flp1)
         Me.Controls.Add(Me.pnl1)
@@ -882,7 +1001,7 @@ Partial Class frmFuncionarios
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Funcionários"
         Me.pnl1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.flp1.ResumeLayout(False)
         Me.tbc1.ResumeLayout(False)
         Me.tbpAtivado.ResumeLayout(False)
@@ -902,7 +1021,7 @@ Partial Class frmFuncionarios
     Friend WithEvents CtrL_MenuCine As PAP___Gestão_de_Cinema.CTRL_MenuCine
     Friend WithEvents pnl1 As System.Windows.Forms.Panel
     Friend WithEvents lbl1 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents pctLogo As System.Windows.Forms.PictureBox
     Friend WithEvents flp1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents tbc1 As System.Windows.Forms.TabControl
     Friend WithEvents tbpAtivado As System.Windows.Forms.TabPage
@@ -945,14 +1064,14 @@ Partial Class frmFuncionarios
     Friend WithEvents rctLocalidade As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents rctNome As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents dtpDatanasc As System.Windows.Forms.DateTimePicker
-    Friend WithEvents txtPass As System.Windows.Forms.TextBox
+    Friend WithEvents txtUtl As System.Windows.Forms.TextBox
     Friend WithEvents txtordenado As System.Windows.Forms.TextBox
-    Friend WithEvents chkPass As System.Windows.Forms.CheckBox
+    Friend WithEvents chkUtl As System.Windows.Forms.CheckBox
     Friend WithEvents lbl67 As System.Windows.Forms.Label
     Friend WithEvents chkTlm As System.Windows.Forms.CheckBox
     Friend WithEvents lbl89 As System.Windows.Forms.Label
     Friend WithEvents txtrua As System.Windows.Forms.TextBox
-    Friend WithEvents rctPass As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents rctUtl As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents rctTlm As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents lblTlm As System.Windows.Forms.Label
     Friend WithEvents lbl87 As System.Windows.Forms.Label
@@ -962,5 +1081,14 @@ Partial Class frmFuncionarios
     Friend WithEvents pct3 As System.Windows.Forms.PictureBox
     Friend WithEvents lblT As System.Windows.Forms.Label
     Friend WithEvents lblHammer As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblcontrl As System.Windows.Forms.Label
+    Friend WithEvents btnOutro As System.Windows.Forms.Button
+    Friend WithEvents chkEncargo As System.Windows.Forms.CheckBox
+    Friend WithEvents rctEnc As Microsoft.VisualBasic.PowerPacks.RectangleShape
+    Friend WithEvents cmbEncargo As System.Windows.Forms.ComboBox
+    Friend WithEvents lblEncargo As System.Windows.Forms.Label
+    Friend WithEvents lbl7787 As System.Windows.Forms.Label
+    Friend WithEvents lbl7723 As System.Windows.Forms.Label
+    Friend WithEvents lblUtl As System.Windows.Forms.Label
+    Friend WithEvents lbl3224 As System.Windows.Forms.Label
 End Class

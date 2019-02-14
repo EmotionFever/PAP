@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="PictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pctLogo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAACBSSURBVHhe7d3rlVy3mQVQjyNwCApBISgEhuAQGIIz
@@ -285,6 +285,18 @@
         QnZ5fUByZ9h1dBztQbLgpcj2fO4bGt6HkvIZyWbpwt6nZxEWc0hWlgC51SZns3TRw6KORMuLRz5jXKDh
         pQeLOxEtM5evaBuq0tDShAXKXRp9uYIma0hpw0IvREt2vEXL9NDAgAXLpal8/ya7zEbqnwcOLFpOg9P0
         1yKhrOw3jUaRrQUxbesAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnOutro.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAGXRF
+        WHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAS9JREFUWEfFls0KwjAQhPsa/iAoehULBfEg
+        KvoE3j158eL7HyMbdkOTbptmuzEfjGhtZyZtk7ba7WszRtvD0cyvH1NFgH1gX86DU7TAunlEQ/uAYznP
+        tnoLwCjQZzJDZ4QtsGnuauEEeHJZnQKr01M9nADvMM8rkGPkIeGZcAU0r3mM9j3hCuB/f8MrIJlqZOCM
+        EqEpao1wWxLt8Cke9nrg7yQ0CtjsMcsrh0YBabZFo4CYxeXthYOW51eeEmFQqtBGDmeaIrSRw5mmCG3k
+        cKYpQht9wqDZ7ZsvjCMsgJvTKb4QFV+KpQdrFLDHwUfxx7HEYCoul75I7wUJkNUpACr6Ukoq+lpOynEm
+        wpGT2AIgzXuifc1D9RYgSaYoQVNtSNECJBjFmGUb9hkasa/a/ADKkPNXFUrfQgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

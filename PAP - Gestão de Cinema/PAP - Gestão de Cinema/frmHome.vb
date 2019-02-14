@@ -40,7 +40,7 @@ Public Class frmHome
         Dim nome, nome_completo As String
         query = "select Funcionarios.nome as nome, Encargos.nome as encargo, IFNULL(telemovel,'') as telemovel, ifnull(localidades.nome,'') as localidade, " &
         "ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),0) as idade, IFNULL(rua,'') as rua, IFNULL(ordenado,0) as ordenado from encargos, " &
-        "funcionarios left join localidades on localidades.codlo=funcionarios.codlo where encargos.code=funcionarios.code and codF=" + frmLogin.codF.ToString
+        "funcionarios left join localidades on localidades.codlo=funcionarios.codlo where encargos.code=funcionarios.code and codF=" + mdlAcoes.codF.ToString
 
         comando = New MySqlCommand(query, ligacao)
         ligacao.Open()
@@ -58,7 +58,7 @@ Public Class frmHome
         Next
         lblPergunta.Text = "O que deseja fazer, " + nome + "?"
 
-
+        'TEXTO DESLIZANTE
         'Organização das labels
 
         If leitor.GetString("nome") <> "" Then
@@ -102,7 +102,7 @@ Public Class frmHome
 
         '2ª ligação
 
-        query = "select tabelas.nome as tabela, group_concat(' ',permissoes.nome) as permissoes from funcionarios, encargos, aux_enc, permissoes, tabelas where funcionarios.codE=encargos.codE and  encargos.codE=aux_enc.codE and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta and codF=" + frmLogin.codF.ToString + " group by tabelas.nome"
+        query = "select tabelas.nome as tabela, group_concat(' ',permissoes.nome) as permissoes from funcionarios, encargos, aux_enc, permissoes, tabelas where funcionarios.codE=encargos.codE and  encargos.codE=aux_enc.codE and aux_enc.codPe=permissoes.codPe and tabelas.codTa=aux_enc.codta and codF=" + mdlAcoes.codF.ToString + " group by tabelas.nome"
 
         comando = New MySqlCommand(query, ligacao)
         ligacao.Open()
@@ -207,5 +207,11 @@ Public Class frmHome
 
     Private Sub Retomar_Texto(sender As System.Object, e As System.EventArgs) Handles lblx1.MouseLeave, lblx1.MouseLeave, lblx2.MouseLeave, lblx7.MouseLeave, lblx5.MouseLeave, lblx6.MouseLeave, lblx3.MouseLeave, lblx4.MouseLeave
         tmr.Start()
+    End Sub
+
+    Private Sub frmHome_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        If mdlAcoes.fechar Then
+            End
+        End If
     End Sub
 End Class

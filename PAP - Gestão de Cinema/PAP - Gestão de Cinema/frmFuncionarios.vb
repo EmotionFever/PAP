@@ -3,7 +3,7 @@ Public Class frmFuncionarios
     Dim ligacao As New MySqlConnection("Server=localhost;DataBase=ppap;Uid=root;Pwd=;Connect Timeout=30;")
     Dim comando As MySqlCommand
     Dim leitor As MySqlDataReader
-    Public Const CAMPOSC As Integer = 6
+    Public Const CAMPOSC As Integer = 8
     Dim lbl(CAMPOSC) As Label
 
     Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
@@ -13,16 +13,27 @@ Public Class frmFuncionarios
             If dgvAtivado.SelectedRows.Count > 0 Then
                 btnAlterar.Enabled = True
                 btnDesativar.Enabled = True
+                For a As Integer = 0 To CAMPOSC - 1
+                    lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style And Not FontStyle.Strikeout)
+                    lbl(a).Text = dgvAtivado.CurrentRow.Cells(a + 1).Value.ToString
+                Next
             End If
+            btnAtivar.Enabled = False
             btnProcurar.Enabled = True
             btnDesativar.Show()
         End If
         If tbc1.SelectedIndex = 1 Then
             pnlProibicao.Show()
             btnInserir.Enabled = False
+            If dgvDesativado.SelectedRows.Count > 0 Then
+                btnAtivar.Enabled = True
+                For a As Integer = 0 To CAMPOSC - 1
+                    lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout)
+                    lbl(a).Text = dgvDesativado.CurrentRow.Cells(a + 1).Value.ToString
+                Next
+            End If
             btnAlterar.Enabled = False
-            btnAtivar.Enabled = True
-            btnProcurar.Enabled = False
+            btnDesativar.Enabled = False
             btnDesativar.Hide()
         End If
     End Sub
@@ -31,26 +42,41 @@ Public Class frmFuncionarios
         'Limpo os objetos input do formulário
         txtnome.Text = ""
         AlterarEstado(rctNome, txtnome, "restaurar")
+        chknome.Checked = False
+
+        cmblocalidade.Text = ""
+        AlterarEstado(rctLocalidade, cmblocalidade, "restaurar")
+        chklocalidade.Checked = False
 
         dtpDatanasc.Value = DateTime.Now
         AlterarEstado(rctDatanasc, "restaurar")
+        chkdatanasc.Checked = False
 
         txtrua.Text = ""
         AlterarEstado(rctRua, txtrua, "restaurar")
+        chkRua.Checked = False
 
         txtordenado.Text = ""
         AlterarEstado(rctOrdenado, txtordenado, "restaurar")
+        chkOrdenado.Checked = False
 
         mtbTlm.Text = ""
         AlterarEstado(rctTlm, mtbTlm, "restaurar")
+        chkTlm.Checked = False
 
-        txtPass.Text = ""
+        txtUtl.Text = ""
+        AlterarEstado(rctUtl, txtUtl, "restaurar")
+        chkUtl.Checked = False
+
+        cmbEncargo.Text = ""
+        AlterarEstado(rctEnc, cmbEncargo, "restaurar")
+        chkEncargo.Checked = False
     End Sub
 
-    Sub ver()
+    Private Sub ver()
         'DataGridView empregado
-        mostrar(dgvAtivado, ligacao, "funcionarios", "codf", "select codf, funcionarios.nome, localidades.nome as localidade, telemovel, TIMESTAMPDIFF(year, datanasc, CURDATE()) as idade, rua, ordenado, telemovel, palavra_passe " &
-                                            "from funcionarios, localidades where localidades.codlo=funcionarios.codlo and empregado=1")
+        mostrar(dgvAtivado, ligacao, "funcionarios", "codf", "select codf, funcionarios.nome, encargos.nome as encargo, localidades.nome as localidade, telemovel, TIMESTAMPDIFF(year, datanasc, CURDATE()) as idade, rua, ordenado, username " &
+                                            "from funcionarios, localidades, encargos where encargos.code=funcionarios.code and localidades.codlo=funcionarios.codlo and empregado=1")
 
         'Covém desativar estes botões
         btnDesativar.Enabled = False
@@ -58,28 +84,41 @@ Public Class frmFuncionarios
 
 
         'DataGridView DESempregado
-        mostrar(dgvDesativado, ligacao, "funcionarios", "codf", "select codf, funcionarios.nome, localidades.nome as localidade, telemovel, TIMESTAMPDIFF(year, datanasc, CURDATE()) as idade, rua, ordenado, telemovel, palavra_passe " &
-                                            "from funcionarios, localidades where localidades.codlo=funcionarios.codlo and empregado=0")
+        mostrar(dgvDesativado, ligacao, "funcionarios", "codf", "select codf, funcionarios.nome, encargos.nome as encargo, localidades.nome as localidade, telemovel, TIMESTAMPDIFF(year, datanasc, CURDATE()) as idade, rua, ordenado, username " &
+                                            "from funcionarios, localidades, encargos where encargos.code=funcionarios.code and localidades.codlo=funcionarios.codlo and empregado=0")
 
         'Covém desativar estes botões
         btnAtivar.Enabled = False
     End Sub
 
+    Private Sub frmFuncionarios_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        If mdlAcoes.fechar Then
+            End
+        End If
+    End Sub
+
     Private Sub frmFuncionarios_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         pnlProibicao.Location = New Point(0, 3)
         btnDesativar.Enabled = False
+        btnAtivar.Enabled = False
         btnAlterar.Enabled = False
 
         ver()
 
         lbl(0) = lblnome
-        lbl(1) = lblLocalidade
-        lbl(2) = lblidade
-        lbl(3) = lblRua
-        lbl(4) = lblOrdenado
-        lbl(5) = lblTlm
+        lbl(1) = lblEncargo
+        lbl(2) = lblLocalidade
+        lbl(3) = lblTlm
+        lbl(4) = lblidade
+        lbl(5) = lblRua
+        lbl(6) = lblOrdenado
+        lbl(7) = lblUtl
+
 
         'Aqui, encho a combobox com dados para o utilizador escolher
+        encher(cmbEncargo, ligacao, "encargos", "nome", "code", "select code, nome from encargos where ativado=1")
+        cmbEncargo.Text = ""
+
         encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
         cmblocalidade.Text = ""
     End Sub
@@ -134,56 +173,66 @@ Public Class frmFuncionarios
     Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
         Dim codLo As Integer
         Dim str_erro As String = ""
+        str_erro += verificacao(rctUtl, txtUtl)
+        If str_erro = "" Then
+            If ter(ligacao, "quantidade", "select count(codf) as quantidade from funcionarios where username='" + txtUtl.Text + "'") > 0 Then
+                str_erro += "O " + txtUtl.Tag + " que escreveu já está em uso. "
+                AlterarEstado(rctUtl, txtUtl, "errar")
+            End If
+        End If
         str_erro += verificacao(rctNome, txtnome)
         str_erro += verificacao(rctLocalidade, cmblocalidade)
-        If DateTime.Compare(dtpDatanasc.Value, DateTime.Today) < 16 Then
+        str_erro += verificacao(rctTlm, mtbTlm)
+
+        str_erro += verificacao(rctEnc, cmbEncargo)
+        If DateDiff(DateInterval.Year, dtpDatanasc.Value.Date, Now) >= 16 Then
+            AlterarEstado(rctDatanasc, "acertar")
+        Else
             AlterarEstado(rctDatanasc, "errar")
             str_erro += "O funcionário tem de ter mais de 16 anos para trabalhar. "
         End If
         If txtrua.Text <> "" Then
             str_erro += verificacao(rctRua, txtrua)
         End If
-        If CInt(txtordenado.Text) < 557 Then
-            str_erro += "O ordenado ordenado mínimo é de 557 €. "
+        If txtordenado.Text <> "" Then
+            If IsNumeric(txtordenado.Text) Then
+                If CInt(txtordenado.Text) < 557 Then
+                    str_erro += "O ordenado mínimo é de 557 €. "
+                    AlterarEstado(rctOrdenado, txtordenado, "errar")
+                Else
+                    AlterarEstado(rctOrdenado, txtordenado, "acertar")
+                End If
+            Else
+                str_erro += "O campo ordenado não tem só números. "
+                AlterarEstado(rctOrdenado, txtordenado, "errar")
+            End If
+        Else
+            str_erro += "O campo ordenado está vazio. "
             AlterarEstado(rctOrdenado, txtordenado, "errar")
         End If
-        str_erro += verificacao(rctTlm, mtbTlm)
-
 
         If str_erro = "" Then
             If cmblocalidade.SelectedValue IsNot Nothing Then
-                'Insiro os dados na base de dados
-                acao("inserir", ligacao, "insert into funcionarios (nome,codlo,datanasc,rua,ordenado,telemovel,palavra_passe,empregado) " &
-                "values ('" + txtnome.Text + "', " + cmblocalidade.SelectedValue.ToString + "," &
-                "'" + dtpDatanasc.Value.Year.ToString + "-" + dtpDatanasc.Value.Month.ToString + "-" + dtpDatanasc.Value.Day.ToString + "'," &
-                "'" + txtrua.Text + "'," + txtordenado.Text + ",'" + mtbTlm.Text + "','" + txtPass.Text + "',1)", 1)
-
-                'Volto a mostrar a tabela, mas, desta vez, atualizada.
-                ver()
+                codLo = cmblocalidade.SelectedValue
             Else
-                Try
-                    'Inserir a nova localidade
-                    acao("inserir", ligacao, "insert into localidades (nome) values ('" + cmblocalidade.Text + "')", 0)
-
-                    'Descobrir o codLo dessa localidade
-                    codLo = ter(ligacao, "codlo", "select codlo from localidades where nome='" + cmblocalidade.Text + "'")
-
-                    'Associá-la ao registo do funcionário
-                    acao("inserir", ligacao, "insert into funcionarios (nome,codlo,datanasc,rua,ordenado,telemovel,palavra_passe,empregado) " &
-                    "values ('" + txtnome.Text + "', " + codLo.ToString + "," &
-                    "'" + dtpDatanasc.Value.Year.ToString + "-" + dtpDatanasc.Value.Month.ToString + "-" + dtpDatanasc.Value.Day.ToString + "'," &
-                    "'" + txtrua.Text + "'," + txtordenado.Text + ",'" + mtbTlm.Text + "','" + txtPass.Text + "',1)", 1)
-
-                    encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
+                codLo = novo_registo(ligacao, "codlo", "localidades", cmblocalidade)
+                If codLo > 0 Then
                     MessageBox.Show("A localidade '" + cmblocalidade.Text + "' foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Catch ex As Exception
-                    ligacao.Close()
-                    MessageBox.Show("A localidade '" + cmblocalidade.Text + "' não foi inserida: " + ex.Message, "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
+                Else
+                    MessageBox.Show("A localidade '" + cmblocalidade.Text + "' não foi inserida", "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
             End If
+            acao("inserir", ligacao, "insert into funcionarios (nome,codlo,datanasc,rua,ordenado,telemovel,username,codE,empregado) " &
+            "values ('" + txtnome.Text + "', " + codLo.ToString + "," &
+            "'" + dtpDatanasc.Value.Year.ToString + "-" + dtpDatanasc.Value.Month.ToString + "-" + dtpDatanasc.Value.Day.ToString + "'," &
+            "'" + txtrua.Text + "'," + txtordenado.Text + ",'" + mtbTlm.Text + "','" + txtUtl.Text + "'," + cmbEncargo.SelectedValue.ToString + ",1)", 1)
             LimparTudo()
+
+            'Volto a mostrar a tabela, mas, desta vez, atualizada.
+            ver()
         Else
-            MessageBox.Show(str_erro, "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show(str_erro, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
@@ -203,30 +252,42 @@ Public Class frmFuncionarios
                 AlterarEstado(rctDatanasc, "errar")
                 str_erro += "O funcionário tem de ter mais de 16 anos para trabalhar. "
             Else
+                AlterarEstado(rctDatanasc, "acertar")
                 pquery += " and funcionarios.datanasc='" + dtpDatanasc.Value.Year.ToString + "-" + dtpDatanasc.Value.Month.ToString + "-" + dtpDatanasc.Value.Day.ToString + "'"
             End If
         End If
         str_erro += Campo_Selecionado_proc("rua", "funcionarios", chkRua, txtrua, rctRua, pquery)
         If chkOrdenado.Checked Then
-            averiguar = verificacao(rctOrdenado, txtordenado)
-            If averiguar = "" Then
-                pquery += " and ordenado=" + txtrua.Text
+            If txtordenado.Text <> "" Then
+                If IsNumeric(txtordenado.Text) Then
+                    If CInt(txtordenado.Text) < 557 Then
+                        str_erro += "O ordenado mínimo é de 557 €. "
+                        AlterarEstado(rctOrdenado, txtordenado, "errar")
+                    Else
+                        pquery += " and ordenado=" + txtordenado.Text
+                        AlterarEstado(rctOrdenado, txtordenado, "acertar")
+                    End If
+                Else
+                    str_erro += "O campo ordenado não tem só números. "
+                    AlterarEstado(rctOrdenado, txtordenado, "errar")
+                End If
             Else
-                str_erro += averiguar
+                str_erro += "O campo ordenado está vazio. "
+                AlterarEstado(rctOrdenado, txtordenado, "errar")
             End If
         End If
+
         str_erro += Campo_Selecionado_proc("telemovel", "funcionarios", chkTlm, mtbTlm, rctTlm, pquery)
-        If chkPass.Checked Then
-            pquery += " and palavra_passe like '%" + txtPass.Text + "%'"
-        End If
+        str_erro += Campo_Selecionado_proc("username", "funcionarios", chkUtl, txtUtl, rctUtl, pquery)
+        str_erro += Campo_Selecionado_proc("codE", "funcionarios", chkEncargo, cmbEncargo, rctEnc, pquery)
 
         'No final deste if tenho 'parte' de um query
 
         'Caso o pquery esteja vazio significa que o utilizador não escolheu nenhum campo, ou seja "ERRRRRRRO"!!!!
         If str_erro = "" Then
             If pquery <> "" Then
-                mostrar(dgvAtivado, ligacao, "funcionarios", "codf", "select codf, funcionarios.nome, localidades.nome as localidade, telemovel, TIMESTAMPDIFF(year, datanasc, CURDATE()) as idade, rua, ordenado, telemovel, palavra_passe " &
-                                            "from funcionarios, localidades where localidades.codlo=funcionarios.codlo and empregado=1" + pquery)
+                mostrar(dgvAtivado, ligacao, "funcionarios", "codf", "select codf, funcionarios.nome, encargos.nome as encargo, localidades.nome as localidade, telemovel, TIMESTAMPDIFF(year, datanasc, CURDATE()) as idade, rua, ordenado, username " &
+                                            "from funcionarios, localidades, encargos where encargos.code=funcionarios.code and localidades.codlo=funcionarios.codlo and empregado=1" + pquery)
 
                 'Como fiquei sem nenhuma linha selecionada tenho de desativar os botões
                 btnDesativar.Enabled = False
@@ -247,65 +308,84 @@ Public Class frmFuncionarios
         If dgvAtivado.SelectedRows.Count > 0 Then
             If Not dgvAtivado.CurrentRow.IsNewRow Then
 
-                str_erro = Campo_Selecionado_alte("nome", chknome, lbl(0), txtnome, rctNome, pquery)
-                If chklocalidade.Checked Then
-                    averiguar = verificacao(rctLocalidade, cmblocalidade)
-                    If averiguar = "" Then
-                        If pquery <> "" Then
-                            pquery += ","
-                        End If
-                        If cmblocalidade.SelectedValue IsNot Nothing Then
-                            codlo = cmblocalidade.SelectedValue
-                            lbl(1).Font = New Font(lbl(1).Font, lbl(1).Font.Style Or FontStyle.Strikeout)
-                        Else
-                            codlo = novo_registo(ligacao, "codlo", "localidades", cmblocalidade)
-                            If codlo > 0 Then
-                                MessageBox.Show("A localidade " + cmblocalidade.Text + " foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                pquery += " clientes.codlo=" + cmblocalidade.SelectedValue.ToString
-                                lbl(1).Font = New Font(lbl(1).Font, lbl(1).Font.Style Or FontStyle.Strikeout)
-                            Else
-                                MessageBox.Show("A localidade " + cmblocalidade.Text + " não foi inserida", "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                                Exit Sub
-                            End If
-                        End If
-                        pquery += " clientes.codlo=" + codlo.ToString
-                    Else
-                        str_erro += averiguar
-                    End If
+                str_erro += Campo_Selecionado_alte("nome", chknome, lbl(0), txtnome, rctNome, pquery)
+                str_erro += Campo_Selecionado_alte("codE", chkEncargo, lbl(1), cmbEncargo, rctEnc, pquery)
 
-                End If
+                str_erro += Campo_Selecionado_alte("telemovel", chkTlm, lbl(3), mtbTlm, rctTlm, pquery)
                 If chkdatanasc.Checked Then
-                    If DateTime.Compare(dtpDatanasc.Value, DateTime.Today) < 16 Then
-                        AlterarEstado(rctDatanasc, "errar")
-                        str_erro += "O funcionário tem de ter mais de 16 anos para trabalhar. "
-                    Else
+                    If DateDiff(DateInterval.Year, dtpDatanasc.Value, Now) >= 16 Then
+                        AlterarEstado(rctDatanasc, "acertar")
                         If pquery <> "" Then
                             pquery += ","
                         End If
                         pquery += " funcionarios.datanasc='" + dtpDatanasc.Value.Year.ToString + "-" + dtpDatanasc.Value.Month.ToString + "-" + dtpDatanasc.Value.Day.ToString + "'"
-                        lbl(2).Font = New Font(lbl(2).Font, lbl(2).Font.Style Or FontStyle.Strikeout)
+                        lbl(4).Font = New Font(lbl(4).Font, lbl(4).Font.Style Or FontStyle.Strikeout)
+                    Else
+                        AlterarEstado(rctDatanasc, "errar")
+                        str_erro += "O funcionário tem de ter mais de 16 anos para trabalhar. "
                     End If
                 End If
-                str_erro = Campo_Selecionado_alte("rua", chkRua, lbl(3), txtrua, rctRua, pquery)
+                str_erro += Campo_Selecionado_alte("rua", chkRua, lbl(5), txtrua, rctRua, pquery)
                 If chkOrdenado.Checked Then
-                    averiguar = verificacao(rctOrdenado, txtordenado)
-                    If averiguar = "" Then
-                        If pquery <> "" Then
-                            pquery += ","
+                    If txtordenado.Text <> "" Then
+                        If IsNumeric(txtordenado.Text) Then
+                            If CInt(txtordenado.Text) < 557 Then
+                                str_erro += "O ordenado mínimo é de 557 €. "
+                                AlterarEstado(rctOrdenado, txtordenado, "errar")
+                            Else
+                                If pquery <> "" Then
+                                    pquery += ","
+                                End If
+                                pquery += " ordenado=" + txtordenado.Text
+                                lbl(6).Font = New Font(lbl(6).Font, lbl(6).Font.Style Or FontStyle.Strikeout)
+                                AlterarEstado(rctOrdenado, txtordenado, "acertar")
+                            End If
+                        Else
+                            str_erro += "O campo ordenado não tem só números. "
+                            AlterarEstado(rctOrdenado, txtordenado, "errar")
                         End If
-                        pquery += " ordenado=" + txtrua.Text
-                        lbl(4).Font = New Font(lbl(4).Font, lbl(4).Font.Style Or FontStyle.Strikeout)
+                    Else
+                        str_erro += "O campo ordenado está vazio. "
+                        AlterarEstado(rctOrdenado, txtordenado, "errar")
+                    End If
+                End If
+                If chkUtl.Checked Then
+                    If ter(ligacao, "quant", "select count(codf) as quant from funcionarios where username='" + txtUtl.Text + "'") > 0 Then
+                        str_erro += "O " + txtUtl.Tag + " que escreveu já está em uso. "
+                        AlterarEstado(rctUtl, txtUtl, "errar")
+                    Else
+                        str_erro += Campo_Selecionado_alte("username", chkUtl, lbl(7), txtUtl, rctUtl, pquery)
+                    End If
+                End If
+                If chklocalidade.Checked Then
+                    averiguar = verificacao(rctLocalidade, cmblocalidade)
+                    If averiguar = "" Then
+                        If str_erro = "" Then
+                            If pquery <> "" Then
+                                pquery += ","
+                            End If
+                            If cmblocalidade.SelectedValue IsNot Nothing Then
+                                codlo = cmblocalidade.SelectedValue
+                                lbl(1).Font = New Font(lbl(2).Font, lbl(2).Font.Style Or FontStyle.Strikeout)
+                            Else
+                                codlo = novo_registo(ligacao, "codlo", "localidades", cmblocalidade)
+                                If codlo > 0 Then
+                                    MessageBox.Show("A localidade " + cmblocalidade.Text + " foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
+                                    lbl(1).Font = New Font(lbl(1).Font, lbl(1).Font.Style Or FontStyle.Strikeout)
+                                Else
+                                    MessageBox.Show("A localidade " + cmblocalidade.Text + " não foi inserida", "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    LimparTudo()
+                                    Exit Sub
+                                End If
+                            End If
+                            pquery += " funcionarios.codlo=" + codlo.ToString
+                        End If
                     Else
                         str_erro += averiguar
                     End If
                 End If
-                If chkPass.Checked Then
-                    If pquery <> "" Then
-                        pquery += ","
-                    End If
-                    pquery += " and palavra_passe='" + txtPass.Text + "'"
-                End If
-                str_erro = Campo_Selecionado_alte("telemovel", chkTlm, lbl(5), mtbTlm, rctTlm, pquery)
+
                 If str_erro = "" Then
                     If pquery <> "" Then
                         acao("alterar", ligacao, "update funcionarios set" + pquery + " where codf=" + dgvAtivado.CurrentRow.Cells(0).Value.ToString, 1)
@@ -314,10 +394,10 @@ Public Class frmFuncionarios
 
                         LimparTudo()
                     Else
-                        MessageBox.Show("Não selecionou nenhum campo para alterar")
+                        MessageBox.Show("Não selecionou nenhum campo para alterar", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                 Else
-                    MessageBox.Show("Atenção", str_erro, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show(str_erro, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
             End If
         End If
@@ -325,10 +405,10 @@ Public Class frmFuncionarios
 
     Private Sub btnDesativar_Click(sender As System.Object, e As System.EventArgs) Handles btnDesativar.Click ' EM DESENVOLVIMENTO
         'Desativo os dados da linha selecionada na base de dados
-        If dgvDesativado.SelectedRows.Count > 0 Then
+        If dgvAtivado.SelectedRows.Count > 0 Then
 
-            If Not dgvDesativado.CurrentRow.IsNewRow Then
-                acao("desativar", ligacao, "update funcionarios set empregado=0 where codf = " + dgvDesativado.CurrentRow.Cells(0).Value.ToString, 1)
+            If Not dgvAtivado.CurrentRow.IsNewRow Then
+                acao("desativar", ligacao, "update funcionarios set empregado=0 where codf = " + dgvAtivado.CurrentRow.Cells(0).Value.ToString, 1)
 
                 ver()
 
@@ -379,7 +459,23 @@ Public Class frmFuncionarios
         AlterarEstado(rctTlm, mtbTlm, "restaurar")
     End Sub
 
-    Private Sub txtPass_TextChanged(sender As Object, e As System.EventArgs) Handles txtPass.TextChanged
-        AlterarEstado(rctPass, txtPass, "restaurar")
+    Private Sub txtUtl_TextChanged(sender As Object, e As System.EventArgs) Handles txtUtl.TextChanged
+        AlterarEstado(rctUtl, txtUtl, "restaurar")
+    End Sub
+
+    Private Sub cmbencargo_TextChanged(sender As Object, e As System.EventArgs) Handles cmbEncargo.SelectedValueChanged
+        AlterarEstado(rctEnc, cmbEncargo, "restaurar")
+    End Sub
+
+    Private Sub cmbEncargo_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles cmbEncargo.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub btnOutro_Click(sender As System.Object, e As System.EventArgs) Handles btnOutro.Click
+        If ass(4).permissao(2) Then
+            CtrL_MenuCine.IrParaEncargos()
+        Else
+            MessageBox.Show("Não tem permissão para inserir novos encargos", "Insersão impossível", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
     End Sub
 End Class

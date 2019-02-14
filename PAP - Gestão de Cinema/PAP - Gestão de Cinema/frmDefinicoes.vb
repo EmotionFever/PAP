@@ -7,15 +7,15 @@ Public Class frmDefinicoes
     Dim leitor As MySqlDataReader
     Dim DS As DataSet = New DataSet
     Dim lbl As Label
-    Public Const VEZESQUEPISCA As Integer = 4 'Este número não deve ser muito grande
+    Public Const VEZESQUEPISCA As Integer = 4 'Este número pode-se alterar
     Dim npisca As Integer = 0
     Dim codLo As Integer
     Private Sub Atualizar_dados()
         Try
             query = "select username, Funcionarios.nome as nome, IFNULL(telemovel,'-') as telemovel, ifnull(localidades.nome,'-') as localidade, " &
-      "ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, " &
-      "ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo, ifnull(palavra_passe,'') as palavra_passe " &
-      "from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + frmLogin.codF.ToString
+            "ifnull(TIMESTAMPDIFF(year, datanasc, CURDATE()),'-') as idade, ifnull(day(datanasc),0) as dia, ifnull(month(datanasc),0) as mes, " &
+            "ifnull(year(datanasc),0) as ano, IFNULL(rua,'-') as rua, ifnull(localidades.codlo,0) as codlo, ifnull(palavra_passe,'') as palavra_passe " &
+            "from funcionarios left join localidades on localidades.codlo=funcionarios.codlo where codF=" + codF.ToString
 
 
             comando = New MySqlCommand(query, ligacao)
@@ -62,25 +62,32 @@ Public Class frmDefinicoes
     End Sub
 
     Private Sub EncherComboBox()
-            'ligação para encher a combobox
-            encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
+        'ligação para encher a combobox
+        encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
 
-            If codLo > 0 Then
-                cmblocalidade.SelectedValue = codLo
-            Else
-                cmblocalidade.Text = ""
-            End If
+        'Seleciona a opção acabadinha de criar
+        If codLo > 0 Then
+            cmblocalidade.SelectedValue = codLo
+        Else
+            cmblocalidade.Text = ""
+        End If
     End Sub
 
     Private Sub frmConfiguracoes_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Atualizar_dados()
         EncherComboBox()
+
+        lblEncargo.Text = "Permissões para " + mdlAcoes.encargo
+        'Cógigo que faz com que o flpTabelas funcione
+        For z_ As Integer = 1 To mdlAcoes.DIMTA - 2 ' Tenho de excluir o frmHome e o frmDefinicoes
+            ass(z_).criar_acesso(flp)
+        Next
     End Sub
 
     Private Sub btnNome_Click(sender As System.Object, e As System.EventArgs) Handles btnNome.Click
         If txtnome.Text <> "" Then
             If txtnome.Text(0) <> " " Then
-                acao("alterar", ligacao, "update funcionarios set nome='" + txtnome.Text + "' where codF=" + frmLogin.codF.ToString, 0)
+                acao("alterar", ligacao, "update funcionarios set nome='" + txtnome.Text + "' where codF=" + mdlAcoes.codF.ToString, 0)
 
                 MessageBox.Show("O seu antigo nome, '" + lblNome.Text + "', foi alterado para '" + txtnome.Text + "'.", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Atualizar_dados()
@@ -97,7 +104,7 @@ Public Class frmDefinicoes
 
     Private Sub btnRua_Click(sender As System.Object, e As System.EventArgs) Handles btnRua.Click
         If txtrua.Text <> "" Then
-            acao("alterar", ligacao, "update funcionarios set rua='" + txtrua.Text + "' where codF=" + frmLogin.codF.ToString, 0)
+            acao("alterar", ligacao, "update funcionarios set rua='" + txtrua.Text + "' where codF=" + mdlAcoes.codF.ToString, 0)
 
             MessageBox.Show("A sua antiga rua, '" + lblRua.Text + "', foi alterada para '" + txtrua.Text + "'.", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Atualizar_dados()
@@ -110,44 +117,37 @@ Public Class frmDefinicoes
     End Sub
 
     Private Sub btnDatanasc_Click(sender As System.Object, e As System.EventArgs) Handles btnDatanasc.Click
-        acao("alterar", ligacao, "update funcionarios set datanasc='" + dtpDatanasc.Value.Year.ToString + "-" + dtpDatanasc.Value.Month.ToString + "-" + dtpDatanasc.Value.Day.ToString + "' where codF=" + frmLogin.codF.ToString, 0)
+        If DateDiff(DateInterval.Year, dtpDatanasc.Value.Date, Now) >= 16 Then
+            acao("alterar", ligacao, "update funcionarios set datanasc='" + dtpDatanasc.Value.Year.ToString + "-" + dtpDatanasc.Value.Month.ToString + "-" + dtpDatanasc.Value.Day.ToString + "' where codF=" + mdlAcoes.codF.ToString, 0)
 
-        MessageBox.Show("A sua data de nascimento foi alterada para " + dtpDatanasc.Value.Day.ToString + "/" + dtpDatanasc.Value.Month.ToString + "/" + dtpDatanasc.Value.Year.ToString + ".", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Atualizar_dados()
-        lbl = lblIdade
-        npisca = 0
-        tmrPiscar.Start()
+            MessageBox.Show("A sua data de nascimento foi alterada para " + dtpDatanasc.Value.Day.ToString + "/" + dtpDatanasc.Value.Month.ToString + "/" + dtpDatanasc.Value.Year.ToString + ".", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Atualizar_dados()
+            lbl = lblIdade
+            npisca = 0
+            tmrPiscar.Start()
+        Else
+            MessageBox.Show("Tem de ter mais de 16 anos para trabalhar", "Data de nascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
     End Sub
 
     Private Sub btnLocalidade_Click(sender As System.Object, e As System.EventArgs) Handles btnLocalidade.Click
         If cmblocalidade.Text <> "" Then
             If cmblocalidade.SelectedValue IsNot Nothing Then
-                acao("alterar", ligacao, "update funcionarios set codlo=" + cmblocalidade.SelectedValue.ToString + " where codF=" + frmLogin.codF.ToString, 0)
+                codLo = cmblocalidade.SelectedValue
             Else
-                Try
-                    'Inserir a nova localidade
-                    acao("inserir", ligacao, "insert into localidades (nome) values ('" + cmblocalidade.Text + "')", 0)
+                codLo = novo_registo(ligacao, "codlo", "localidades", cmblocalidade)
 
-                    'Descobrir o codLo dessa localidade
-                    query = "select codlo from localidades where nome='" + cmblocalidade.Text + "'"
-                    comando = New MySqlCommand(query, ligacao)
-                    ligacao.Open()
-                    leitor = comando.ExecuteReader
-                    leitor.Read()
-                    codLo = leitor.GetInt32("codlo")
-                    ligacao.Close()
+                If codLo > 0 Then
+                    MessageBox.Show("A localidade '" + cmblocalidade.Text + "' foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("A localidade '" + cmblocalidade.Text + "' não foi inserida", "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                'Associá-la ao registo do funcionário
 
-                    'Associá-la ao registo do funcionário
-                    acao("alterar", ligacao, "update funcionarios set codlo=" + codLo.ToString + " where codF=" + frmLogin.codF.ToString, 0)
-
-                    EncherComboBox()
-
-                    MessageBox.Show("A localidade " + cmblocalidade.Text + "foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Catch ex As Exception
-                    ligacao.Close()
-                    MessageBox.Show("A localidade " + cmblocalidade.Text + " não foi inserida: " + ex.Message, "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
+                EncherComboBox()
             End If
+            acao("alterar", ligacao, "update funcionarios set codlo=" + codLo.ToString + " where codF=" + mdlAcoes.codF.ToString, 0)
             MessageBox.Show("A sua antiga localidade, '" + lblLocalidade.Text + "', foi alterada para '" + cmblocalidade.Text + "'.", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Atualizar_dados()
             lbl = lblLocalidade
@@ -160,7 +160,7 @@ Public Class frmDefinicoes
 
     Private Sub btnTlm_Click(sender As System.Object, e As System.EventArgs) Handles btnTlm.Click
         If mtbTlm.Text.Length = 9 Then
-            acao("alterar", ligacao, "update funcionarios set telemovel='" + mtbTlm.Text + "' where codF=" + frmLogin.codF.ToString, 0)
+            acao("alterar", ligacao, "update funcionarios set telemovel='" + mtbTlm.Text + "' where codF=" + mdlAcoes.codF.ToString, 0)
 
             MessageBox.Show("O seu antigo número de telemóvel, " + lblTlm.Text + ", foi alterado para " + mtbTlm.Text + ".", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Atualizar_dados()
@@ -174,7 +174,7 @@ Public Class frmDefinicoes
 
     Private Sub btnPass_Click(sender As System.Object, e As System.EventArgs) Handles btnPass.Click
         If txtPass.Text <> "" Then
-            acao("alterar", ligacao, "update funcionarios set palavra_passe='" + txtPass.Text + "' where codF=" + frmLogin.codF.ToString, 0)
+            acao("alterar", ligacao, "update funcionarios set palavra_passe='" + txtPass.Text + "' where codF=" + mdlAcoes.codF.ToString, 0)
 
             MessageBox.Show("A sua palavra-passe foi alterada para '" + txtPass.Text + "'.", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
@@ -215,7 +215,7 @@ Public Class frmDefinicoes
             leitor = comando.ExecuteReader
             If Not leitor.Read Then
                 ligacao.Close()
-                acao("alterar", ligacao, "update funcionarios set username='" + txtUsername.Text + "' where codF=" + frmLogin.codF.ToString, 0)
+                acao("alterar", ligacao, "update funcionarios set username='" + txtUsername.Text + "' where codF=" + mdlAcoes.codF.ToString, 0)
                 MessageBox.Show("O seu antigo nome de utilizador, '" + lblUsername.Text + "', foi alterado para '" + txtUsername.Text + "'.", "Alteração salva com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Atualizar_dados()
                 lbl = lblUsername
@@ -227,6 +227,12 @@ Public Class frmDefinicoes
             End If
         Else
             MessageBox.Show("Para guardar um nome de utilizador tem de ter escrito um", "Campo Username vazio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub frmDefinicoes_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        If mdlAcoes.fechar Then
+            End
         End If
     End Sub
 End Class

@@ -1,10 +1,3 @@
-- Rever os Use Cases
-- Criar as novas tabelas e modificar as já existentes
-- Pôr dados nas tabelas
-- Resolver o problema com o butão X do form
-- Usar o email do professor para inserir, ler e garvar imagens na BD [{CRÍTICO}]
-- Acabar o desativar do form Clientes
-- Redimensionar colunas da DataGridView por código DO form Clientes
-- Fazer com que quando insiro outra vez o mesmo artigo, no FormVendas, somar às unidades que lá estão
-- Refazer o Procurar do FormClientes com as novas funções de estado
-- Eliminar a permissão dasativar da respetiva tabela e fazer o backup da BD
+- Re-preeencher o array das premissões quando altero o meu prórprio Encargo
+                                      OU
+- Usar a mesma interface do formDefinicoes no formEncargos (ERA BOM, ERA...!)

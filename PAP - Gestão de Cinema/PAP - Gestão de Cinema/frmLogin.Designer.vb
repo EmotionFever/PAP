@@ -101,7 +101,7 @@ Partial Class frmLogin
         Me.txtNome.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNome.ForeColor = System.Drawing.Color.Black
         Me.txtNome.Location = New System.Drawing.Point(64, 162)
-        Me.txtNome.MaxLength = 50
+        Me.txtNome.MaxLength = 20
         Me.txtNome.Name = "txtNome"
         Me.txtNome.Size = New System.Drawing.Size(198, 22)
         Me.txtNome.TabIndex = 3

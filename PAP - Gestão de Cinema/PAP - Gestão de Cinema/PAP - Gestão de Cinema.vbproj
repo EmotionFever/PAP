@@ -169,6 +169,7 @@
     <Compile Include="frmVendas_Inserir.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Lugar.vb" />
     <Compile Include="mdlAcoes.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -300,25 +301,16 @@
     <None Include="Resources\cliente_converted.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\filmes.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\graus.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\graus_converted.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\horarios.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\horarios_converted.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\produtos_converted.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\vendas.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\vendas_converted.png" />
@@ -339,6 +331,13 @@
     <None Include="Resources\lugares.png" />
     <None Include="Resources\Logo - lado.png" />
     <None Include="Resources\produtos.png" />
+    <None Include="Resources\horarios.png" />
+    <None Include="Resources\alterar.png" />
+    <None Include="Resources\consultar.png" />
+    <None Include="Resources\inserir.png" />
+    <None Include="Resources\vendas.png" />
+    <None Include="Resources\filmes.png" />
+    <None Include="Resources\lugar_transparente.png" />
     <Content Include="rolo_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

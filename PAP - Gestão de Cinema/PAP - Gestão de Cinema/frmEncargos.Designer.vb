@@ -22,9 +22,10 @@ Partial Class frmEncargos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEncargos))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.pctTitulo = New System.Windows.Forms.PictureBox()
         Me.lbl1 = New System.Windows.Forms.Label()
@@ -46,28 +47,31 @@ Partial Class frmEncargos
         Me.btnNovo = New System.Windows.Forms.Button()
         Me.lstTabelas = New System.Windows.Forms.ListBox()
         Me.lstTa_Enc = New System.Windows.Forms.ListBox()
-        Me.btnAdi_Ta = New System.Windows.Forms.Button()
-        Me.btnRet_Ta = New System.Windows.Forms.Button()
-        Me.btnAdi_Pe = New System.Windows.Forms.Button()
-        Me.btnRet_Pe = New System.Windows.Forms.Button()
         Me.lstPermissoes = New System.Windows.Forms.ListBox()
         Me.lstTa_Per = New System.Windows.Forms.ListBox()
         Me.btnInserir = New System.Windows.Forms.Button()
         Me.btnAlterar = New System.Windows.Forms.Button()
         Me.btnDesativar = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbl784 = New System.Windows.Forms.Label()
+        Me.lbl83 = New System.Windows.Forms.Label()
         Me.btnAtivar = New System.Windows.Forms.Button()
         Me.pnlMostrar = New System.Windows.Forms.Panel()
         Me.pnlControlos = New System.Windows.Forms.Panel()
+        Me.pnlProibicao = New System.Windows.Forms.Panel()
+        Me.pctInfo = New System.Windows.Forms.PictureBox()
+        Me.lbl3 = New System.Windows.Forms.Label()
+        Me.lblHammer = New System.Windows.Forms.Label()
+        Me.lbl0 = New System.Windows.Forms.Label()
+        Me.lbl67 = New System.Windows.Forms.Label()
+        Me.lbl87 = New System.Windows.Forms.Label()
+        Me.btnAdi_Ta = New System.Windows.Forms.Button()
+        Me.btnRet_Ta = New System.Windows.Forms.Button()
+        Me.btnAdi_Pe = New System.Windows.Forms.Button()
+        Me.btnRet_Pe = New System.Windows.Forms.Button()
         Me.ShapeContainer2 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.flp1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
-        Me.pnlProibicao = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.lblHammer = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.tlt1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.pnl1.SuspendLayout()
         CType(Me.pctTitulo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbc1.SuspendLayout()
@@ -80,9 +84,9 @@ Partial Class frmEncargos
         CType(Me.pct2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMostrar.SuspendLayout()
         Me.pnlControlos.SuspendLayout()
-        Me.flp1.SuspendLayout()
         Me.pnlProibicao.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctInfo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.flp1.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnl1
@@ -158,26 +162,26 @@ Partial Class frmEncargos
         '
         Me.dgvEnc_Ta_Ativ.AllowUserToAddRows = False
         Me.dgvEnc_Ta_Ativ.AllowUserToDeleteRows = False
-        Me.dgvEnc_Ta_Ativ.AllowUserToOrderColumns = True
         Me.dgvEnc_Ta_Ativ.AllowUserToResizeColumns = False
         Me.dgvEnc_Ta_Ativ.AllowUserToResizeRows = False
         Me.dgvEnc_Ta_Ativ.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvEnc_Ta_Ativ.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvEnc_Ta_Ativ.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEnc_Ta_Ativ.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEnc_Ta_Ativ.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvEnc_Ta_Ativ.Dock = System.Windows.Forms.DockStyle.Right
         Me.dgvEnc_Ta_Ativ.Location = New System.Drawing.Point(159, 0)
         Me.dgvEnc_Ta_Ativ.MultiSelect = False
         Me.dgvEnc_Ta_Ativ.Name = "dgvEnc_Ta_Ativ"
         Me.dgvEnc_Ta_Ativ.ReadOnly = True
         Me.dgvEnc_Ta_Ativ.RowHeadersVisible = False
+        Me.dgvEnc_Ta_Ativ.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvEnc_Ta_Ativ.Size = New System.Drawing.Size(465, 119)
         Me.dgvEnc_Ta_Ativ.TabIndex = 16
         '
@@ -212,14 +216,14 @@ Partial Class frmEncargos
         Me.dgvEnc_Ta_Desa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvEnc_Ta_Desa.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvEnc_Ta_Desa.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvEnc_Ta_Desa.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvEnc_Ta_Desa.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvEnc_Ta_Desa.Dock = System.Windows.Forms.DockStyle.Right
         Me.dgvEnc_Ta_Desa.Location = New System.Drawing.Point(159, 0)
         Me.dgvEnc_Ta_Desa.Name = "dgvEnc_Ta_Desa"
@@ -250,6 +254,7 @@ Partial Class frmEncargos
         Me.pct3.Size = New System.Drawing.Size(30, 28)
         Me.pct3.TabIndex = 53
         Me.pct3.TabStop = False
+        Me.tlt1.SetToolTip(Me.pct3, "Informação")
         '
         'pct2
         '
@@ -269,7 +274,7 @@ Partial Class frmEncargos
         Me.lblT.Name = "lblT"
         Me.lblT.Size = New System.Drawing.Size(266, 57)
         Me.lblT.TabIndex = 0
-        Me.lblT.Text = "Carregue num Encargo para ver as suas permissões"
+        Me.lblT.Text = "Carregue num Encargo para ver, aqui, as suas permissões"
         '
         'lblSeta
         '
@@ -332,111 +337,43 @@ Partial Class frmEncargos
         '
         'lstTabelas
         '
-        Me.lstTabelas.BackColor = System.Drawing.Color.White
+        Me.lstTabelas.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.lstTabelas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lstTabelas.FormattingEnabled = True
         Me.lstTabelas.Location = New System.Drawing.Point(0, 93)
         Me.lstTabelas.Name = "lstTabelas"
-        Me.lstTabelas.Size = New System.Drawing.Size(120, 145)
+        Me.lstTabelas.Size = New System.Drawing.Size(120, 119)
         Me.lstTabelas.TabIndex = 53
         '
         'lstTa_Enc
         '
-        Me.lstTa_Enc.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.lstTa_Enc.BackColor = System.Drawing.Color.White
         Me.lstTa_Enc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lstTa_Enc.FormattingEnabled = True
         Me.lstTa_Enc.Location = New System.Drawing.Point(168, 93)
         Me.lstTa_Enc.Name = "lstTa_Enc"
-        Me.lstTa_Enc.Size = New System.Drawing.Size(120, 145)
+        Me.lstTa_Enc.Size = New System.Drawing.Size(120, 119)
         Me.lstTa_Enc.TabIndex = 54
         Me.lstTa_Enc.Tag = "0"
         '
-        'btnAdi_Ta
-        '
-        Me.btnAdi_Ta.BackColor = System.Drawing.Color.Transparent
-        Me.btnAdi_Ta.BackgroundImage = CType(resources.GetObject("btnAdi_Ta.BackgroundImage"), System.Drawing.Image)
-        Me.btnAdi_Ta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnAdi_Ta.FlatAppearance.BorderSize = 0
-        Me.btnAdi_Ta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
-        Me.btnAdi_Ta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(69, Byte), Integer))
-        Me.btnAdi_Ta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdi_Ta.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdi_Ta.ForeColor = System.Drawing.Color.Black
-        Me.btnAdi_Ta.Location = New System.Drawing.Point(129, 93)
-        Me.btnAdi_Ta.Name = "btnAdi_Ta"
-        Me.btnAdi_Ta.Size = New System.Drawing.Size(29, 26)
-        Me.btnAdi_Ta.TabIndex = 57
-        Me.btnAdi_Ta.UseVisualStyleBackColor = False
-        '
-        'btnRet_Ta
-        '
-        Me.btnRet_Ta.BackColor = System.Drawing.Color.Transparent
-        Me.btnRet_Ta.BackgroundImage = CType(resources.GetObject("btnRet_Ta.BackgroundImage"), System.Drawing.Image)
-        Me.btnRet_Ta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnRet_Ta.FlatAppearance.BorderSize = 0
-        Me.btnRet_Ta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
-        Me.btnRet_Ta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(69, Byte), Integer))
-        Me.btnRet_Ta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRet_Ta.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRet_Ta.ForeColor = System.Drawing.Color.Black
-        Me.btnRet_Ta.Location = New System.Drawing.Point(129, 212)
-        Me.btnRet_Ta.Name = "btnRet_Ta"
-        Me.btnRet_Ta.Size = New System.Drawing.Size(29, 26)
-        Me.btnRet_Ta.TabIndex = 58
-        Me.btnRet_Ta.UseVisualStyleBackColor = False
-        '
-        'btnAdi_Pe
-        '
-        Me.btnAdi_Pe.BackColor = System.Drawing.Color.Transparent
-        Me.btnAdi_Pe.BackgroundImage = CType(resources.GetObject("btnAdi_Pe.BackgroundImage"), System.Drawing.Image)
-        Me.btnAdi_Pe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnAdi_Pe.FlatAppearance.BorderSize = 0
-        Me.btnAdi_Pe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
-        Me.btnAdi_Pe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(69, Byte), Integer))
-        Me.btnAdi_Pe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdi_Pe.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdi_Pe.ForeColor = System.Drawing.Color.Black
-        Me.btnAdi_Pe.Location = New System.Drawing.Point(475, 93)
-        Me.btnAdi_Pe.Name = "btnAdi_Pe"
-        Me.btnAdi_Pe.Size = New System.Drawing.Size(29, 26)
-        Me.btnAdi_Pe.TabIndex = 62
-        Me.btnAdi_Pe.UseVisualStyleBackColor = False
-        '
-        'btnRet_Pe
-        '
-        Me.btnRet_Pe.BackColor = System.Drawing.Color.Transparent
-        Me.btnRet_Pe.BackgroundImage = CType(resources.GetObject("btnRet_Pe.BackgroundImage"), System.Drawing.Image)
-        Me.btnRet_Pe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnRet_Pe.FlatAppearance.BorderSize = 0
-        Me.btnRet_Pe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black
-        Me.btnRet_Pe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(69, Byte), Integer))
-        Me.btnRet_Pe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRet_Pe.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRet_Pe.ForeColor = System.Drawing.Color.Black
-        Me.btnRet_Pe.Location = New System.Drawing.Point(475, 212)
-        Me.btnRet_Pe.Name = "btnRet_Pe"
-        Me.btnRet_Pe.Size = New System.Drawing.Size(29, 26)
-        Me.btnRet_Pe.TabIndex = 61
-        Me.btnRet_Pe.UseVisualStyleBackColor = False
-        '
         'lstPermissoes
         '
-        Me.lstPermissoes.BackColor = System.Drawing.Color.White
+        Me.lstPermissoes.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.lstPermissoes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lstPermissoes.FormattingEnabled = True
         Me.lstPermissoes.Location = New System.Drawing.Point(514, 93)
         Me.lstPermissoes.Name = "lstPermissoes"
-        Me.lstPermissoes.Size = New System.Drawing.Size(120, 145)
+        Me.lstPermissoes.Size = New System.Drawing.Size(120, 119)
         Me.lstPermissoes.TabIndex = 60
         '
         'lstTa_Per
         '
-        Me.lstTa_Per.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.lstTa_Per.BackColor = System.Drawing.Color.White
         Me.lstTa_Per.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lstTa_Per.FormattingEnabled = True
         Me.lstTa_Per.Location = New System.Drawing.Point(346, 93)
         Me.lstTa_Per.Name = "lstTa_Per"
-        Me.lstTa_Per.Size = New System.Drawing.Size(120, 145)
+        Me.lstTa_Per.Size = New System.Drawing.Size(120, 119)
         Me.lstTa_Per.TabIndex = 59
         Me.lstTa_Per.Tag = "0"
         '
@@ -447,7 +384,7 @@ Partial Class frmEncargos
         Me.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnInserir.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnInserir.ForeColor = System.Drawing.Color.Black
-        Me.btnInserir.Location = New System.Drawing.Point(0, 263)
+        Me.btnInserir.Location = New System.Drawing.Point(0, 232)
         Me.btnInserir.Name = "btnInserir"
         Me.btnInserir.Size = New System.Drawing.Size(315, 26)
         Me.btnInserir.TabIndex = 63
@@ -461,7 +398,7 @@ Partial Class frmEncargos
         Me.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAlterar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAlterar.ForeColor = System.Drawing.Color.Black
-        Me.btnAlterar.Location = New System.Drawing.Point(321, 263)
+        Me.btnAlterar.Location = New System.Drawing.Point(321, 232)
         Me.btnAlterar.Name = "btnAlterar"
         Me.btnAlterar.Size = New System.Drawing.Size(312, 26)
         Me.btnAlterar.TabIndex = 64
@@ -475,34 +412,34 @@ Partial Class frmEncargos
         Me.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDesativar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDesativar.ForeColor = System.Drawing.Color.Black
-        Me.btnDesativar.Location = New System.Drawing.Point(-1, 295)
+        Me.btnDesativar.Location = New System.Drawing.Point(-1, 264)
         Me.btnDesativar.Name = "btnDesativar"
         Me.btnDesativar.Size = New System.Drawing.Size(635, 26)
         Me.btnDesativar.TabIndex = 65
         Me.btnDesativar.Text = "Desativar"
         Me.btnDesativar.UseVisualStyleBackColor = False
         '
-        'Label1
+        'lbl784
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(165, 75)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(121, 15)
-        Me.Label1.TabIndex = 66
-        Me.Label1.Text = "Tabelas do Encargo:"
+        Me.lbl784.AutoSize = True
+        Me.lbl784.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl784.ForeColor = System.Drawing.Color.White
+        Me.lbl784.Location = New System.Drawing.Point(165, 75)
+        Me.lbl784.Name = "lbl784"
+        Me.lbl784.Size = New System.Drawing.Size(121, 15)
+        Me.lbl784.TabIndex = 66
+        Me.lbl784.Text = "Tabelas do Encargo:"
         '
-        'Label2
+        'lbl83
         '
-        Me.Label2.AllowDrop = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(343, 63)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(121, 30)
-        Me.Label2.TabIndex = 67
-        Me.Label2.Text = "Permissões nessa Tabela:"
+        Me.lbl83.AllowDrop = True
+        Me.lbl83.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl83.ForeColor = System.Drawing.Color.White
+        Me.lbl83.Location = New System.Drawing.Point(343, 63)
+        Me.lbl83.Name = "lbl83"
+        Me.lbl83.Size = New System.Drawing.Size(121, 30)
+        Me.lbl83.TabIndex = 67
+        Me.lbl83.Text = "Permissões nessa Tabela:"
         '
         'btnAtivar
         '
@@ -511,7 +448,7 @@ Partial Class frmEncargos
         Me.btnAtivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAtivar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAtivar.ForeColor = System.Drawing.Color.Black
-        Me.btnAtivar.Location = New System.Drawing.Point(-1, 295)
+        Me.btnAtivar.Location = New System.Drawing.Point(-1, 264)
         Me.btnAtivar.Name = "btnAtivar"
         Me.btnAtivar.Size = New System.Drawing.Size(635, 26)
         Me.btnAtivar.TabIndex = 68
@@ -530,13 +467,15 @@ Partial Class frmEncargos
         'pnlControlos
         '
         Me.pnlControlos.Controls.Add(Me.pnlProibicao)
+        Me.pnlControlos.Controls.Add(Me.lbl67)
+        Me.pnlControlos.Controls.Add(Me.lbl87)
         Me.pnlControlos.Controls.Add(Me.btnDesativar)
         Me.pnlControlos.Controls.Add(Me.btnAtivar)
         Me.pnlControlos.Controls.Add(Me.lbl2)
         Me.pnlControlos.Controls.Add(Me.txtnome)
-        Me.pnlControlos.Controls.Add(Me.Label2)
+        Me.pnlControlos.Controls.Add(Me.lbl83)
         Me.pnlControlos.Controls.Add(Me.btnNovo)
-        Me.pnlControlos.Controls.Add(Me.Label1)
+        Me.pnlControlos.Controls.Add(Me.lbl784)
         Me.pnlControlos.Controls.Add(Me.lstTabelas)
         Me.pnlControlos.Controls.Add(Me.lstTa_Enc)
         Me.pnlControlos.Controls.Add(Me.btnAlterar)
@@ -550,8 +489,165 @@ Partial Class frmEncargos
         Me.pnlControlos.Controls.Add(Me.ShapeContainer2)
         Me.pnlControlos.Location = New System.Drawing.Point(3, 162)
         Me.pnlControlos.Name = "pnlControlos"
-        Me.pnlControlos.Size = New System.Drawing.Size(635, 325)
+        Me.pnlControlos.Size = New System.Drawing.Size(644, 325)
         Me.pnlControlos.TabIndex = 72
+        '
+        'pnlProibicao
+        '
+        Me.pnlProibicao.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.pnlProibicao.Controls.Add(Me.pctInfo)
+        Me.pnlProibicao.Controls.Add(Me.lbl3)
+        Me.pnlProibicao.Controls.Add(Me.lblHammer)
+        Me.pnlProibicao.Controls.Add(Me.lbl0)
+        Me.pnlProibicao.Location = New System.Drawing.Point(646, 0)
+        Me.pnlProibicao.Name = "pnlProibicao"
+        Me.pnlProibicao.Size = New System.Drawing.Size(635, 258)
+        Me.pnlProibicao.TabIndex = 74
+        Me.pnlProibicao.Visible = False
+        '
+        'pctInfo
+        '
+        Me.pctInfo.BackColor = System.Drawing.Color.Transparent
+        Me.pctInfo.BackgroundImage = CType(resources.GetObject("pctInfo.BackgroundImage"), System.Drawing.Image)
+        Me.pctInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctInfo.Location = New System.Drawing.Point(0, 230)
+        Me.pctInfo.Name = "pctInfo"
+        Me.pctInfo.Size = New System.Drawing.Size(30, 28)
+        Me.pctInfo.TabIndex = 54
+        Me.pctInfo.TabStop = False
+        Me.tlt1.SetToolTip(Me.pctInfo, "Informação")
+        '
+        'lbl3
+        '
+        Me.lbl3.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl3.Location = New System.Drawing.Point(145, 104)
+        Me.lbl3.Name = "lbl3"
+        Me.lbl3.Size = New System.Drawing.Size(333, 54)
+        Me.lbl3.TabIndex = 51
+        Me.lbl3.Text = "Só pode realizar ações enquanto estiver na aba dos registos ativados"
+        Me.lbl3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblHammer
+        '
+        Me.lblHammer.AutoSize = True
+        Me.lblHammer.BackColor = System.Drawing.Color.Transparent
+        Me.lblHammer.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHammer.ForeColor = System.Drawing.Color.Red
+        Me.lblHammer.Location = New System.Drawing.Point(251, 0)
+        Me.lblHammer.Name = "lblHammer"
+        Me.lblHammer.Size = New System.Drawing.Size(125, 108)
+        Me.lblHammer.TabIndex = 0
+        Me.lblHammer.Text = "🛠"
+        '
+        'lbl0
+        '
+        Me.lbl0.AutoSize = True
+        Me.lbl0.BackColor = System.Drawing.Color.Transparent
+        Me.lbl0.Font = New System.Drawing.Font("Microsoft Sans Serif", 170.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl0.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lbl0.Location = New System.Drawing.Point(435, 51)
+        Me.lbl0.Name = "lbl0"
+        Me.lbl0.Size = New System.Drawing.Size(299, 257)
+        Me.lbl0.TabIndex = 1
+        Me.lbl0.Text = "🛠"
+        '
+        'lbl67
+        '
+        Me.lbl67.AutoSize = True
+        Me.lbl67.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl67.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl67.ForeColor = System.Drawing.Color.White
+        Me.lbl67.Location = New System.Drawing.Point(514, 75)
+        Me.lbl67.Name = "lbl67"
+        Me.lbl67.Size = New System.Drawing.Size(81, 17)
+        Me.lbl67.TabIndex = 77
+        Me.lbl67.Text = "Permissões:"
+        Me.tlt1.SetToolTip(Me.lbl67, "Permissões são aquilo que o utilizador pode fazer numa tabela")
+        '
+        'lbl87
+        '
+        Me.lbl87.AutoSize = True
+        Me.lbl87.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lbl87.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl87.ForeColor = System.Drawing.Color.White
+        Me.lbl87.Location = New System.Drawing.Point(1, 75)
+        Me.lbl87.Name = "lbl87"
+        Me.lbl87.Size = New System.Drawing.Size(56, 17)
+        Me.lbl87.TabIndex = 76
+        Me.lbl87.Text = "Tabelas:"
+        Me.tlt1.SetToolTip(Me.lbl87, "Tabelas são partes do programa que o utilizador pode ter acesso")
+        '
+        'btnAdi_Ta
+        '
+        Me.btnAdi_Ta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAdi_Ta.BackgroundImage = CType(resources.GetObject("btnAdi_Ta.BackgroundImage"), System.Drawing.Image)
+        Me.btnAdi_Ta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnAdi_Ta.FlatAppearance.BorderSize = 0
+        Me.btnAdi_Ta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnAdi_Ta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.btnAdi_Ta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdi_Ta.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdi_Ta.ForeColor = System.Drawing.Color.Black
+        Me.btnAdi_Ta.Location = New System.Drawing.Point(131, 93)
+        Me.btnAdi_Ta.Name = "btnAdi_Ta"
+        Me.btnAdi_Ta.Size = New System.Drawing.Size(26, 26)
+        Me.btnAdi_Ta.TabIndex = 57
+        Me.tlt1.SetToolTip(Me.btnAdi_Ta, "Adicionar tabela")
+        Me.btnAdi_Ta.UseVisualStyleBackColor = False
+        '
+        'btnRet_Ta
+        '
+        Me.btnRet_Ta.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnRet_Ta.BackgroundImage = CType(resources.GetObject("btnRet_Ta.BackgroundImage"), System.Drawing.Image)
+        Me.btnRet_Ta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnRet_Ta.FlatAppearance.BorderSize = 0
+        Me.btnRet_Ta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnRet_Ta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.btnRet_Ta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRet_Ta.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRet_Ta.ForeColor = System.Drawing.Color.Black
+        Me.btnRet_Ta.Location = New System.Drawing.Point(130, 186)
+        Me.btnRet_Ta.Name = "btnRet_Ta"
+        Me.btnRet_Ta.Size = New System.Drawing.Size(26, 26)
+        Me.btnRet_Ta.TabIndex = 58
+        Me.tlt1.SetToolTip(Me.btnRet_Ta, "Retirar tabela")
+        Me.btnRet_Ta.UseVisualStyleBackColor = False
+        '
+        'btnAdi_Pe
+        '
+        Me.btnAdi_Pe.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAdi_Pe.BackgroundImage = CType(resources.GetObject("btnAdi_Pe.BackgroundImage"), System.Drawing.Image)
+        Me.btnAdi_Pe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnAdi_Pe.FlatAppearance.BorderSize = 0
+        Me.btnAdi_Pe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnAdi_Pe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.btnAdi_Pe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdi_Pe.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdi_Pe.ForeColor = System.Drawing.Color.Black
+        Me.btnAdi_Pe.Location = New System.Drawing.Point(476, 93)
+        Me.btnAdi_Pe.Name = "btnAdi_Pe"
+        Me.btnAdi_Pe.Size = New System.Drawing.Size(26, 26)
+        Me.btnAdi_Pe.TabIndex = 62
+        Me.tlt1.SetToolTip(Me.btnAdi_Pe, "Adicionar permissão")
+        Me.btnAdi_Pe.UseVisualStyleBackColor = False
+        '
+        'btnRet_Pe
+        '
+        Me.btnRet_Pe.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnRet_Pe.BackgroundImage = CType(resources.GetObject("btnRet_Pe.BackgroundImage"), System.Drawing.Image)
+        Me.btnRet_Pe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnRet_Pe.FlatAppearance.BorderSize = 0
+        Me.btnRet_Pe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnRet_Pe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.btnRet_Pe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRet_Pe.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRet_Pe.ForeColor = System.Drawing.Color.Black
+        Me.btnRet_Pe.Location = New System.Drawing.Point(476, 186)
+        Me.btnRet_Pe.Name = "btnRet_Pe"
+        Me.btnRet_Pe.Size = New System.Drawing.Size(26, 26)
+        Me.btnRet_Pe.TabIndex = 61
+        Me.tlt1.SetToolTip(Me.btnRet_Pe, "Retirar permissão")
+        Me.btnRet_Pe.UseVisualStyleBackColor = False
         '
         'ShapeContainer2
         '
@@ -559,7 +655,7 @@ Partial Class frmEncargos
         Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer2.Name = "ShapeContainer2"
         Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctNome})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(635, 325)
+        Me.ShapeContainer2.Size = New System.Drawing.Size(644, 325)
         Me.ShapeContainer2.TabIndex = 0
         Me.ShapeContainer2.TabStop = False
         '
@@ -570,7 +666,7 @@ Partial Class frmEncargos
         Me.flp1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flp1.Location = New System.Drawing.Point(72, 118)
         Me.flp1.Name = "flp1"
-        Me.flp1.Size = New System.Drawing.Size(651, 503)
+        Me.flp1.Size = New System.Drawing.Size(654, 493)
         Me.flp1.TabIndex = 73
         '
         'CtrL_MenuCine
@@ -578,73 +674,22 @@ Partial Class frmEncargos
         Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
         Me.CtrL_MenuCine.Location = New System.Drawing.Point(0, 0)
         Me.CtrL_MenuCine.Name = "CtrL_MenuCine"
-        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 666)
+        Me.CtrL_MenuCine.Size = New System.Drawing.Size(49, 623)
         Me.CtrL_MenuCine.TabIndex = 0
         '
-        'pnlProibicao
+        'tlt1
         '
-        Me.pnlProibicao.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.pnlProibicao.Controls.Add(Me.PictureBox1)
-        Me.pnlProibicao.Controls.Add(Me.Label3)
-        Me.pnlProibicao.Controls.Add(Me.lblHammer)
-        Me.pnlProibicao.Controls.Add(Me.Label4)
-        Me.pnlProibicao.Location = New System.Drawing.Point(646, 7)
-        Me.pnlProibicao.Name = "pnlProibicao"
-        Me.pnlProibicao.Size = New System.Drawing.Size(635, 289)
-        Me.pnlProibicao.TabIndex = 74
-        Me.pnlProibicao.Visible = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(1, 261)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(30, 28)
-        Me.PictureBox1.TabIndex = 54
-        Me.PictureBox1.TabStop = False
-        '
-        'Label3
-        '
-        Me.Label3.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(142, 104)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(361, 92)
-        Me.Label3.TabIndex = 51
-        Me.Label3.Text = "Só pode realizar ações enquanto estiver na aba dos registos ativados"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblHammer
-        '
-        Me.lblHammer.AutoSize = True
-        Me.lblHammer.BackColor = System.Drawing.Color.Transparent
-        Me.lblHammer.Font = New System.Drawing.Font("Microsoft Sans Serif", 72.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHammer.ForeColor = System.Drawing.Color.Red
-        Me.lblHammer.Location = New System.Drawing.Point(251, 11)
-        Me.lblHammer.Name = "lblHammer"
-        Me.lblHammer.Size = New System.Drawing.Size(125, 108)
-        Me.lblHammer.TabIndex = 0
-        Me.lblHammer.Text = "🛠"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 170.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(438, 86)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(299, 257)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "🛠"
+        Me.tlt1.AutomaticDelay = 100
+        Me.tlt1.AutoPopDelay = 7000
+        Me.tlt1.InitialDelay = 100
+        Me.tlt1.ReshowDelay = 20
         '
         'frmEncargos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(735, 666)
+        Me.ClientSize = New System.Drawing.Size(734, 623)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.flp1)
         Me.Controls.Add(Me.pnl1)
@@ -667,10 +712,10 @@ Partial Class frmEncargos
         Me.pnlMostrar.ResumeLayout(False)
         Me.pnlControlos.ResumeLayout(False)
         Me.pnlControlos.PerformLayout()
-        Me.flp1.ResumeLayout(False)
         Me.pnlProibicao.ResumeLayout(False)
         Me.pnlProibicao.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctInfo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.flp1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -696,8 +741,8 @@ Partial Class frmEncargos
     Friend WithEvents btnInserir As System.Windows.Forms.Button
     Friend WithEvents btnAlterar As System.Windows.Forms.Button
     Friend WithEvents btnDesativar As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lbl784 As System.Windows.Forms.Label
+    Friend WithEvents lbl83 As System.Windows.Forms.Label
     Friend WithEvents btnAtivar As System.Windows.Forms.Button
     Friend WithEvents dgvEnc_Ta_Ativ As System.Windows.Forms.DataGridView
     Friend WithEvents lstEnc_Ativ As System.Windows.Forms.ListBox
@@ -713,8 +758,11 @@ Partial Class frmEncargos
     Friend WithEvents ShapeContainer2 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents flp1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents pnlProibicao As System.Windows.Forms.Panel
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents pctInfo As System.Windows.Forms.PictureBox
+    Friend WithEvents lbl3 As System.Windows.Forms.Label
     Friend WithEvents lblHammer As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents lbl0 As System.Windows.Forms.Label
+    Friend WithEvents tlt1 As System.Windows.Forms.ToolTip
+    Friend WithEvents lbl67 As System.Windows.Forms.Label
+    Friend WithEvents lbl87 As System.Windows.Forms.Label
 End Class

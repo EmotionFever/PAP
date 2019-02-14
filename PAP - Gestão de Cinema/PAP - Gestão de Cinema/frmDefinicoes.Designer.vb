@@ -67,11 +67,23 @@ Partial Class frmDefinicoes
         Me.lblTitulo = New System.Windows.Forms.Label()
         Me.tmrPiscar = New System.Windows.Forms.Timer(Me.components)
         Me.lblUsername = New System.Windows.Forms.Label()
+        Me.flp = New System.Windows.Forms.FlowLayoutPanel()
+        Me.lblEncargo = New System.Windows.Forms.Label()
+        Me.pctDemo = New System.Windows.Forms.PictureBox()
+        Me.lbl4c = New System.Windows.Forms.Label()
+        Me.pctDemo2 = New System.Windows.Forms.PictureBox()
+        Me.lbl5c = New System.Windows.Forms.Label()
+        Me.pctDemo3 = New System.Windows.Forms.PictureBox()
+        Me.lbl6c = New System.Windows.Forms.Label()
+        Me.lbl3c = New System.Windows.Forms.Label()
         Me.CtrL_MenuCine = New PAP___Gestão_de_Cinema.CTRL_MenuCine()
         Me.pnl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grb1.SuspendLayout()
         CType(Me.pctFuncionario, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctDemo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctDemo2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctDemo3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
@@ -147,7 +159,7 @@ Partial Class frmDefinicoes
         Me.grb1.Controls.Add(Me.ShapeContainer1)
         Me.grb1.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.grb1.ForeColor = System.Drawing.Color.White
-        Me.grb1.Location = New System.Drawing.Point(74, 293)
+        Me.grb1.Location = New System.Drawing.Point(77, 308)
         Me.grb1.Name = "grb1"
         Me.grb1.Size = New System.Drawing.Size(694, 297)
         Me.grb1.TabIndex = 22
@@ -243,7 +255,7 @@ Partial Class frmDefinicoes
         '
         'mtbTlm
         '
-        Me.mtbTlm.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.mtbTlm.BackColor = System.Drawing.Color.White
         Me.mtbTlm.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.mtbTlm.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.mtbTlm.Location = New System.Drawing.Point(365, 238)
@@ -254,7 +266,7 @@ Partial Class frmDefinicoes
         '
         'btnTlm
         '
-        Me.btnTlm.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnTlm.BackColor = System.Drawing.Color.White
         Me.btnTlm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnTlm.FlatAppearance.BorderSize = 0
         Me.btnTlm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -269,7 +281,7 @@ Partial Class frmDefinicoes
         '
         Me.lbl6.AutoSize = True
         Me.lbl6.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lbl6.ForeColor = System.Drawing.Color.White
         Me.lbl6.Location = New System.Drawing.Point(353, 217)
         Me.lbl6.Name = "lbl6"
         Me.lbl6.Size = New System.Drawing.Size(165, 15)
@@ -441,9 +453,9 @@ Partial Class frmDefinicoes
         '
         'rct3
         '
-        Me.rct3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.rct3.BackColor = System.Drawing.Color.White
         Me.rct3.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.rct3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.rct3.BorderColor = System.Drawing.Color.White
         Me.rct3.CornerRadius = 2
         Me.rct3.Location = New System.Drawing.Point(353, 215)
         Me.rct3.Name = "rct3"
@@ -549,7 +561,7 @@ Partial Class frmDefinicoes
         '
         Me.lblTlm.AutoSize = True
         Me.lblTlm.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTlm.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblTlm.ForeColor = System.Drawing.Color.White
         Me.lblTlm.Location = New System.Drawing.Point(206, 264)
         Me.lblTlm.Name = "lblTlm"
         Me.lblTlm.Size = New System.Drawing.Size(80, 16)
@@ -582,6 +594,104 @@ Partial Class frmDefinicoes
         Me.lblUsername.TabIndex = 48
         Me.lblUsername.Text = "Nome de utilizador"
         '
+        'flp
+        '
+        Me.flp.AutoScroll = True
+        Me.flp.BackColor = System.Drawing.Color.Transparent
+        Me.flp.Location = New System.Drawing.Point(426, 153)
+        Me.flp.Name = "flp"
+        Me.flp.Size = New System.Drawing.Size(361, 134)
+        Me.flp.TabIndex = 49
+        '
+        'lblEncargo
+        '
+        Me.lblEncargo.AutoEllipsis = True
+        Me.lblEncargo.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEncargo.ForeColor = System.Drawing.Color.White
+        Me.lblEncargo.Location = New System.Drawing.Point(426, 124)
+        Me.lblEncargo.Name = "lblEncargo"
+        Me.lblEncargo.Size = New System.Drawing.Size(345, 24)
+        Me.lblEncargo.TabIndex = 50
+        Me.lblEncargo.Text = "Encargo"
+        Me.lblEncargo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'pctDemo
+        '
+        Me.pctDemo.BackColor = System.Drawing.Color.PeachPuff
+        Me.pctDemo.BackgroundImage = CType(resources.GetObject("pctDemo.BackgroundImage"), System.Drawing.Image)
+        Me.pctDemo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctDemo.Location = New System.Drawing.Point(535, 289)
+        Me.pctDemo.Name = "pctDemo"
+        Me.pctDemo.Size = New System.Drawing.Size(19, 19)
+        Me.pctDemo.TabIndex = 4
+        Me.pctDemo.TabStop = False
+        '
+        'lbl4c
+        '
+        Me.lbl4c.AutoSize = True
+        Me.lbl4c.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl4c.ForeColor = System.Drawing.Color.White
+        Me.lbl4c.Location = New System.Drawing.Point(554, 290)
+        Me.lbl4c.Name = "lbl4c"
+        Me.lbl4c.Size = New System.Drawing.Size(63, 16)
+        Me.lbl4c.TabIndex = 51
+        Me.lbl4c.Text = "Consultar"
+        '
+        'pctDemo2
+        '
+        Me.pctDemo2.BackColor = System.Drawing.Color.PeachPuff
+        Me.pctDemo2.BackgroundImage = CType(resources.GetObject("pctDemo2.BackgroundImage"), System.Drawing.Image)
+        Me.pctDemo2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctDemo2.Location = New System.Drawing.Point(710, 289)
+        Me.pctDemo2.Name = "pctDemo2"
+        Me.pctDemo2.Size = New System.Drawing.Size(19, 19)
+        Me.pctDemo2.TabIndex = 4
+        Me.pctDemo2.TabStop = False
+        '
+        'lbl5c
+        '
+        Me.lbl5c.AutoSize = True
+        Me.lbl5c.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl5c.ForeColor = System.Drawing.Color.White
+        Me.lbl5c.Location = New System.Drawing.Point(729, 290)
+        Me.lbl5c.Name = "lbl5c"
+        Me.lbl5c.Size = New System.Drawing.Size(43, 16)
+        Me.lbl5c.TabIndex = 52
+        Me.lbl5c.Text = "Inserir"
+        '
+        'pctDemo3
+        '
+        Me.pctDemo3.BackColor = System.Drawing.Color.PeachPuff
+        Me.pctDemo3.BackgroundImage = CType(resources.GetObject("pctDemo3.BackgroundImage"), System.Drawing.Image)
+        Me.pctDemo3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pctDemo3.Location = New System.Drawing.Point(630, 289)
+        Me.pctDemo3.Name = "pctDemo3"
+        Me.pctDemo3.Size = New System.Drawing.Size(19, 19)
+        Me.pctDemo3.TabIndex = 4
+        Me.pctDemo3.TabStop = False
+        '
+        'lbl6c
+        '
+        Me.lbl6c.AutoSize = True
+        Me.lbl6c.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl6c.ForeColor = System.Drawing.Color.White
+        Me.lbl6c.Location = New System.Drawing.Point(649, 290)
+        Me.lbl6c.Name = "lbl6c"
+        Me.lbl6c.Size = New System.Drawing.Size(46, 16)
+        Me.lbl6c.TabIndex = 53
+        Me.lbl6c.Text = "Alterar"
+        '
+        'lbl3c
+        '
+        Me.lbl3c.AutoSize = True
+        Me.lbl3c.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl3c.ForeColor = System.Drawing.Color.PeachPuff
+        Me.lbl3c.Location = New System.Drawing.Point(426, 292)
+        Me.lbl3c.Name = "lbl3c"
+        Me.lbl3c.Size = New System.Drawing.Size(68, 16)
+        Me.lbl3c.TabIndex = 54
+        Me.lbl3c.Text = "Legenda:"
+        '
         'CtrL_MenuCine
         '
         Me.CtrL_MenuCine.Dock = System.Windows.Forms.DockStyle.Left
@@ -596,8 +706,17 @@ Partial Class frmDefinicoes
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(793, 627)
-        Me.Controls.Add(Me.lblUsername)
+        Me.Controls.Add(Me.lbl3c)
+        Me.Controls.Add(Me.lbl6c)
+        Me.Controls.Add(Me.pctDemo3)
+        Me.Controls.Add(Me.lbl5c)
+        Me.Controls.Add(Me.pctDemo2)
+        Me.Controls.Add(Me.lbl4c)
+        Me.Controls.Add(Me.pctDemo)
+        Me.Controls.Add(Me.lblEncargo)
+        Me.Controls.Add(Me.flp)
         Me.Controls.Add(Me.CtrL_MenuCine)
+        Me.Controls.Add(Me.lblUsername)
         Me.Controls.Add(Me.lblTitulo)
         Me.Controls.Add(Me.lblTlm)
         Me.Controls.Add(Me.lblLocalidade)
@@ -617,6 +736,9 @@ Partial Class frmDefinicoes
         Me.grb1.ResumeLayout(False)
         Me.grb1.PerformLayout()
         CType(Me.pctFuncionario, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctDemo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctDemo2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctDemo3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -665,4 +787,13 @@ Partial Class frmDefinicoes
     Friend WithEvents lbl67 As System.Windows.Forms.Label
     Friend WithEvents rct56 As Microsoft.VisualBasic.PowerPacks.RectangleShape
     Friend WithEvents lblUsername As System.Windows.Forms.Label
+    Friend WithEvents flp As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents lblEncargo As System.Windows.Forms.Label
+    Friend WithEvents pctDemo As System.Windows.Forms.PictureBox
+    Friend WithEvents lbl4c As System.Windows.Forms.Label
+    Friend WithEvents pctDemo2 As System.Windows.Forms.PictureBox
+    Friend WithEvents lbl5c As System.Windows.Forms.Label
+    Friend WithEvents pctDemo3 As System.Windows.Forms.PictureBox
+    Friend WithEvents lbl6c As System.Windows.Forms.Label
+    Friend WithEvents lbl3c As System.Windows.Forms.Label
 End Class

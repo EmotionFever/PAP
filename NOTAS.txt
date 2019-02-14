@@ -1,16 +1,14 @@
+- Ter a certeza que os objetos input têm um MAXLENGHT igual ao limite de caracteres da variável
 - O que fica guardado numa coluna datetime é algo deste género '0000-00-00 00:00:00',
 - Impedir que o 1º caracter do nome seja um espaço, " ".
 - Impedir que o utilizador insira mais caracteres do que a base de dados consegue guardar através do MAXLENGTH das txt
-- Estudar isto:
-	Here is all you need to know about relative file paths:
-
-	Starting with "/" returns to the root directory and starts there
-	Starting with "../" moves one directory backwards and starts there
-	Starting with "../../" moves two directories backwards and starts there (and so on...)
-	To move forward, just start with the first subdirectory and keep moving forward
 - Fazer com que todas as ComboBoxs fiquem com estas propriedades:
 	AutoCompleteMode: SuggestAppend
 	AutoCompleteSource: ListItems
+	>>>>>>>>Caso seja uma só para escolher NÃO para criar
+		Private Sub ComboBox1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles ComboBox1.KeyPress
+    			e.Handled = True
+		End Sub
 - Fazer com que todas as DatagRidViews fiquem com estas propriedades:
 	AllowUserToAddRows: False
 	AllowUserToDeleteRows: False

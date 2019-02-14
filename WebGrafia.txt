@@ -1,4 +1,5 @@
+Sem estes sites não teria feito a PAP tão rapidamente
 https://msdn.microsoft.com/en-us/library/2x7h1hfk(v=vs.100).aspx - Documentação de VB net
-https://stackoverflow.com/ - Algumas dúvidas de outros programadores ajudaram-me
 http://www.macoratti.net/15/07/vbn_lmysql2.htm
-
+https://stackoverflow.com/questions/18904778/sql-query-with-not-exists-not-working
+http://www.online-image-editor.com/?language=portuguese

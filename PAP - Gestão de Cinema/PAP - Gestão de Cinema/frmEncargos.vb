@@ -7,9 +7,9 @@ Public Class frmEncargos
     Dim leitor As MySqlDataReader
     Dim dtTa_Enc As DataTable = New DataTable("Ta_Enc")
     Dim dsTa_Enc As DataSet = New DataSet
-    Dim dtTa_Per(CtrL_MenuCine.DIMTA - 2) As DataTable 'Todas as tabelas exceto a "tabela" FrmHome e FrmDefinicoes
+    Dim dtTa_Per(DIMTA - 2) As DataTable 'Todas as tabelas exceto a "tabela" FrmHome e FrmDefinicoes
     Dim dsTa_Per As DataSet = New DataSet
-    Dim handler(3) As Boolean
+    Dim handler(3) As Boolean 'Isto resolve um erro relativamente ao mau funcionamento dos Remove Handlers do VB
 
     Private Sub tbc1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles tbc1.SelectedIndexChanged
         If tbc1.SelectedIndex = 0 Then
@@ -32,19 +32,15 @@ Public Class frmEncargos
                 btnAtivar.Enabled = True
             End If
             btnDesativar.Hide()
-            btnInserir.Enabled = False
-            btnAlterar.Enabled = False
         End If
     End Sub
 
     Sub ver()
         'Mostrar Ativado
-        'RemoveHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
         handler(0) = False
         encher(lstEnc_Ativ, ligacao, "encargos", "nome", "codE", "select codE, nome from encargos where ativado=1")
         lstEnc_Ativ.ClearSelected()
         handler(0) = True
-        AddHandler lstEnc_Ativ.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ativ
 
         'Covém desativar estes botões
         btnInserir.Enabled = True
@@ -57,18 +53,16 @@ Public Class frmEncargos
         txtnome.Tag = False
         If lstTa_Enc.Items.Count > 0 Then
             For Each item As DataRowView In lstTa_Enc.Items
-                dtTa_Per(item("codTa") - 1).Dispose()
+                dtTa_Per(item("codTa") - 1).Clear()
             Next
-            dtTa_Enc.Dispose()
+            dtTa_Enc.Clear()
         End If
 
         'Mostrar DESAtivado
-        'RemoveHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Desa
         handler(1) = False
         encher(lstEnc_Desa, ligacao, "encargos", "nome", "codE", "select codE, nome from encargos where ativado=0")
         lstEnc_Desa.ClearSelected()
         handler(1) = True
-        AddHandler lstEnc_Desa.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Desa
         pnlInformacao.Show()
     End Sub
 
@@ -85,7 +79,7 @@ Public Class frmEncargos
         lstTa_Enc.ValueMember = "codTa"
         handler(2) = True
 
-        For x As Integer = 0 To (CtrL_MenuCine.DIMTA - 2) - 1
+        For x As Integer = 0 To (DIMTA - 2) - 1
             dtTa_Per(x) = New DataTable("Ta_Per")
             'Insiro colunas ao DateTable 
             dtTa_Per(x).Columns.Add("codPe")
@@ -95,21 +89,21 @@ Public Class frmEncargos
         ver()
         AddHandler lstTa_Enc.SelectedIndexChanged, AddressOf SelecaoAlterada_Enc_Ta
 
-        'Aqui, encho a combobox com dados para o utilizador escolher
+        'Aqui, encho a listboxes com dados para o utilizador escolher
         encher(lstTabelas, ligacao, "tabelas", "nome", "codta", "select codta, nome from tabelas")
         encher(lstPermissoes, ligacao, "permissoes", "nome", "codpe", "select codpe, nome from permissoes")
     End Sub
 
     Private Sub CtrL_MenuCine_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
         CtrL_MenuCine.Sincronizar_acessos(Me, 4)
-        CtrL_MenuCine.Sincronizar_permissoes({pnlMostrar}, {btnAlterar, btnAtivar, btnDesativar, tbc1}, {btnInserir})
+        CtrL_MenuCine.Sincronizar_permissoes({pnlMostrar}, {btnAlterar, btnAtivar, btnDesativar}, {btnInserir})
         If btnAlterar.Visible + btnInserir.Visible = 0 Then
             pnlControlos.Hide()
         End If
     End Sub
 
 
-    Private Sub SelecaoAlterada_Enc_Ativ()
+    Private Sub SelecaoAlterada_Enc_Ativ() Handles lstEnc_Ativ.SelectedIndexChanged
         If lstEnc_Ativ.SelectedItems.Count > 0 And handler(0) Then
             Dim codta As Integer = 0
             btnInserir.Enabled = False
@@ -123,7 +117,7 @@ Public Class frmEncargos
             txtnome.Tag = False
 
             dtTa_Enc.Clear()
-            For x As Integer = 0 To (CtrL_MenuCine.DIMTA - 2) - 1
+            For x As Integer = 0 To (DIMTA - 2) - 1
                 dtTa_Per(x).Clear()
             Next
 
@@ -145,7 +139,7 @@ Public Class frmEncargos
         SelecaoAlterada_Enc_Ta()
     End Sub
 
-    Private Sub SelecaoAlterada_Enc_Desa()
+    Private Sub SelecaoAlterada_Enc_Desa() Handles lstEnc_Desa.SelectedIndexChanged
         If lstEnc_Desa.SelectedItems.Count > 0 And handler(1) Then
             btnAtivar.Enabled = True
             pnlInformacao.Hide()
@@ -178,26 +172,27 @@ Public Class frmEncargos
             End If
         Next
         If Not encontrou Then
+            lstTa_Enc.Tag = True
             dtTa_Enc.Rows.Add(lstTabelas.SelectedValue, lstTabelas.GetItemText(lstTabelas.SelectedItem))
             SelecaoAlterada_Enc_Ta()
-            lstTa_Enc.Enabled = True
+
         Else
             MessageBox.Show("Não pode adicionar a tabela '" + lstTabelas.GetItemText(lstTabelas.SelectedItem) + "' novamente", "Repetição de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
     Private Sub btnRet_Ta_Click(sender As System.Object, e As System.EventArgs) Handles btnRet_Ta.Click
-        If lstEnc_Ativ.Items.Count > 0 Then
-            If lstTa_Per.Tag Or lstTa_Per.Items.Count > 0 Then
-                If MessageBox.Show("Quer perder todas as permissões da tabela '" + lstTa_Enc.GetItemText(lstTa_Enc.SelectedItem) + "'?", "Limpeza da tabela", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
+        If lstTa_Enc.Items.Count > 0 Then
+            If (lstTa_Per.Tag And lstEnc_Ativ.SelectedItem IsNot Nothing) Or lstTa_Per.Items.Count > 0 Then
+                If MessageBox.Show("Tem a certeza que quer remover a tabela '" + lstTa_Enc.GetItemText(lstTa_Enc.SelectedItem) + "'? As permissões não serão guardadas", "Tabela não será mais acessível", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
                     Exit Sub
                 End If
             End If
-            If lstTa_Enc.Items.Count > 0 Then
-                lstTa_Enc.Enabled = True
-                dtTa_Per(lstTa_Enc.SelectedValue - 1).Clear()
-                dtTa_Enc.Rows(lstTa_Enc.SelectedIndex).Delete()
-            End If
+            lstTa_Enc.Tag = True
+            dtTa_Per(lstTa_Enc.SelectedValue - 1).Clear()
+            dtTa_Enc.Rows(lstTa_Enc.SelectedIndex).Delete()
+            SelecaoAlterada_Enc_Ta()
+
         Else
             MessageBox.Show("Não pode remover uma tabela sem que tenha inserido uma", "Falta de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -264,7 +259,7 @@ Public Class frmEncargos
                         If dtTa_Per(item("codTa") - 1).Rows.Count = 0 Then
                             lstTa_Enc.SelectedItem = item
                             MessageBox.Show("Não pode inserir um encargo com tabelas sem qualquer permissão. " &
-                            "Se a lista avermelhada à esquerda tiver alguma tabela indesejada remova-a", "Tabelas sem permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                            "Se a lista esbranquiçada à esquerda tiver alguma tabela indesejada, remova-a", "Tabelas sem permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                             Exit Sub
                         End If
                     Next
@@ -273,12 +268,7 @@ Public Class frmEncargos
                         acao("inserir", ligacao, "insert into encargos (nome,ativado) values ('" + txtnome.Text + "',1)", 0)
 
                         'Descobrir o codE desse encargo
-                        comando = New MySqlCommand("select codE from encargos where nome='" + txtnome.Text + "'", ligacao)
-                        ligacao.Open()
-                        leitor = comando.ExecuteReader
-                        leitor.Read()
-                        codE = leitor.GetInt32("codE")
-                        ligacao.Close()
+                        codE = ter(ligacao, "codE", "select codE from encargos where nome='" + txtnome.Text + "'")
 
                         'Inserir tudo no aux_enc
                         For Each item As DataRowView In lstTa_Enc.Items
@@ -315,23 +305,22 @@ Public Class frmEncargos
     Private Sub btnAlterar_Click(sender As System.Object, e As System.EventArgs) Handles btnAlterar.Click
         If lstTa_Enc.Tag Or lstTa_Per.Tag Or txtnome.Tag Then
             If txtnome.Text <> "" Then
-                query = "select * from encargos where nome='" + txtnome.Text + "' and codE<>" + lstEnc_Ativ.SelectedValue.ToString
-                comando = New MySqlCommand(query, ligacao)
-                ligacao.Open()
-                leitor = comando.ExecuteReader
-                If Not leitor.Read Then
-                    ligacao.Dispose()
+                Dim cont As Integer = ter(ligacao, "cont", "select count(*) as cont from encargos where nome='" + txtnome.Text + "' and codE<>" + lstEnc_Ativ.SelectedValue.ToString)
+                If cont = 0 Then
                     AlterarEstado(rctNome, txtnome, "acertar")
                     If lstTa_Enc.Items.Count > 0 Then
                         For Each item As DataRowView In lstTa_Enc.Items
                             If dtTa_Per(item("codTa") - 1).Rows.Count = 0 Then
                                 lstTa_Enc.SelectedItem = item
-                                MessageBox.Show("Não pode alterar um encargo para ficar com tabelas sem qualquer permissão. " &
-                                "Se a lista avermelhada à esquerda tiver alguma tabela indesejada remova-a", "Tabelas sem permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                                MessageBox.Show("Não pode alterar um encargo de modo a ficar com tabelas sem qualquer permissão. " &
+                                "Verifique se a lista esbranquiçada à esquerda tem alguma tabela sem qualquer permissão. Se sim e se não a quiser, remova-a", "Tabelas sem permissões", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                                 Exit Sub
                             End If
                         Next
                         Try
+                            'Alterar ou não o nome do encargo
+                            acao("alterar", ligacao, "update encargos set nome='" + txtnome.Text + "' where codE=" + lstEnc_Ativ.SelectedValue.ToString, 0)
+
                             'Apagar todos os registos da tabela aux_enc relacionados com este encargo
                             acao("apagar", ligacao, "delete from aux_enc where codE=" + lstEnc_Ativ.SelectedValue.ToString, 0)
 
@@ -342,18 +331,18 @@ Public Class frmEncargos
                                 Next
                                 AlterarEstado(rctNome, txtnome, "restaurar")
                             Next
-                            ver()
                             MessageBox.Show("O encargo '" + txtnome.Text + "' foi alterado sem qualquer problema", "Alteração realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Catch ex As Exception
                             ligacao.Close()
                             MessageBox.Show("O encargo '" + txtnome.Text + "' não foi alterado: " + ex.Message, "Alteração sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         End Try
+                        ver()
                     Else
-                        MessageBox.Show("Não pode alterar um encargo sem lhe associar pelo menos uma tabela", "Falta de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        MessageBox.Show("Não pode alterar um encargo de modo a ficar sem nenhuma tabela", "Falta de tabelas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                 Else
                     ligacao.Dispose()
-                    MessageBox.Show("Não pode mudar o nome do encargo para um partilhado por outro encargo. Pode, invés disso, alterar o outro", "Nome repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("Não pode mudar o nome do encargo para um partilhado por outro encargo. Pode, invés disso, colocar outro nome ou alterar o outro encargo", "Nome repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     AlterarEstado(rctNome, txtnome, "errar")
                 End If
             Else
@@ -371,6 +360,12 @@ Public Class frmEncargos
                 Exit Sub
             End If
         End If
+        Dim n_contas As Integer = ter(ligacao, "numero", "select count(funcionarios.nome) as numero from funcionarios where empregado=1 and codE=" + lstEnc_Ativ.SelectedValue.ToString)
+        If n_contas > 0 Then
+            If MessageBox.Show("Tem a certeza que quer desativar o encargo '" + lstEnc_Ativ.GetItemText(lstEnc_Ativ.SelectedItem) + "'? Se assim o fizer, desativará " + n_contas.ToString + " contas de funcionarios!", "Desativação de um encargo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.No Then
+                Exit Sub
+            End If
+        End If
         acao("desativar", ligacao, "update encargos set ativado=0 where codE=" + lstEnc_Ativ.SelectedValue.ToString, True)
         ver()
     End Sub
@@ -383,5 +378,11 @@ Public Class frmEncargos
         End If
         acao("ativar", ligacao, "update encargos set ativado=1 where codE=" + lstEnc_Desa.SelectedValue.ToString, True)
         ver()
+    End Sub
+
+    Private Sub frmEncargos_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        If mdlAcoes.fechar Then
+            End
+        End If
     End Sub
 End Class

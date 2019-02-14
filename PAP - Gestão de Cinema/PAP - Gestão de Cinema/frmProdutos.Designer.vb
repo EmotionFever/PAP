@@ -33,6 +33,11 @@ Partial Class frmProdutos
         Me.tbpDesativado = New System.Windows.Forms.TabPage()
         Me.flpProdDesa = New System.Windows.Forms.FlowLayoutPanel()
         Me.pnlControlos = New System.Windows.Forms.Panel()
+        Me.pnlProibicao = New System.Windows.Forms.Panel()
+        Me.pct3 = New System.Windows.Forms.PictureBox()
+        Me.lblT = New System.Windows.Forms.Label()
+        Me.lblHammer = New System.Windows.Forms.Label()
+        Me.lbl90 = New System.Windows.Forms.Label()
         Me.pnlAtivar = New System.Windows.Forms.Panel()
         Me.lbl92 = New System.Windows.Forms.Label()
         Me.pnlSelecionado = New System.Windows.Forms.Panel()
@@ -41,8 +46,8 @@ Partial Class frmProdutos
         Me.lblPrecoP = New System.Windows.Forms.Label()
         Me.lblGeneroP = New System.Windows.Forms.Label()
         Me.pctImagemP = New System.Windows.Forms.PictureBox()
-        Me.btnAtivar = New System.Windows.Forms.Button()
         Me.btnDesativar = New System.Windows.Forms.Button()
+        Me.btnAtivar = New System.Windows.Forms.Button()
         Me.pnlCriar = New System.Windows.Forms.Panel()
         Me.txtNome = New System.Windows.Forms.TextBox()
         Me.nmrStock = New System.Windows.Forms.NumericUpDown()
@@ -57,17 +62,12 @@ Partial Class frmProdutos
         Me.lblPreco = New System.Windows.Forms.Label()
         Me.lblGenero = New System.Windows.Forms.Label()
         Me.btnImagem = New System.Windows.Forms.Button()
-        Me.chkNome1 = New System.Windows.Forms.CheckBox()
+        Me.chkNome = New System.Windows.Forms.CheckBox()
         Me.chkImagem = New System.Windows.Forms.CheckBox()
         Me.btnProcurar = New System.Windows.Forms.Button()
-        Me.chkGenero1 = New System.Windows.Forms.CheckBox()
-        Me.chkPreco1 = New System.Windows.Forms.CheckBox()
-        Me.chkStock1 = New System.Windows.Forms.CheckBox()
-        Me.pnlProibicao = New System.Windows.Forms.Panel()
-        Me.pct3 = New System.Windows.Forms.PictureBox()
-        Me.lblT = New System.Windows.Forms.Label()
-        Me.lblHammer = New System.Windows.Forms.Label()
-        Me.lbl90 = New System.Windows.Forms.Label()
+        Me.chkGenero = New System.Windows.Forms.CheckBox()
+        Me.chkPreco = New System.Windows.Forms.CheckBox()
+        Me.chkStock = New System.Windows.Forms.CheckBox()
         Me.btnAlterar = New System.Windows.Forms.Button()
         Me.btnInserir = New System.Windows.Forms.Button()
         Me.ofdImagem = New System.Windows.Forms.OpenFileDialog()
@@ -79,14 +79,14 @@ Partial Class frmProdutos
         Me.tbpAtivado.SuspendLayout()
         Me.tbpDesativado.SuspendLayout()
         Me.pnlControlos.SuspendLayout()
+        Me.pnlProibicao.SuspendLayout()
+        CType(Me.pct3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAtivar.SuspendLayout()
         Me.pnlSelecionado.SuspendLayout()
         CType(Me.pctImagemP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlCriar.SuspendLayout()
         CType(Me.nmrStock, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nmrPreco, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlProibicao.SuspendLayout()
-        CType(Me.pct3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnl1
@@ -129,7 +129,7 @@ Partial Class frmProdutos
         Me.flp1.Controls.Add(Me.pnlControlos)
         Me.flp1.Location = New System.Drawing.Point(74, 123)
         Me.flp1.Name = "flp1"
-        Me.flp1.Size = New System.Drawing.Size(702, 520)
+        Me.flp1.Size = New System.Drawing.Size(708, 520)
         Me.flp1.TabIndex = 51
         '
         'tbc1
@@ -163,6 +163,7 @@ Partial Class frmProdutos
         Me.flpProdAtiv.Name = "flpProdAtiv"
         Me.flpProdAtiv.Size = New System.Drawing.Size(398, 466)
         Me.flpProdAtiv.TabIndex = 8
+        Me.flpProdAtiv.Tag = "1"
         '
         'tbpDesativado
         '
@@ -183,31 +184,90 @@ Partial Class frmProdutos
         Me.flpProdDesa.Name = "flpProdDesa"
         Me.flpProdDesa.Size = New System.Drawing.Size(398, 466)
         Me.flpProdDesa.TabIndex = 7
+        Me.flpProdDesa.Tag = "0"
         '
         'pnlControlos
         '
+        Me.pnlControlos.Controls.Add(Me.pnlProibicao)
         Me.pnlControlos.Controls.Add(Me.pnlAtivar)
         Me.pnlControlos.Controls.Add(Me.pnlCriar)
-        Me.pnlControlos.Controls.Add(Me.chkNome1)
+        Me.pnlControlos.Controls.Add(Me.chkNome)
         Me.pnlControlos.Controls.Add(Me.chkImagem)
         Me.pnlControlos.Controls.Add(Me.btnProcurar)
-        Me.pnlControlos.Controls.Add(Me.chkGenero1)
-        Me.pnlControlos.Controls.Add(Me.chkPreco1)
-        Me.pnlControlos.Controls.Add(Me.chkStock1)
-        Me.pnlControlos.Controls.Add(Me.pnlProibicao)
+        Me.pnlControlos.Controls.Add(Me.chkGenero)
+        Me.pnlControlos.Controls.Add(Me.chkPreco)
+        Me.pnlControlos.Controls.Add(Me.chkStock)
         Me.pnlControlos.Controls.Add(Me.btnAlterar)
         Me.pnlControlos.Controls.Add(Me.btnInserir)
         Me.pnlControlos.Location = New System.Drawing.Point(417, 3)
         Me.pnlControlos.Name = "pnlControlos"
-        Me.pnlControlos.Size = New System.Drawing.Size(273, 503)
+        Me.pnlControlos.Size = New System.Drawing.Size(276, 503)
         Me.pnlControlos.TabIndex = 43
+        '
+        'pnlProibicao
+        '
+        Me.pnlProibicao.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.pnlProibicao.Controls.Add(Me.pct3)
+        Me.pnlProibicao.Controls.Add(Me.lblT)
+        Me.pnlProibicao.Controls.Add(Me.lblHammer)
+        Me.pnlProibicao.Controls.Add(Me.lbl90)
+        Me.pnlProibicao.Location = New System.Drawing.Point(319, 12)
+        Me.pnlProibicao.Name = "pnlProibicao"
+        Me.pnlProibicao.Size = New System.Drawing.Size(253, 290)
+        Me.pnlProibicao.TabIndex = 48
+        Me.pnlProibicao.Visible = False
+        '
+        'pct3
+        '
+        Me.pct3.BackColor = System.Drawing.Color.Transparent
+        Me.pct3.BackgroundImage = CType(resources.GetObject("pct3.BackgroundImage"), System.Drawing.Image)
+        Me.pct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.pct3.Location = New System.Drawing.Point(0, 262)
+        Me.pct3.Name = "pct3"
+        Me.pct3.Size = New System.Drawing.Size(30, 28)
+        Me.pct3.TabIndex = 54
+        Me.pct3.TabStop = False
+        '
+        'lblT
+        '
+        Me.lblT.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblT.Location = New System.Drawing.Point(18, 93)
+        Me.lblT.Name = "lblT"
+        Me.lblT.Size = New System.Drawing.Size(219, 78)
+        Me.lblT.TabIndex = 51
+        Me.lblT.Text = "Só pode realizar ações enquanto estiver na aba dos registos ativados"
+        Me.lblT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblHammer
+        '
+        Me.lblHammer.AutoSize = True
+        Me.lblHammer.BackColor = System.Drawing.Color.Transparent
+        Me.lblHammer.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHammer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblHammer.Location = New System.Drawing.Point(75, 0)
+        Me.lblHammer.Name = "lblHammer"
+        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
+        Me.lblHammer.TabIndex = 0
+        Me.lblHammer.Text = "🛠"
+        '
+        'lbl90
+        '
+        Me.lbl90.AutoSize = True
+        Me.lbl90.BackColor = System.Drawing.Color.Transparent
+        Me.lbl90.Font = New System.Drawing.Font("Microsoft Sans Serif", 150.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl90.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lbl90.Location = New System.Drawing.Point(76, 107)
+        Me.lbl90.Name = "lbl90"
+        Me.lbl90.Size = New System.Drawing.Size(263, 226)
+        Me.lbl90.TabIndex = 1
+        Me.lbl90.Text = "🛠"
         '
         'pnlAtivar
         '
         Me.pnlAtivar.Controls.Add(Me.lbl92)
         Me.pnlAtivar.Controls.Add(Me.pnlSelecionado)
-        Me.pnlAtivar.Controls.Add(Me.btnAtivar)
         Me.pnlAtivar.Controls.Add(Me.btnDesativar)
+        Me.pnlAtivar.Controls.Add(Me.btnAtivar)
         Me.pnlAtivar.Location = New System.Drawing.Point(12, 298)
         Me.pnlAtivar.Name = "pnlAtivar"
         Me.pnlAtivar.Size = New System.Drawing.Size(253, 200)
@@ -233,13 +293,14 @@ Partial Class frmProdutos
         Me.pnlSelecionado.Controls.Add(Me.lblPrecoP)
         Me.pnlSelecionado.Controls.Add(Me.lblGeneroP)
         Me.pnlSelecionado.Controls.Add(Me.pctImagemP)
-        Me.pnlSelecionado.Location = New System.Drawing.Point(70, 21)
+        Me.pnlSelecionado.Location = New System.Drawing.Point(69, 19)
         Me.pnlSelecionado.Name = "pnlSelecionado"
-        Me.pnlSelecionado.Size = New System.Drawing.Size(121, 148)
+        Me.pnlSelecionado.Size = New System.Drawing.Size(123, 150)
         Me.pnlSelecionado.TabIndex = 74
         '
         'lblNomeP
         '
+        Me.lblNomeP.AutoEllipsis = True
         Me.lblNomeP.BackColor = System.Drawing.Color.Transparent
         Me.lblNomeP.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNomeP.ForeColor = System.Drawing.Color.White
@@ -293,25 +354,11 @@ Partial Class frmProdutos
         Me.pctImagemP.BackgroundImage = Global.PAP___Gestão_de_Cinema.My.Resources.Resources.produtos
         Me.pctImagemP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.pctImagemP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pctImagemP.Location = New System.Drawing.Point(0, 14)
+        Me.pctImagemP.Location = New System.Drawing.Point(-1, 14)
         Me.pctImagemP.Name = "pctImagemP"
         Me.pctImagemP.Size = New System.Drawing.Size(121, 87)
         Me.pctImagemP.TabIndex = 70
         Me.pctImagemP.TabStop = False
-        '
-        'btnAtivar
-        '
-        Me.btnAtivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.btnAtivar.FlatAppearance.BorderSize = 0
-        Me.btnAtivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAtivar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAtivar.ForeColor = System.Drawing.Color.Black
-        Me.btnAtivar.Location = New System.Drawing.Point(5, 175)
-        Me.btnAtivar.Name = "btnAtivar"
-        Me.btnAtivar.Size = New System.Drawing.Size(244, 22)
-        Me.btnAtivar.TabIndex = 48
-        Me.btnAtivar.Text = "Ativar Produto"
-        Me.btnAtivar.UseVisualStyleBackColor = False
         '
         'btnDesativar
         '
@@ -326,6 +373,20 @@ Partial Class frmProdutos
         Me.btnDesativar.TabIndex = 43
         Me.btnDesativar.Text = "Desativar Produto"
         Me.btnDesativar.UseVisualStyleBackColor = False
+        '
+        'btnAtivar
+        '
+        Me.btnAtivar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnAtivar.FlatAppearance.BorderSize = 0
+        Me.btnAtivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAtivar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAtivar.ForeColor = System.Drawing.Color.Black
+        Me.btnAtivar.Location = New System.Drawing.Point(5, 175)
+        Me.btnAtivar.Name = "btnAtivar"
+        Me.btnAtivar.Size = New System.Drawing.Size(244, 22)
+        Me.btnAtivar.TabIndex = 48
+        Me.btnAtivar.Text = "Ativar Produto"
+        Me.btnAtivar.UseVisualStyleBackColor = False
         '
         'pnlCriar
         '
@@ -410,6 +471,7 @@ Partial Class frmProdutos
         Me.cmbGenero.Font = New System.Drawing.Font("Arial", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbGenero.FormattingEnabled = True
         Me.cmbGenero.Location = New System.Drawing.Point(3, 178)
+        Me.cmbGenero.MaxLength = 20
         Me.cmbGenero.Name = "cmbGenero"
         Me.cmbGenero.Size = New System.Drawing.Size(193, 31)
         Me.cmbGenero.TabIndex = 53
@@ -531,14 +593,14 @@ Partial Class frmProdutos
         Me.btnImagem.TabIndex = 76
         Me.btnImagem.UseVisualStyleBackColor = False
         '
-        'chkNome1
+        'chkNome
         '
-        Me.chkNome1.AutoSize = True
-        Me.chkNome1.Location = New System.Drawing.Point(244, 12)
-        Me.chkNome1.Name = "chkNome1"
-        Me.chkNome1.Size = New System.Drawing.Size(15, 14)
-        Me.chkNome1.TabIndex = 22
-        Me.chkNome1.UseVisualStyleBackColor = True
+        Me.chkNome.AutoSize = True
+        Me.chkNome.Location = New System.Drawing.Point(244, 12)
+        Me.chkNome.Name = "chkNome"
+        Me.chkNome.Size = New System.Drawing.Size(15, 14)
+        Me.chkNome.TabIndex = 22
+        Me.chkNome.UseVisualStyleBackColor = True
         '
         'chkImagem
         '
@@ -558,95 +620,37 @@ Partial Class frmProdutos
         Me.btnProcurar.ForeColor = System.Drawing.Color.Black
         Me.btnProcurar.Location = New System.Drawing.Point(99, 270)
         Me.btnProcurar.Name = "btnProcurar"
-        Me.btnProcurar.Size = New System.Drawing.Size(79, 23)
+        Me.btnProcurar.Size = New System.Drawing.Size(72, 23)
         Me.btnProcurar.TabIndex = 40
         Me.btnProcurar.Text = "Procurar"
         Me.btnProcurar.UseVisualStyleBackColor = False
         '
-        'chkGenero1
+        'chkGenero
         '
-        Me.chkGenero1.AutoSize = True
-        Me.chkGenero1.Location = New System.Drawing.Point(244, 184)
-        Me.chkGenero1.Name = "chkGenero1"
-        Me.chkGenero1.Size = New System.Drawing.Size(15, 14)
-        Me.chkGenero1.TabIndex = 64
-        Me.chkGenero1.UseVisualStyleBackColor = True
+        Me.chkGenero.AutoSize = True
+        Me.chkGenero.Location = New System.Drawing.Point(244, 184)
+        Me.chkGenero.Name = "chkGenero"
+        Me.chkGenero.Size = New System.Drawing.Size(15, 14)
+        Me.chkGenero.TabIndex = 64
+        Me.chkGenero.UseVisualStyleBackColor = True
         '
-        'chkPreco1
+        'chkPreco
         '
-        Me.chkPreco1.AutoSize = True
-        Me.chkPreco1.Location = New System.Drawing.Point(244, 213)
-        Me.chkPreco1.Name = "chkPreco1"
-        Me.chkPreco1.Size = New System.Drawing.Size(15, 14)
-        Me.chkPreco1.TabIndex = 62
-        Me.chkPreco1.UseVisualStyleBackColor = True
+        Me.chkPreco.AutoSize = True
+        Me.chkPreco.Location = New System.Drawing.Point(244, 213)
+        Me.chkPreco.Name = "chkPreco"
+        Me.chkPreco.Size = New System.Drawing.Size(15, 14)
+        Me.chkPreco.TabIndex = 62
+        Me.chkPreco.UseVisualStyleBackColor = True
         '
-        'chkStock1
+        'chkStock
         '
-        Me.chkStock1.AutoSize = True
-        Me.chkStock1.Location = New System.Drawing.Point(244, 243)
-        Me.chkStock1.Name = "chkStock1"
-        Me.chkStock1.Size = New System.Drawing.Size(15, 14)
-        Me.chkStock1.TabIndex = 63
-        Me.chkStock1.UseVisualStyleBackColor = True
-        '
-        'pnlProibicao
-        '
-        Me.pnlProibicao.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.pnlProibicao.Controls.Add(Me.pct3)
-        Me.pnlProibicao.Controls.Add(Me.lblT)
-        Me.pnlProibicao.Controls.Add(Me.lblHammer)
-        Me.pnlProibicao.Controls.Add(Me.lbl90)
-        Me.pnlProibicao.Location = New System.Drawing.Point(291, 3)
-        Me.pnlProibicao.Name = "pnlProibicao"
-        Me.pnlProibicao.Size = New System.Drawing.Size(241, 365)
-        Me.pnlProibicao.TabIndex = 48
-        Me.pnlProibicao.Visible = False
-        '
-        'pct3
-        '
-        Me.pct3.BackColor = System.Drawing.Color.Transparent
-        Me.pct3.BackgroundImage = CType(resources.GetObject("pct3.BackgroundImage"), System.Drawing.Image)
-        Me.pct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct3.Location = New System.Drawing.Point(0, 340)
-        Me.pct3.Name = "pct3"
-        Me.pct3.Size = New System.Drawing.Size(30, 28)
-        Me.pct3.TabIndex = 54
-        Me.pct3.TabStop = False
-        '
-        'lblT
-        '
-        Me.lblT.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblT.Location = New System.Drawing.Point(10, 108)
-        Me.lblT.Name = "lblT"
-        Me.lblT.Size = New System.Drawing.Size(219, 140)
-        Me.lblT.TabIndex = 51
-        Me.lblT.Text = "Só pode realizar ações enquanto estiver na aba dos registos ativados"
-        Me.lblT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblHammer
-        '
-        Me.lblHammer.AutoSize = True
-        Me.lblHammer.BackColor = System.Drawing.Color.Transparent
-        Me.lblHammer.Font = New System.Drawing.Font("Microsoft Sans Serif", 60.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHammer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblHammer.Location = New System.Drawing.Point(70, 29)
-        Me.lblHammer.Name = "lblHammer"
-        Me.lblHammer.Size = New System.Drawing.Size(106, 91)
-        Me.lblHammer.TabIndex = 0
-        Me.lblHammer.Text = "🛠"
-        '
-        'lbl90
-        '
-        Me.lbl90.AutoSize = True
-        Me.lbl90.BackColor = System.Drawing.Color.Transparent
-        Me.lbl90.Font = New System.Drawing.Font("Microsoft Sans Serif", 150.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl90.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lbl90.Location = New System.Drawing.Point(67, 187)
-        Me.lbl90.Name = "lbl90"
-        Me.lbl90.Size = New System.Drawing.Size(263, 226)
-        Me.lbl90.TabIndex = 1
-        Me.lbl90.Text = "🛠"
+        Me.chkStock.AutoSize = True
+        Me.chkStock.Location = New System.Drawing.Point(244, 243)
+        Me.chkStock.Name = "chkStock"
+        Me.chkStock.Size = New System.Drawing.Size(15, 14)
+        Me.chkStock.TabIndex = 63
+        Me.chkStock.UseVisualStyleBackColor = True
         '
         'btnAlterar
         '
@@ -655,9 +659,9 @@ Partial Class frmProdutos
         Me.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAlterar.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAlterar.ForeColor = System.Drawing.Color.Black
-        Me.btnAlterar.Location = New System.Drawing.Point(184, 270)
+        Me.btnAlterar.Location = New System.Drawing.Point(177, 270)
         Me.btnAlterar.Name = "btnAlterar"
-        Me.btnAlterar.Size = New System.Drawing.Size(85, 22)
+        Me.btnAlterar.Size = New System.Drawing.Size(77, 22)
         Me.btnAlterar.TabIndex = 41
         Me.btnAlterar.Text = "Alterar"
         Me.btnAlterar.UseVisualStyleBackColor = False
@@ -669,15 +673,16 @@ Partial Class frmProdutos
         Me.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnInserir.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnInserir.ForeColor = System.Drawing.Color.Black
-        Me.btnInserir.Location = New System.Drawing.Point(8, 270)
+        Me.btnInserir.Location = New System.Drawing.Point(18, 270)
         Me.btnInserir.Name = "btnInserir"
-        Me.btnInserir.Size = New System.Drawing.Size(84, 22)
+        Me.btnInserir.Size = New System.Drawing.Size(75, 22)
         Me.btnInserir.TabIndex = 39
         Me.btnInserir.Text = "Inserir"
         Me.btnInserir.UseVisualStyleBackColor = False
         '
         'ofdImagem
         '
+        Me.ofdImagem.Filter = "Image Files(*.JPG)|*.JPG"
         Me.ofdImagem.Tag = "imagem"
         Me.ofdImagem.Title = "Escolha uma imagem para o produto"
         '
@@ -694,7 +699,7 @@ Partial Class frmProdutos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(780, 652)
+        Me.ClientSize = New System.Drawing.Size(782, 652)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.flp1)
         Me.Controls.Add(Me.pnl1)
@@ -711,6 +716,9 @@ Partial Class frmProdutos
         Me.tbpDesativado.ResumeLayout(False)
         Me.pnlControlos.ResumeLayout(False)
         Me.pnlControlos.PerformLayout()
+        Me.pnlProibicao.ResumeLayout(False)
+        Me.pnlProibicao.PerformLayout()
+        CType(Me.pct3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAtivar.ResumeLayout(False)
         Me.pnlAtivar.PerformLayout()
         Me.pnlSelecionado.ResumeLayout(False)
@@ -720,9 +728,6 @@ Partial Class frmProdutos
         Me.pnlCriar.PerformLayout()
         CType(Me.nmrStock, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nmrPreco, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlProibicao.ResumeLayout(False)
-        Me.pnlProibicao.PerformLayout()
-        CType(Me.pct3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -742,15 +747,15 @@ Partial Class frmProdutos
     Friend WithEvents btnProcurar As System.Windows.Forms.Button
     Friend WithEvents btnAlterar As System.Windows.Forms.Button
     Friend WithEvents btnInserir As System.Windows.Forms.Button
-    Friend WithEvents chkNome1 As System.Windows.Forms.CheckBox
+    Friend WithEvents chkNome As System.Windows.Forms.CheckBox
     Friend WithEvents tbc1 As System.Windows.Forms.TabControl
     Friend WithEvents tbpAtivado As System.Windows.Forms.TabPage
     Friend WithEvents flpProdAtiv As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents tbpDesativado As System.Windows.Forms.TabPage
     Friend WithEvents flpProdDesa As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents chkGenero1 As System.Windows.Forms.CheckBox
-    Friend WithEvents chkStock1 As System.Windows.Forms.CheckBox
-    Friend WithEvents chkPreco1 As System.Windows.Forms.CheckBox
+    Friend WithEvents chkGenero As System.Windows.Forms.CheckBox
+    Friend WithEvents chkStock As System.Windows.Forms.CheckBox
+    Friend WithEvents chkPreco As System.Windows.Forms.CheckBox
     Friend WithEvents ofdImagem As System.Windows.Forms.OpenFileDialog
     Friend WithEvents chkImagem As System.Windows.Forms.CheckBox
     Friend WithEvents lblImgNome As System.Windows.Forms.Label

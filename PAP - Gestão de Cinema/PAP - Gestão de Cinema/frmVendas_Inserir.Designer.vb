@@ -22,6 +22,7 @@ Partial Class frmVendas_Inserir
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVendas_Inserir))
         Me.pnl1 = New System.Windows.Forms.Panel()
         Me.lbl1 = New System.Windows.Forms.Label()
@@ -36,6 +37,9 @@ Partial Class frmVendas_Inserir
         Me.nmrQuant = New System.Windows.Forms.NumericUpDown()
         Me.pnlCaminho = New System.Windows.Forms.Panel()
         Me.lblCaminho = New System.Windows.Forms.Label()
+        Me.lblsala = New System.Windows.Forms.Label()
+        Me.pnlLugares = New System.Windows.Forms.Panel()
+        Me.tlt1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.pnl1.SuspendLayout()
         Me.flpcategorias.SuspendLayout()
         Me.grp1.SuspendLayout()
@@ -50,7 +54,7 @@ Partial Class frmVendas_Inserir
         Me.pnl1.Location = New System.Drawing.Point(11, 12)
         Me.pnl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnl1.Name = "pnl1"
-        Me.pnl1.Size = New System.Drawing.Size(338, 46)
+        Me.pnl1.Size = New System.Drawing.Size(640, 46)
         Me.pnl1.TabIndex = 17
         '
         'lbl1
@@ -61,7 +65,7 @@ Partial Class frmVendas_Inserir
         Me.lbl1.Location = New System.Drawing.Point(0, 7)
         Me.lbl1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(336, 31)
+        Me.lbl1.Size = New System.Drawing.Size(640, 31)
         Me.lbl1.TabIndex = 4
         Me.lbl1.Text = "Que tipo de artigo quer?"
         Me.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -69,9 +73,9 @@ Partial Class frmVendas_Inserir
         'flpitens
         '
         Me.flpitens.AutoScroll = True
-        Me.flpitens.Location = New System.Drawing.Point(12, 82)
+        Me.flpitens.Location = New System.Drawing.Point(12, 85)
         Me.flpitens.Name = "flpitens"
-        Me.flpitens.Size = New System.Drawing.Size(335, 287)
+        Me.flpitens.Size = New System.Drawing.Size(639, 344)
         Me.flpitens.TabIndex = 19
         Me.flpitens.Visible = False
         '
@@ -79,9 +83,9 @@ Partial Class frmVendas_Inserir
         '
         Me.flpcategorias.AutoScroll = True
         Me.flpcategorias.Controls.Add(Me.btnBilhetes)
-        Me.flpcategorias.Location = New System.Drawing.Point(11, 82)
+        Me.flpcategorias.Location = New System.Drawing.Point(12, 82)
         Me.flpcategorias.Name = "flpcategorias"
-        Me.flpcategorias.Size = New System.Drawing.Size(338, 327)
+        Me.flpcategorias.Size = New System.Drawing.Size(639, 387)
         Me.flpcategorias.TabIndex = 20
         '
         'btnBilhetes
@@ -105,7 +109,7 @@ Partial Class frmVendas_Inserir
         Me.btnVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnVoltar.FlatAppearance.BorderSize = 0
         Me.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVoltar.Location = New System.Drawing.Point(310, 375)
+        Me.btnVoltar.Location = New System.Drawing.Point(615, 435)
         Me.btnVoltar.Name = "btnVoltar"
         Me.btnVoltar.Size = New System.Drawing.Size(35, 34)
         Me.btnVoltar.TabIndex = 21
@@ -131,9 +135,9 @@ Partial Class frmVendas_Inserir
         Me.grp1.Controls.Add(Me.lblprod)
         Me.grp1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grp1.ForeColor = System.Drawing.Color.White
-        Me.grp1.Location = New System.Drawing.Point(11, 427)
+        Me.grp1.Location = New System.Drawing.Point(11, 475)
         Me.grp1.Name = "grp1"
-        Me.grp1.Size = New System.Drawing.Size(338, 107)
+        Me.grp1.Size = New System.Drawing.Size(639, 107)
         Me.grp1.TabIndex = 23
         Me.grp1.TabStop = False
         Me.grp1.Text = "Quantos produtos deseja?"
@@ -157,7 +161,7 @@ Partial Class frmVendas_Inserir
         Me.btnConfirmar.ForeColor = System.Drawing.Color.Black
         Me.btnConfirmar.Location = New System.Drawing.Point(8, 69)
         Me.btnConfirmar.Name = "btnConfirmar"
-        Me.btnConfirmar.Size = New System.Drawing.Size(323, 27)
+        Me.btnConfirmar.Size = New System.Drawing.Size(625, 27)
         Me.btnConfirmar.TabIndex = 24
         Me.btnConfirmar.Tag = ""
         Me.btnConfirmar.Text = "Confirmar"
@@ -179,7 +183,7 @@ Partial Class frmVendas_Inserir
         Me.pnlCaminho.Location = New System.Drawing.Point(12, 64)
         Me.pnlCaminho.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.pnlCaminho.Name = "pnlCaminho"
-        Me.pnlCaminho.Size = New System.Drawing.Size(337, 15)
+        Me.pnlCaminho.Size = New System.Drawing.Size(639, 15)
         Me.pnlCaminho.TabIndex = 18
         '
         'lblCaminho
@@ -190,23 +194,52 @@ Partial Class frmVendas_Inserir
         Me.lblCaminho.Location = New System.Drawing.Point(-1, 0)
         Me.lblCaminho.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblCaminho.Name = "lblCaminho"
-        Me.lblCaminho.Size = New System.Drawing.Size(331, 15)
+        Me.lblCaminho.Size = New System.Drawing.Size(640, 15)
         Me.lblCaminho.TabIndex = 5
         Me.lblCaminho.Text = "Categorias ► Bilhetes"
         Me.lblCaminho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblsala
+        '
+        Me.lblsala.AutoEllipsis = True
+        Me.lblsala.BackColor = System.Drawing.Color.Transparent
+        Me.lblsala.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblsala.ForeColor = System.Drawing.Color.White
+        Me.lblsala.Location = New System.Drawing.Point(11, 82)
+        Me.lblsala.Name = "lblsala"
+        Me.lblsala.Size = New System.Drawing.Size(255, 19)
+        Me.lblsala.TabIndex = 26
+        Me.lblsala.Text = "Lugares da Sala XX"
+        '
+        'pnlLugares
+        '
+        Me.pnlLugares.AutoScroll = True
+        Me.pnlLugares.Location = New System.Drawing.Point(11, 104)
+        Me.pnlLugares.Name = "pnlLugares"
+        Me.pnlLugares.Size = New System.Drawing.Size(640, 325)
+        Me.pnlLugares.TabIndex = 27
+        '
+        'tlt1
+        '
+        Me.tlt1.AutomaticDelay = 100
+        Me.tlt1.AutoPopDelay = 7000
+        Me.tlt1.InitialDelay = 100
+        Me.tlt1.ReshowDelay = 20
         '
         'frmVendas_Inserir
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(360, 547)
+        Me.ClientSize = New System.Drawing.Size(665, 475)
+        Me.Controls.Add(Me.flpcategorias)
+        Me.Controls.Add(Me.flpitens)
+        Me.Controls.Add(Me.pnlLugares)
+        Me.Controls.Add(Me.lblsala)
         Me.Controls.Add(Me.pnlCaminho)
         Me.Controls.Add(Me.grp1)
-        Me.Controls.Add(Me.flpcategorias)
         Me.Controls.Add(Me.btnVoltar)
         Me.Controls.Add(Me.pnl1)
-        Me.Controls.Add(Me.flpitens)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmVendas_Inserir"
@@ -234,4 +267,7 @@ Partial Class frmVendas_Inserir
     Friend WithEvents lblquant As System.Windows.Forms.Label
     Friend WithEvents pnlCaminho As System.Windows.Forms.Panel
     Friend WithEvents lblCaminho As System.Windows.Forms.Label
+    Friend WithEvents lblsala As System.Windows.Forms.Label
+    Friend WithEvents pnlLugares As System.Windows.Forms.Panel
+    Friend WithEvents tlt1 As System.Windows.Forms.ToolTip
 End Class

@@ -5,8 +5,7 @@ Public Class frmLogin
     Dim comando As MySqlCommand
     Dim query As String
     Dim leitor As MySqlDataReader
-    Public codF As Integer
-    Public ass(CTRL_MenuCine.DIMTA) As Acesso
+    'Public ass(CTRL_MenuCine.DIMTA) As Acesso
 
     Private Sub restaurarUtl()
         lblErroUtl.Text = ""
@@ -29,7 +28,7 @@ Public Class frmLogin
         End If
 
         Try
-            query = "select funcionarios.codF as codF, funcionarios.nome, ifnull(funcionarios.palavra_passe,'') as palavra_passe" &
+            query = "select funcionarios.codF as codF, funcionarios.nome, ifnull(funcionarios.palavra_passe,'') as palavra_passe, encargos.nome as encargo" &
                     " from funcionarios, encargos where funcionarios.code=encargos.code and funcionarios.empregado=1 and encargos.ativado=1 and username='" + txtNome.Text + "'" '"select funcionarios.nome, encargos.nome from funcionarios, encargos where funcionarios.code=encargos.code and funcionarios.nome='zé'"
             comando = New MySqlCommand(query, ligacao)
             ligacao.Open()
@@ -37,7 +36,8 @@ Public Class frmLogin
             If leitor.Read Then 'Utilizador está empregado e o seu encargo não está desativado
                 AlterarEstado(rctUtl, txtNome, pctUtl, "acertar")
                 If txtPass.Text = leitor.GetString("palavra_passe") Then
-                    codF = leitor.GetInt32("codF")
+                    mdlAcoes.codF = leitor.GetInt32("codF")
+                    mdlAcoes.encargo = leitor.GetString("encargo")
                     ligacao.Dispose()
 
                     'Os cods das tabelas estão por ordem e de 1 em 1 começando no 1, sempre!
@@ -45,21 +45,19 @@ Public Class frmLogin
                     comando = New MySqlCommand(query, ligacao)
                     ligacao.Open()
                     leitor = comando.ExecuteReader
-                    ass(0).permissao(0) = True
+                    mdlAcoes.ass(0).permissao(0) = True
                     While leitor.Read
-                        ass(leitor.GetInt32("tabela")).permissao(leitor.GetInt32("permissao") - 1) = True
+                        mdlAcoes.ass(leitor.GetInt32("tabela")).permissao(leitor.GetInt32("permissao") - 1) = True
                     End While
                     ligacao.Dispose()
-                    ass(9).permissao(0) = True
-
+                    mdlAcoes.ass(9).permissao(0) = True
                     If txtPass.Text = "" Then
-                        If MessageBox.Show("A sua conta encontra-se desprotegida. Deseja aceder às definiçõe da sua conta para colocar uma palavra-passe?", "Sem palavra-passe", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+                        If MessageBox.Show("A sua conta encontra-se desprotegida. Deseja aceder às definições da sua conta para colocar uma palavra-passe?", "Sem palavra-passe", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                             frmDefinicoes.Show()
-                            Me.Hide()
+                            Me.Close()
                             Exit Sub
                         End If
                     End If
-
                     frmHome.Show()
                     Me.Hide()
                 Else
@@ -72,9 +70,6 @@ Public Class frmLogin
                 AlterarEstado(rctUtl, txtNome, pctUtl, "errar")
                 ligacao.Dispose()
             End If
-
-
-
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error)
             ligacao.Close()
@@ -94,9 +89,19 @@ Public Class frmLogin
     End Sub
 
     Private Sub frmLogin_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        For a As Integer = 0 To CTRL_MenuCine.DIMTA - 1
-            ass(a) = New Acesso
+        For a As Integer = 0 To DIMTA - 1
+            mdlAcoes.ass(a) = New Acesso
         Next
+        mdlAcoes.ass(0).imagem = Image.FromFile("../../../../All images/Específico/Form/home.png")
+        mdlAcoes.ass(1).imagem = Image.FromFile("../../../../All images/Específico/Form/filmes.png")
+        mdlAcoes.ass(2).imagem = Image.FromFile("../../../../All images/Específico/Form/cliente.png")
+        mdlAcoes.ass(3).imagem = Image.FromFile("../../../../All images/Específico/Form/funcionarios.png")
+        mdlAcoes.ass(4).imagem = Image.FromFile("../../../../All images/Específico/Form/encargos.png")
+        mdlAcoes.ass(5).imagem = Image.FromFile("../../../../All images/Específico/Form/horarios.png")
+        mdlAcoes.ass(6).imagem = Image.FromFile("../../../../All images/Específico/Form/produtos.png")
+        mdlAcoes.ass(7).imagem = Image.FromFile("../../../../All images/Específico/Form/salas.png")
+        mdlAcoes.ass(8).imagem = Image.FromFile("../../../../All images/Específico/Form/vendas.png")
+        mdlAcoes.ass(9).imagem = Image.FromFile("../../../../All images/Específico/Form/definicoes.png")
     End Sub
 
     Protected Overrides Function ProcessCmdKey(ByRef msg As System.Windows.Forms.Message, _

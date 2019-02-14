@@ -151,12 +151,12 @@ Partial Class frmClientes
         '
         'lblnome
         '
-        Me.lblnome.AutoSize = True
+        Me.lblnome.AutoEllipsis = True
         Me.lblnome.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblnome.ForeColor = System.Drawing.Color.White
         Me.lblnome.Location = New System.Drawing.Point(111, 33)
         Me.lblnome.Name = "lblnome"
-        Me.lblnome.Size = New System.Drawing.Size(19, 14)
+        Me.lblnome.Size = New System.Drawing.Size(131, 14)
         Me.lblnome.TabIndex = 16
         Me.lblnome.Text = "---"
         '
@@ -271,7 +271,7 @@ Partial Class frmClientes
         Me.lbl3.Name = "lbl3"
         Me.lbl3.Size = New System.Drawing.Size(217, 15)
         Me.lbl3.TabIndex = 21
-        Me.lbl3.Text = "*Número de Indetificação Fiscal (NIF):"
+        Me.lbl3.Text = "*Número de Identificação Fiscal (NIF):"
         '
         'lbl2
         '
@@ -288,6 +288,7 @@ Partial Class frmClientes
         '
         Me.dgvAtivado.AllowUserToAddRows = False
         Me.dgvAtivado.AllowUserToDeleteRows = False
+        Me.dgvAtivado.AllowUserToResizeRows = False
         Me.dgvAtivado.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvAtivado.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -390,9 +391,9 @@ Partial Class frmClientes
         Me.lbl90.ForeColor = System.Drawing.Color.White
         Me.lbl90.Location = New System.Drawing.Point(-1, 197)
         Me.lbl90.Name = "lbl90"
-        Me.lbl90.Size = New System.Drawing.Size(77, 15)
+        Me.lbl90.Size = New System.Drawing.Size(72, 15)
         Me.lbl90.TabIndex = 29
-        Me.lbl90.Text = "*Localidade:"
+        Me.lbl90.Text = "Localidade:"
         '
         'lbl91
         '
@@ -423,7 +424,7 @@ Partial Class frmClientes
         Me.mtbTlm.Name = "mtbTlm"
         Me.mtbTlm.Size = New System.Drawing.Size(195, 14)
         Me.mtbTlm.TabIndex = 33
-        Me.mtbTlm.Tag = "telemóvel"
+        Me.mtbTlm.Tag = "número de telemóvel"
         '
         'mtbNIF
         '
@@ -511,6 +512,7 @@ Partial Class frmClientes
         Me.cmblocalidade.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmblocalidade.FormattingEnabled = True
         Me.cmblocalidade.Location = New System.Drawing.Point(11, 214)
+        Me.cmblocalidade.MaxLength = 50
         Me.cmblocalidade.Name = "cmblocalidade"
         Me.cmblocalidade.Size = New System.Drawing.Size(193, 22)
         Me.cmblocalidade.TabIndex = 44
@@ -575,6 +577,7 @@ Partial Class frmClientes
         '
         Me.dgvDesativado.AllowUserToAddRows = False
         Me.dgvDesativado.AllowUserToDeleteRows = False
+        Me.dgvDesativado.AllowUserToResizeRows = False
         Me.dgvDesativado.BackgroundColor = System.Drawing.Color.DimGray
         Me.dgvDesativado.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -635,7 +638,7 @@ Partial Class frmClientes
         Me.pnlControlos.Controls.Add(Me.ShapeContainer2)
         Me.pnlControlos.Location = New System.Drawing.Point(448, 3)
         Me.pnlControlos.Name = "pnlControlos"
-        Me.pnlControlos.Size = New System.Drawing.Size(253, 515)
+        Me.pnlControlos.Size = New System.Drawing.Size(258, 515)
         Me.pnlControlos.TabIndex = 43
         '
         'pnlProibicao
@@ -656,7 +659,7 @@ Partial Class frmClientes
         Me.pct3.BackColor = System.Drawing.Color.Transparent
         Me.pct3.BackgroundImage = CType(resources.GetObject("pct3.BackgroundImage"), System.Drawing.Image)
         Me.pct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pct3.Location = New System.Drawing.Point(0, 340)
+        Me.pct3.Location = New System.Drawing.Point(0, 336)
         Me.pct3.Name = "pct3"
         Me.pct3.Size = New System.Drawing.Size(30, 28)
         Me.pct3.TabIndex = 54
@@ -722,7 +725,7 @@ Partial Class frmClientes
         Me.ShapeContainer2.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer2.Name = "ShapeContainer2"
         Me.ShapeContainer2.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.rctTlm, Me.rctLocalidade, Me.rctRua, Me.rctNIF, Me.rctNome})
-        Me.ShapeContainer2.Size = New System.Drawing.Size(253, 515)
+        Me.ShapeContainer2.Size = New System.Drawing.Size(258, 515)
         Me.ShapeContainer2.TabIndex = 0
         Me.ShapeContainer2.TabStop = False
         '
@@ -732,7 +735,7 @@ Partial Class frmClientes
         Me.flp1.Controls.Add(Me.pnlControlos)
         Me.flp1.Location = New System.Drawing.Point(74, 126)
         Me.flp1.Name = "flp1"
-        Me.flp1.Size = New System.Drawing.Size(708, 525)
+        Me.flp1.Size = New System.Drawing.Size(710, 525)
         Me.flp1.TabIndex = 50
         '
         'CtrL_MenuCine
@@ -748,7 +751,7 @@ Partial Class frmClientes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(788, 676)
+        Me.ClientSize = New System.Drawing.Size(790, 676)
         Me.Controls.Add(Me.CtrL_MenuCine)
         Me.Controls.Add(Me.flp1)
         Me.Controls.Add(Me.pnl1)

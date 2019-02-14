@@ -13,16 +13,27 @@ Public Class frmClientes
             If dgvAtivado.SelectedRows.Count > 0 Then
                 btnAlterar.Enabled = True
                 btnDesativar.Enabled = True
+                For a As Integer = 0 To CAMPOSC - 1
+                    lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style And Not FontStyle.Strikeout)
+                    lbl(a).Text = dgvAtivado.CurrentRow.Cells(a + 1).Value.ToString
+                Next
             End If
+            btnAtivar.Enabled = False
             btnProcurar.Enabled = True
             btnDesativar.Show()
         End If
         If tbc1.SelectedIndex = 1 Then
             pnlProibicao.Show()
-            btnProcurar.Enabled = False
             btnInserir.Enabled = False
+            If dgvDesativado.SelectedRows.Count > 0 Then
+                btnAtivar.Enabled = True
+                For a As Integer = 0 To CAMPOSC - 1
+                    lbl(a).Font = New Font(lbl(a).Font, lbl(a).Font.Style Or FontStyle.Strikeout)
+                    lbl(a).Text = dgvDesativado.CurrentRow.Cells(a + 1).Value.ToString
+                Next
+            End If
             btnAlterar.Enabled = False
-            btnAtivar.Enabled = True
+            btnDesativar.Enabled = False
             btnDesativar.Hide()
         End If
     End Sub
@@ -30,7 +41,7 @@ Public Class frmClientes
     Sub ver()
         'DataGridView Ativado
         mostrar(dgvAtivado, ligacao, "clientes", "codC", "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
-                                            "from clientes, localidades where localidades.codlo=clientes.codlo and ativado=1")
+                                            "from clientes left join localidades on localidades.codlo=clientes.codlo where ativado=1")
 
         'Covém desativar estes botões
         btnDesativar.Enabled = False
@@ -39,15 +50,40 @@ Public Class frmClientes
 
         'DataGridView DESAtivado
         mostrar(dgvDesativado, ligacao, "clientes", "codC", "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
-                                 "from clientes, localidades where localidades.codlo=clientes.codlo and ativado=0")
+                                            "from clientes left join localidades on localidades.codlo=clientes.codlo where ativado=0")
 
         'Covém desativar estes botões
         btnAtivar.Enabled = False
     End Sub
 
+    Private Sub LimparTudo()
+        'Limpo os objetos input do formulário
+        txtnome.Text = ""
+        AlterarEstado(rctNome, txtnome, "restaurar")
+        chknome.Checked = False
+
+        mtbNIF.Text = ""
+        AlterarEstado(rctNIF, mtbNIF, "restaurar")
+        chkNIF.Checked = False
+
+        txtRua.Text = ""
+        AlterarEstado(rctRua, txtRua, "restaurar")
+        chkRua.Checked = False
+
+        cmblocalidade.Text = ""
+        cmblocalidade.SelectedValue = 0
+        AlterarEstado(rctLocalidade, "restaurar")
+        chkLocalidade.Checked = False
+
+        mtbTlm.Text = ""
+        AlterarEstado(rctTlm, mtbTlm, "restaurar")
+        chkTlm.Checked = False
+    End Sub
+
     Private Sub frmClientes_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         pnlProibicao.Location = New Point(0, 3)
         btnDesativar.Enabled = False
+        btnAtivar.Enabled = False
         btnAlterar.Enabled = False
 
         ver()
@@ -61,6 +97,7 @@ Public Class frmClientes
         'Aqui, encho a combobox com dados para o utilizador escolher
         encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
         cmblocalidade.Text = ""
+        cmblocalidade.SelectedValue = 0
     End Sub
 
     Private Sub CtrL_MenuCine1_Load(sender As System.Object, e As System.EventArgs) Handles CtrL_MenuCine.Load
@@ -111,49 +148,44 @@ Public Class frmClientes
     End Sub
 
     Private Sub btnInserir_Click(sender As System.Object, e As System.EventArgs) Handles btnInserir.Click
-        Dim codLo As Integer
+        Dim codLo As String
         Dim str_erro As String = ""
         str_erro += verificacao(rctNome, txtnome)
         str_erro += verificacao(rctNIF, mtbNIF)
-        If txtRua.Text <> "" Then 'Este campo não é obrigatório
+        If txtRua.Text <> "" Then '!!!!!!!!!!!!!!!!! Este campo não é obrigatório !!!!!!!!!!!!!!!!!!
             str_erro += verificacao(rctRua, txtRua)
         End If
-        str_erro += verificacao(rctLocalidade, cmblocalidade)
         If mtbTlm.Text <> "" Then
             str_erro += verificacao(rctTlm, mtbTlm)
         End If
-
         If str_erro = "" Then
+            If cmblocalidade.Text <> "" Then
+                If cmblocalidade.SelectedValue IsNot Nothing Then
+                    codLo = cmblocalidade.SelectedValue
+                Else
+                    codLo = novo_registo(ligacao, "codlo", "localidades", cmblocalidade)
+                    If codLo > 0 Then
+                        MessageBox.Show("A localidade '" + cmblocalidade.Text + "' foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        MessageBox.Show("A localidade '" + cmblocalidade.Text + "' não foi inserida", "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                End If
+            Else
+                codLo = ""
+            End If
+            If codLo = "" Then
+                acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,telemovel,ativado) " &
+                "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "','" + mtbTlm.Text + "',1)", 1)
+            Else
+                acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
+                "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + codLo + ",'" + mtbTlm.Text + "',1)", 1)
+            End If
+
             LimparTudo()
 
-            If cmblocalidade.SelectedValue IsNot Nothing Then
-                'Insiro os dados na base de dados
-                acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
-                "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + cmblocalidade.SelectedValue.ToString + ",'" + mtbTlm.Text + "',1)", 1)
-
-                'Volto a mostrar a tabela, desta vez, atualizada.
-                ver()
-            Else
-                Try
-                    'Inserir a nova localidade
-                    acao("inserir", ligacao, "insert into localidades (nome) values ('" + cmblocalidade.Text + "')", 0)
-
-                    'Descobrir o codLo dessa localidade
-                    codLo = ter(ligacao, "codlo", "select codlo from localidades where nome='" + cmblocalidade.Text + "'")
-
-                    'Associá-la ao registo do funcionário
-                    acao("inserir", ligacao, "insert into clientes (nome,NIF,rua,codlo,telemovel,ativado) " &
-                    "values ('" + txtnome.Text + "', '" + mtbNIF.Text + "', '" + txtRua.Text + "', " + codLo.ToString + ",'" + mtbTlm.Text + "',1)", 1)
-
-                    encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
-                    MessageBox.Show("A localidade '" + cmblocalidade.Text + "' foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Catch ex As Exception
-                    ligacao.Close()
-                    MessageBox.Show("A localidade '" + cmblocalidade.Text + "' não foi inserida: " + ex.Message, "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
-            End If
-            cmblocalidade.Text = ""
-            AlterarEstado(rctLocalidade, "restaurar")
+            'Volto a mostrar a tabela, desta vez, atualizada.
+            ver()
         Else
             MessageBox.Show(str_erro, "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
@@ -178,9 +210,8 @@ Public Class frmClientes
         'Caso o pquery esteja vazio significa que o utilizador não escolheu nenhum campo, ou seja "ERRRRRRRO"!!!!
         If str_erro = "" Then
             If pquery <> "" Then
-                mostrar(dgvAtivado, ligacao, "clientes", "codC", "select codc, clientes.nome, NIF, Rua, localidades.nome as localidade, telemovel " &
-                                        "from clientes, localidades where ativado=1 and localidades.codlo=clientes.codlo" + pquery)
-
+                mostrar(dgvAtivado, ligacao, "clientes", "codC", "select codc, clientes.nome, nif, rua, localidades.nome as localidade, telemovel " &
+                                            "from clientes left join localidades on localidades.codlo=clientes.codlo where ativado=1" + pquery)
                 'Como fiquei sem nenhum linha selecionada tenho de desativar os botões
                 btnDesativar.Enabled = False
                 btnAlterar.Enabled = False
@@ -200,35 +231,39 @@ Public Class frmClientes
         If dgvAtivado.SelectedRows.Count > 0 Then
             If Not dgvAtivado.CurrentRow.IsNewRow Then
 
-                str_erro = Campo_Selecionado_alte("nome", chknome, lbl(0), txtnome, rctNome, pquery)
-                str_erro = Campo_Selecionado_alte("NIF", chkNIF, lbl(1), mtbNIF, rctNIF, pquery)
-                str_erro = Campo_Selecionado_alte("rua", chkRua, lbl(2), txtRua, rctRua, pquery)
+                str_erro += Campo_Selecionado_alte("nome", chknome, lbl(0), txtnome, rctNome, pquery)
+                str_erro += Campo_Selecionado_alte("NIF", chkNIF, lbl(1), mtbNIF, rctNIF, pquery)
+                str_erro += Campo_Selecionado_alte("rua", chkRua, lbl(2), txtRua, rctRua, pquery)
+                str_erro += Campo_Selecionado_alte("telemovel", chkTlm, lbl(4), mtbTlm, rctTlm, pquery)
                 If chkLocalidade.Checked Then
                     averiguar = verificacao(rctLocalidade, cmblocalidade)
                     If averiguar = "" Then
-                        If pquery <> "" Then
-                            pquery += ","
-                        End If
-                        If cmblocalidade.SelectedValue IsNot Nothing Then
-                            codlo = cmblocalidade.SelectedValue
-                            lbl(3).Font = New Font(lbl(3).Font, lbl(3).Font.Style Or FontStyle.Strikeout)
-                        Else
-                            codlo = novo_registo(ligacao, "codlo", "localidades", cmblocalidade)
-                            If codlo > 0 Then
-                                MessageBox.Show("A localidade " + cmblocalidade.Text + " foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                pquery += " clientes.codlo=" + cmblocalidade.SelectedValue.ToString
+                        If str_erro = "" Then
+                            If pquery <> "" Then
+                                pquery += ","
+                            End If
+                            If cmblocalidade.SelectedValue IsNot Nothing Then
+                                codlo = cmblocalidade.SelectedValue
                                 lbl(3).Font = New Font(lbl(3).Font, lbl(3).Font.Style Or FontStyle.Strikeout)
                             Else
-                                MessageBox.Show("A localidade " + cmblocalidade.Text + " não foi inserida", "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                                Exit Sub
+                                codlo = novo_registo(ligacao, "codlo", "localidades", cmblocalidade)
+                                If codlo > 0 Then
+                                    MessageBox.Show("A localidade " + cmblocalidade.Text + " foi inserida sem qualquer problema", "Insersão realizada com sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    encher(cmblocalidade, ligacao, "localidades", "nome", "codlo", "select codlo, nome from localidades")
+                                    lbl(3).Font = New Font(lbl(3).Font, lbl(3).Font.Style Or FontStyle.Strikeout)
+                                Else
+                                    MessageBox.Show("A localidade " + cmblocalidade.Text + " não foi inserida", "Insersão sem sucesso", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    LimparTudo()
+                                    Exit Sub
+                                End If
                             End If
+                            pquery += " clientes.codlo=" + codlo.ToString
                         End If
-                        pquery += " clientes.codlo=" + codlo.ToString
                     Else
                         str_erro += averiguar
                     End If
                 End If
-                str_erro = Campo_Selecionado_alte("telemovel", chkTlm, lbl(4), mtbTlm, rctTlm, pquery)
+
                 If str_erro = "" Then
                     If pquery <> "" Then
                         acao("alterar", ligacao, "update clientes set" + pquery + " where codc=" + dgvAtivado.CurrentRow.Cells(0).Value.ToString, 1)
@@ -237,10 +272,10 @@ Public Class frmClientes
 
                         LimparTudo()
                     Else
-                        MessageBox.Show("Não selecionou nenhum campo para alterar")
+                        MessageBox.Show("Não selecionou nenhum campo para alterar", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     End If
                 Else
-                    MessageBox.Show("Atenção", str_erro, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show(str_erro, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
             End If
         End If
@@ -298,21 +333,11 @@ Public Class frmClientes
         AlterarEstado(rctTlm, mtbTlm, "restaurar")
     End Sub
 
-    Private Sub LimparTudo()
-        'Limpo os objetos input do formulário
-        txtnome.Text = ""
-        AlterarEstado(rctNome, txtnome, "restaurar")
 
-        mtbNIF.Text = ""
-        AlterarEstado(rctNIF, mtbNIF, "restaurar")
 
-        txtRua.Text = ""
-        AlterarEstado(rctRua, txtRua, "restaurar")
-
-        cmblocalidade.Text = ""
-        AlterarEstado(rctLocalidade, "restaurar")
-
-        mtbTlm.Text = ""
-        AlterarEstado(rctTlm, mtbTlm, "restaurar")
+    Private Sub frmClientes_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        If mdlAcoes.fechar Then
+            End
+        End If
     End Sub
 End Class
