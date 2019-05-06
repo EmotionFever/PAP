@@ -1,11 +1,11 @@
 # Movie Theatre Management program
 
 This program is capable of manage a movie theatre and a bar with a function GUI. More specifically manage tickets, rooms, sales, 
-employees, clients, movies, movie sessions
-It's also capable of printing reports on pdf. The app is in Portuguese.
+employees, clients, movies, movie sessions.
+The app is in Portuguese.
 
 ### Preview
-Link of a youtube video with a demo of this project: ...
+Link of a youtube video with a demo of this project: https://youtu.be/9v0_ginYi9g
 
 ## Getting Started
 
@@ -16,13 +16,16 @@ See deployment for notes on how to deploy the project on a live system.
 
 What things you need to install the software
 * Microsoft Visual Basic 2010 Express (installation file in Installation/en_visual_studio_2010...)
-* MySQL 
+* Download MySql.Data.dll from
+https://www.cryptool.org/trac/CrypTool2/export/2020/trunk/AppReferences/x64/MySql.Data.dll
+* Then right click on your project name, click on add reference and select MySql.Data.dll file
+* MySQL
 
 ### Installing
 
 1. Download the project (pressing the green button that says "Clone or download")
 
-2. Open MySQL and import the file on PAP-master `PPAP 20170710 2311.sql` to your computer
+2. Open MySQL and _File > Run SQL Script_ select the file on PAP-master `PPAP 20170710 2311.sql`
 
 3. Go to _PAP-master/PAP - Gestão de Cinema_ and open `PAP - Gestão de Cinema.sln` (as a Visual Basic 2010 file)
 
